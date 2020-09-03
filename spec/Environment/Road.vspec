@@ -1,0 +1,29 @@
+#
+# (C) 2020 Robert Bosch GmbH
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Road condition data
+#
+
+- Type:
+  datatype: string
+  type: sensor
+  enum: [ "unknown", "Highway", "Offroad", "Interstate", "Country Road", "city street", "cartway"]
+  description: Type of road where the vehicle is currently on
+  
+- ConditionType:
+  datatype: string
+  type: sensor
+  enum: [ "unknown", "good", "wet", "icy", "muggy"]
+  description: Physical condition of road where the vehicle is currently on
+  
+- MaxVelocity:
+  datatype: UInt16
+  type: sensor
+  unit: km/h
+  description: Physical condition of road where the vehicle is currently on
+  

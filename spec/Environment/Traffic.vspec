@@ -1,0 +1,31 @@
+#
+# (C) 2020 Robert Bosch GmbH
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Traffic condition data
+#
+- Incident:
+  type: branch
+  description: All Incident details
+
+- Incident.DistanceToNext:
+  datatype: float
+  type: sensor
+  unit: km
+  description: Distance to the next incident in front of the vehicle
+  
+- Incident.ConstructionSideAhead:
+  datatype: float
+  type: sensor
+  unit: km
+  description: Distance to the next contruction site in front of the vehicle
+  
+- Incident.VehicleIsInTrafficJam:
+  datatype: boolean
+  type: sensor
+  description: Traffic jam status of vehicle
+  

@@ -226,3 +226,16 @@
 # OBD branch created above.
 
 #include OBD/OBD.vspec Vehicle.OBD
+
+
+#
+# Environment Branch
+#
+- Vehicle.Environment:
+  type: branch
+  description: Environment data.
+
+# Include the Environment/Environment.vspec file and attach all its data under the
+# Environment branch created above.
+
+#include Environment/Environment.vspec Vehicle.Environment

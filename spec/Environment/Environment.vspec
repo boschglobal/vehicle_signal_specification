@@ -1,0 +1,38 @@
+#
+# (C) 2020 Robert Bosch GmbH
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# All Environment signals and attributes.
+#
+
+#
+# Road description
+#
+- Road:
+  type: branch
+  description: Road conditions
+
+#include Road.vspec Road
+
+#
+# Traffic description
+#
+- Traffic:
+  type: branch
+  description: Traffic conditions
+
+#include Traffic.vspec Traffic
+
+#
+# Atmospheric description
+#
+- Atmospheric:
+  type: branch
+  description: Atmospheric conditions
+
+#include Atmospheric.vspec Atmospheric
+

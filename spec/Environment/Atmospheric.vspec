@@ -1,0 +1,28 @@
+#
+# (C) 2020 Robert Bosch GmbH
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Atmospheric condition data
+#
+
+- AirDensity:
+  datatype: float
+  type: sensor
+  unit: kg/m3
+  description: AirDensity around the vehicle
+  
+- RainIntensity:
+  datatype: float
+  type: sensor
+  unit: l/m2
+  description: Current rain intensity per square meter
+  
+- AmbientTemperature:
+  datatype: float
+  type: sensor
+  unit: celsius
+  description: current temperature of the air around the vehicle
