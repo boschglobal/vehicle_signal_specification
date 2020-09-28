@@ -1,6 +1,7 @@
 #
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
+# (C) 2020 Robert Bosch GmbH
 #
 # All files and artifacts in this repository are licensed under the
 # provisions of the license provided by the LICENSE file in this repository.
@@ -82,4 +83,104 @@
   type: sensor
   unit: kWh
   description: The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.
+
+
+- Charging:
+  type: branch
+  description: Properties related to battery charing
+  
+- Charging.ChargeLimit:
+  datatype: UInt8
+  type: actuator
+  min: 0
+  max: 100
+  unit: percent
+  description: Maximum charge level for battery, can potentially be set manually.
+
+- Charging.MaximumChargingCurrent:
+  datatype: float
+  type: actuator
+  unit: A
+  description: Maximum charging current, can potentially be set manually.
+
+- Charging.ChargePortFlap:
+  datatype: string
+  type: actuator
+  value: closed
+  enum: [ 'open', 'closed' ]
+  description: Signal indicating if charge port cover is open or closed, can potentially be controlled manually.
+
+- Charging.ChargePlugStatus:
+  datatype: boolean
+  type: sensor
+  description: Signal indicating if charge plug is connected or not.
+
+- Charging.ChargePlugType:
+  datatype: string
+  type: attribute
+  value: ccs
+  enum: [ 'type 1', 'type 2', 'ccs', 'chademo' ]
+  description: Type of charge plug available on the vehicle (CSS includes Type2).
+
+- Charging.Mode:
+  datatype: string
+  type: actuator
+  value: manual
+  enum: [ 'manual', 'timer', 'grid' ]
+  description: Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).
+
+- Charging.Status:
+  datatype: boolean
+  type: sensor
+  description: State of charging process.
+
+- Charging.StartStopCharging:
+  datatype: string
+  type: actuator
+  value: stop
+  enum: [ 'start', 'stop' ]
+  description: Start or stop the charging process.
+
+- Charging.ChargeCurrent:
+  datatype: float
+  type: sensor
+  unit: A
+  description: Current charging current.
+
+- Charging.ChargeVoltage:
+  datatype: float
+  type: sensor
+  unit: V
+  description: Current charging voltage.
+
+- Charging.ChargeRate:
+  datatype: float
+  type: sensor
+  unit: km/h
+  description: Current charging rate, as in kilometers of range added per hour.
+
+- Charging.TimeToComplete:
+  datatype: UInt32
+  type: sensor
+  unit: s
+  description: The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.
+
+
+- Charging.Timer:
+  type: branch
+  description: Properties related to battery charing
+
+- Charging.Timer.Time:
+  datatype: UInt32
+  type: actuator
+  unit: s
+  description: Time value for next charging-related action (Unix timestamp, seconds)
+
+- Charging.Timer.Mode:
+  datatype: string
+  type: actuator
+  value: starttime
+  enum: [ 'starttime', 'endtime', 'depaturetime' ]
+  description: Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting.
+
 
