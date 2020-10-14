@@ -99,9 +99,9 @@
 
 - Charging.MaximumChargingCurrent:
   datatype: float
-  type: actuator
+  type: sensor
   unit: A
-  description: Maximum charging current, can potentially be set manually.
+  description: Maximum charging current that can be accepted by the system.
 
 - Charging.ChargePortFlap:
   datatype: string
