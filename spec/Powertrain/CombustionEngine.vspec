@@ -1,6 +1,7 @@
 #
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
+# (C) 2020 Robert Bosch GmbH
 #
 # All files and artifacts in this repository are licensed under the
 # provisions of the license provided by the LICENSE file in this repository.
@@ -22,6 +23,18 @@
   description: Displacement in cubic centimetres.
   unit: cm3
 
+- StrokeLength:
+  datatype: uint16
+  type: attribute
+  description: Stroke length in centimetres.
+  unit: cm
+
+- Bore:
+  datatype: uint16
+  type: attribute
+  description: Bore in centimetres.
+  unit: cm
+
 - Configuration:
   datatype: string
   type: attribute
@@ -29,6 +42,39 @@
         "rotary", "radial", "square", "H", "U", "opposed", "X" ]
   description: Engine configuration.
   default: "unknown"
+
+- NumberOfCylinders:
+  datatype: uint16
+  type: attribute
+  description: Number of cylinders.
+
+- NumberOfValvesPerCylinder:
+  datatype: uint16
+  type: attribute
+  description: Number of valves per cylinder.
+
+- CompressionRatio:
+  datatype: string
+  type: attribute
+  description: Engine compression ratio.
+
+- OilLifeRemaining:
+  datatype: uint32
+  type: attribute
+  description: Remaining engine oil life in seconds.
+  unit: s
+
+- EngineOilCapacity:
+  datatype: uint16
+  type: attribute
+  description: Engine oil capacity in liters.
+  unit: l
+
+- EngineCoolantCapacity:
+  datatype: uint16
+  type: attribute
+  description: Engine coolant capacity in liters.
+  unit: l
 
 - MaxPower:
   datatype:  uint16
@@ -44,12 +90,20 @@
   unit: Nm
   description: Peak power, in newton meter, that the engine can generate.
 
+- AspirationType:
+  datatype: string
+  type: attribute
+  enum: [ "unknown", "natural", "supercharger", "turbocharger" ]
+  default: "unknown"
+  description: Type of aspiration (natural, turbocharger, supercharger etc).
+
 - FuelType:
   datatype: string
   type: attribute
   enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
   default: "unknown"
   description: Type of fuel that the engine runs on.
+
 
 #
 # More attributes here
@@ -169,11 +223,40 @@
   max: 3000
   description: Current engine torque.
 
+
+
 #
-# Current Ambient (Outside) Air Temperature
+# Diesel Particulate Filter
 #
-- Engine.AmbientAirTemperature:
+- DieselParticulateFilter:
+  type: branch
+  description: Diesel Particulate Filter signals
+
+#
+# Current inlet Temperature of Diesel Particulate Filter
+#
+- DieselParticulateFilter.InletTemperature:
   datatype: float
   type: sensor
   unit: celsius
-  description: Ambient (Outside) air temperature
+  description: Inlet temperature of Diesel Particulate Filter.
+  
+#
+# Current outlet Temperature of Diesel Particulate Filter
+#
+- DieselParticulateFilter.OutletTemperature:
+  datatype: float
+  type: sensor
+  unit: celsius
+  description: Outlet temperature of Diesel Particulate Filter.  
+  
+#
+# Current delta pressure of Diesel Particulate Filter
+#
+- DieselParticulateFilter.DeltaPressure:
+  datatype: float
+  type: sensor
+  unit: pa
+  description: Delta Pressure of Diesel Particulate Filter.  
+  
+  
