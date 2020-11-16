@@ -209,3 +209,12 @@
 # Driver branch created above and will include Occupant attributes
 
 #include Driver/Driver.vspec Vehicle.Driver
+
+
+#
+# The service branch contains service and (scheduled)maintenance information
+#
+- Vehicle.Service:
+  type: branch
+  description: Service and maintenance releated datapoints.
+#include Service/Service.vspec Vehicle.Service

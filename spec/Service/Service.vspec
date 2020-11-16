@@ -1,0 +1,18 @@
+
+- ServiceNeeded:
+  datatype: boolean
+  type: sensor
+  description: True if the vehicle requires service
+
+- DistanceUntilNextService:
+  datatype: uint16
+  type: sensor
+  unit: km
+  description: Distance in km until next required (scheduled/predicted) service
+
+- TimeToNextService:
+  datatype: uint32
+  type: sensor
+  unit: s
+  description: Time in seconds until next required (scheduled/predicted) service
+  
