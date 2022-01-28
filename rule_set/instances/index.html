@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>Data Types :: Vehicle Signal Specification</title>
+    <title>Instances :: Vehicle Signal Specification</title>
 
     
     <link href="/vehicle_signal_specification/css/nucleus.css?1643366318" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vehicle_signal_specification/rule_set/data_entry/data_types/">
+  <body class="" data-url="/vehicle_signal_specification/rule_set/instances/">
     <nav id="sidebar" class="">
 
 
@@ -233,7 +233,7 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/" title="Data Entry" class="dd-item
-        parent
+        
         
         
         ">
@@ -259,7 +259,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/" title="Data Types" class="dd-item active">
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/" title="Data Types" class="dd-item ">
         <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">
         Data Types
         
@@ -373,7 +373,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/instances/" title="Instances" class="dd-item ">
+      <li data-nav-id="/vehicle_signal_specification/rule_set/instances/" title="Instances" class="dd-item active">
         <a href="/vehicle_signal_specification/rule_set/instances/">
         Instances
         
@@ -588,7 +588,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/data_entry/data_types.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/instances.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -619,13 +619,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > <a href='/vehicle_signal_specification/rule_set/data_entry/'>Data Entry</a> > Data Types
-          
-        
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > Instances
           
         
           
@@ -640,10 +634,16 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#supported-datatypes">Supported datatypes</a></li>
-    <li><a href="#arrays">Arrays</a></li>
-    <li><a href="#timestamps">Timestamps</a></li>
-    <li><a href="#data-streams">Data Streams</a></li>
+    <li><a href="#definition">Definition</a></li>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#redefinition">Redefinition</a></li>
+    <li><a href="#recommendations">Recommendations</a>
+      <ul>
+        <li><a href="#recommendation-instance-mismatch">Recommendation: Instance Mismatch</a></li>
+        <li><a href="#recommendation-features-shared-among-instances">Recommendation: Features shared among instances</a></li>
+        <li><a href="#recommendation-features-lacking-for-some-instances">Recommendation: Features lacking for some instances</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -661,144 +661,156 @@
           
             <h1>
               
-              Data Types
+              Instances
             </h1>
           
 
         
 
 
-<p>Each <a href="/vehicle_signal_specification/rule_set/data_entry">data entry</a> specifies a <code>datatype</code> from the following set (from Franca IDL). Datatypes shall not be used in <a href="/vehicle_signal_specification/rule_set/branches">branch entry</a></p>
-<h2 id="supported-datatypes">Supported datatypes</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">Type</th>
-<th style="text-align:left">Min</th>
-<th style="text-align:left">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">uint8</td>
-<td style="text-align:left">unsigned 8-bit integer</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">255</td>
-</tr>
-<tr>
-<td style="text-align:left">int8</td>
-<td style="text-align:left">signed 8-bit integer</td>
-<td style="text-align:left">-128</td>
-<td style="text-align:left">127</td>
-</tr>
-<tr>
-<td style="text-align:left">uint16</td>
-<td style="text-align:left">unsigned 16-bit integer</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">65535</td>
-</tr>
-<tr>
-<td style="text-align:left">int16</td>
-<td style="text-align:left">signed 16-bit integer</td>
-<td style="text-align:left">-32768</td>
-<td style="text-align:left">32767</td>
-</tr>
-<tr>
-<td style="text-align:left">uint32</td>
-<td style="text-align:left">unsigned 32-bit integer</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">4294967295</td>
-</tr>
-<tr>
-<td style="text-align:left">int32</td>
-<td style="text-align:left">signed 32-bit integer</td>
-<td style="text-align:left">-2147483648</td>
-<td style="text-align:left">2147483647</td>
-</tr>
-<tr>
-<td style="text-align:left">uint64</td>
-<td style="text-align:left">unsigned 64-bit integer</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">2^64 - 1</td>
-</tr>
-<tr>
-<td style="text-align:left">int64</td>
-<td style="text-align:left">signed 64-bit integer</td>
-<td style="text-align:left">-2^63</td>
-<td style="text-align:left">2^63 - 1</td>
-</tr>
-<tr>
-<td style="text-align:left">boolean</td>
-<td style="text-align:left">boolean value</td>
-<td style="text-align:left">0/false</td>
-<td style="text-align:left">1/true</td>
-</tr>
-<tr>
-<td style="text-align:left">float</td>
-<td style="text-align:left">floating point number</td>
-<td style="text-align:left">-3.4e -38</td>
-<td style="text-align:left">3.4e 38</td>
-</tr>
-<tr>
-<td style="text-align:left">double</td>
-<td style="text-align:left">double precision floating point number</td>
-<td style="text-align:left">-1.7e -300</td>
-<td style="text-align:left">1.7e 300</td>
-</tr>
-<tr>
-<td style="text-align:left">string</td>
-<td style="text-align:left">character string</td>
-<td style="text-align:left">n/a</td>
-<td style="text-align:left">n/a</td>
-</tr>
-</tbody>
-</table>
-<h2 id="arrays">Arrays</h2>
-<p>Besides the datatypes described above, VSS supports as well the concept of
-<code>arrays</code>, as a <em>collection of elements based on the data entry
-definition</em>, wherein it&rsquo;s specified. By default the size of the array is undefined.
-By the optional keyword <code>arraysize</code> the size of the array can be specified.
-The following syntax shall be used to declare an array:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># Array of datatype uint32, by default size of the array is undefined</span>
-<span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint32[]</span>
-<span style="color:#75715e"># Optional: specified number of elements in the array</span>
-<span style="color:#f92672">arraysize</span>: <span style="color:#ae81ff">5</span>
-</code></pre></div><p>An example for the usage of <code>arrays</code> is <code>Vehicle.OBD.DTCList</code> which contains a list
-of Diagnostic Trouble Codes (DTCs) present in a vehicle.</p>
-<h2 id="timestamps">Timestamps</h2>
-<p>Timestamps are in VSS typically represented as strings, formatted according to ISO 8601.
-Timestamps shall be expressed in UTC (Coordinated Universal Time), with special UTC designator (&ldquo;Z&rdquo;).
-Time resolution SHALL at least be seconds, with subsecond resolution as an optional degree of precision when desired.
-The time and date format shall be as shown below, where the sub-second data and delimiter is optional.</p>
-<pre><code>YYYY-MM-DDTHH:MM:SS.ssssssZ
-</code></pre><h2 id="data-streams">Data Streams</h2>
-<p>Data Entries, which describe sensors offering binary streams
-(e.g. cameras), are not supported directly by VSS with a
-dedicated data type. Instead, they are described through the
-meta data about the sensor itself and how to retrieve the
-corresponding data stream.</p>
-<p>A camera can be a good example of it. The Data Entry for the camera
-and the corresponding video stream could look like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Camera</span>:
+<p>As VSS resembles primarily the physical structure of the vehicle, so
+quite often you&rsquo;ll find repetitions of branches and data entries
+(e.g. doors, axles, etc), which leads to hard-coded repetitions of
+branches and data entries in the specification. Instances remove the need of
+repeating definitions, by defining at the node itself how often it occurs in
+the resulting tree. They are meant as a short-cut in the specification and
+interpreted by the tools.</p>
+<p><img src="/vehicle_signal_specification/images/instances.png?width=60pc" alt="Example tree"></p>
+<h2 id="definition">Definition</h2>
+<ol>
+<li>An instance can be defined in any branch.</li>
+<li>The instantiation is done for every node in the following path.</li>
+<li>Instances are defined with the key-word <code>instances</code>, followed by its
+definition, which can be either:
+<ul>
+<li>a list of strings, where each element defines a single instance, e.g.
+<code>['Left','Right']</code> results into two instances of every following
+data entry in the path, named <code>Left</code> and <code>Right</code></li>
+<li>a string, followed by a range defined through <code>[n,m]</code>, with <code>n,m</code> as integer and <code>n &lt;= m</code>, which defines the number of instances:
+<code>Position[1,4]</code> results into 4 instances of every following
+data entry in the path, named <code>Position1</code>, <code>Position2</code>, <code>Position3</code>
+and <code>Position4</code>.</li>
+</ul>
+</li>
+<li>If multiple instances occur in one node or on the path to a data entry,
+the instances get combined, by the order of occurrence. Following the example above,
+four position instances will be created for each of the &lsquo;Left&rsquo; and &lsquo;Right&rsquo; instances,
+resulting into a total number of 8 instances.</li>
+</ol>
+<h2 id="example">Example</h2>
+<p>The example from above in the specification:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># Cabin.vspec</span>
+<span style="color:#f92672">Door</span>:
   <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Information about the camera and how to connect to the video stream</span>
+  <span style="color:#f92672">instances</span>:
+    - <span style="color:#ae81ff">Row[1,4]</span>
+    - [<span style="color:#e6db74">&#34;Left&#34;</span>,<span style="color:#e6db74">&#34;Right&#34;</span>]
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">All doors, including windows and switches</span>
+<span style="color:#75715e">#include SingleDoor.vspec Door</span>
 
-<span style="color:#f92672">Camera.IsActive</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
+
+<span style="color:#75715e"># SingleDoor.vspec</span>
+
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># Definition of a single door</span>
+<span style="color:#75715e">#</span>
+<span style="color:#f92672">IsOpen</span>:
   <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">If the camera is active, the client is able to retrieve the video stream</span>
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Is door open or closed</span>
+</code></pre></div><p>Results in the following dot-notated output:</p>
+<pre><code>Vehicle.Cabin.Door
+Vehicle.Cabin.Door.Row1
+Vehicle.Cabin.Door.Row1.Left
+Vehicle.Cabin.Door.Row1.Left.IsOpen
+Vehicle.Cabin.Door.Row1.Right
+Vehicle.Cabin.Door.Row1.Right.IsOpen
+Vehicle.Cabin.Door.Row2
+Vehicle.Cabin.Door.Row2.Left
+Vehicle.Cabin.Door.Row2.Left.IsOpen
+Vehicle.Cabin.Door.Row2.Right
+Vehicle.Cabin.Door.Row2.Right.IsOpen
+Vehicle.Cabin.Door.Row3
+Vehicle.Cabin.Door.Row3.Left
+Vehicle.Cabin.Door.Row3.Left.IsOpen
+Vehicle.Cabin.Door.Row3.Right
+Vehicle.Cabin.Door.Row3.Right.IsOpen
+Vehicle.Cabin.Door.Row4
+Vehicle.Cabin.Door.Row4.Left
+Vehicle.Cabin.Door.Row4.Left.IsOpen
+Vehicle.Cabin.Door.Row4.Right
+Vehicle.Cabin.Door.Row4.Right.IsOpen
+</code></pre><h2 id="redefinition">Redefinition</h2>
+<p>It is possible to override the default instantiation provided by VSS by redefining the branch with
+different instantiation information. If multiple definitions of a branch exist with different
+instance definitions, then the last found definition will be used.
+As an example, if only two rows of doors are needed, then the default VSS instance definition
+can be overridden by redefining the Door branch as shown in the example below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e">#Redefinition changing number of rows from 4 to 2</span>
+<span style="color:#75715e">#The redefinition must appear &#34;after&#34; the original definition</span>
+<span style="color:#f92672">Vehicle.Cabin.Door</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+  <span style="color:#f92672">instances</span>:
+    - <span style="color:#ae81ff">Row[1,2]</span>
+    - [<span style="color:#e6db74">&#34;Left&#34;</span>,<span style="color:#e6db74">&#34;Right&#34;</span>]
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">All doors, including windows and switches</span>
+</code></pre></div><h2 id="recommendations">Recommendations</h2>
+<p>VSS is designed to cover a wide range of vehicles.
+This means that the default instantiation used in VSS may not fit every vehicle.
+An example can be seen in the windshield signals defined in <code>Body.vspec</code>, parts of them are shown below.
+VSS offers the possibility to control windshield heating separately for front and rear windshield,
+and VSS also gives the possibility to report washer fluid level separately for each windshield.
+This fits very well for a vehicle that has separate washer fluid containers for front and rear windshield
+and that offers heating for both windshields. But that is not the case for all vehicles,
+it is not even certain that all vehicles have two windshields. this sections gives recommendations on how
+to use VSS for a vehicle if the VSS specification does not offer an exact match of the capabilities of the vehicle.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Windshield</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+  <span style="color:#f92672">instances</span>: [<span style="color:#e6db74">&#34;Front&#34;</span>, <span style="color:#e6db74">&#34;Rear&#34;</span>]
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Windshield signals</span>
 
-<span style="color:#f92672">Camera.URI</span>:
+<span style="color:#f92672">Windshield.Heating</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Windshield heater signals</span>
+
+<span style="color:#f92672">Windshield.Heating.Status</span>:
+  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Windshield heater status. 0 - off, 1 - on</span>
+
+<span style="color:#f92672">Windshield.WasherFluid</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Windshield washer fluid signals</span>
+
+<span style="color:#f92672">Windshield.WasherFluid.LevelLow</span>:
+  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
   <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
-  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">URI for retrieving the video stream, with information on how to access the stream (e.g. protocol,  data format, encoding, etc.)</span>
-
-</code></pre></div><p>In this example, it shows the usage of meta data about
-the status of the sensor. The camera can be set to active through
-the same data entry (<code>actuator</code>). A dynamic data entry (<code>sensor</code>)
-is used for the URI of the video stream. Information on how to access
-the stream is expected.</p>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Low level indication for washer fluid. True = Level Low. False = Level OK.</span>
+</code></pre></div><h3 id="recommendation-instance-mismatch">Recommendation: Instance Mismatch</h3>
+<p>If a vehicle does not have as many instances as specified in VSS then one
+of the following methods are recommended:</p>
+<ul>
+<li>Redefine the branch. If a vehicle for example does not have a rear windshield
+then append a redefinition at the end of the VSS:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Vehicle.Body.Windshield</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+  <span style="color:#f92672">instances</span>: [<span style="color:#e6db74">&#34;Front&#34;</span>]
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Windshield signals</span>
+</code></pre></div><ul>
+<li>Accept that a <code>branch Vehicle.Body.Windshield.Rear</code> will exist in the generated VSS representation,
+use mechanisms outside VSS to ignore that branch</li>
+</ul>
+<h3 id="recommendation-features-shared-among-instances">Recommendation: Features shared among instances</h3>
+<p>If a feature is shared among instances, it is recommended to publish that feature for all concerned instances.</p>
+<p>Example: In VSS washer fluid can be handled separately for front and rear windshield.
+If a vehicle use a common container serving both front and rear windshield,
+then it is recommended that the vehicle report information on that container in both
+<code>Vehicle.Body.Windshield.Front.WasherFluid.LevelLow</code> and <code>Vehicle.Body.Windshield.Rear.WasherFluid.LevelLow</code>.</p>
+<h3 id="recommendation-features-lacking-for-some-instances">Recommendation: Features lacking for some instances</h3>
+<p>Not all instances in a vehicle might have the same features. If e.g. the front windshield
+from the example above lack a heater, then it is recommended to use mechanisms outside VSS
+to ignore <code>Vehicle.Body.Windshield.Front.Heating</code>.</p>
 
 
 <footer class="footline">
@@ -938,7 +950,6 @@ the stream is expected.</p>
             
                 
                     
-                    
                 
                 
 
@@ -951,7 +962,6 @@ the stream is expected.</p>
             
             
                 
-                    
                     
                 
                 
@@ -968,9 +978,6 @@ the stream is expected.</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1039,6 +1046,7 @@ the stream is expected.</p>
             
                 
                     
+                    
                 
                 
 
@@ -1054,6 +1062,9 @@ the stream is expected.</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1158,10 +1169,10 @@ the stream is expected.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/data_entry/" title="Data Entry"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/data_entry/allowed/" title="Value restrictions"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/" title="Data Unit Types" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/includes/" title="Includes" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
