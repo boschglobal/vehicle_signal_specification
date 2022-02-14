@@ -194,6 +194,7 @@ const SignalSpec[] signal_spec = [
     description: "State of the supply voltage of the control units (usually 12V)."
     datatype: string
     uuid: d7391ceb132e5519b02d4c13d5513d99
+    allowed: ['UNDEFINED', 'LOCK', 'OFF', 'ACC', 'ON', 'START']
 }
 ,
 {
@@ -521,6 +522,7 @@ const SignalSpec[] signal_spec = [
     description: "Engine configuration."
     datatype: string
     uuid: 586be4567fe059ee9e6cf42901c2e773
+    allowed: ['unknown', 'straight', 'V', 'boxer', 'W', 'rotary', 'radial', 'square', 'H', 'U', 'opposed', 'X']
 }
 ,
 {
@@ -589,6 +591,7 @@ const SignalSpec[] signal_spec = [
     description: "Type of aspiration (natural, turbocharger, supercharger etc)."
     datatype: string
     uuid: 3ca6a8ff30275c20a9d8d6d6829574eb
+    allowed: ['unknown', 'natural', 'supercharger', 'turbocharger']
 }
 ,
 {
@@ -597,6 +600,7 @@ const SignalSpec[] signal_spec = [
     description: "Type of fuel that the engine runs on."
     datatype: string
     uuid: d0f8c79131c850bab8159eaefc7e23e5
+    allowed: ['unknown', 'gasoline', 'diesel', 'E85', 'CNG']
 }
 ,
 {
@@ -605,6 +609,7 @@ const SignalSpec[] signal_spec = [
     description: "Engine oil level."
     datatype: string
     uuid: e3813f59e94b509eb865fd97255a8a4f
+    allowed: ['critically_low', 'low', 'normal', 'high', 'critically_high']
 }
 ,
 {
@@ -794,6 +799,7 @@ const SignalSpec[] signal_spec = [
     description: "Transmission type."
     datatype: string
     uuid: f83b9e5464d85a0288fcb32c164d3c63
+    allowed: ['unknown', 'sequential', 'H', 'automatic', 'DSG', 'CVT']
 }
 ,
 {
@@ -810,6 +816,7 @@ const SignalSpec[] signal_spec = [
     description: "Drive type."
     datatype: string
     uuid: 0e480b76fb2d5f8bb08fb586f90ee6ae
+    allowed: ['unknown', 'forward wheel drive', 'rear wheel drive', 'all wheel drive']
 }
 ,
 {
@@ -867,6 +874,7 @@ const SignalSpec[] signal_spec = [
     description: "Current gearbox performance mode."
     datatype: string
     uuid: 6b5cfd85cb595e559503ccf993be04dd
+    allowed: ['normal', 'sport', 'economy', 'snow', 'rain']
 }
 ,
 {
@@ -875,6 +883,7 @@ const SignalSpec[] signal_spec = [
     description: "Is the gearbox in automatic or manual (paddle) mode."
     datatype: string
     uuid: ff3c69378c2f598286e51f7dac13adaa
+    allowed: ['manual', 'automatic']
 }
 ,
 {
@@ -1168,6 +1177,7 @@ const SignalSpec[] signal_spec = [
     description: "Status of the charge port cover, can potentially be controlled manually."
     datatype: string
     uuid: 71bdd2145bb55c3393df194bfc2e03e5
+    allowed: ['open', 'closed']
 }
 ,
 {
@@ -1184,6 +1194,7 @@ const SignalSpec[] signal_spec = [
     description: "Type of charge plug available on the vehicle (CSS includes Type2)."
     datatype: string
     uuid: 4c56357a6f1d586395215a9beeb26d91
+    allowed: ['type 1', 'type 2', 'ccs', 'chademo']
 }
 ,
 {
@@ -1192,6 +1203,7 @@ const SignalSpec[] signal_spec = [
     description: "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118)."
     datatype: string
     uuid: 1e4be3280b265873945531f6f6d0ec6b
+    allowed: ['manual', 'timer', 'grid']
 }
 ,
 {
@@ -1208,6 +1220,7 @@ const SignalSpec[] signal_spec = [
     description: "Start or stop the charging process."
     datatype: string
     uuid: 80506d3e9a2557c2b52f74a50d89593f
+    allowed: ['start', 'stop']
 }
 ,
 {
@@ -1252,6 +1265,7 @@ const SignalSpec[] signal_spec = [
     description: "Defines timer mode for charging: 'inactive' - no timer set, charging may start as soon as battery is connected to a charger. 'starttime' - charging shall start at Charging.Timer.Time. 'endtime' - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past."
     datatype: string
     uuid: b09fb52261735977af275dda1904a7a1
+    allowed: ['inactive', 'starttime', 'endtime']
 }
 ,
 {
@@ -1268,6 +1282,7 @@ const SignalSpec[] signal_spec = [
     description: "Defines the fuel type of the vehicle."
     datatype: string
     uuid: 76442e696df5540b8b747373b29895d9
+    allowed: ['unknown', 'gasoline', 'diesel', 'electric', 'hybrid', 'E85', 'CNG', 'LPG']
 }
 ,
 {
@@ -1276,6 +1291,7 @@ const SignalSpec[] signal_spec = [
     description: "Defines the hybrid type of the vehicle."
     datatype: string
     uuid: f0f72012f5e453c1935ff8c3a5aff696
+    allowed: ['unknown', 'not_applicable', 'stop_start', 'belt_ISG', 'CIMG', 'PHEV']
 }
 ,
 {
@@ -1375,6 +1391,7 @@ const SignalSpec[] signal_spec = [
     description: "Location of the fuel cap or charge port."
     datatype: string
     uuid: 53ef90a851fa57f0810d50238e852f02
+    allowed: ['front_left', 'front_right', 'middle_left', 'middle_right', 'rear_left', 'rear_right']
 }
 ,
 {
@@ -1424,6 +1441,7 @@ const SignalSpec[] signal_spec = [
     description: "Wiper status."
     datatype: string
     uuid: 2d5509513e4b52e0a337ade730166aec
+    allowed: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
 }
 ,
 {
@@ -1457,6 +1475,7 @@ const SignalSpec[] signal_spec = [
     description: "Wiper status."
     datatype: string
     uuid: 1aca19889d375a699bc3750993777b08
+    allowed: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
 }
 ,
 {
@@ -1630,6 +1649,7 @@ const SignalSpec[] signal_spec = [
     description: "Indicates the primary charging type fitted to the vehicle."
     datatype: string
     uuid: fffa718e15fb50c285fb33e99116eddc
+    allowed: ['unknown', 'Not_Fitted', 'AC_Type_1', 'AC_Type_2', 'AC_GBT', 'AC_DC_Type_1_Combo', 'AC_DC_Type_2_Combo', 'DC_GBT', 'DC_Chademo']
 }
 ,
 {
@@ -1649,6 +1669,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: da9f01e9baf35544842f1a7674c5172a
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -1688,6 +1709,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 33ca2e1ed1b1533b8e1309320074c07b
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1716,6 +1738,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 00e25d807a755c4cb978a40ebfc0e8d0
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1744,6 +1767,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 3c22cd8ac56b59978927fc815ee79104
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1772,6 +1796,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 10d42dd4337450e2af1c0dd2c9dcb3a7
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1800,6 +1825,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: f1e2dc36082b5980920c5fe3ee875659
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1828,6 +1854,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 1b6c21042e3b5ac9ae351f807722795a
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1856,6 +1883,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: ee591723296a580ea4ce9fc6ddbb5cf5
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1884,6 +1912,7 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 7d8b7cbfe68156d4a190a0a7525ee26c
+    allowed: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1933,6 +1962,7 @@ const SignalSpec[] signal_spec = [
     description: "Tells if the media was"
     datatype: string
     uuid: 0357aea525bf505981a14e4fc720094e
+    allowed: ['unknown', 'Stop', 'Play', 'FastForward', 'FastBackward', 'SkipForward', 'SkipBackward']
 }
 ,
 {
@@ -1941,6 +1971,7 @@ const SignalSpec[] signal_spec = [
     description: "Media selected for playback"
     datatype: string
     uuid: 54fb88a7d7cf5e3aab63e8f52415c187
+    allowed: ['unknown', 'SiriusXM', 'AM', 'FM', 'DAB', 'TV', 'CD', 'DVD', 'AUX', 'USB', 'Disk', 'Bluetooth', 'Internet', 'Voice', 'Beep']
 }
 ,
 {
@@ -2037,6 +2068,7 @@ const SignalSpec[] signal_spec = [
     description: "Date format used in the current HMI"
     datatype: string
     uuid: 0f03c3955fe953e9893a1f52e964919e
+    allowed: ['YYYY MM DD', 'DD MM YYYY', 'MM DD YYYY', 'YY MM DD', 'DD MM YY', 'MM DD YY']
 }
 ,
 {
@@ -2045,6 +2077,7 @@ const SignalSpec[] signal_spec = [
     description: "Time format used in the current HMI"
     datatype: string
     uuid: 73083b87a4e25c02aee672ea32e40005
+    allowed: ['12HR', '24HR']
 }
 ,
 {
@@ -2053,6 +2086,7 @@ const SignalSpec[] signal_spec = [
     description: "Distance unit used in the current HMI"
     datatype: string
     uuid: 4b40e8bdb1a053ee9ee35338d8804e7b
+    allowed: ['mi', 'km']
 }
 ,
 {
@@ -2061,6 +2095,7 @@ const SignalSpec[] signal_spec = [
     description: "Fuel economy unit used in the current HMI"
     datatype: string
     uuid: 0e6a43ce1aa45243b753545ffa1f0f8c
+    allowed: ['mpg_UK', 'mpg_US', 'mpl', 'km/l', 'l/100km']
 }
 ,
 {
@@ -2069,6 +2104,7 @@ const SignalSpec[] signal_spec = [
     description: "EV fuel economy unit used in the current HMI"
     datatype: string
     uuid: 914846f6804757ba81ca6bcfac8d2c48
+    allowed: ['mi/kWh', 'km/kWh', 'kWh/100mi', 'kWh/100km', 'Wh/mi', 'Wh/km']
 }
 ,
 {
@@ -2077,6 +2113,7 @@ const SignalSpec[] signal_spec = [
     description: "Temperature unit used in the current HMI"
     datatype: string
     uuid: a7d1533490bb52b6b4f650280e72543d
+    allowed: ['C', 'F']
 }
 ,
 {
@@ -2085,6 +2122,7 @@ const SignalSpec[] signal_spec = [
     description: "Current display theme"
     datatype: string
     uuid: a892039ba136588fa26b2670f839c0cc
+    allowed: ['Day', 'Night']
 }
 ,
 {
@@ -2103,6 +2141,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or shade."
     datatype: string
     uuid: 88c39afd45a25ea2b474ff581e1fb138
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen', 'TiltUp', 'TiltDown']
 }
 ,
 {
@@ -2111,6 +2150,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 3836077128c65381b01e74a1a8be1c40
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2324,6 +2364,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: e276bf971dae507f99b463f7fe574969
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2340,6 +2381,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 15c012ed31a054ecb2b9b2b1cf57e825
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2402,6 +2444,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: fcb9ede77f065479a10740324c0efdc6
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2418,6 +2461,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 763aea099a515fc998fde10d936b0b38
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2480,6 +2524,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 1a5d1c57f46e576a8a94853e2a44d3f8
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2496,6 +2541,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 41f6f14bbb595dcf8e51d1696e877114
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2558,6 +2604,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 364c0a712fa854b4b1b332eae1be179b
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2574,6 +2621,7 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 5b94a0c4e30a575c93942f0566be8be7
+    allowed: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -4599,6 +4647,7 @@ const SignalSpec[] signal_spec = [
     description: "Roof status on convertible vehicles."
     datatype: string
     uuid: c8812698198a56d7a1adcc8bbe87845f
+    allowed: ['undefined', 'closed', 'open', 'closing', 'opening', 'stalled']
 }
 ,
 {
@@ -4607,6 +4656,7 @@ const SignalSpec[] signal_spec = [
     description: "Indicates the currently active level of autonomy according to SAE J3016 taxonomy."
     datatype: string
     uuid: b101c6928fc55948b1cc485e568ecd8d
+    allowed: ['SAE_0', 'SAE_1', 'SAE_2_DISENGAGING', 'SAE_2', 'SAE_3_DISENGAGING', 'SAE_3', 'SAE_4_DISENGAGING', 'SAE_4', 'SAE_5']
 }
 ,
 {
@@ -4615,6 +4665,7 @@ const SignalSpec[] signal_spec = [
     description: "Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of."
     datatype: string
     uuid: 020410189ab4517cb85ceda268b40f51
+    allowed: ['SAE_0', 'SAE_1', 'SAE_2', 'SAE_3', 'SAE_4', 'SAE_5']
 }
 ,
 {
@@ -5167,6 +5218,7 @@ const SignalSpec[] signal_spec = [
     description: "Position of the steering wheel on the left or right side of the vehicle."
     datatype: string
     uuid: 314d6eeeba195098b36ae7f476d27824
+    allowed: ['front_left', 'front_right']
 }
 ,
 {
@@ -5221,6 +5273,7 @@ const SignalSpec[] signal_spec = [
     description: "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)"
     datatype: string
     uuid: 7ffd71caac8e5bd18f93366afdfe534d
+    allowed: ['spark', 'compression']
 }
 ,
 {
@@ -5946,6 +5999,7 @@ const SignalSpec[] signal_spec = [
     description: "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)"
     datatype: string
     uuid: 1aeb7b6d025f5a8693104824abaa1c49
+    allowed: ['spark', 'compression']
 }
 ,
 {

@@ -29,6 +29,17 @@
             "uuid": "219270ef27c4531f874bbda63743b330"
           },
           "ActiveAutonomyLevel": {
+            "allowed": [
+              "SAE_0",
+              "SAE_1",
+              "SAE_2_DISENGAGING",
+              "SAE_2",
+              "SAE_3_DISENGAGING",
+              "SAE_3",
+              "SAE_4_DISENGAGING",
+              "SAE_4",
+              "SAE_5"
+            ],
             "comment": "Follows https://www.sae.org/news/2019/01/sae-updates-j3016-automated-driving-graphic taxonomy. For SAE levels 3 and 4 the system is required to alert the driver before it will disengage. Level 4 systems are required to reach a safe state even if a driver does not take over. Only level 5 systems are required to not rely on a driver at all. While level 2 systems require the driver to be monitoring the system at all times, many level 2 systems, often termed \"level 2.5\" systems, do warn the driver shortly before reaching their operational limits, therefore we also support the DISENGAGING state for SAE_2.",
             "datatype": "string",
             "description": "Indicates the currently active level of autonomy according to SAE J3016 taxonomy.",
@@ -131,6 +142,14 @@
             "uuid": "e7b6d81631cc5ac584d027d4c1a66cb5"
           },
           "SupportedAutonomyLevel": {
+            "allowed": [
+              "SAE_0",
+              "SAE_1",
+              "SAE_2",
+              "SAE_3",
+              "SAE_4",
+              "SAE_5"
+            ],
             "datatype": "string",
             "description": "Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.",
             "type": "attribute",
@@ -247,6 +266,17 @@
           "ChargingPort": {
             "children": {
               "Type": {
+                "allowed": [
+                  "unknown",
+                  "Not_Fitted",
+                  "AC_Type_1",
+                  "AC_Type_2",
+                  "AC_GBT",
+                  "AC_DC_Type_1_Combo",
+                  "AC_DC_Type_2_Combo",
+                  "DC_GBT",
+                  "DC_Chademo"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Indicates the primary charging type fitted to the vehicle.",
@@ -442,6 +472,14 @@
             "uuid": "6209a82390585b869cc3d00d069eade2"
           },
           "RefuelPosition": {
+            "allowed": [
+              "front_left",
+              "front_right",
+              "middle_left",
+              "middle_right",
+              "rear_left",
+              "rear_right"
+            ],
             "datatype": "string",
             "description": "Location of the fuel cap or charge port.",
             "type": "attribute",
@@ -499,6 +537,14 @@
                   "Wiping": {
                     "children": {
                       "Status": {
+                        "allowed": [
+                          "off",
+                          "slow",
+                          "medium",
+                          "fast",
+                          "interval",
+                          "rainsensor"
+                        ],
                         "datatype": "string",
                         "description": "Wiper status.",
                         "type": "actuator",
@@ -545,6 +591,14 @@
                   "Wiping": {
                     "children": {
                       "Status": {
+                        "allowed": [
+                          "off",
+                          "slow",
+                          "medium",
+                          "fast",
+                          "interval",
+                          "rainsensor"
+                        ],
                         "datatype": "string",
                         "description": "Wiper status.",
                         "type": "actuator",
@@ -575,6 +629,14 @@
           "Convertible": {
             "children": {
               "Status": {
+                "allowed": [
+                  "undefined",
+                  "closed",
+                  "open",
+                  "closing",
+                  "opening",
+                  "stalled"
+                ],
                 "datatype": "string",
                 "description": "Roof status on convertible vehicles.",
                 "type": "sensor",
@@ -621,6 +683,13 @@
                             "uuid": "a4c73477293156999f74416245d4f858"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -655,6 +724,13 @@
                             "uuid": "63137367f94856acbb900a0dcdc7e495"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -702,6 +778,13 @@
                             "uuid": "22944f205eb45c6f804e481b8dd783c5"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -736,6 +819,13 @@
                             "uuid": "e7ef528471eb585a937664abab9fbc68"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -790,6 +880,13 @@
                             "uuid": "33d7bdce5c915c3ea9633851f4f79cfb"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -824,6 +921,13 @@
                             "uuid": "6eeda05cd5d357958a0b0649b1b406f8"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -871,6 +975,13 @@
                             "uuid": "fa705739512a54e9a103ff356be14df7"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -905,6 +1016,13 @@
                             "uuid": "f6323b78eecc58e5a9bc5d66f2548ce3"
                           },
                           "Switch": {
+                            "allowed": [
+                              "Inactive",
+                              "Close",
+                              "Open",
+                              "OneShotClose",
+                              "OneShotOpen"
+                            ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                             "type": "actuator",
@@ -985,6 +1103,11 @@
                       "Left": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1014,6 +1137,11 @@
                       "Right": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1050,6 +1178,11 @@
                       "Left": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1079,6 +1212,11 @@
                       "Right": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1115,6 +1253,11 @@
                       "Left": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1144,6 +1287,11 @@
                       "Right": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1180,6 +1328,11 @@
                       "Left": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1209,6 +1362,11 @@
                       "Right": {
                         "children": {
                           "AirDistribution": {
+                            "allowed": [
+                              "up",
+                              "middle",
+                              "down"
+                            ],
                             "datatype": "string",
                             "description": "Direction of airstream",
                             "type": "actuator",
@@ -1261,42 +1419,81 @@
                     "uuid": "dc29ee5b7f7154b4ab05a9771fe930b3"
                   },
                   "DateFormat": {
+                    "allowed": [
+                      "YYYY MM DD",
+                      "DD MM YYYY",
+                      "MM DD YYYY",
+                      "YY MM DD",
+                      "DD MM YY",
+                      "MM DD YY"
+                    ],
                     "datatype": "string",
                     "description": "Date format used in the current HMI",
                     "type": "actuator",
                     "uuid": "0f03c3955fe953e9893a1f52e964919e"
                   },
                   "DayNightMode": {
+                    "allowed": [
+                      "Day",
+                      "Night"
+                    ],
                     "datatype": "string",
                     "description": "Current display theme",
                     "type": "actuator",
                     "uuid": "a892039ba136588fa26b2670f839c0cc"
                   },
                   "DistanceUnit": {
+                    "allowed": [
+                      "mi",
+                      "km"
+                    ],
                     "datatype": "string",
                     "description": "Distance unit used in the current HMI",
                     "type": "actuator",
                     "uuid": "4b40e8bdb1a053ee9ee35338d8804e7b"
                   },
                   "EVEconomyUnits": {
+                    "allowed": [
+                      "mi/kWh",
+                      "km/kWh",
+                      "kWh/100mi",
+                      "kWh/100km",
+                      "Wh/mi",
+                      "Wh/km"
+                    ],
                     "datatype": "string",
                     "description": "EV fuel economy unit used in the current HMI",
                     "type": "actuator",
                     "uuid": "914846f6804757ba81ca6bcfac8d2c48"
                   },
                   "FuelEconomyUnits": {
+                    "allowed": [
+                      "mpg_UK",
+                      "mpg_US",
+                      "mpl",
+                      "km/l",
+                      "l/100km"
+                    ],
                     "datatype": "string",
                     "description": "Fuel economy unit used in the current HMI",
                     "type": "actuator",
                     "uuid": "0e6a43ce1aa45243b753545ffa1f0f8c"
                   },
                   "TemperatureUnit": {
+                    "allowed": [
+                      "C",
+                      "F"
+                    ],
                     "datatype": "string",
                     "description": "Temperature unit used in the current HMI",
                     "type": "actuator",
                     "uuid": "a7d1533490bb52b6b4f650280e72543d"
                   },
                   "TimeFormat": {
+                    "allowed": [
+                      "12HR",
+                      "24HR"
+                    ],
                     "datatype": "string",
                     "description": "Time format used in the current HMI",
                     "type": "actuator",
@@ -1310,6 +1507,15 @@
               "Media": {
                 "children": {
                   "Action": {
+                    "allowed": [
+                      "unknown",
+                      "Stop",
+                      "Play",
+                      "FastForward",
+                      "FastBackward",
+                      "SkipForward",
+                      "SkipBackward"
+                    ],
                     "datatype": "string",
                     "description": "Tells if the media was",
                     "type": "actuator",
@@ -1336,6 +1542,23 @@
                         "uuid": "076af7ad8aff5110ab5a64d1f58ccdcb"
                       },
                       "Source": {
+                        "allowed": [
+                          "unknown",
+                          "SiriusXM",
+                          "AM",
+                          "FM",
+                          "DAB",
+                          "TV",
+                          "CD",
+                          "DVD",
+                          "AUX",
+                          "USB",
+                          "Disk",
+                          "Bluetooth",
+                          "Internet",
+                          "Voice",
+                          "Beep"
+                        ],
                         "datatype": "string",
                         "description": "Media selected for playback",
                         "type": "actuator",
@@ -1576,6 +1799,13 @@
                 "uuid": "9e16fc53f2ec575dbf66c79f969949a9"
               },
               "Switch": {
+                "allowed": [
+                  "Inactive",
+                  "Close",
+                  "Open",
+                  "OneShotClose",
+                  "OneShotOpen"
+                ],
                 "datatype": "string",
                 "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                 "type": "actuator",
@@ -3810,6 +4040,13 @@
                     "uuid": "5f78c2a631b75abc88744f9bad277f5a"
                   },
                   "Switch": {
+                    "allowed": [
+                      "Inactive",
+                      "Close",
+                      "Open",
+                      "OneShotClose",
+                      "OneShotOpen"
+                    ],
                     "datatype": "string",
                     "description": "Switch controlling sliding action such as window, sunroof, or blind.",
                     "type": "actuator",
@@ -3821,6 +4058,15 @@
                 "uuid": "eeaae5977adb5683b16f405993405b2e"
               },
               "Switch": {
+                "allowed": [
+                  "Inactive",
+                  "Close",
+                  "Open",
+                  "OneShotClose",
+                  "OneShotOpen",
+                  "TiltUp",
+                  "TiltDown"
+                ],
                 "datatype": "string",
                 "description": "Switch controlling sliding action such as window, sunroof, or shade.",
                 "type": "actuator",
@@ -4298,6 +4544,10 @@
                 "uuid": "6a84cc3604fc5960a1fb384fe63fae72"
               },
               "Position": {
+                "allowed": [
+                  "front_left",
+                  "front_right"
+                ],
                 "datatype": "string",
                 "default": "front_left",
                 "description": "Position of the steering wheel on the left or right side of the vehicle.",
@@ -4505,6 +4755,14 @@
         "uuid": "885f1be6842a513582e52a42edb3176f"
       },
       "LowVoltageSystemState": {
+        "allowed": [
+          "UNDEFINED",
+          "LOCK",
+          "OFF",
+          "ACC",
+          "ON",
+          "START"
+        ],
         "datatype": "string",
         "description": "State of the supply voltage of the control units (usually 12V).",
         "type": "sensor",
@@ -4689,6 +4947,10 @@
                 "uuid": "312856f746ff560e8098c19196964d3b"
               },
               "IgnitionType": {
+                "allowed": [
+                  "spark",
+                  "compression"
+                ],
                 "datatype": "string",
                 "description": "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)",
                 "type": "sensor",
@@ -5431,6 +5693,10 @@
                 "uuid": "4afdf65e788c5f69baf682597e69fb67"
               },
               "IgnitionType": {
+                "allowed": [
+                  "spark",
+                  "compression"
+                ],
                 "datatype": "string",
                 "description": "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)",
                 "type": "sensor",
@@ -5512,6 +5778,12 @@
           "CombustionEngine": {
             "children": {
               "AspirationType": {
+                "allowed": [
+                  "unknown",
+                  "natural",
+                  "supercharger",
+                  "turbocharger"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Type of aspiration (natural, turbocharger, supercharger etc).",
@@ -5532,6 +5804,20 @@
                 "uuid": "ead42922511051a0a0a1b634781f3c09"
               },
               "Configuration": {
+                "allowed": [
+                  "unknown",
+                  "straight",
+                  "V",
+                  "boxer",
+                  "W",
+                  "rotary",
+                  "radial",
+                  "square",
+                  "H",
+                  "U",
+                  "opposed",
+                  "X"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Engine configuration.",
@@ -5653,12 +5939,26 @@
                 "uuid": "2ca7af6facb55a13885989faa9bc6ca7"
               },
               "EngineOilLevel": {
+                "allowed": [
+                  "critically_low",
+                  "low",
+                  "normal",
+                  "high",
+                  "critically_high"
+                ],
                 "datatype": "string",
                 "description": "Engine oil level.",
                 "type": "sensor",
                 "uuid": "e3813f59e94b509eb865fd97255a8a4f"
               },
               "FuelType": {
+                "allowed": [
+                  "unknown",
+                  "gasoline",
+                  "diesel",
+                  "E85",
+                  "CNG"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Type of fuel that the engine runs on.",
@@ -5863,6 +6163,16 @@
                 "uuid": "adf0a40964ff556f92b10275ad918883"
               },
               "FuelType": {
+                "allowed": [
+                  "unknown",
+                  "gasoline",
+                  "diesel",
+                  "electric",
+                  "hybrid",
+                  "E85",
+                  "CNG",
+                  "LPG"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Defines the fuel type of the vehicle.",
@@ -5870,6 +6180,14 @@
                 "uuid": "76442e696df5540b8b747373b29895d9"
               },
               "HybridType": {
+                "allowed": [
+                  "unknown",
+                  "not_applicable",
+                  "stop_start",
+                  "belt_ISG",
+                  "CIMG",
+                  "PHEV"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Defines the hybrid type of the vehicle.",
@@ -5973,6 +6291,12 @@
                     "uuid": "62360a4ed1095275a7052d65112aaef1"
                   },
                   "ChargePlugType": {
+                    "allowed": [
+                      "type 1",
+                      "type 2",
+                      "ccs",
+                      "chademo"
+                    ],
                     "datatype": "string",
                     "default": "ccs",
                     "description": "Type of charge plug available on the vehicle (CSS includes Type2).",
@@ -5980,6 +6304,10 @@
                     "uuid": "4c56357a6f1d586395215a9beeb26d91"
                   },
                   "ChargePortFlap": {
+                    "allowed": [
+                      "open",
+                      "closed"
+                    ],
                     "datatype": "string",
                     "description": "Status of the charge port cover, can potentially be controlled manually.",
                     "type": "actuator",
@@ -6019,12 +6347,21 @@
                     "uuid": "e3f2e57e7a395d9ca9931d429e540a34"
                   },
                   "Mode": {
+                    "allowed": [
+                      "manual",
+                      "timer",
+                      "grid"
+                    ],
                     "datatype": "string",
                     "description": "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).",
                     "type": "actuator",
                     "uuid": "1e4be3280b265873945531f6f6d0ec6b"
                   },
                   "StartStopCharging": {
+                    "allowed": [
+                      "start",
+                      "stop"
+                    ],
                     "datatype": "string",
                     "description": "Start or stop the charging process.",
                     "type": "actuator",
@@ -6041,6 +6378,11 @@
                   "Timer": {
                     "children": {
                       "Mode": {
+                        "allowed": [
+                          "inactive",
+                          "starttime",
+                          "endtime"
+                        ],
                         "datatype": "string",
                         "description": "Defines timer mode for charging: 'inactive' - no timer set, charging may start as soon as battery is connected to a charger. 'starttime' - charging shall start at Charging.Timer.Time. 'endtime' - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.",
                         "type": "actuator",
@@ -6201,6 +6543,12 @@
                 "uuid": "197c939bd1405613b80179becec6db83"
               },
               "DriveType": {
+                "allowed": [
+                  "unknown",
+                  "forward wheel drive",
+                  "rear wheel drive",
+                  "all wheel drive"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Drive type.",
@@ -6208,6 +6556,10 @@
                 "uuid": "0e480b76fb2d5f8bb08fb586f90ee6ae"
               },
               "GearChangeMode": {
+                "allowed": [
+                  "manual",
+                  "automatic"
+                ],
                 "datatype": "string",
                 "description": "Is the gearbox in automatic or manual (paddle) mode.",
                 "type": "actuator",
@@ -6241,6 +6593,13 @@
                 "uuid": "1578da3f925e54ac9df978abd0195408"
               },
               "PerformanceMode": {
+                "allowed": [
+                  "normal",
+                  "sport",
+                  "economy",
+                  "snow",
+                  "rain"
+                ],
                 "datatype": "string",
                 "description": "Current gearbox performance mode.",
                 "type": "actuator",
@@ -6276,6 +6635,14 @@
                 "uuid": "b9dd66f20c7f5b12a046766b94dc20c1"
               },
               "Type": {
+                "allowed": [
+                  "unknown",
+                  "sequential",
+                  "H",
+                  "automatic",
+                  "DSG",
+                  "CVT"
+                ],
                 "datatype": "string",
                 "default": "unknown",
                 "description": "Transmission type.",

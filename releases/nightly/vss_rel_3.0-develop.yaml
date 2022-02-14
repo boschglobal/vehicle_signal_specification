@@ -152,6 +152,13 @@ Vehicle.VehicleIdentification.KnownVehicleDamages:
 Vehicle.LowVoltageSystemState:
   type: sensor
   datatype: string
+  allowed:
+  - UNDEFINED
+  - LOCK
+  - 'OFF'
+  - ACC
+  - 'ON'
+  - START
   description: State of the supply voltage of the control units (usually 12V).
   uuid: d7391ceb132e5519b02d4c13d5513d99
 
@@ -449,6 +456,19 @@ Vehicle.Powertrain.CombustionEngine.Bore:
 Vehicle.Powertrain.CombustionEngine.Configuration:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - straight
+  - V
+  - boxer
+  - W
+  - rotary
+  - radial
+  - square
+  - H
+  - U
+  - opposed
+  - X
   default: unknown
   description: Engine configuration.
   uuid: 586be4567fe059ee9e6cf42901c2e773
@@ -504,6 +524,11 @@ Vehicle.Powertrain.CombustionEngine.MaxTorque:
 Vehicle.Powertrain.CombustionEngine.AspirationType:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - natural
+  - supercharger
+  - turbocharger
   default: unknown
   description: Type of aspiration (natural, turbocharger, supercharger etc).
   uuid: 3ca6a8ff30275c20a9d8d6d6829574eb
@@ -511,6 +536,12 @@ Vehicle.Powertrain.CombustionEngine.AspirationType:
 Vehicle.Powertrain.CombustionEngine.FuelType:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - gasoline
+  - diesel
+  - E85
+  - CNG
   default: unknown
   description: Type of fuel that the engine runs on.
   uuid: d0f8c79131c850bab8159eaefc7e23e5
@@ -518,6 +549,12 @@ Vehicle.Powertrain.CombustionEngine.FuelType:
 Vehicle.Powertrain.CombustionEngine.EngineOilLevel:
   type: sensor
   datatype: string
+  allowed:
+  - critically_low
+  - low
+  - normal
+  - high
+  - critically_high
   description: Engine oil level.
   uuid: e3813f59e94b509eb865fd97255a8a4f
 
@@ -680,6 +717,13 @@ Vehicle.Powertrain.Transmission:
 Vehicle.Powertrain.Transmission.Type:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - sequential
+  - H
+  - automatic
+  - DSG
+  - CVT
   default: unknown
   description: Transmission type.
   uuid: f83b9e5464d85a0288fcb32c164d3c63
@@ -694,6 +738,11 @@ Vehicle.Powertrain.Transmission.GearCount:
 Vehicle.Powertrain.Transmission.DriveType:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - forward wheel drive
+  - rear wheel drive
+  - all wheel drive
   default: unknown
   description: Drive type.
   uuid: 0e480b76fb2d5f8bb08fb586f90ee6ae
@@ -738,12 +787,21 @@ Vehicle.Powertrain.Transmission.IsElectricalPowertrainEngaged:
 Vehicle.Powertrain.Transmission.PerformanceMode:
   type: actuator
   datatype: string
+  allowed:
+  - normal
+  - sport
+  - economy
+  - snow
+  - rain
   description: Current gearbox performance mode.
   uuid: 6b5cfd85cb595e559503ccf993be04dd
 
 Vehicle.Powertrain.Transmission.GearChangeMode:
   type: actuator
   datatype: string
+  allowed:
+  - manual
+  - automatic
   description: Is the gearbox in automatic or manual (paddle) mode.
   uuid: ff3c69378c2f598286e51f7dac13adaa
 
@@ -999,6 +1057,9 @@ Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent:
 Vehicle.Powertrain.TractionBattery.Charging.ChargePortFlap:
   type: actuator
   datatype: string
+  allowed:
+  - open
+  - closed
   description: Status of the charge port cover, can potentially be controlled manually.
   uuid: 71bdd2145bb55c3393df194bfc2e03e5
 
@@ -1011,6 +1072,11 @@ Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableConnected:
 Vehicle.Powertrain.TractionBattery.Charging.ChargePlugType:
   type: attribute
   datatype: string
+  allowed:
+  - type 1
+  - type 2
+  - ccs
+  - chademo
   default: ccs
   description: Type of charge plug available on the vehicle (CSS includes Type2).
   uuid: 4c56357a6f1d586395215a9beeb26d91
@@ -1018,6 +1084,10 @@ Vehicle.Powertrain.TractionBattery.Charging.ChargePlugType:
 Vehicle.Powertrain.TractionBattery.Charging.Mode:
   type: actuator
   datatype: string
+  allowed:
+  - manual
+  - timer
+  - grid
   description: Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).
   uuid: 1e4be3280b265873945531f6f6d0ec6b
 
@@ -1030,6 +1100,9 @@ Vehicle.Powertrain.TractionBattery.Charging.IsCharging:
 Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging:
   type: actuator
   datatype: string
+  allowed:
+  - start
+  - stop
   description: Start or stop the charging process.
   uuid: 80506d3e9a2557c2b52f74a50d89593f
 
@@ -1069,6 +1142,10 @@ Vehicle.Powertrain.TractionBattery.Charging.Timer:
 Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode:
   type: actuator
   datatype: string
+  allowed:
+  - inactive
+  - starttime
+  - endtime
   description: 'Defines timer mode for charging: ''inactive'' - no timer set, charging may start as soon as battery is connected to a charger. ''starttime'' - charging shall start at Charging.Timer.Time. ''endtime'' - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to ''inactive'' or set a new Charging.Timer.Time. Charging shall start immediately if mode is ''starttime'' or ''endtime'' and Charging.Timer.Time is a time in the past.'
   uuid: b09fb52261735977af275dda1904a7a1
 
@@ -1086,6 +1163,15 @@ Vehicle.Powertrain.FuelSystem:
 Vehicle.Powertrain.FuelSystem.FuelType:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - gasoline
+  - diesel
+  - electric
+  - hybrid
+  - E85
+  - CNG
+  - LPG
   default: unknown
   description: Defines the fuel type of the vehicle.
   uuid: 76442e696df5540b8b747373b29895d9
@@ -1093,6 +1179,13 @@ Vehicle.Powertrain.FuelSystem.FuelType:
 Vehicle.Powertrain.FuelSystem.HybridType:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - not_applicable
+  - stop_start
+  - belt_ISG
+  - CIMG
+  - PHEV
   default: unknown
   description: Defines the hybrid type of the vehicle.
   uuid: f0f72012f5e453c1935ff8c3a5aff696
@@ -1176,6 +1269,13 @@ Vehicle.Body.BodyType:
 Vehicle.Body.RefuelPosition:
   type: attribute
   datatype: string
+  allowed:
+  - front_left
+  - front_right
+  - middle_left
+  - middle_right
+  - rear_left
+  - rear_right
   description: Location of the fuel cap or charge port.
   uuid: 53ef90a851fa57f0810d50238e852f02
 
@@ -1248,6 +1348,13 @@ Vehicle.Body.Windshield.Front.Wiping:
 Vehicle.Body.Windshield.Front.Wiping.Status:
   type: actuator
   datatype: string
+  allowed:
+  - 'off'
+  - slow
+  - medium
+  - fast
+  - interval
+  - rainsensor
   description: Wiper status.
   uuid: 2d5509513e4b52e0a337ade730166aec
 
@@ -1288,6 +1395,13 @@ Vehicle.Body.Windshield.Rear.Wiping:
 Vehicle.Body.Windshield.Rear.Wiping.Status:
   type: actuator
   datatype: string
+  allowed:
+  - 'off'
+  - slow
+  - medium
+  - fast
+  - interval
+  - rainsensor
   description: Wiper status.
   uuid: 1aca19889d375a699bc3750993777b08
 
@@ -1449,6 +1563,16 @@ Vehicle.Body.ChargingPort:
 Vehicle.Body.ChargingPort.Type:
   type: attribute
   datatype: string
+  allowed:
+  - unknown
+  - Not_Fitted
+  - AC_Type_1
+  - AC_Type_2
+  - AC_GBT
+  - AC_DC_Type_1_Combo
+  - AC_DC_Type_2_Combo
+  - DC_GBT
+  - DC_Chademo
   default: unknown
   description: Indicates the primary charging type fitted to the vehicle.
   uuid: fffa718e15fb50c285fb33e99116eddc
@@ -1475,6 +1599,12 @@ Vehicle.Cabin.RearShade:
 Vehicle.Cabin.RearShade.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: da9f01e9baf35544842f1a7674c5172a
 
@@ -1526,6 +1656,10 @@ Vehicle.Cabin.HVAC.Station.Row1.Left.Temperature:
 Vehicle.Cabin.HVAC.Station.Row1.Left.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: 33ca2e1ed1b1533b8e1309320074c07b
 
@@ -1553,6 +1687,10 @@ Vehicle.Cabin.HVAC.Station.Row1.Right.Temperature:
 Vehicle.Cabin.HVAC.Station.Row1.Right.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: 00e25d807a755c4cb978a40ebfc0e8d0
 
@@ -1585,6 +1723,10 @@ Vehicle.Cabin.HVAC.Station.Row2.Left.Temperature:
 Vehicle.Cabin.HVAC.Station.Row2.Left.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: 3c22cd8ac56b59978927fc815ee79104
 
@@ -1612,6 +1754,10 @@ Vehicle.Cabin.HVAC.Station.Row2.Right.Temperature:
 Vehicle.Cabin.HVAC.Station.Row2.Right.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: 10d42dd4337450e2af1c0dd2c9dcb3a7
 
@@ -1644,6 +1790,10 @@ Vehicle.Cabin.HVAC.Station.Row3.Left.Temperature:
 Vehicle.Cabin.HVAC.Station.Row3.Left.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: f1e2dc36082b5980920c5fe3ee875659
 
@@ -1671,6 +1821,10 @@ Vehicle.Cabin.HVAC.Station.Row3.Right.Temperature:
 Vehicle.Cabin.HVAC.Station.Row3.Right.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: 1b6c21042e3b5ac9ae351f807722795a
 
@@ -1703,6 +1857,10 @@ Vehicle.Cabin.HVAC.Station.Row4.Left.Temperature:
 Vehicle.Cabin.HVAC.Station.Row4.Left.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: ee591723296a580ea4ce9fc6ddbb5cf5
 
@@ -1730,6 +1888,10 @@ Vehicle.Cabin.HVAC.Station.Row4.Right.Temperature:
 Vehicle.Cabin.HVAC.Station.Row4.Right.AirDistribution:
   type: actuator
   datatype: string
+  allowed:
+  - up
+  - middle
+  - down
   description: Direction of airstream
   uuid: 7d8b7cbfe68156d4a190a0a7525ee26c
 
@@ -1777,6 +1939,14 @@ Vehicle.Cabin.Infotainment.Media:
 Vehicle.Cabin.Infotainment.Media.Action:
   type: actuator
   datatype: string
+  allowed:
+  - unknown
+  - Stop
+  - Play
+  - FastForward
+  - FastBackward
+  - SkipForward
+  - SkipBackward
   description: Tells if the media was
   uuid: 0357aea525bf505981a14e4fc720094e
 
@@ -1788,6 +1958,22 @@ Vehicle.Cabin.Infotainment.Media.Played:
 Vehicle.Cabin.Infotainment.Media.Played.Source:
   type: actuator
   datatype: string
+  allowed:
+  - unknown
+  - SiriusXM
+  - AM
+  - FM
+  - DAB
+  - TV
+  - CD
+  - DVD
+  - AUX
+  - USB
+  - Disk
+  - Bluetooth
+  - Internet
+  - Voice
+  - Beep
   description: Media selected for playback
   uuid: 54fb88a7d7cf5e3aab63e8f52415c187
 
@@ -1877,42 +2063,74 @@ Vehicle.Cabin.Infotainment.HMI.CurrentLanguage:
 Vehicle.Cabin.Infotainment.HMI.DateFormat:
   type: actuator
   datatype: string
+  allowed:
+  - YYYY MM DD
+  - DD MM YYYY
+  - MM DD YYYY
+  - YY MM DD
+  - DD MM YY
+  - MM DD YY
   description: Date format used in the current HMI
   uuid: 0f03c3955fe953e9893a1f52e964919e
 
 Vehicle.Cabin.Infotainment.HMI.TimeFormat:
   type: actuator
   datatype: string
+  allowed:
+  - 12HR
+  - 24HR
   description: Time format used in the current HMI
   uuid: 73083b87a4e25c02aee672ea32e40005
 
 Vehicle.Cabin.Infotainment.HMI.DistanceUnit:
   type: actuator
   datatype: string
+  allowed:
+  - mi
+  - km
   description: Distance unit used in the current HMI
   uuid: 4b40e8bdb1a053ee9ee35338d8804e7b
 
 Vehicle.Cabin.Infotainment.HMI.FuelEconomyUnits:
   type: actuator
   datatype: string
+  allowed:
+  - mpg_UK
+  - mpg_US
+  - mpl
+  - km/l
+  - l/100km
   description: Fuel economy unit used in the current HMI
   uuid: 0e6a43ce1aa45243b753545ffa1f0f8c
 
 Vehicle.Cabin.Infotainment.HMI.EVEconomyUnits:
   type: actuator
   datatype: string
+  allowed:
+  - mi/kWh
+  - km/kWh
+  - kWh/100mi
+  - kWh/100km
+  - Wh/mi
+  - Wh/km
   description: EV fuel economy unit used in the current HMI
   uuid: 914846f6804757ba81ca6bcfac8d2c48
 
 Vehicle.Cabin.Infotainment.HMI.TemperatureUnit:
   type: actuator
   datatype: string
+  allowed:
+  - C
+  - F
   description: Temperature unit used in the current HMI
   uuid: a7d1533490bb52b6b4f650280e72543d
 
 Vehicle.Cabin.Infotainment.HMI.DayNightMode:
   type: actuator
   datatype: string
+  allowed:
+  - Day
+  - Night
   description: Current display theme
   uuid: a892039ba136588fa26b2670f839c0cc
 
@@ -1932,6 +2150,14 @@ Vehicle.Cabin.Sunroof.Position:
 Vehicle.Cabin.Sunroof.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
+  - TiltUp
+  - TiltDown
   description: Switch controlling sliding action such as window, sunroof, or shade.
   uuid: 88c39afd45a25ea2b474ff581e1fb138
 
@@ -1943,6 +2169,12 @@ Vehicle.Cabin.Sunroof.Shade:
 Vehicle.Cabin.Sunroof.Shade.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 3836077128c65381b01e74a1a8be1c40
 
@@ -2161,6 +2393,12 @@ Vehicle.Cabin.Door.Row1.Left.Window.IsChildLockEngaged:
 Vehicle.Cabin.Door.Row1.Left.Window.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: e276bf971dae507f99b463f7fe574969
 
@@ -2178,6 +2416,12 @@ Vehicle.Cabin.Door.Row1.Left.Shade:
 Vehicle.Cabin.Door.Row1.Left.Shade.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 15c012ed31a054ecb2b9b2b1cf57e825
 
@@ -2236,6 +2480,12 @@ Vehicle.Cabin.Door.Row1.Right.Window.IsChildLockEngaged:
 Vehicle.Cabin.Door.Row1.Right.Window.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: fcb9ede77f065479a10740324c0efdc6
 
@@ -2253,6 +2503,12 @@ Vehicle.Cabin.Door.Row1.Right.Shade:
 Vehicle.Cabin.Door.Row1.Right.Shade.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 763aea099a515fc998fde10d936b0b38
 
@@ -2316,6 +2572,12 @@ Vehicle.Cabin.Door.Row2.Left.Window.IsChildLockEngaged:
 Vehicle.Cabin.Door.Row2.Left.Window.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 1a5d1c57f46e576a8a94853e2a44d3f8
 
@@ -2333,6 +2595,12 @@ Vehicle.Cabin.Door.Row2.Left.Shade:
 Vehicle.Cabin.Door.Row2.Left.Shade.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 41f6f14bbb595dcf8e51d1696e877114
 
@@ -2391,6 +2659,12 @@ Vehicle.Cabin.Door.Row2.Right.Window.IsChildLockEngaged:
 Vehicle.Cabin.Door.Row2.Right.Window.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 364c0a712fa854b4b1b332eae1be179b
 
@@ -2408,6 +2682,12 @@ Vehicle.Cabin.Door.Row2.Right.Shade:
 Vehicle.Cabin.Door.Row2.Right.Shade.Switch:
   type: actuator
   datatype: string
+  allowed:
+  - Inactive
+  - Close
+  - Open
+  - OneShotClose
+  - OneShotOpen
   description: Switch controlling sliding action such as window, sunroof, or blind.
   uuid: 5b94a0c4e30a575c93942f0566be8be7
 
@@ -4441,6 +4721,13 @@ Vehicle.Cabin.Convertible:
 Vehicle.Cabin.Convertible.Status:
   type: sensor
   datatype: string
+  allowed:
+  - undefined
+  - closed
+  - open
+  - closing
+  - opening
+  - stalled
   description: Roof status on convertible vehicles.
   uuid: c8812698198a56d7a1adcc8bbe87845f
 
@@ -4452,12 +4739,29 @@ Vehicle.ADAS:
 Vehicle.ADAS.ActiveAutonomyLevel:
   type: sensor
   datatype: string
+  allowed:
+  - SAE_0
+  - SAE_1
+  - SAE_2_DISENGAGING
+  - SAE_2
+  - SAE_3_DISENGAGING
+  - SAE_3
+  - SAE_4_DISENGAGING
+  - SAE_4
+  - SAE_5
   description: Indicates the currently active level of autonomy according to SAE J3016 taxonomy.
   uuid: b101c6928fc55948b1cc485e568ecd8d
 
 Vehicle.ADAS.SupportedAutonomyLevel:
   type: attribute
   datatype: string
+  allowed:
+  - SAE_0
+  - SAE_1
+  - SAE_2
+  - SAE_3
+  - SAE_4
+  - SAE_5
   description: Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.
   uuid: 020410189ab4517cb85ceda268b40f51
 
@@ -5013,6 +5317,9 @@ Vehicle.Chassis.SteeringWheel.Extension:
 Vehicle.Chassis.SteeringWheel.Position:
   type: attribute
   datatype: string
+  allowed:
+  - front_left
+  - front_right
   default: front_left
   description: Position of the steering wheel on the left or right side of the vehicle.
   uuid: 314d6eeeba195098b36ae7f476d27824
@@ -5076,6 +5383,9 @@ Vehicle.OBD.Status.DTCCount:
 Vehicle.OBD.Status.IgnitionType:
   type: sensor
   datatype: string
+  allowed:
+  - spark
+  - compression
   description: Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
   uuid: 7ffd71caac8e5bd18f93366afdfe534d
 
@@ -5745,6 +6055,9 @@ Vehicle.OBD.DriveCycleStatus.DTCCount:
 Vehicle.OBD.DriveCycleStatus.IgnitionType:
   type: sensor
   datatype: string
+  allowed:
+  - spark
+  - compression
   description: Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
   uuid: 1aeb7b6d025f5a8693104824abaa1c49
 
