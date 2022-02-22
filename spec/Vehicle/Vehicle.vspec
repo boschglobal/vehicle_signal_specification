@@ -1,4 +1,5 @@
 #
+# (C) 2022 Robert Bosch GmbH
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
 #
@@ -361,7 +362,7 @@ CurrentLocation:
 CurrentLocation.Timestamp:
   datatype: string
   type: sensor
-  description: GNSS Timestamp for latest position, formatted according to ISO 8601 with UTC time zone.
+  description: Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.
 
 CurrentLocation.Latitude:
   datatype: double
@@ -385,13 +386,14 @@ CurrentLocation.Heading:
   min: 0
   max: 360
   unit: degrees
-  description: Current magnetic compass heading.
+  description: Current heading relative to geographic north.
+               0 = North, 90 = East, 180 = South, 270 = West.
 
-CurrentLocation.Accuracy:
+CurrentLocation.HorizontalAccuracy:
   datatype: double
   type: sensor
   unit: m
-  description: Accuracy level of the latitude and longitude coordinates.
+  description: Accuracy of the latitude and longitude coordinates.
 
 CurrentLocation.Altitude:
   datatype: double
@@ -399,3 +401,8 @@ CurrentLocation.Altitude:
   unit: m
   description: Current altitude relative to WGS 84 reference ellipsoid.
 
+CurrentLocation.VerticalAccuracy:
+  datatype: double
+  type: sensor
+  unit: m
+  description: Accuracy of altitude.
