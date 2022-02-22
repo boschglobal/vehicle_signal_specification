@@ -267,18 +267,18 @@
             "children": {
               "Type": {
                 "allowed": [
-                  "unknown",
-                  "Not_Fitted",
-                  "AC_Type_1",
-                  "AC_Type_2",
+                  "UNKNOWN",
+                  "NOT_FITTED",
+                  "AC_TYPE_1",
+                  "AC_TYPE_2",
                   "AC_GBT",
-                  "AC_DC_Type_1_Combo",
-                  "AC_DC_Type_2_Combo",
+                  "AC_DC_TYPE_1_COMBO",
+                  "AC_DC_TYPE_2_COMBO",
                   "DC_GBT",
-                  "DC_Chademo"
+                  "DC_CHADEMO"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Indicates the primary charging type fitted to the vehicle.",
                 "type": "attribute",
                 "uuid": "fffa718e15fb50c285fb33e99116eddc"
@@ -473,12 +473,12 @@
           },
           "RefuelPosition": {
             "allowed": [
-              "front_left",
-              "front_right",
-              "middle_left",
-              "middle_right",
-              "rear_left",
-              "rear_right"
+              "FRONT_LEFT",
+              "FRONT_RIGHT",
+              "MIDDLE_LEFT",
+              "MIDDLE_RIGHT",
+              "REAR_LEFT",
+              "REAR_RIGHT"
             ],
             "datatype": "string",
             "description": "Location of the fuel cap or charge port.",
@@ -538,12 +538,12 @@
                     "children": {
                       "Status": {
                         "allowed": [
-                          "off",
-                          "slow",
-                          "medium",
-                          "fast",
-                          "interval",
-                          "rainsensor"
+                          "OFF",
+                          "SLOW",
+                          "MEDIUM",
+                          "FAST",
+                          "INTERVAL",
+                          "RAIN_SENSOR"
                         ],
                         "datatype": "string",
                         "description": "Wiper status.",
@@ -592,12 +592,12 @@
                     "children": {
                       "Status": {
                         "allowed": [
-                          "off",
-                          "slow",
-                          "medium",
-                          "fast",
-                          "interval",
-                          "rainsensor"
+                          "OFF",
+                          "SLOW",
+                          "MEDIUM",
+                          "FAST",
+                          "INTERVAL",
+                          "RAIN_SENSOR"
                         ],
                         "datatype": "string",
                         "description": "Wiper status.",
@@ -630,12 +630,12 @@
             "children": {
               "Status": {
                 "allowed": [
-                  "undefined",
-                  "closed",
-                  "open",
-                  "closing",
-                  "opening",
-                  "stalled"
+                  "UNDEFINED",
+                  "CLOSED",
+                  "OPEN",
+                  "CLOSING",
+                  "OPENING",
+                  "STALLED"
                 ],
                 "datatype": "string",
                 "description": "Roof status on convertible vehicles.",
@@ -684,11 +684,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -725,11 +725,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -779,11 +779,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -820,11 +820,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -881,11 +881,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -922,11 +922,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -976,11 +976,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -1017,11 +1017,11 @@
                           },
                           "Switch": {
                             "allowed": [
-                              "Inactive",
-                              "Close",
-                              "Open",
-                              "OneShotClose",
-                              "OneShotOpen"
+                              "INACTIVE",
+                              "CLOSE",
+                              "OPEN",
+                              "ONE_SHOT_CLOSE",
+                              "ONE_SHOT_OPEN"
                             ],
                             "datatype": "string",
                             "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -1104,9 +1104,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1138,9 +1138,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1179,9 +1179,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1213,9 +1213,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1254,9 +1254,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1288,9 +1288,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1329,9 +1329,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1363,9 +1363,9 @@
                         "children": {
                           "AirDistribution": {
                             "allowed": [
-                              "up",
-                              "middle",
-                              "down"
+                              "UP",
+                              "MIDDLE",
+                              "DOWN"
                             ],
                             "datatype": "string",
                             "description": "Direction of airstream",
@@ -1420,12 +1420,12 @@
                   },
                   "DateFormat": {
                     "allowed": [
-                      "YYYY MM DD",
-                      "DD MM YYYY",
-                      "MM DD YYYY",
-                      "YY MM DD",
-                      "DD MM YY",
-                      "MM DD YY"
+                      "YYYY_MM_DD",
+                      "DD_MM_YYYY",
+                      "MM_DD_YYYY",
+                      "YY_MM_DD",
+                      "DD_MM_YY",
+                      "MM_DD_YY"
                     ],
                     "datatype": "string",
                     "description": "Date format used in the current HMI",
@@ -1434,8 +1434,8 @@
                   },
                   "DayNightMode": {
                     "allowed": [
-                      "Day",
-                      "Night"
+                      "DAY",
+                      "NIGHT"
                     ],
                     "datatype": "string",
                     "description": "Current display theme",
@@ -1444,8 +1444,8 @@
                   },
                   "DistanceUnit": {
                     "allowed": [
-                      "mi",
-                      "km"
+                      "MILES",
+                      "KILOMETERS"
                     ],
                     "datatype": "string",
                     "description": "Distance unit used in the current HMI",
@@ -1454,12 +1454,12 @@
                   },
                   "EVEconomyUnits": {
                     "allowed": [
-                      "mi/kWh",
-                      "km/kWh",
-                      "kWh/100mi",
-                      "kWh/100km",
-                      "Wh/mi",
-                      "Wh/km"
+                      "MILES_PER_KILOWATT_HOUR",
+                      "KILOMETERS_PER_KILOWATT_HOUR",
+                      "KILOWATT_HOURS_PER_100_MILES",
+                      "KILOWATT_HOURS_PER_100_KILOMETERS",
+                      "WATT_HOURS_PER_MILE",
+                      "WATT_HOURS_PER_KILOMETER"
                     ],
                     "datatype": "string",
                     "description": "EV fuel economy unit used in the current HMI",
@@ -1468,11 +1468,11 @@
                   },
                   "FuelEconomyUnits": {
                     "allowed": [
-                      "mpg_UK",
-                      "mpg_US",
-                      "mpl",
-                      "km/l",
-                      "l/100km"
+                      "MPG_UK",
+                      "MPG_US",
+                      "MILES_PER_LITER",
+                      "KILOMETERS_PER_LITER",
+                      "LITERS_PER_100_KILOMETERS"
                     ],
                     "datatype": "string",
                     "description": "Fuel economy unit used in the current HMI",
@@ -1491,8 +1491,8 @@
                   },
                   "TimeFormat": {
                     "allowed": [
-                      "12HR",
-                      "24HR"
+                      "HR_12",
+                      "HR_24"
                     ],
                     "datatype": "string",
                     "description": "Time format used in the current HMI",
@@ -1508,13 +1508,13 @@
                 "children": {
                   "Action": {
                     "allowed": [
-                      "unknown",
-                      "Stop",
-                      "Play",
-                      "FastForward",
-                      "FastBackward",
-                      "SkipForward",
-                      "SkipBackward"
+                      "UNKNOWN",
+                      "STOP",
+                      "PLAY",
+                      "FAST_FORWARD",
+                      "FAST_BACKWARD",
+                      "SKIP_FORWARD",
+                      "SKIP_BACKWARD"
                     ],
                     "datatype": "string",
                     "description": "Tells if the media was",
@@ -1543,8 +1543,8 @@
                       },
                       "Source": {
                         "allowed": [
-                          "unknown",
-                          "SiriusXM",
+                          "UNKNOWN",
+                          "SIRIUS_XM",
                           "AM",
                           "FM",
                           "DAB",
@@ -1553,11 +1553,11 @@
                           "DVD",
                           "AUX",
                           "USB",
-                          "Disk",
-                          "Bluetooth",
-                          "Internet",
-                          "Voice",
-                          "Beep"
+                          "DISK",
+                          "BLUETOOTH",
+                          "INTERNET",
+                          "VOICE",
+                          "BEEP"
                         ],
                         "datatype": "string",
                         "description": "Media selected for playback",
@@ -1800,11 +1800,11 @@
               },
               "Switch": {
                 "allowed": [
-                  "Inactive",
-                  "Close",
-                  "Open",
-                  "OneShotClose",
-                  "OneShotOpen"
+                  "INACTIVE",
+                  "CLOSE",
+                  "OPEN",
+                  "ONE_SHOT_CLOSE",
+                  "ONE_SHOT_OPEN"
                 ],
                 "datatype": "string",
                 "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -4041,11 +4041,11 @@
                   },
                   "Switch": {
                     "allowed": [
-                      "Inactive",
-                      "Close",
-                      "Open",
-                      "OneShotClose",
-                      "OneShotOpen"
+                      "INACTIVE",
+                      "CLOSE",
+                      "OPEN",
+                      "ONE_SHOT_CLOSE",
+                      "ONE_SHOT_OPEN"
                     ],
                     "datatype": "string",
                     "description": "Switch controlling sliding action such as window, sunroof, or blind.",
@@ -4059,13 +4059,13 @@
               },
               "Switch": {
                 "allowed": [
-                  "Inactive",
-                  "Close",
-                  "Open",
-                  "OneShotClose",
-                  "OneShotOpen",
-                  "TiltUp",
-                  "TiltDown"
+                  "INACTIVE",
+                  "CLOSE",
+                  "OPEN",
+                  "ONE_SHOT_CLOSE",
+                  "ONE_SHOT_OPEN",
+                  "TILT_UP",
+                  "TILT_DOWN"
                 ],
                 "datatype": "string",
                 "description": "Switch controlling sliding action such as window, sunroof, or shade.",
@@ -4545,11 +4545,11 @@
               },
               "Position": {
                 "allowed": [
-                  "front_left",
-                  "front_right"
+                  "FRONT_LEFT",
+                  "FRONT_RIGHT"
                 ],
                 "datatype": "string",
-                "default": "front_left",
+                "default": "FRONT_LEFT",
                 "description": "Position of the steering wheel on the left or right side of the vehicle.",
                 "type": "attribute",
                 "uuid": "314d6eeeba195098b36ae7f476d27824"
@@ -4948,8 +4948,8 @@
               },
               "IgnitionType": {
                 "allowed": [
-                  "spark",
-                  "compression"
+                  "SPARK",
+                  "COMPRESSION"
                 ],
                 "datatype": "string",
                 "description": "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)",
@@ -5694,8 +5694,8 @@
               },
               "IgnitionType": {
                 "allowed": [
-                  "spark",
-                  "compression"
+                  "SPARK",
+                  "COMPRESSION"
                 ],
                 "datatype": "string",
                 "description": "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)",
@@ -5779,13 +5779,13 @@
             "children": {
               "AspirationType": {
                 "allowed": [
-                  "unknown",
-                  "natural",
-                  "supercharger",
-                  "turbocharger"
+                  "UNKNOWN",
+                  "NATURAL",
+                  "SUPERCHARGER",
+                  "TURBOCHARGER"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Type of aspiration (natural, turbocharger, supercharger etc).",
                 "type": "attribute",
                 "uuid": "3ca6a8ff30275c20a9d8d6d6829574eb"
@@ -5805,21 +5805,21 @@
               },
               "Configuration": {
                 "allowed": [
-                  "unknown",
-                  "straight",
+                  "UNKNOWN",
+                  "STRAIGHT",
                   "V",
-                  "boxer",
+                  "BOXER",
                   "W",
-                  "rotary",
-                  "radial",
-                  "square",
+                  "ROTARY",
+                  "RADIAL",
+                  "SQUARE",
                   "H",
                   "U",
-                  "opposed",
+                  "OPPOSED",
                   "X"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Engine configuration.",
                 "type": "attribute",
                 "uuid": "586be4567fe059ee9e6cf42901c2e773"
@@ -5917,6 +5917,13 @@
                 "unit": "celsius",
                 "uuid": "eae6f5eae04f530e80f6b024f95b767d"
               },
+              "EngineCode": {
+                "comment": "For hybrid vehicles the engine code may refer to the combination of combustion and electric engine.",
+                "datatype": "string",
+                "description": "Engine code designation, as specified by vehicle manufacturer.",
+                "type": "attribute",
+                "uuid": "4ec845911b8e5b64b2cb1d34063184de"
+              },
               "EngineCoolantCapacity": {
                 "datatype": "float",
                 "description": "Engine coolant capacity in liters.",
@@ -5940,11 +5947,11 @@
               },
               "EngineOilLevel": {
                 "allowed": [
-                  "critically_low",
-                  "low",
-                  "normal",
-                  "high",
-                  "critically_high"
+                  "CRITICALLY_LOW",
+                  "LOW",
+                  "NORMAL",
+                  "HIGH",
+                  "CRITICALLY_HIGH"
                 ],
                 "datatype": "string",
                 "description": "Engine oil level.",
@@ -5953,14 +5960,14 @@
               },
               "FuelType": {
                 "allowed": [
-                  "unknown",
-                  "gasoline",
-                  "diesel",
+                  "UNKNOWN",
+                  "GASOLINE",
+                  "DIESEL",
                   "E85",
                   "CNG"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Type of fuel that the engine runs on.",
                 "type": "attribute",
                 "uuid": "d0f8c79131c850bab8159eaefc7e23e5"
@@ -6080,6 +6087,12 @@
                 "unit": "celsius",
                 "uuid": "3c5ea8c7700956518f2ae7a2a0f34f1c"
               },
+              "EngineCode": {
+                "datatype": "string",
+                "description": "Engine code designation, as specified by vehicle manufacturer.",
+                "type": "attribute",
+                "uuid": "e4102a5142ed501495e5edafd3d36dfb"
+              },
               "MaxPower": {
                 "datatype": "uint16",
                 "default": 0,
@@ -6164,32 +6177,32 @@
               },
               "FuelType": {
                 "allowed": [
-                  "unknown",
-                  "gasoline",
-                  "diesel",
-                  "electric",
-                  "hybrid",
+                  "UNKNOWN",
+                  "GASOLINE",
+                  "DIESEL",
+                  "ELECTRIC",
+                  "HYBRID",
                   "E85",
                   "CNG",
                   "LPG"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Defines the fuel type of the vehicle.",
                 "type": "attribute",
                 "uuid": "76442e696df5540b8b747373b29895d9"
               },
               "HybridType": {
                 "allowed": [
-                  "unknown",
-                  "not_applicable",
-                  "stop_start",
-                  "belt_ISG",
+                  "UNKNOWN",
+                  "NOT_APPLICABLE",
+                  "STOP_START",
+                  "BELT_ISG",
                   "CIMG",
                   "PHEV"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Defines the hybrid type of the vehicle.",
                 "type": "attribute",
                 "uuid": "f0f72012f5e453c1935ff8c3a5aff696"
@@ -6292,21 +6305,21 @@
                   },
                   "ChargePlugType": {
                     "allowed": [
-                      "type 1",
-                      "type 2",
-                      "ccs",
-                      "chademo"
+                      "TYPE_1",
+                      "TYPE_2",
+                      "CCS",
+                      "CHADEMO"
                     ],
                     "datatype": "string",
-                    "default": "ccs",
+                    "default": "CCS",
                     "description": "Type of charge plug available on the vehicle (CSS includes Type2).",
                     "type": "attribute",
                     "uuid": "4c56357a6f1d586395215a9beeb26d91"
                   },
                   "ChargePortFlap": {
                     "allowed": [
-                      "open",
-                      "closed"
+                      "OPEN",
+                      "CLOSED"
                     ],
                     "datatype": "string",
                     "description": "Status of the charge port cover, can potentially be controlled manually.",
@@ -6348,9 +6361,9 @@
                   },
                   "Mode": {
                     "allowed": [
-                      "manual",
-                      "timer",
-                      "grid"
+                      "MANUAL",
+                      "TIMER",
+                      "GRID"
                     ],
                     "datatype": "string",
                     "description": "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).",
@@ -6359,8 +6372,8 @@
                   },
                   "StartStopCharging": {
                     "allowed": [
-                      "start",
-                      "stop"
+                      "START",
+                      "STOP"
                     ],
                     "datatype": "string",
                     "description": "Start or stop the charging process.",
@@ -6379,12 +6392,12 @@
                     "children": {
                       "Mode": {
                         "allowed": [
-                          "inactive",
-                          "starttime",
-                          "endtime"
+                          "INACTIVE",
+                          "START_TIME",
+                          "END_TIME"
                         ],
                         "datatype": "string",
-                        "description": "Defines timer mode for charging: 'inactive' - no timer set, charging may start as soon as battery is connected to a charger. 'starttime' - charging shall start at Charging.Timer.Time. 'endtime' - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.",
+                        "description": "Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.",
                         "type": "actuator",
                         "uuid": "b09fb52261735977af275dda1904a7a1"
                       },
@@ -6544,21 +6557,21 @@
               },
               "DriveType": {
                 "allowed": [
-                  "unknown",
-                  "forward wheel drive",
-                  "rear wheel drive",
-                  "all wheel drive"
+                  "UNKNOWN",
+                  "FORWARD_WHEEL_DRIVE",
+                  "REAR_WHEEL_DRIVE",
+                  "ALL_WHEEL_DRIVE"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Drive type.",
                 "type": "attribute",
                 "uuid": "0e480b76fb2d5f8bb08fb586f90ee6ae"
               },
               "GearChangeMode": {
                 "allowed": [
-                  "manual",
-                  "automatic"
+                  "MANUAL",
+                  "AUTOMATIC"
                 ],
                 "datatype": "string",
                 "description": "Is the gearbox in automatic or manual (paddle) mode.",
@@ -6594,11 +6607,11 @@
               },
               "PerformanceMode": {
                 "allowed": [
-                  "normal",
-                  "sport",
-                  "economy",
-                  "snow",
-                  "rain"
+                  "NORMAL",
+                  "SPORT",
+                  "ECONOMY",
+                  "SNOW",
+                  "RAIN"
                 ],
                 "datatype": "string",
                 "description": "Current gearbox performance mode.",
@@ -6636,15 +6649,15 @@
               },
               "Type": {
                 "allowed": [
-                  "unknown",
-                  "sequential",
+                  "UNKNOWN",
+                  "SEQUENTIAL",
                   "H",
-                  "automatic",
+                  "AUTOMATIC",
                   "DSG",
                   "CVT"
                 ],
                 "datatype": "string",
-                "default": "unknown",
+                "default": "UNKNOWN",
                 "description": "Transmission type.",
                 "type": "attribute",
                 "uuid": "f83b9e5464d85a0288fcb32c164d3c63"
