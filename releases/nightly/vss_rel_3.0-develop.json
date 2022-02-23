@@ -263,31 +263,6 @@
             "type": "attribute",
             "uuid": "6253412513105deea63b1d424117fd88"
           },
-          "ChargingPort": {
-            "children": {
-              "Type": {
-                "allowed": [
-                  "UNKNOWN",
-                  "NOT_FITTED",
-                  "AC_TYPE_1",
-                  "AC_TYPE_2",
-                  "AC_GBT",
-                  "AC_DC_TYPE_1_COMBO",
-                  "AC_DC_TYPE_2_COMBO",
-                  "DC_GBT",
-                  "DC_CHADEMO"
-                ],
-                "datatype": "string",
-                "default": "UNKNOWN",
-                "description": "Indicates the primary charging type fitted to the vehicle.",
-                "type": "attribute",
-                "uuid": "fffa718e15fb50c285fb33e99116eddc"
-              }
-            },
-            "description": "Collects Information about the charging port.",
-            "type": "branch",
-            "uuid": "187537d025a358db843f7e92765ff4b9"
-          },
           "Hood": {
             "children": {
               "IsOpen": {
@@ -6305,14 +6280,22 @@
                   },
                   "ChargePlugType": {
                     "allowed": [
-                      "TYPE_1",
-                      "TYPE_2",
-                      "CCS",
-                      "CHADEMO"
+                      "IEC_TYPE_1_AC",
+                      "IEC_TYPE_2_AC",
+                      "IEC_TYPE_3_AC",
+                      "IEC_TYPE_4_DC",
+                      "IEC_TYPE_1_CCS_DC",
+                      "IEC_TYPE_2_CCS_DC",
+                      "TESLA_ROADSTER",
+                      "TESLA_HPWC",
+                      "TESLA_SUPERCHARGER",
+                      "GBT_AC",
+                      "GBT_DC",
+                      "OTHER"
                     ],
+                    "comment": "IEC_TYPE_1_AC refers to Type 1 as defined in IEC 62196-2. Also known as Yazaki or J1772 connector. IEC_TYPE_2_AC refers to Type 2 as defined in IEC 62196-2. Also known as Mennekes connector. IEC_TYPE_3_AC refers to Type 3 as defined in IEC 62196-2. Also known as Scame connector. IEC_TYPE_4_DC refers to AA configuration as defined in IEC 62196-3. Also known as Type 4 or CHAdeMO connector. IEC_TYPE_1_CCS_DC refers to EE Configuration as defined in IEC 62196-3. Also known as CCS1 or Combo1 connector. IEC_TYPE_2_CCS_DC refers to FF Configuration as defined in IEC 62196-3. Also known as CCS2 or Combo2 connector. TESLA_ROADSTER, TESLA_HPWC (High Power Wall Connector) and TESLA_SUPERCHARGER refer to non-standardized charging plugs/methods used by Tesla. GBT_AC refers to connector specified in GB/T 20234.2. GBT_DC refers to connector specified in GB/T 20234.3. Also specified as BB Configuration in IEC 62196-3. OTHER shall be used if the vehicle has a charging connector, but not one of the connectors listed above. For additional information see https://en.wikipedia.org/wiki/IEC_62196.",
                     "datatype": "string",
-                    "default": "CCS",
-                    "description": "Type of charge plug available on the vehicle (CSS includes Type2).",
+                    "description": "Type of charge plug (charging connector) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.",
                     "type": "attribute",
                     "uuid": "4c56357a6f1d586395215a9beeb26d91"
                   },

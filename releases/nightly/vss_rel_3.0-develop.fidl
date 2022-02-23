@@ -1207,10 +1207,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.Charging.ChargePlugType"
     type: "attribute"
-    description: "Type of charge plug available on the vehicle (CSS includes Type2)."
+    description: "Type of charge plug (charging connector) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234."
     datatype: string
     uuid: 4c56357a6f1d586395215a9beeb26d91
-    allowed: ['TYPE_1', 'TYPE_2', 'CCS', 'CHADEMO']
+    allowed: ['IEC_TYPE_1_AC', 'IEC_TYPE_2_AC', 'IEC_TYPE_3_AC', 'IEC_TYPE_4_DC', 'IEC_TYPE_1_CCS_DC', 'IEC_TYPE_2_CCS_DC', 'TESLA_ROADSTER', 'TESLA_HPWC', 'TESLA_SUPERCHARGER', 'GBT_AC', 'GBT_DC', 'OTHER']
 }
 ,
 {
@@ -1657,15 +1657,6 @@ const SignalSpec[] signal_spec = [
     description: "Mirror Heater on or off. True = Heater On. False = Heater Off."
     datatype: boolean
     uuid: 9a57455f48ea5fdbb7a998905dda318c
-}
-,
-{
-    name: "Vehicle.Body.ChargingPort.Type"
-    type: "attribute"
-    description: "Indicates the primary charging type fitted to the vehicle."
-    datatype: string
-    uuid: fffa718e15fb50c285fb33e99116eddc
-    allowed: ['UNKNOWN', 'NOT_FITTED', 'AC_TYPE_1', 'AC_TYPE_2', 'AC_GBT', 'AC_DC_TYPE_1_COMBO', 'AC_DC_TYPE_2_COMBO', 'DC_GBT', 'DC_CHADEMO']
 }
 ,
 {
