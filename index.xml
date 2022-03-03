@@ -62,7 +62,7 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
       <pubDate>Tue, 30 Jul 2019 14:46:01 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
-      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.
+      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.
 A standardized vehicle data specification allows an industry actor to use a common naming space for communication and, ultimately, abstracts underlying vehicle implementation details.</description>
     </item>
     
@@ -105,7 +105,7 @@ Components of a domain taxonomy A domain taxonomy, like VSS, consists of three i
       
       <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</guid>
       <description>Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.
-W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/UlfBj/W3C_VehicleSignalInterfaceImpl.
+W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/w3c/automotive-viss2.
 KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
 IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge.</description>
     </item>
@@ -116,7 +116,7 @@ IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing 
       <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
-      <description>Sensors are signals to read values of properties in a vehicle. Values of signals typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
+      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
 Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
     </item>
     
@@ -126,8 +126,7 @@ Actuators are used to control the desired value of a property. Some properties i
       <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
-      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification include default values for most attributes. It is expected that these default values do not fit all values. This means that an OEM must override the standard default values if a vehicle needs a different value.
-Attribute values can also change, similar to sensor values. The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle.</description>
+      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
     </item>
     
     <item>

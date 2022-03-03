@@ -415,7 +415,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Timestamp"
     type: "sensor"
-    description: "GNSS Timestamp for latest position, formatted according to ISO 8601 with UTC time zone."
+    description: "Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone."
     datatype: string
     uuid: 094aeff73be05c08905690be0e82a438
 }
@@ -445,7 +445,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Heading"
     type: "sensor"
-    description: "Current magnetic compass heading."
+    description: "Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West."
     datatype: double
     uuid: 2a8f0afa2b315943aa001278875ce012
     min: 0
@@ -454,11 +454,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.CurrentLocation.Accuracy"
+    name: "Vehicle.CurrentLocation.HorizontalAccuracy"
     type: "sensor"
-    description: "Accuracy level of the latitude and longitude coordinates."
+    description: "Accuracy of the latitude and longitude coordinates."
     datatype: double
-    uuid: c6135205a21753e49b45614d562a89b7
+    uuid: bf25ef243f0c5f839f7ef874f9c57fda
     unit: m
 }
 ,
@@ -468,6 +468,15 @@ const SignalSpec[] signal_spec = [
     description: "Current altitude relative to WGS 84 reference ellipsoid."
     datatype: double
     uuid: d3ead98ab0b751c1a5b5dd5bc0e5e216
+    unit: m
+}
+,
+{
+    name: "Vehicle.CurrentLocation.VerticalAccuracy"
+    type: "sensor"
+    description: "Accuracy of altitude."
+    datatype: double
+    uuid: 8f54055bce9e5e8e97fb6051582707ab
     unit: m
 }
 ,

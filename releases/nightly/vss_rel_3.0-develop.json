@@ -4574,13 +4574,6 @@
       },
       "CurrentLocation": {
         "children": {
-          "Accuracy": {
-            "datatype": "double",
-            "description": "Accuracy level of the latitude and longitude coordinates.",
-            "type": "sensor",
-            "unit": "m",
-            "uuid": "c6135205a21753e49b45614d562a89b7"
-          },
           "Altitude": {
             "datatype": "double",
             "description": "Current altitude relative to WGS 84 reference ellipsoid.",
@@ -4590,12 +4583,19 @@
           },
           "Heading": {
             "datatype": "double",
-            "description": "Current magnetic compass heading.",
+            "description": "Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West.",
             "max": 360,
             "min": 0,
             "type": "sensor",
             "unit": "degrees",
             "uuid": "2a8f0afa2b315943aa001278875ce012"
+          },
+          "HorizontalAccuracy": {
+            "datatype": "double",
+            "description": "Accuracy of the latitude and longitude coordinates.",
+            "type": "sensor",
+            "unit": "m",
+            "uuid": "bf25ef243f0c5f839f7ef874f9c57fda"
           },
           "Latitude": {
             "datatype": "double",
@@ -4617,9 +4617,16 @@
           },
           "Timestamp": {
             "datatype": "string",
-            "description": "GNSS Timestamp for latest position, formatted according to ISO 8601 with UTC time zone.",
+            "description": "Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.",
             "type": "sensor",
             "uuid": "094aeff73be05c08905690be0e82a438"
+          },
+          "VerticalAccuracy": {
+            "datatype": "double",
+            "description": "Accuracy of altitude.",
+            "type": "sensor",
+            "unit": "m",
+            "uuid": "8f54055bce9e5e8e97fb6051582707ab"
           }
         },
         "description": "The current latitude and longitude of the vehicle.",

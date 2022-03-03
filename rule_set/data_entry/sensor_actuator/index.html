@@ -12,21 +12,21 @@
     <title>Sensors &amp; Actuators :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1645609003" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1645609003" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1646303275" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1646303275" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1645609003" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-green.css?1646303275" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1645609003"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1646303275"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1645609003"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1645609003"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1646303275"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1646303275"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1645609003"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1646303275"></script>
 
     
   </div>
@@ -661,7 +661,7 @@
         
 
 
-<p>Sensors are signals to read values of properties in a vehicle. Values of signals typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.</p>
+<p>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.</p>
 <p>Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window. Reading a value of an actuator shall return the current actual value, e.g. the current position of the seat, rather than the wanted/desired position. A typical example could be if someone wants to change the position of a seat from 0 to 100. This can be changed by setting the corresponding actuator to 100. If the actuator is read directly after the set request it will still return 0 as it might take some seconds before the seat reaches the wanted position of 100. If the seat by some reason is blocked or cannot be moved due to safety reasons it might never reach the wanted position. It is up to the vehicle to decide how long time it shall try to reach the desired value and what to do if it needs to give up.</p>
 <p>A data entry for a sensor or actuator defines its members. A data
 entry example is given below:</p>
@@ -681,7 +681,7 @@ Defines the type of the node. This can be <code>branch</code>,
 <code>sensor</code>, <code>actuator</code> or <code>attribute</code>.</p>
 <p><strong><code>datatype</code></strong><br>
 The string value of the type specifies the scalar type of the data entry
-value. See <a href="#data-type">data type</a> chapter for a list of available types.</p>
+value. See <a href="data_types/">data type</a> chapter for a list of available types.</p>
 <p><strong><code>description</code></strong><br>
 Describes the meaning and content of the signal.
 The <code>description</code>shall together with other mandatory members like <code>datatype</code> and <code>unit</code> provide sufficient information
@@ -703,7 +703,7 @@ data entry can be assigned.
 If omitted, the maximum value will be the &ldquo;Max&rdquo; value for the given type.
 Cannot be specified if <code>allowed</code> is defined for the same data entry.</p>
 <p><strong><code>unit</code></strong> <em>[optional]</em> <br>
-The unit of measurement that the data entry has. See <a href="#data-unit-type">Unit
+The unit of measurement that the data entry has. See <a href="data_unit_types/">Unit
 Type</a> chapter for a list of available unit types. This
 cannot be specified if <code>allowed</code> is defined as the signal type.</p>
 <p><strong><code>sensor</code></strong> <em>[optional]</em><br>
@@ -1085,19 +1085,19 @@ The actuating appliance consuming the data entry.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1645609003"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1646303275"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1645609003"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1645609003"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1646303275"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1646303275"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1645609003"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1646303275"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
