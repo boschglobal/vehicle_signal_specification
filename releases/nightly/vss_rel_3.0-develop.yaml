@@ -13,11 +13,11 @@ Vehicle.ADAS.ABS:
   type: branch
   uuid: 219270ef27c4531f874bbda63743b330
 
-Vehicle.ADAS.ABS.IsActive:
+Vehicle.ADAS.ABS.IsEnabled:
   datatype: boolean
   description: Indicates if ABS is enabled. True = Enabled. False = Disabled.
   type: actuator
-  uuid: 433b7039199357178688197d6e264725
+  uuid: cad374fbfdc65df9b777508f04d5b073
 
 Vehicle.ADAS.ABS.IsEngaged:
   datatype: boolean
@@ -54,13 +54,19 @@ Vehicle.ADAS.CruiseControl:
 
 Vehicle.ADAS.CruiseControl.IsActive:
   datatype: boolean
-  description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
+  description: Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.
   type: actuator
   uuid: 78ab5ce923dc5aa1a6622bcb948e1561
 
+Vehicle.ADAS.CruiseControl.IsEnabled:
+  datatype: boolean
+  description: Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.
+  type: actuator
+  uuid: 018417f6c8535315895d0f54d209035a
+
 Vehicle.ADAS.CruiseControl.IsError:
   datatype: boolean
-  description: Indicates if cruise control system incurred and error condition. True = Error. False = NoError.
+  description: Indicates if cruise control system incurred an error condition. True = Error. False = No Error.
   type: sensor
   uuid: 22923d4a36bc5192a08e40fe9e5ed458
 
@@ -71,16 +77,62 @@ Vehicle.ADAS.CruiseControl.SpeedSet:
   unit: km/h
   uuid: b3f3a53ccd825e4da5cb1226f94dc005
 
+Vehicle.ADAS.EBA:
+  description: Emergency Brake Assist (EBA) System signals.
+  type: branch
+  uuid: 51ec0930d0af5b91b84a0775c6e87a97
+
+Vehicle.ADAS.EBA.IsEnabled:
+  datatype: boolean
+  description: Indicates if EBA is enabled. True = Enabled. False = Disabled.
+  type: actuator
+  uuid: 3ae9171b69555fb08855054ab38e9b17
+
+Vehicle.ADAS.EBA.IsEngaged:
+  datatype: boolean
+  description: Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+  type: sensor
+  uuid: 86360c44ead354d18af7ff14176151f6
+
+Vehicle.ADAS.EBA.IsError:
+  datatype: boolean
+  description: Indicates if EBA incurred an error condition. True = Error. False = No Error.
+  type: sensor
+  uuid: bae0fe856398502ba4a09283867c6c81
+
+Vehicle.ADAS.EBD:
+  description: Electronic Brakeforce Distribution (EBD) System signals.
+  type: branch
+  uuid: 3f4c74a588735b10ac9fe918d305cd5a
+
+Vehicle.ADAS.EBD.IsEnabled:
+  datatype: boolean
+  description: Indicates if EBD is enabled. True = Enabled. False = Disabled.
+  type: actuator
+  uuid: 30f88d3e68575b67853b14ce5f7a08e5
+
+Vehicle.ADAS.EBD.IsEngaged:
+  datatype: boolean
+  description: Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.
+  type: sensor
+  uuid: 67aa2a598f635edda6eb944af99b06db
+
+Vehicle.ADAS.EBD.IsError:
+  datatype: boolean
+  description: Indicates if EBD incurred an error condition. True = Error. False = No Error.
+  type: sensor
+  uuid: 918157073be95015ae38913cd7a9796a
+
 Vehicle.ADAS.ESC:
   description: Electronic Stability Control System signals.
   type: branch
   uuid: 636b4586ce7854b4b270a2f3b6c0af4f
 
-Vehicle.ADAS.ESC.IsActive:
+Vehicle.ADAS.ESC.IsEnabled:
   datatype: boolean
   description: Indicates if ESC is enabled. True = Enabled. False = Disabled.
   type: actuator
-  uuid: 70b769baed285c3897979639d13bafd3
+  uuid: 3f4f39b8d8c05c97a6de685282ba74b7
 
 Vehicle.ADAS.ESC.IsEngaged:
   datatype: boolean
@@ -99,11 +151,11 @@ Vehicle.ADAS.LaneDepartureDetection:
   type: branch
   uuid: e45f33fdcf245f11981b2f201ee8281a
 
-Vehicle.ADAS.LaneDepartureDetection.IsActive:
+Vehicle.ADAS.LaneDepartureDetection.IsEnabled:
   datatype: boolean
   description: Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
   type: actuator
-  uuid: ba683882dbea575b9540118aa914acd8
+  uuid: c099ae97260f5c418977cd14631e95be
 
 Vehicle.ADAS.LaneDepartureDetection.IsError:
   datatype: boolean
@@ -122,17 +174,23 @@ Vehicle.ADAS.ObstacleDetection:
   type: branch
   uuid: e7b6d81631cc5ac584d027d4c1a66cb5
 
-Vehicle.ADAS.ObstacleDetection.IsActive:
+Vehicle.ADAS.ObstacleDetection.IsEnabled:
   datatype: boolean
-  description: Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.
+  description: Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.
   type: actuator
-  uuid: 7262cd48bdad59f3a0d93d9cb592d4f8
+  uuid: cc0cd497285e5034a1cccb25f02e9db9
 
 Vehicle.ADAS.ObstacleDetection.IsError:
   datatype: boolean
   description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
   type: sensor
   uuid: 368b74e2468d5217925a478ed6e34f9f
+
+Vehicle.ADAS.ObstacleDetection.IsWarning:
+  datatype: boolean
+  description: Indicates if obstacle sensor system registered an obstacle.
+  type: sensor
+  uuid: b0b1eab51f135ffcb2a17a7603415fec
 
 Vehicle.ADAS.SupportedAutonomyLevel:
   allowed:
@@ -152,11 +210,11 @@ Vehicle.ADAS.TCS:
   type: branch
   uuid: 0572e9f6b1aa5fb5b2f68086aff05073
 
-Vehicle.ADAS.TCS.IsActive:
+Vehicle.ADAS.TCS.IsEnabled:
   datatype: boolean
   description: Indicates if TCS is enabled. True = Enabled. False = Disabled.
   type: actuator
-  uuid: 6789de7a67515e7f9bcdd18623954074
+  uuid: 1d2dda19b11758a19ba7c1d5cd2d7956
 
 Vehicle.ADAS.TCS.IsEngaged:
   datatype: boolean
@@ -171,7 +229,7 @@ Vehicle.ADAS.TCS.IsError:
   uuid: 08f88723ba63558b8c804b8fe8e3f149
 
 Vehicle.Acceleration:
-  description: Spatial acceleration.
+  description: Spatial acceleration. Axis definitions according to ISO 8855.
   type: branch
   uuid: 6c490e6a798c5abc8f0178ed6deae0a8
 
@@ -204,26 +262,26 @@ Vehicle.AmbientAirTemperature:
   uuid: 2ffcbc2e6ea75dd991e3ae80b29a1d85
 
 Vehicle.AngularVelocity:
-  description: Spatial rotation.
+  description: Spatial rotation. Axis definitions according to ISO 8855.
   type: branch
   uuid: 1eef530a43de56aab665d2766483cde2
 
 Vehicle.AngularVelocity.Pitch:
-  datatype: int16
+  datatype: float
   description: Vehicle rotation rate along Y (lateral).
   type: sensor
   unit: degrees/s
   uuid: 42236f4a01f45313a97fdd9b6848ce4f
 
 Vehicle.AngularVelocity.Roll:
-  datatype: int16
+  datatype: float
   description: Vehicle rotation rate along X (longitudinal).
   type: sensor
   unit: degrees/s
   uuid: 221e6b93881e5771bcbd03e0849e0075
 
 Vehicle.AngularVelocity.Yaw:
-  datatype: int16
+  datatype: float
   description: Vehicle rotation rate along Z (vertical).
   type: sensor
   unit: degrees/s

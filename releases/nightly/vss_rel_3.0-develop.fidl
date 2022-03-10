@@ -281,7 +281,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.AngularVelocity.Roll"
     type: "sensor"
     description: "Vehicle rotation rate along X (longitudinal)."
-    datatype: int16
+    datatype: float
     uuid: 221e6b93881e5771bcbd03e0849e0075
     unit: degrees/s
 }
@@ -290,7 +290,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.AngularVelocity.Pitch"
     type: "sensor"
     description: "Vehicle rotation rate along Y (lateral)."
-    datatype: int16
+    datatype: float
     uuid: 42236f4a01f45313a97fdd9b6848ce4f
     unit: degrees/s
 }
@@ -299,7 +299,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.AngularVelocity.Yaw"
     type: "sensor"
     description: "Vehicle rotation rate along Z (vertical)."
-    datatype: int16
+    datatype: float
     uuid: 4114c41552565c1f9035670cabe2a611
     unit: degrees/s
 }
@@ -4685,9 +4685,17 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Vehicle.ADAS.CruiseControl.IsEnabled"
+    type: "actuator"
+    description: "Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled."
+    datatype: boolean
+    uuid: 018417f6c8535315895d0f54d209035a
+}
+,
+{
     name: "Vehicle.ADAS.CruiseControl.IsActive"
     type: "actuator"
-    description: "Indicates if cruise control system is enabled. True = Enabled. False = Disabled."
+    description: "Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive."
     datatype: boolean
     uuid: 78ab5ce923dc5aa1a6622bcb948e1561
 }
@@ -4704,17 +4712,17 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.ADAS.CruiseControl.IsError"
     type: "sensor"
-    description: "Indicates if cruise control system incurred and error condition. True = Error. False = NoError."
+    description: "Indicates if cruise control system incurred an error condition. True = Error. False = No Error."
     datatype: boolean
     uuid: 22923d4a36bc5192a08e40fe9e5ed458
 }
 ,
 {
-    name: "Vehicle.ADAS.LaneDepartureDetection.IsActive"
+    name: "Vehicle.ADAS.LaneDepartureDetection.IsEnabled"
     type: "actuator"
     description: "Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled."
     datatype: boolean
-    uuid: ba683882dbea575b9540118aa914acd8
+    uuid: c099ae97260f5c418977cd14631e95be
 }
 ,
 {
@@ -4734,11 +4742,19 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.ObstacleDetection.IsActive"
+    name: "Vehicle.ADAS.ObstacleDetection.IsEnabled"
     type: "actuator"
-    description: "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled."
+    description: "Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled."
     datatype: boolean
-    uuid: 7262cd48bdad59f3a0d93d9cb592d4f8
+    uuid: cc0cd497285e5034a1cccb25f02e9db9
+}
+,
+{
+    name: "Vehicle.ADAS.ObstacleDetection.IsWarning"
+    type: "sensor"
+    description: "Indicates if obstacle sensor system registered an obstacle."
+    datatype: boolean
+    uuid: b0b1eab51f135ffcb2a17a7603415fec
 }
 ,
 {
@@ -4750,11 +4766,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.ABS.IsActive"
+    name: "Vehicle.ADAS.ABS.IsEnabled"
     type: "actuator"
     description: "Indicates if ABS is enabled. True = Enabled. False = Disabled."
     datatype: boolean
-    uuid: 433b7039199357178688197d6e264725
+    uuid: cad374fbfdc65df9b777508f04d5b073
 }
 ,
 {
@@ -4774,11 +4790,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.TCS.IsActive"
+    name: "Vehicle.ADAS.TCS.IsEnabled"
     type: "actuator"
     description: "Indicates if TCS is enabled. True = Enabled. False = Disabled."
     datatype: boolean
-    uuid: 6789de7a67515e7f9bcdd18623954074
+    uuid: 1d2dda19b11758a19ba7c1d5cd2d7956
 }
 ,
 {
@@ -4798,11 +4814,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.ESC.IsActive"
+    name: "Vehicle.ADAS.ESC.IsEnabled"
     type: "actuator"
     description: "Indicates if ESC is enabled. True = Enabled. False = Disabled."
     datatype: boolean
-    uuid: 70b769baed285c3897979639d13bafd3
+    uuid: 3f4f39b8d8c05c97a6de685282ba74b7
 }
 ,
 {
@@ -4819,6 +4835,54 @@ const SignalSpec[] signal_spec = [
     description: "Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged."
     datatype: boolean
     uuid: 2088953a28385353a9d46b3a3dc11cac
+}
+,
+{
+    name: "Vehicle.ADAS.EBD.IsEnabled"
+    type: "actuator"
+    description: "Indicates if EBD is enabled. True = Enabled. False = Disabled."
+    datatype: boolean
+    uuid: 30f88d3e68575b67853b14ce5f7a08e5
+}
+,
+{
+    name: "Vehicle.ADAS.EBD.IsError"
+    type: "sensor"
+    description: "Indicates if EBD incurred an error condition. True = Error. False = No Error."
+    datatype: boolean
+    uuid: 918157073be95015ae38913cd7a9796a
+}
+,
+{
+    name: "Vehicle.ADAS.EBD.IsEngaged"
+    type: "sensor"
+    description: "Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged."
+    datatype: boolean
+    uuid: 67aa2a598f635edda6eb944af99b06db
+}
+,
+{
+    name: "Vehicle.ADAS.EBA.IsEnabled"
+    type: "actuator"
+    description: "Indicates if EBA is enabled. True = Enabled. False = Disabled."
+    datatype: boolean
+    uuid: 3ae9171b69555fb08855054ab38e9b17
+}
+,
+{
+    name: "Vehicle.ADAS.EBA.IsError"
+    type: "sensor"
+    description: "Indicates if EBA incurred an error condition. True = Error. False = No Error."
+    datatype: boolean
+    uuid: bae0fe856398502ba4a09283867c6c81
+}
+,
+{
+    name: "Vehicle.ADAS.EBA.IsEngaged"
+    type: "sensor"
+    description: "Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged."
+    datatype: boolean
+    uuid: 86360c44ead354d18af7ff14176151f6
 }
 ,
 {

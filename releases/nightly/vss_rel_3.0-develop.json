@@ -5,11 +5,11 @@
         "children": {
           "ABS": {
             "children": {
-              "IsActive": {
+              "IsEnabled": {
                 "datatype": "boolean",
                 "description": "Indicates if ABS is enabled. True = Enabled. False = Disabled.",
                 "type": "actuator",
-                "uuid": "433b7039199357178688197d6e264725"
+                "uuid": "cad374fbfdc65df9b777508f04d5b073"
               },
               "IsEngaged": {
                 "datatype": "boolean",
@@ -50,13 +50,19 @@
             "children": {
               "IsActive": {
                 "datatype": "boolean",
-                "description": "Indicates if cruise control system is enabled. True = Enabled. False = Disabled.",
+                "description": "Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.",
                 "type": "actuator",
                 "uuid": "78ab5ce923dc5aa1a6622bcb948e1561"
               },
+              "IsEnabled": {
+                "datatype": "boolean",
+                "description": "Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.",
+                "type": "actuator",
+                "uuid": "018417f6c8535315895d0f54d209035a"
+              },
               "IsError": {
                 "datatype": "boolean",
-                "description": "Indicates if cruise control system incurred and error condition. True = Error. False = NoError.",
+                "description": "Indicates if cruise control system incurred an error condition. True = Error. False = No Error.",
                 "type": "sensor",
                 "uuid": "22923d4a36bc5192a08e40fe9e5ed458"
               },
@@ -72,13 +78,63 @@
             "type": "branch",
             "uuid": "c4d751cf74f9576dbba3cc820991c1fb"
           },
+          "EBA": {
+            "children": {
+              "IsEnabled": {
+                "datatype": "boolean",
+                "description": "Indicates if EBA is enabled. True = Enabled. False = Disabled.",
+                "type": "actuator",
+                "uuid": "3ae9171b69555fb08855054ab38e9b17"
+              },
+              "IsEngaged": {
+                "datatype": "boolean",
+                "description": "Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.",
+                "type": "sensor",
+                "uuid": "86360c44ead354d18af7ff14176151f6"
+              },
+              "IsError": {
+                "datatype": "boolean",
+                "description": "Indicates if EBA incurred an error condition. True = Error. False = No Error.",
+                "type": "sensor",
+                "uuid": "bae0fe856398502ba4a09283867c6c81"
+              }
+            },
+            "description": "Emergency Brake Assist (EBA) System signals.",
+            "type": "branch",
+            "uuid": "51ec0930d0af5b91b84a0775c6e87a97"
+          },
+          "EBD": {
+            "children": {
+              "IsEnabled": {
+                "datatype": "boolean",
+                "description": "Indicates if EBD is enabled. True = Enabled. False = Disabled.",
+                "type": "actuator",
+                "uuid": "30f88d3e68575b67853b14ce5f7a08e5"
+              },
+              "IsEngaged": {
+                "datatype": "boolean",
+                "description": "Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.",
+                "type": "sensor",
+                "uuid": "67aa2a598f635edda6eb944af99b06db"
+              },
+              "IsError": {
+                "datatype": "boolean",
+                "description": "Indicates if EBD incurred an error condition. True = Error. False = No Error.",
+                "type": "sensor",
+                "uuid": "918157073be95015ae38913cd7a9796a"
+              }
+            },
+            "description": "Electronic Brakeforce Distribution (EBD) System signals.",
+            "type": "branch",
+            "uuid": "3f4c74a588735b10ac9fe918d305cd5a"
+          },
           "ESC": {
             "children": {
-              "IsActive": {
+              "IsEnabled": {
                 "datatype": "boolean",
                 "description": "Indicates if ESC is enabled. True = Enabled. False = Disabled.",
                 "type": "actuator",
-                "uuid": "70b769baed285c3897979639d13bafd3"
+                "uuid": "3f4f39b8d8c05c97a6de685282ba74b7"
               },
               "IsEngaged": {
                 "datatype": "boolean",
@@ -99,11 +155,11 @@
           },
           "LaneDepartureDetection": {
             "children": {
-              "IsActive": {
+              "IsEnabled": {
                 "datatype": "boolean",
                 "description": "Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.",
                 "type": "actuator",
-                "uuid": "ba683882dbea575b9540118aa914acd8"
+                "uuid": "c099ae97260f5c418977cd14631e95be"
               },
               "IsError": {
                 "datatype": "boolean",
@@ -124,17 +180,23 @@
           },
           "ObstacleDetection": {
             "children": {
-              "IsActive": {
+              "IsEnabled": {
                 "datatype": "boolean",
-                "description": "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.",
+                "description": "Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.",
                 "type": "actuator",
-                "uuid": "7262cd48bdad59f3a0d93d9cb592d4f8"
+                "uuid": "cc0cd497285e5034a1cccb25f02e9db9"
               },
               "IsError": {
                 "datatype": "boolean",
                 "description": "Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.",
                 "type": "sensor",
                 "uuid": "368b74e2468d5217925a478ed6e34f9f"
+              },
+              "IsWarning": {
+                "datatype": "boolean",
+                "description": "Indicates if obstacle sensor system registered an obstacle.",
+                "type": "sensor",
+                "uuid": "b0b1eab51f135ffcb2a17a7603415fec"
               }
             },
             "description": "Signals form Obstacle Sensor System.",
@@ -157,11 +219,11 @@
           },
           "TCS": {
             "children": {
-              "IsActive": {
+              "IsEnabled": {
                 "datatype": "boolean",
                 "description": "Indicates if TCS is enabled. True = Enabled. False = Disabled.",
                 "type": "actuator",
-                "uuid": "6789de7a67515e7f9bcdd18623954074"
+                "uuid": "1d2dda19b11758a19ba7c1d5cd2d7956"
               },
               "IsEngaged": {
                 "datatype": "boolean",
@@ -209,7 +271,7 @@
             "uuid": "a4a8a7c4ac5b52deb0b3ee4ed8787c59"
           }
         },
-        "description": "Spatial acceleration.",
+        "description": "Spatial acceleration. Axis definitions according to ISO 8855.",
         "type": "branch",
         "uuid": "6c490e6a798c5abc8f0178ed6deae0a8"
       },
@@ -223,28 +285,28 @@
       "AngularVelocity": {
         "children": {
           "Pitch": {
-            "datatype": "int16",
+            "datatype": "float",
             "description": "Vehicle rotation rate along Y (lateral).",
             "type": "sensor",
             "unit": "degrees/s",
             "uuid": "42236f4a01f45313a97fdd9b6848ce4f"
           },
           "Roll": {
-            "datatype": "int16",
+            "datatype": "float",
             "description": "Vehicle rotation rate along X (longitudinal).",
             "type": "sensor",
             "unit": "degrees/s",
             "uuid": "221e6b93881e5771bcbd03e0849e0075"
           },
           "Yaw": {
-            "datatype": "int16",
+            "datatype": "float",
             "description": "Vehicle rotation rate along Z (vertical).",
             "type": "sensor",
             "unit": "degrees/s",
             "uuid": "4114c41552565c1f9035670cabe2a611"
           }
         },
-        "description": "Spatial rotation.",
+        "description": "Spatial rotation. Axis definitions according to ISO 8855.",
         "type": "branch",
         "uuid": "1eef530a43de56aab665d2766483cde2"
       },
