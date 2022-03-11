@@ -191,6 +191,24 @@ AmbientAirTemperature:
   unit: celsius
   description: Ambient air temperature outside the vehicle.
 
+AmbientHumidity:
+  datatype: float
+  type: sensor
+  unit: percent
+  min: 0
+  max: 100
+  description: Relative humidity outside the vehicle.
+               0 = Dry, 100 = Air fully saturated.
+
+OutsideLightIntensity:
+  datatype: float
+  type: sensor
+  unit: percent
+  min: 0
+  max: 100
+  description: Light intensity outside the vehicle.
+               0 = No light detected, 100 = Fully lit.
+  comment: Mapping to physical units and calculation method is sensor specific.
 
 IsMoving:
   datatype: boolean
