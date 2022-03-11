@@ -191,6 +191,14 @@ AmbientAirTemperature:
   unit: celsius
   description: Ambient air temperature outside the vehicle.
 
+IsBrokenDown:
+  datatype: boolean
+  type: sensor
+  description: Vehicle breakdown of ego vehicle or any similar event of ego vehicle stopped on the road,
+               that might pose a risk to other road users.
+               True = Ego vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems.
+               False = Ego vehicle not broken down.
+  comment: Actual criteria and method used to decide if a vehicle is broken down is implementation specific
 
 IsMoving:
   datatype: boolean
