@@ -40,7 +40,7 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</guid>
-      <description>As VSS resembles primarily the physical structure of the vehicle, so quite often you&amp;rsquo;ll find repetitions of branches and data entries (e.g. doors, axles, etc), which leads to hard-coded repetitions of branches and data entries in the specification. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
+      <description>VSS resembles primarily the physical structure of the vehicle, so quite often there is a need to repeat branches and data entries (e.g. doors, axles, etc). To avoid hard-coded repetitions of branches and data entries in the specification an instance-concept is supported. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
     </item>
     
     <item>

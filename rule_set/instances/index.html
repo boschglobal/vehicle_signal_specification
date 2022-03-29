@@ -12,21 +12,21 @@
     <title>Instances :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1646904892" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1646904892" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1648554171" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1648554171" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1646904892" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-green.css?1648554171" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1646904892"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1648554171"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1646904892"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1646904892"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1648554171"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1648554171"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1646904892"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1648554171"></script>
 
     
   </div>
@@ -668,11 +668,11 @@
         
 
 
-<p>As VSS resembles primarily the physical structure of the vehicle, so
-quite often you&rsquo;ll find repetitions of branches and data entries
-(e.g. doors, axles, etc), which leads to hard-coded repetitions of
-branches and data entries in the specification. Instances remove the need of
-repeating definitions, by defining at the node itself how often it occurs in
+<p>VSS resembles primarily the physical structure of the vehicle, so
+quite often there is a need to repeat branches and data entries
+(e.g. doors, axles, etc). To avoid hard-coded repetitions of
+branches and data entries in the specification an instance-concept is supported.
+Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in
 the resulting tree. They are meant as a short-cut in the specification and
 interpreted by the tools.</p>
 <p><img src="/vehicle_signal_specification/images/instances.png?width=60pc" alt="Example tree"></p>
@@ -686,10 +686,11 @@ definition, which can be either:
 <li>a list of strings, where each element defines a single instance, e.g.
 <code>['Left','Right']</code> results into two instances of every following
 data entry in the path, named <code>Left</code> and <code>Right</code></li>
-<li>a string, followed by a range defined through <code>[n,m]</code>, with <code>n,m</code> as integer and <code>n &lt;= m</code>, which defines the number of instances:
+<li>a string, followed by a range defined through <code>[n,m]</code>, with <code>n,m</code> as integer and <code>n &lt;= m</code>,
+which defines the number of instances.
 <code>Position[1,4]</code> results into 4 instances of every following
 data entry in the path, named <code>Position1</code>, <code>Position2</code>, <code>Position3</code>
-and <code>Position4</code>.</li>
+and <code>Position4</code>. It is in VSS recommended to use <code>1</code> as start index for the first row/axle/position/&hellip;</li>
 </ul>
 </li>
 <li>If multiple instances occur in one node or on the path to a data entry,
@@ -762,7 +763,7 @@ VSS offers the possibility to control windshield heating separately for front an
 and VSS also gives the possibility to report washer fluid level separately for each windshield.
 This fits very well for a vehicle that has separate washer fluid containers for front and rear windshield
 and that offers heating for both windshields. But that is not the case for all vehicles,
-it is not even certain that all vehicles have two windshields. this sections gives recommendations on how
+it is not even certain that all vehicles have two windshields. This sections gives recommendations on how
 to use VSS for a vehicle if the VSS specification does not offer an exact match of the capabilities of the vehicle.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Windshield</span>:
   <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
@@ -1182,19 +1183,19 @@ to ignore <code>Vehicle.Body.Windshield.Front.Heating</code>.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1646904892"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1648554171"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1646904892"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1646904892"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1648554171"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1648554171"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1646904892"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1648554171"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
