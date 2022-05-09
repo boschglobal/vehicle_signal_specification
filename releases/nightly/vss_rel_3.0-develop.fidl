@@ -225,15 +225,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.AmbientAirTemperature"
-    type: "sensor"
-    description: "Ambient air temperature outside the vehicle."
-    datatype: float
-    uuid: 2ffcbc2e6ea75dd991e3ae80b29a1d85
-    unit: celsius
-}
-,
-{
     name: "Vehicle.IsMoving"
     type: "sensor"
     description: "Indicates whether the vehicle is stationary or moving."
@@ -423,7 +414,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Latitude"
     type: "sensor"
-    description: "Current latitude of vehicle according to WGS 84."
+    description: "Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna."
     datatype: double
     uuid: 08933c5a445055df80bea15fbfa07f1c
     min: -90
@@ -434,7 +425,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Longitude"
     type: "sensor"
-    description: "Current longitude of vehicle according to WGS 84."
+    description: "Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna."
     datatype: double
     uuid: 5246f2ec5fea550cb1b36f110854cfbb
     min: -180
@@ -465,7 +456,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Altitude"
     type: "sensor"
-    description: "Current altitude relative to WGS 84 reference ellipsoid."
+    description: "Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna."
     datatype: double
     uuid: d3ead98ab0b751c1a5b5dd5bc0e5e216
     unit: m
@@ -478,6 +469,42 @@ const SignalSpec[] signal_spec = [
     datatype: double
     uuid: 8f54055bce9e5e8e97fb6051582707ab
     unit: m
+}
+,
+{
+    name: "Vehicle.CurrentLocation.GNSSReceiver.FixType"
+    type: "sensor"
+    description: "Fix status of GNSS receiver."
+    datatype: string
+    uuid: 52853b33d4605608bd0ae50595c69309
+    allowed: ['NONE', 'TWO_D', 'TWO_D_SATELLITE_BASED_AUGMENTATION', 'TWO_D_GROUND_BASED_AUGMENTATION', 'TWO_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION', 'THREE_D', 'THREE_D_SATELLITE_BASED_AUGMENTATION', 'THREE_D_GROUND_BASED_AUGMENTATION', 'THREE_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION']
+}
+,
+{
+    name: "Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.X"
+    type: "attribute"
+    description: "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle."
+    datatype: int16
+    uuid: f23d40f3556b5676a0d1e3def037197f
+    unit: mm
+}
+,
+{
+    name: "Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.Y"
+    type: "attribute"
+    description: "Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward."
+    datatype: int16
+    uuid: 16745ae827c0527ea2c48c20f0c146f1
+    unit: mm
+}
+,
+{
+    name: "Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.Z"
+    type: "attribute"
+    description: "Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle."
+    datatype: int16
+    uuid: a4d04e86518e5c5ab60e5e4face35756
+    unit: mm
 }
 ,
 {
@@ -496,6 +523,15 @@ const SignalSpec[] signal_spec = [
     datatype: uint32
     uuid: ea4b6de772d65d20b1fa611f997aa7b8
     unit: m
+}
+,
+{
+    name: "Vehicle.Powertrain.Type"
+    type: "attribute"
+    description: "Defines the powertrain type of the vehicle."
+    datatype: string
+    uuid: 2a000da4204658a4a6e3ecd5176bdfba
+    allowed: ['COMBUSTION', 'HYBRID', 'ELECTRIC']
 }
 ,
 {
@@ -609,15 +645,6 @@ const SignalSpec[] signal_spec = [
     datatype: string
     uuid: 3ca6a8ff30275c20a9d8d6d6829574eb
     allowed: ['UNKNOWN', 'NATURAL', 'SUPERCHARGER', 'TURBOCHARGER']
-}
-,
-{
-    name: "Vehicle.Powertrain.CombustionEngine.FuelType"
-    type: "attribute"
-    description: "Type of fuel that the engine runs on."
-    datatype: string
-    uuid: d0f8c79131c850bab8159eaefc7e23e5
-    allowed: ['UNKNOWN', 'GASOLINE', 'DIESEL', 'E85', 'CNG']
 }
 ,
 {
@@ -1302,12 +1329,21 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.FuelSystem.FuelType"
+    name: "Vehicle.Powertrain.FuelSystem.SupportedFuelTypes"
     type: "attribute"
-    description: "Defines the fuel type of the vehicle."
-    datatype: string
-    uuid: 76442e696df5540b8b747373b29895d9
-    allowed: ['UNKNOWN', 'GASOLINE', 'DIESEL', 'ELECTRIC', 'HYBRID', 'E85', 'CNG', 'LPG']
+    description: "High level information of fuel types supported"
+    datatype: string[]
+    uuid: 80edc3002aa25097aba6455fe459fa6c
+    allowed: ['GASOLINE', 'DIESEL', 'E85', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']
+}
+,
+{
+    name: "Vehicle.Powertrain.FuelSystem.SupportedFuel"
+    type: "attribute"
+    description: "Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant."
+    datatype: string[]
+    uuid: 7fd3bf2ef0c650e69ff2037875ec59ee
+    allowed: ['E5_95', 'E5_98', 'E10_95', 'E10_98', 'E85', 'B7', 'B10', 'B20', 'B30', 'B100', 'XTL', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']
 }
 ,
 {
@@ -1428,19 +1464,35 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Body.Trunk.IsOpen"
+    name: "Vehicle.Body.Trunk.Front.IsOpen"
     type: "actuator"
     description: "Trunk open or closed. True = Open. False = Closed."
     datatype: boolean
-    uuid: 58c8eb023b4b5db794705d7ce63e2d75
+    uuid: 2047de0896a352fcaf02baa06819a023
 }
 ,
 {
-    name: "Vehicle.Body.Trunk.IsLocked"
+    name: "Vehicle.Body.Trunk.Front.IsLocked"
     type: "actuator"
     description: "Is trunk locked or unlocked. True = Locked. False = Unlocked."
     datatype: boolean
-    uuid: d89db9a83c0955c3a049c529072d397f
+    uuid: e0eabc210f07505fa1b66b67729d681b
+}
+,
+{
+    name: "Vehicle.Body.Trunk.Rear.IsOpen"
+    type: "actuator"
+    description: "Trunk open or closed. True = Open. False = Closed."
+    datatype: boolean
+    uuid: 3d3249e59306594698367b839b12c938
+}
+,
+{
+    name: "Vehicle.Body.Trunk.Rear.IsLocked"
+    type: "actuator"
+    description: "Is trunk locked or unlocked. True = Locked. False = Unlocked."
+    datatype: boolean
+    uuid: 8f9b55b002ed59d3ac2ef0b014abf4aa
 }
 ,
 {
@@ -2051,7 +2103,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude"
     type: "actuator"
-    description: "Latitude of destination according to WGS 84."
+    description: "Latitude of destination in WGS 84 geodetic coordinates."
     datatype: double
     uuid: 3e33f3252934565d86de5409c761262b
     min: -90
@@ -2062,7 +2114,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Longitude"
     type: "actuator"
-    description: "Longitude of destination according to WGS 84."
+    description: "Longitude of destination in WGS 84 geodetic coordinates."
     datatype: double
     uuid: e9bd511146ca51639c8d42c0702e22ee
     min: -180
@@ -4982,6 +5034,47 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Vehicle.ADAS.ESC.IsStrongCrossWindDetected"
+    type: "sensor"
+    description: "Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected."
+    datatype: boolean
+    uuid: ebfd609531345c37914b89e553df80cb
+}
+,
+{
+    name: "Vehicle.ADAS.ESC.RoadFriction.MostProbable"
+    type: "sensor"
+    description: "Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction."
+    datatype: float
+    uuid: b0eb72430cd95bfbba0d187fcb6e2a62
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.ADAS.ESC.RoadFriction.LowerBound"
+    type: "sensor"
+    description: "Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction."
+    datatype: float
+    uuid: 634289f58b5d511ea9979f04a9d0f2ab
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.ADAS.ESC.RoadFriction.UpperBound"
+    type: "sensor"
+    description: "Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction."
+    datatype: float
+    uuid: ad0415a799575fcd8d1f49bed9a2baeb
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
     name: "Vehicle.ADAS.EBD.IsEnabled"
     type: "actuator"
     description: "Indicates if EBD is enabled. True = Enabled. False = Disabled."
@@ -5465,6 +5558,14 @@ const SignalSpec[] signal_spec = [
     min: 0
     max: 100
     unit: percent
+}
+,
+{
+    name: "Vehicle.Chassis.Brake.IsDriverEmergencyBrakingDetected"
+    type: "sensor"
+    description: "Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected."
+    datatype: boolean
+    uuid: 0d462892aeac5062a62ee7d07306f6a6
 }
 ,
 {
@@ -6570,6 +6671,37 @@ const SignalSpec[] signal_spec = [
     description: "Heart rate of the driver."
     datatype: uint16
     uuid: d71516905f785c4da867a2f86e774d93
+}
+,
+{
+    name: "Vehicle.Exterior.AirTemperature"
+    type: "sensor"
+    description: "Air temperature outside the vehicle."
+    datatype: float
+    uuid: a38d3f5dfeb35317aca8b90453dc1a75
+    unit: celsius
+}
+,
+{
+    name: "Vehicle.Exterior.Humidity"
+    type: "sensor"
+    description: "Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated."
+    datatype: float
+    uuid: 6c785ec5d9a5534f98be7ce198d25d6b
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.Exterior.LightIntensity"
+    type: "sensor"
+    description: "Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit."
+    datatype: float
+    uuid: 9b46b70490f853e891e1cc35dd08dddc
+    min: 0
+    max: 100
+    unit: percent
 }
 ,
 {

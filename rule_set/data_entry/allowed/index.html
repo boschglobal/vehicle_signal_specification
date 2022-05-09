@@ -12,21 +12,21 @@
     <title>Value restrictions :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1648623387" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1648623387" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1652086934" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1652086934" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1648623387" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-green.css?1652086934" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1648623387"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1652086934"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1648623387"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1648623387"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1652086934"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1652086934"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1648623387"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1652086934"></script>
 
     
   </div>
@@ -443,6 +443,30 @@
  
   
     
+    <li data-nav-id="/vehicle_signal_specification/license/" title="License" class="dd-item
+        
+        
+        
+        ">
+      <a href="/vehicle_signal_specification/license/">
+          License
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
     <li data-nav-id="/vehicle_signal_specification/ecosystem/" title="Ecosystem" class="dd-item
         
         
@@ -638,7 +662,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#specifying-allowed-values">Specifying allowed values</a></li>
+    <li><a href="#recommendation-on-string-values">Recommendation on String values</a></li>
+    <li><a href="#allowed-values-for-array-types">Allowed values for array types</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -661,6 +691,7 @@
         
 
 
+<h2 id="specifying-allowed-values">Specifying allowed values</h2>
 <p>Optionally it is possible to define an array of <code>allowed</code> values, which will restrict the usage of the data entry in the implementation of the specification.
 It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly.
 The datatype of the array elements is the <code>datatype</code> defined for the data entry itself.
@@ -678,6 +709,7 @@ in a list.  Only values can be assigned to the data entry, which are
 specified in this list.</p>
 <p>The <code>datatype</code> specifier gives the type of the individual elements of the <code>allowed</code>
 list.</p>
+<h2 id="recommendation-on-string-values">Recommendation on String values</h2>
 <p>For string values used for <code>default</code> and <code>allowed</code> statements it is recommended to start with <code>A-Z</code>
 and then use only <code>A-Z</code>, <code>0-9</code> and underscore (<code>_</code>).
 It is recommended to use single quotes (<code>'</code>) as tooling otherwise might handle literals like <code>OFF</code> as boolean values with unexpected result.
@@ -685,7 +717,23 @@ It is recommended not to specify a dedicated value corresponding to &ldquo;unkno
 The background is that a signal with an array of allowed values shall be handled just as any other signal.
 If e.g. the value of current speed or vehicle weight is unknown, then the vehicle shall not publish the corresponding signal.
 Similarly, for the example above, if the steering wheel position is unknown then <code>SteeringWheel.Position</code>shall not be published.</p>
-
+<h2 id="allowed-values-for-array-types">Allowed values for array types</h2>
+<p>The <code>allowed</code> keyword can also be used for signals of array type. In that case, <code>allowed</code> specifies the only valid values for array elements.
+The actual value of the signal is expected to contain a subset of the values specified in <code>allowed</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">FavoriteColors</span>:
+  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string[]</span>
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
+  <span style="color:#f92672">allowed</span>: [<span style="color:#e6db74">&#39;RED&#39;</span>, <span style="color:#e6db74">&#39;GREEN&#39;</span>, <span style="color:#e6db74">&#39;BLUE&#39;</span>, <span style="color:#e6db74">&#39;YELLOW&#39;</span>, <span style="color:#e6db74">&#39;BROWN&#39;</span>]
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Driver&#39;s favorite colors.</span>
+</code></pre></div><p>Examples of valid arrays:</p>
+<pre><code>  [] # Empty array
+  ['RED']
+  ['YELLOW', 'BROWN', 'RED', 'GREEN', 'BLUE']
+  ['BLUE', 'BLUE'] # duplication is allowed
+</code></pre><p>Example of an invalid array:</p>
+<pre><code>  ['RED', 'BLUE', 'BLACK'] # BLACK is not an allowed value
+</code></pre>
 
 <footer class="footline">
 	
@@ -987,6 +1035,22 @@ Similarly, for the example above, if the steering wheel position is unknown then
                     
 
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -1060,19 +1124,19 @@ Similarly, for the example above, if the steering wheel position is unknown then
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1648623387"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1652086934"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1648623387"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1648623387"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1652086934"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1652086934"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1648623387"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1652086934"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

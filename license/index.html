@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>W3C-VISS :: Vehicle Signal Specification</title>
+    <title>License :: Vehicle Signal Specification</title>
 
     
     <link href="/vehicle_signal_specification/css/nucleus.css?1652086934" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vehicle_signal_specification/ecosystem/viss/">
+  <body class="" data-url="/vehicle_signal_specification/license/">
     <nav id="sidebar" class="">
 
 
@@ -444,8 +444,8 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/license/" title="License" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/vehicle_signal_specification/license/">
@@ -468,7 +468,7 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/ecosystem/" title="Ecosystem" class="dd-item
-        parent
+        
         
         
         ">
@@ -515,7 +515,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/ecosystem/viss/" title="W3C-VISS" class="dd-item active">
+      <li data-nav-id="/vehicle_signal_specification/ecosystem/viss/" title="W3C-VISS" class="dd-item ">
         <a href="/vehicle_signal_specification/ecosystem/viss/">
         W3C-VISS
         
@@ -612,7 +612,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/ecosystem/viss.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/license/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -639,13 +639,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/ecosystem/'>Ecosystem</a> > W3C-VISS
-          
-        
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > License
           
         
           
@@ -656,7 +650,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#which-license-applies">Which license applies</a></li>
+    <li><a href="#can-i-use-vss--vss-tools-in-my-commercial-products">Can I use VSS / VSS-tools in my commercial products</a></li>
+    <li><a href="#i-modified-vss-tools-do-i-need-to-give-away-my-source">I modified VSS-tools, do I need to give away my source?</a></li>
+    <li><a href="#i-changed-vss-or-added-custom-signals-to-the-standard-catalogue-do-i-need-to-give-them-away">I changed VSS or added custom signals to the standard catalogue. Do I need to give them away?</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -672,23 +673,36 @@
           
             <h1>
               
-              W3C-VISS
+              License
             </h1>
           
 
         
 
 
-<p>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to <em>access</em> VSS signals.</p>
-<p>The W3C Vehicle Information Service Specification (<strong>VISS</strong>) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).</p>
-<p>To learn more check</p>
-<ul>
-<li><a href="https://www.w3.org/TR/vehicle-information-service/">Vehicle Information Service Specification (VISS) V1</a></li>
-<li><a href="https://github.com/w3c/automotive/">Vehicle Information Service Specification (VISS) V2</a>,  still under active development</li>
-</ul>
+
+	
+<div class="notices warning" ><p><strong>DISCLAIMER:</strong> The following information about open source licensing shall not be considered legal advice. For advice on licensing, COVESA suggests that you contact your open source officer or legal counsel.</p>
+</div>
+
+<h2 id="which-license-applies">Which license applies</h2>
+<p>VSS as well as the VSS-tools are covered by the <a href="https://opensource.org/licenses/MPL-2.0">Mozilla Public License 2.0 (MPL-2.0)</a>. The MPL-2.0 is an OSI approved Open Source license that gives you a lot of freedom using VSS in your products, or for (academic) research. It also provides a solid legal framework if you choose to contribute to either the standards or the tools.</p>
+<p>We will line out some answers to commonly asked questions, but keep in mind this page is informational. The legally binding clauses can be found in the <a href="https://opensource.org/licenses/MPL-2.0">license</a> itself. If in doubt, consult your friendly neighborhood lawyer or IP department.</p>
+<h2 id="can-i-use-vss--vss-tools-in-my-commercial-products">Can I use VSS / VSS-tools in my commercial products</h2>
+<p>Most definitely yes. You must inform your users that the product contains MPLed code and need to provide access to the source (e.g. by linking to this documentation or our <a href="https://github.com/covesa/vehicle_signal_specification">Github repository</a>).</p>
+<h2 id="i-modified-vss-tools-do-i-need-to-give-away-my-source">I modified VSS-tools, do I need to give away my source?</h2>
+<p>If you use the code internally within your organisation (company), you have no obligations to do so. (see also <a href="https://www.mozilla.org/en-US/MPL/2.0/FAQ/">Q5 here</a>). If you distribute the modified vss-tools outside your organization (e.g. to your customers), you need to make the source code of the MPL-2.0 licensed parts available.  However, the MPL has only a very weak copyleft effect. As a rule of thumb: You have no obligation to provide code in new files. You have the obligation to make code of changed existing MPLed files available under the clauses pof the MPL-2.0, <em>if</em> you distribute them in source or compiled form outside your organisation ((see also <a href="https://www.mozilla.org/en-US/MPL/2.0/FAQ/">Q9,10,11 here</a>)).</p>
+<p>In any case we <em>do</em> recommend you to consider sharing generally useful improvements with the community. Not only will you win karma points with the community and gain visibility as an innovation leader in the automotive industry, you will most likely also get more robust software as you will have more users and testers.</p>
+<h2 id="i-changed-vss-or-added-custom-signals-to-the-standard-catalogue-do-i-need-to-give-them-away">I changed VSS or added custom signals to the standard catalogue. Do I need to give them away?</h2>
+<p>No. One important selling point of VSS is, that you can always extend the standard catalogue with your own use case specific signals. There is no obligation to release any added signals or proprietary information to third parties.</p>
+<p>From an MPL-2.0 point of view the information of the previous question applies. To be extra sure, put any additions in separate files, and use the layering approach to modify the standard catalogue. This community does not consider deleting elements from the standard catalogue or adding VSS <code>#include</code> statements &ldquo;modifications&rdquo; in the sense of clause 1.10 of the MPL-2.0.</p>
+<p>As with the tools, we <em>do</em> recommend you to consider sharing generally useful standard catalogue improvements with the community.</p>
 
 
-<footer class="footline">
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -968,55 +982,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1036,6 +1001,51 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1060,10 +1070,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vehicle_signal_specification/ecosystem/tools/" title="Tools"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/private_branch/" title="Private Branch"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vehicle_signal_specification/ecosystem/software/" title="Software" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vehicle_signal_specification/ecosystem/" title="Ecosystem" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1095,4 +1105,3 @@
 
   </body>
 </html>
-

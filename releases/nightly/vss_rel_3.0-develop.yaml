@@ -146,6 +146,44 @@ Vehicle.ADAS.ESC.IsError:
   type: sensor
   uuid: 6c237535654b5bc7a70f6a70c760b9d4
 
+Vehicle.ADAS.ESC.IsStrongCrossWindDetected:
+  datatype: boolean
+  description: Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.
+  type: sensor
+  uuid: ebfd609531345c37914b89e553df80cb
+
+Vehicle.ADAS.ESC.RoadFriction:
+  description: Road friction values reported by the ESC system.
+  type: branch
+  uuid: 71a32e4eb131532c82195508d93807ed
+
+Vehicle.ADAS.ESC.RoadFriction.LowerBound:
+  datatype: float
+  description: Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
+  max: 100
+  min: 0
+  type: sensor
+  unit: percent
+  uuid: 634289f58b5d511ea9979f04a9d0f2ab
+
+Vehicle.ADAS.ESC.RoadFriction.MostProbable:
+  datatype: float
+  description: Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.
+  max: 100
+  min: 0
+  type: sensor
+  unit: percent
+  uuid: b0eb72430cd95bfbba0d187fcb6e2a62
+
+Vehicle.ADAS.ESC.RoadFriction.UpperBound:
+  datatype: float
+  description: Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
+  max: 100
+  min: 0
+  type: sensor
+  unit: percent
+  uuid: ad0415a799575fcd8d1f49bed9a2baeb
+
 Vehicle.ADAS.LaneDepartureDetection:
   description: Signals from Lane Departure Detection System.
   type: branch
@@ -253,13 +291,6 @@ Vehicle.Acceleration.Vertical:
   type: sensor
   unit: m/s^2
   uuid: a4a8a7c4ac5b52deb0b3ee4ed8787c59
-
-Vehicle.AmbientAirTemperature:
-  datatype: float
-  description: Ambient air temperature outside the vehicle.
-  type: sensor
-  unit: celsius
-  uuid: 2ffcbc2e6ea75dd991e3ae80b29a1d85
 
 Vehicle.AngularVelocity:
   description: Spatial rotation. Axis definitions according to ISO 8855.
@@ -492,17 +523,39 @@ Vehicle.Body.Trunk:
   type: branch
   uuid: a584c6a5aa235cb88ac686f8d72a1dff
 
-Vehicle.Body.Trunk.IsLocked:
+Vehicle.Body.Trunk.Front:
+  description: Trunk status.
+  type: branch
+  uuid: a455aca5bae55c22b7949fd31a765a6c
+
+Vehicle.Body.Trunk.Front.IsLocked:
   datatype: boolean
   description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
   type: actuator
-  uuid: d89db9a83c0955c3a049c529072d397f
+  uuid: e0eabc210f07505fa1b66b67729d681b
 
-Vehicle.Body.Trunk.IsOpen:
+Vehicle.Body.Trunk.Front.IsOpen:
   datatype: boolean
   description: Trunk open or closed. True = Open. False = Closed.
   type: actuator
-  uuid: 58c8eb023b4b5db794705d7ce63e2d75
+  uuid: 2047de0896a352fcaf02baa06819a023
+
+Vehicle.Body.Trunk.Rear:
+  description: Trunk status.
+  type: branch
+  uuid: a6170ff5e4325f38b5d57402e1d95e5a
+
+Vehicle.Body.Trunk.Rear.IsLocked:
+  datatype: boolean
+  description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
+  type: actuator
+  uuid: 8f9b55b002ed59d3ac2ef0b014abf4aa
+
+Vehicle.Body.Trunk.Rear.IsOpen:
+  datatype: boolean
+  description: Trunk open or closed. True = Open. False = Closed.
+  type: actuator
+  uuid: 3d3249e59306594698367b839b12c938
 
 Vehicle.Body.Windshield:
   description: Windshield signals.
@@ -1504,7 +1557,7 @@ Vehicle.Cabin.Infotainment.Navigation.DestinationSet:
 
 Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude:
   datatype: double
-  description: Latitude of destination according to WGS 84.
+  description: Latitude of destination in WGS 84 geodetic coordinates.
   max: 90
   min: -90
   type: actuator
@@ -1513,7 +1566,7 @@ Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude:
 
 Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Longitude:
   datatype: double
-  description: Longitude of destination according to WGS 84.
+  description: Longitude of destination in WGS 84 geodetic coordinates.
   max: 180
   min: -180
   type: actuator
@@ -4272,6 +4325,12 @@ Vehicle.Chassis.Brake:
   type: branch
   uuid: 38df972e5c6b558e93839a5e97238c5a
 
+Vehicle.Chassis.Brake.IsDriverEmergencyBrakingDetected:
+  datatype: boolean
+  description: Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.
+  type: sensor
+  uuid: 0d462892aeac5062a62ee7d07306f6a6
+
 Vehicle.Chassis.Brake.PedalPosition:
   datatype: uint8
   description: Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
@@ -4363,10 +4422,57 @@ Vehicle.CurrentLocation:
 
 Vehicle.CurrentLocation.Altitude:
   datatype: double
-  description: Current altitude relative to WGS 84 reference ellipsoid.
+  description: Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.
   type: sensor
   unit: m
   uuid: d3ead98ab0b751c1a5b5dd5bc0e5e216
+
+Vehicle.CurrentLocation.GNSSReceiver:
+  description: Information on the GNSS receiver used for determining current location.
+  type: branch
+  uuid: b1bea5d88662539a8cff6f8fe4974740
+
+Vehicle.CurrentLocation.GNSSReceiver.FixType:
+  allowed:
+  - NONE
+  - TWO_D
+  - TWO_D_SATELLITE_BASED_AUGMENTATION
+  - TWO_D_GROUND_BASED_AUGMENTATION
+  - TWO_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION
+  - THREE_D
+  - THREE_D_SATELLITE_BASED_AUGMENTATION
+  - THREE_D_GROUND_BASED_AUGMENTATION
+  - THREE_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION
+  datatype: string
+  description: Fix status of GNSS receiver.
+  type: sensor
+  uuid: 52853b33d4605608bd0ae50595c69309
+
+Vehicle.CurrentLocation.GNSSReceiver.MountingPosition:
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+  type: branch
+  uuid: 5c0887bce6fb5eb79402baaccb203e61
+
+Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.X:
+  datatype: int16
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.
+  type: attribute
+  unit: mm
+  uuid: f23d40f3556b5676a0d1e3def037197f
+
+Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.Y:
+  datatype: int16
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.
+  type: attribute
+  unit: mm
+  uuid: 16745ae827c0527ea2c48c20f0c146f1
+
+Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.Z:
+  datatype: int16
+  description: Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.
+  type: attribute
+  unit: mm
+  uuid: a4d04e86518e5c5ab60e5e4face35756
 
 Vehicle.CurrentLocation.Heading:
   datatype: double
@@ -4386,7 +4492,7 @@ Vehicle.CurrentLocation.HorizontalAccuracy:
 
 Vehicle.CurrentLocation.Latitude:
   datatype: double
-  description: Current latitude of vehicle according to WGS 84.
+  description: Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
   max: 90
   min: -90
   type: sensor
@@ -4395,7 +4501,7 @@ Vehicle.CurrentLocation.Latitude:
 
 Vehicle.CurrentLocation.Longitude:
   datatype: double
-  description: Current longitude of vehicle according to WGS 84.
+  description: Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.
   max: 180
   min: -180
   type: sensor
@@ -4483,6 +4589,36 @@ Vehicle.EmissionsCO2:
   type: attribute
   unit: g/km
   uuid: b73e8f1ed17d584fad3f088c666dc2a5
+
+Vehicle.Exterior:
+  description: Information about exterior measured by vehicle.
+  type: branch
+  uuid: 06c5def549f3580e8cdaffa3e0f5d25c
+
+Vehicle.Exterior.AirTemperature:
+  datatype: float
+  description: Air temperature outside the vehicle.
+  type: sensor
+  unit: celsius
+  uuid: a38d3f5dfeb35317aca8b90453dc1a75
+
+Vehicle.Exterior.Humidity:
+  datatype: float
+  description: Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.
+  max: 100
+  min: 0
+  type: sensor
+  unit: percent
+  uuid: 6c785ec5d9a5534f98be7ce198d25d6b
+
+Vehicle.Exterior.LightIntensity:
+  datatype: float
+  description: Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.
+  max: 100
+  min: 0
+  type: sensor
+  unit: percent
+  uuid: 9b46b70490f853e891e1cc35dd08dddc
 
 Vehicle.GrossWeight:
   datatype: uint16
@@ -5664,19 +5800,6 @@ Vehicle.Powertrain.CombustionEngine.EngineOilLevel:
   type: sensor
   uuid: e3813f59e94b509eb865fd97255a8a4f
 
-Vehicle.Powertrain.CombustionEngine.FuelType:
-  allowed:
-  - UNKNOWN
-  - GASOLINE
-  - DIESEL
-  - E85
-  - CNG
-  datatype: string
-  default: UNKNOWN
-  description: Type of fuel that the engine runs on.
-  type: attribute
-  uuid: d0f8c79131c850bab8159eaefc7e23e5
-
 Vehicle.Powertrain.CombustionEngine.IdleHours:
   datatype: float
   description: Accumulated idling time during engine lifetime. Definition of idling is not standardized.
@@ -5873,22 +5996,6 @@ Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart:
   unit: l
   uuid: adf0a40964ff556f92b10275ad918883
 
-Vehicle.Powertrain.FuelSystem.FuelType:
-  allowed:
-  - UNKNOWN
-  - GASOLINE
-  - DIESEL
-  - ELECTRIC
-  - HYBRID
-  - E85
-  - CNG
-  - LPG
-  datatype: string
-  default: UNKNOWN
-  description: Defines the fuel type of the vehicle.
-  type: attribute
-  uuid: 76442e696df5540b8b747373b29895d9
-
 Vehicle.Powertrain.FuelSystem.HybridType:
   allowed:
   - UNKNOWN
@@ -5938,6 +6045,44 @@ Vehicle.Powertrain.FuelSystem.Range:
   type: sensor
   unit: m
   uuid: c5a0dbe5e754553897f0aed0069af57a
+
+Vehicle.Powertrain.FuelSystem.SupportedFuel:
+  allowed:
+  - E5_95
+  - E5_98
+  - E10_95
+  - E10_98
+  - E85
+  - B7
+  - B10
+  - B20
+  - B30
+  - B100
+  - XTL
+  - LPG
+  - CNG
+  - LNG
+  - H2
+  - OTHER
+  datatype: string[]
+  description: Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.
+  type: attribute
+  uuid: 7fd3bf2ef0c650e69ff2037875ec59ee
+
+Vehicle.Powertrain.FuelSystem.SupportedFuelTypes:
+  allowed:
+  - GASOLINE
+  - DIESEL
+  - E85
+  - LPG
+  - CNG
+  - LNG
+  - H2
+  - OTHER
+  datatype: string[]
+  description: High level information of fuel types supported
+  type: attribute
+  uuid: 80edc3002aa25097aba6455fe459fa6c
 
 Vehicle.Powertrain.FuelSystem.TankCapacity:
   datatype: float
@@ -6340,6 +6485,16 @@ Vehicle.Powertrain.Transmission.Type:
   description: Transmission type.
   type: attribute
   uuid: f83b9e5464d85a0288fcb32c164d3c63
+
+Vehicle.Powertrain.Type:
+  allowed:
+  - COMBUSTION
+  - HYBRID
+  - ELECTRIC
+  datatype: string
+  description: Defines the powertrain type of the vehicle.
+  type: attribute
+  uuid: 2a000da4204658a4a6e3ecd5176bdfba
 
 Vehicle.Private:
   description: Uncontrolled branch where non-public signals can be defined.
