@@ -1,0 +1,7259 @@
+module Vehicle
+{
+module VersionVSS
+{
+struct Major
+{
+string uuid;
+unsigned long value;
+//const string type ="attribute";
+//const string description="Supported Version of VSS - Major version.";
+};
+struct Minor
+{
+string uuid;
+unsigned long value;
+//const string type ="attribute";
+//const string description="Supported Version of VSS - Minor version.";
+};
+struct Patch
+{
+string uuid;
+unsigned long value;
+//const string type ="attribute";
+//const string description="Supported Version of VSS - Patch version.";
+};
+struct Label
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Label to further describe the version.";
+};
+};
+
+module VehicleIdentification
+{
+struct VIN
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="17-character Vehicle Identification Number (VIN) as defined by ISO 3779.";
+};
+struct WMI
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="3-character World Manufacturer Identification (WMI) as defined by ISO 3780.";
+};
+struct Brand
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Vehicle brand or manufacturer.";
+};
+struct Model
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Vehicle model.";
+};
+struct Year
+{
+string uuid;
+unsigned short value;
+//const string type ="attribute";
+//const string description="Model year of the vehicle.";
+};
+struct AcrissCode
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The ACRISS Car Classification Code is a code used by many car rental companies.";
+};
+struct BodyType
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).";
+};
+struct DateVehicleFirstRegistered
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.";
+};
+struct MeetsEmissionStandard
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Indicates that the vehicle meets the respective emission standard.";
+};
+struct ProductionDate
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The date in ISO 8601 format of production of the item, e.g. vehicle.";
+};
+struct PurchaseDate
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.";
+};
+struct VehicleModelDate
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).";
+};
+struct VehicleConfiguration
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.";
+};
+struct VehicleSeatingCapacity
+{
+string uuid;
+unsigned short value;
+//const string type ="attribute";
+//const string description="The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.";
+};
+struct VehicleSpecialUsage
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.";
+};
+struct VehicleInteriorColor
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The color or color combination of the interior of the vehicle.";
+};
+struct VehicleInteriorType
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).";
+};
+struct KnownVehicleDamages
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="A textual description of known damages, both repaired and unrepaired.";
+};
+};
+
+enum LowVoltageSystemStateValues{UNDEFINED,LOCK,OFF,ACC,ON,START};
+
+struct LowVoltageSystemState
+{
+string uuid;
+LowVoltageSystemStateValues value;
+//const string type ="sensor";
+//const string description="State of the supply voltage of the control units (usually 12V).";
+};
+struct Speed
+{
+string uuid;
+float value;
+//const string unit="km/h";
+//const string type ="sensor";
+//const string description="Vehicle speed.";
+};
+struct TravelledDistance
+{
+string uuid;
+float value;
+//const string unit="km";
+//const string type ="sensor";
+//const string description="Odometer reading, total distance travelled during the lifetime of the vehicle.";
+};
+struct TripMeterReading
+{
+string uuid;
+float value;
+//const string unit="km";
+//const string type ="sensor";
+//const string description="Current trip meter reading.";
+};
+struct IsBrokenDown
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.";
+};
+struct IsMoving
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates whether the vehicle is stationary or moving.";
+};
+struct AverageSpeed
+{
+string uuid;
+float value;
+//const string unit="km/h";
+//const string type ="sensor";
+//const string description="Average speed for the current trip.";
+};
+module Acceleration
+{
+struct Longitudinal
+{
+string uuid;
+float value;
+//const string unit="m/s^2";
+//const string type ="sensor";
+//const string description="Vehicle acceleration in X (longitudinal acceleration).";
+};
+struct Lateral
+{
+string uuid;
+float value;
+//const string unit="m/s^2";
+//const string type ="sensor";
+//const string description="Vehicle acceleration in Y (lateral acceleration).";
+};
+struct Vertical
+{
+string uuid;
+float value;
+//const string unit="m/s^2";
+//const string type ="sensor";
+//const string description="Vehicle acceleration in Z (vertical acceleration).";
+};
+};
+
+module AngularVelocity
+{
+struct Roll
+{
+string uuid;
+float value;
+//const string unit="degrees/s";
+//const string type ="sensor";
+//const string description="Vehicle rotation rate along X (longitudinal).";
+};
+struct Pitch
+{
+string uuid;
+float value;
+//const string unit="degrees/s";
+//const string type ="sensor";
+//const string description="Vehicle rotation rate along Y (lateral).";
+};
+struct Yaw
+{
+string uuid;
+float value;
+//const string unit="degrees/s";
+//const string type ="sensor";
+//const string description="Vehicle rotation rate along Z (vertical).";
+};
+};
+
+struct RoofLoad
+{
+string uuid;
+short value;
+//const string unit="kg";
+//const string type ="attribute";
+//const string description="The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.";
+};
+struct CargoVolume
+{
+string uuid;
+float value;
+//const string unit="l";
+//const string type ="attribute";
+//const string description="The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.";
+};
+struct EmissionsCO2
+{
+string uuid;
+short value;
+//const string unit="g/km";
+//const string type ="attribute";
+//const string description="The CO2 emissions.";
+};
+struct CurrentOverallWeight
+{
+string uuid;
+unsigned short value;
+//const string unit="kg";
+//const string type ="sensor";
+//const string description="Current overall Vehicle weight. Including passengers, cargo and other load inside the car.";
+};
+struct CurbWeight
+{
+string uuid;
+unsigned short value;
+//const string unit="kg";
+//const string type ="attribute";
+//const string description="Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers.";
+};
+struct GrossWeight
+{
+string uuid;
+unsigned short value;
+//const string unit="kg";
+//const string type ="attribute";
+//const string description="Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.";
+};
+struct MaxTowWeight
+{
+string uuid;
+unsigned short value;
+//const string unit="kg";
+//const string type ="attribute";
+//const string description="Maximum weight of trailer.";
+};
+struct MaxTowBallWeight
+{
+string uuid;
+unsigned short value;
+//const string unit="kg";
+//const string type ="attribute";
+//const string description="Maximum vertical weight on the tow ball of a trailer.";
+};
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Overall vehicle length.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Overall vehicle height.";
+};
+struct Width
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Overall vehicle width.";
+};
+module Trailer
+{
+struct IsConnected
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Signal indicating if trailer is connected or not.";
+};
+};
+
+module CurrentLocation
+{
+struct Timestamp
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Timestamp from GNSS system for current location, formatted according to ISO 8601 with UTC time zone.";
+};
+struct Latitude
+{
+string uuid;
+double value;
+//const string unit="degrees";
+//const string type ="sensor";
+//const string description="Current latitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.";
+};
+struct Longitude
+{
+string uuid;
+double value;
+//const string unit="degrees";
+//const string type ="sensor";
+//const string description="Current longitude of vehicle in WGS 84 geodetic coordinates, as measured at the position of GNSS receiver antenna.";
+};
+struct Heading
+{
+string uuid;
+double value;
+//const string unit="degrees";
+//const string type ="sensor";
+//const string description="Current heading relative to geographic north. 0 = North, 90 = East, 180 = South, 270 = West.";
+};
+struct HorizontalAccuracy
+{
+string uuid;
+double value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Accuracy of the latitude and longitude coordinates.";
+};
+struct Altitude
+{
+string uuid;
+double value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Current altitude relative to WGS 84 reference ellipsoid, as measured at the position of GNSS receiver antenna.";
+};
+struct VerticalAccuracy
+{
+string uuid;
+double value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Accuracy of altitude.";
+};
+module GNSSReceiver
+{
+enum FixTypeValues{NONE,TWO_D,TWO_D_SATELLITE_BASED_AUGMENTATION,TWO_D_GROUND_BASED_AUGMENTATION,TWO_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION,THREE_D,THREE_D_SATELLITE_BASED_AUGMENTATION,THREE_D_GROUND_BASED_AUGMENTATION,THREE_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION};
+
+struct FixType
+{
+string uuid;
+FixTypeValues value;
+//const string type ="sensor";
+//const string description="Fix status of GNSS receiver.";
+};
+module MountingPosition
+{
+struct X
+{
+string uuid;
+short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.";
+};
+struct Y
+{
+string uuid;
+short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.";
+};
+struct Z
+{
+string uuid;
+short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.";
+};
+};
+
+};
+
+};
+
+module Private
+{
+};
+
+module Powertrain
+{
+struct AccumulatedBrakingEnergy
+{
+string uuid;
+float value;
+//const string unit="kWh";
+//const string type ="sensor";
+//const string description="The accumulated energy from regenerative braking over lifetime.";
+};
+struct Range
+{
+string uuid;
+unsigned long value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Remaining range in meters using all energy sources available in the vehicle.";
+};
+enum TypeValues{COMBUSTION,HYBRID,ELECTRIC};
+
+struct Type
+{
+string uuid;
+TypeValues value;
+//const string type ="attribute";
+//const string description="Defines the powertrain type of the vehicle.";
+};
+module CombustionEngine
+{
+struct EngineCode
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Engine code designation, as specified by vehicle manufacturer.";
+};
+struct Displacement
+{
+string uuid;
+unsigned short value;
+//const string unit="cm^3";
+//const string type ="attribute";
+//const string description="Displacement in cubic centimetres.";
+};
+struct StrokeLength
+{
+string uuid;
+float value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Stroke length in millimetres.";
+};
+struct Bore
+{
+string uuid;
+float value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Bore in millimetres.";
+};
+enum ConfigurationValues{UNKNOWN,STRAIGHT,V,BOXER,W,ROTARY,RADIAL,SQUARE,H,U,OPPOSED,X};
+
+struct Configuration
+{
+string uuid;
+ConfigurationValues value;
+//const string type ="attribute";
+//const string description="Engine configuration.";
+};
+struct NumberOfCylinders
+{
+string uuid;
+unsigned short value;
+//const string type ="attribute";
+//const string description="Number of cylinders.";
+};
+struct NumberOfValvesPerCylinder
+{
+string uuid;
+unsigned short value;
+//const string type ="attribute";
+//const string description="Number of valves per cylinder.";
+};
+struct CompressionRatio
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'.";
+};
+struct EngineOilCapacity
+{
+string uuid;
+float value;
+//const string unit="l";
+//const string type ="attribute";
+//const string description="Engine oil capacity in liters.";
+};
+struct EngineCoolantCapacity
+{
+string uuid;
+float value;
+//const string unit="l";
+//const string type ="attribute";
+//const string description="Engine coolant capacity in liters.";
+};
+struct MaxPower
+{
+string uuid;
+unsigned short value;
+//const string unit="kW";
+//const string type ="attribute";
+//const string description="Peak power, in kilowatts, that engine can generate.";
+};
+struct MaxTorque
+{
+string uuid;
+unsigned short value;
+//const string unit="Nm";
+//const string type ="attribute";
+//const string description="Peak torque, in newton meter, that the engine can generate.";
+};
+enum AspirationTypeValues{UNKNOWN,NATURAL,SUPERCHARGER,TURBOCHARGER};
+
+struct AspirationType
+{
+string uuid;
+AspirationTypeValues value;
+//const string type ="attribute";
+//const string description="Type of aspiration (natural, turbocharger, supercharger etc).";
+};
+enum EngineOilLevelValues{CRITICALLY_LOW,LOW,NORMAL,HIGH,CRITICALLY_HIGH};
+
+struct EngineOilLevel
+{
+string uuid;
+EngineOilLevelValues value;
+//const string type ="sensor";
+//const string description="Engine oil level.";
+};
+struct OilLifeRemaining
+{
+string uuid;
+long value;
+//const string unit="s";
+//const string type ="sensor";
+//const string description="Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.";
+};
+struct IsRunning
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Engine Running. True if engine is rotating (Speed > 0).";
+};
+struct Speed
+{
+string uuid;
+unsigned short value;
+//const string unit="rpm";
+//const string type ="sensor";
+//const string description="Engine speed measured as rotations per minute.";
+};
+struct EngineHours
+{
+string uuid;
+float value;
+//const string unit="h";
+//const string type ="sensor";
+//const string description="Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.";
+};
+struct IdleHours
+{
+string uuid;
+float value;
+//const string unit="h";
+//const string type ="sensor";
+//const string description="Accumulated idling time during engine lifetime. Definition of idling is not standardized.";
+};
+struct ECT
+{
+string uuid;
+short value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Engine coolant temperature.";
+};
+struct EOT
+{
+string uuid;
+short value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Engine oil temperature.";
+};
+struct MAP
+{
+string uuid;
+unsigned short value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="Manifold absolute pressure possibly boosted using forced induction.";
+};
+struct MAF
+{
+string uuid;
+unsigned short value;
+//const string unit="g/s";
+//const string type ="sensor";
+//const string description="Grams of air drawn into engine per second.";
+};
+struct TPS
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Current throttle position.";
+};
+struct EOP
+{
+string uuid;
+unsigned short value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="Engine oil pressure.";
+};
+struct Power
+{
+string uuid;
+unsigned short value;
+//const string unit="kW";
+//const string type ="sensor";
+//const string description="Current engine power output. Shall be reported as 0 during engine breaking.";
+};
+struct Torque
+{
+string uuid;
+unsigned short value;
+//const string unit="Nm";
+//const string type ="sensor";
+//const string description="Current engine torque. Shall be reported as 0 during engine breaking.";
+};
+module DieselExhaustFluid
+{
+struct Capacity
+{
+string uuid;
+float value;
+//const string unit="l";
+//const string type ="attribute";
+//const string description="Capacity in liters of the Diesel Exhaust Fluid Tank.";
+};
+struct Level
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.";
+};
+struct Range
+{
+string uuid;
+unsigned long value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.";
+};
+struct IsLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent.";
+};
+};
+
+module DieselParticulateFilter
+{
+struct InletTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Inlet temperature of Diesel Particulate Filter.";
+};
+struct OutletTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Outlet temperature of Diesel Particulate Filter.";
+};
+struct DeltaPressure
+{
+string uuid;
+float value;
+//const string unit="Pa";
+//const string type ="sensor";
+//const string description="Delta Pressure of Diesel Particulate Filter.";
+};
+};
+
+};
+
+module Transmission
+{
+enum TypeValues{UNKNOWN,SEQUENTIAL,H,AUTOMATIC,DSG,CVT};
+
+struct Type
+{
+string uuid;
+TypeValues value;
+//const string type ="attribute";
+//const string description="Transmission type.";
+};
+struct GearCount
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="Number of forward gears in the transmission. -1 = CVT.";
+};
+enum DriveTypeValues{UNKNOWN,FORWARD_WHEEL_DRIVE,REAR_WHEEL_DRIVE,ALL_WHEEL_DRIVE};
+
+struct DriveType
+{
+string uuid;
+DriveTypeValues value;
+//const string type ="attribute";
+//const string description="Drive type.";
+};
+struct TravelledDistance
+{
+string uuid;
+float value;
+//const string unit="km";
+//const string type ="sensor";
+//const string description="Odometer reading, total distance travelled during the lifetime of the transmission.";
+};
+struct CurrentGear
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.";
+};
+struct SelectedGear
+{
+string uuid;
+octet value;
+//const string type ="actuator";
+//const string description="The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.";
+};
+struct IsParkLockEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.";
+};
+struct IsLowRangeEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.";
+};
+struct IsElectricalPowertrainEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.";
+};
+enum PerformanceModeValues{NORMAL,SPORT,ECONOMY,SNOW,RAIN};
+
+struct PerformanceMode
+{
+string uuid;
+PerformanceModeValues value;
+//const string type ="actuator";
+//const string description="Current gearbox performance mode.";
+};
+enum GearChangeModeValues{MANUAL,AUTOMATIC};
+
+struct GearChangeMode
+{
+string uuid;
+GearChangeModeValues value;
+//const string type ="actuator";
+//const string description="Is the gearbox in automatic or manual (paddle) mode.";
+};
+struct Temperature
+{
+string uuid;
+short value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="The current gearbox temperature.";
+};
+struct ClutchEngagement
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.";
+};
+struct ClutchWear
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Clutch wear as a percent. 0 = no wear. 100 = worn.";
+};
+struct DiffLockFrontEngagement
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.";
+};
+struct DiffLockRearEngagement
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.";
+};
+struct TorqueDistribution
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.";
+};
+};
+
+module ElectricMotor
+{
+struct EngineCode
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Engine code designation, as specified by vehicle manufacturer.";
+};
+struct MaxPower
+{
+string uuid;
+unsigned short value;
+//const string unit="kW";
+//const string type ="attribute";
+//const string description="Peak power, in kilowatts, that motor(s) can generate.";
+};
+struct MaxTorque
+{
+string uuid;
+unsigned short value;
+//const string unit="Nm";
+//const string type ="attribute";
+//const string description="Peak power, in newton meter, that the motor(s) can generate.";
+};
+struct MaxRegenPower
+{
+string uuid;
+unsigned short value;
+//const string unit="kW";
+//const string type ="attribute";
+//const string description="Peak regen/brake power, in kilowatts, that motor(s) can generate.";
+};
+struct MaxRegenTorque
+{
+string uuid;
+unsigned short value;
+//const string unit="Nm";
+//const string type ="attribute";
+//const string description="Peak regen/brake torque, in newton meter, that the motor(s) can generate.";
+};
+struct Speed
+{
+string uuid;
+long value;
+//const string unit="rpm";
+//const string type ="sensor";
+//const string description="Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.";
+};
+struct Temperature
+{
+string uuid;
+short value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Motor temperature.";
+};
+struct CoolantTemperature
+{
+string uuid;
+short value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Motor coolant temperature (if applicable).";
+};
+struct Power
+{
+string uuid;
+short value;
+//const string unit="kW";
+//const string type ="sensor";
+//const string description="Current motor power output. Negative values indicate regen mode.";
+};
+struct Torque
+{
+string uuid;
+short value;
+//const string unit="Nm";
+//const string type ="sensor";
+//const string description="Current motor torque. Negative values indicate regen mode.";
+};
+};
+
+module TractionBattery
+{
+struct Id
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Battery Identification Number as assigned by OEM.";
+};
+struct ProductionDate
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.";
+};
+struct IsPowerConnected
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicating if the power (positive terminator) of the traction battery is connected to the powertrain.";
+};
+struct IsGroundConnected
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.";
+};
+module Temperature
+{
+struct Average
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Current average temperature of the battery cells.";
+};
+struct Min
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.";
+};
+struct Max
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.";
+};
+};
+
+struct GrossCapacity
+{
+string uuid;
+unsigned short value;
+//const string unit="kWh";
+//const string type ="attribute";
+//const string description="Gross capacity of the battery.";
+};
+struct NetCapacity
+{
+string uuid;
+unsigned short value;
+//const string unit="kWh";
+//const string type ="sensor";
+//const string description="Total net capacity of the battery considering aging.";
+};
+struct StateOfHealth
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Calculated battery state of health at standard conditions.";
+};
+module StateOfCharge
+{
+struct Current
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.";
+};
+struct Displayed
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="State of charge displayed to the customer.";
+};
+};
+
+struct NominalVoltage
+{
+string uuid;
+unsigned short value;
+//const string unit="V";
+//const string type ="attribute";
+//const string description="Nominal Voltage of the battery.";
+};
+struct MaxVoltage
+{
+string uuid;
+unsigned short value;
+//const string unit="V";
+//const string type ="attribute";
+//const string description="Max allowed voltage of the battery, e.g. during charging.";
+};
+struct CurrentVoltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="Current Voltage of the battery.";
+};
+struct CurrentCurrent
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.";
+};
+struct CurrentPower
+{
+string uuid;
+float value;
+//const string unit="W";
+//const string type ="sensor";
+//const string description="Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.";
+};
+struct AccumulatedChargedEnergy
+{
+string uuid;
+float value;
+//const string unit="kWh";
+//const string type ="sensor";
+//const string description="The accumulated energy delivered to the battery during charging over lifetime of the battery.";
+};
+struct AccumulatedConsumedEnergy
+{
+string uuid;
+float value;
+//const string unit="kWh";
+//const string type ="sensor";
+//const string description="The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.";
+};
+struct AccumulatedChargedThroughput
+{
+string uuid;
+float value;
+//const string unit="Ah";
+//const string type ="sensor";
+//const string description="The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.";
+};
+struct AccumulatedConsumedThroughput
+{
+string uuid;
+float value;
+//const string unit="Ah";
+//const string type ="sensor";
+//const string description="The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.";
+};
+struct PowerLoss
+{
+string uuid;
+float value;
+//const string unit="W";
+//const string type ="sensor";
+//const string description="Electrical energy lost by power dissipation to heat inside the battery.";
+};
+struct Range
+{
+string uuid;
+unsigned long value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Remaining range in meters using only battery.";
+};
+module Charging
+{
+struct ChargeLimit
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Target charge limit (state of charge) for battery.";
+};
+module MaximumChargingCurrent
+{
+struct DC
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Maximum DC charging current at inlet that can be accepted by the system.";
+};
+struct Phase1
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.";
+};
+struct Phase2
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.";
+};
+struct Phase3
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.";
+};
+};
+
+enum ChargePortFlapValues{OPEN,CLOSED};
+
+struct ChargePortFlap
+{
+string uuid;
+ChargePortFlapValues value;
+//const string type ="actuator";
+//const string description="Status of the charge port cover, can potentially be controlled manually.";
+};
+struct IsChargingCableConnected
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if a charging cable is physically connected to the vehicle or not.";
+};
+struct IsChargingCableLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is charging cable locked to prevent removal.";
+};
+enum ChargePlugTypeValues{IEC_TYPE_1_AC,IEC_TYPE_2_AC,IEC_TYPE_3_AC,IEC_TYPE_4_DC,IEC_TYPE_1_CCS_DC,IEC_TYPE_2_CCS_DC,TESLA_ROADSTER,TESLA_HPWC,TESLA_SUPERCHARGER,GBT_AC,GBT_DC,OTHER};
+
+struct ChargePlugType
+{
+string uuid;
+ChargePlugTypeValues value;
+//const string type ="attribute";
+//const string description="Type of charge plug (charging inlet) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.";
+};
+enum ModeValues{MANUAL,TIMER,GRID,PROFILE};
+
+struct Mode
+{
+string uuid;
+ModeValues value;
+//const string type ="actuator";
+//const string description="Control of the charge process. MANUAL means manually initiated (plug-in event, companion app, etc). TIMER means timer-based. GRID means grid-controlled (eg ISO 15118). PROFILE means controlled by profile download to vehicle.";
+};
+struct IsCharging
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.";
+};
+struct IsDischarging
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.";
+};
+enum StartStopChargingValues{START,STOP};
+
+struct StartStopCharging
+{
+string uuid;
+StartStopChargingValues value;
+//const string type ="actuator";
+//const string description="Start or stop the charging process.";
+};
+module ChargeCurrent
+{
+struct DC
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Current DC charging current at inlet. Negative if returning energy to grid.";
+};
+struct Phase1
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.";
+};
+struct Phase2
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.";
+};
+struct Phase3
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.";
+};
+};
+
+module ChargeVoltage
+{
+struct DC
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="Current DC charging voltage at charging inlet.";
+};
+struct Phase1
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="Current AC charging voltage (rms) at inlet for Phase 1.";
+};
+struct Phase2
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="Current AC charging voltage (rms) at inlet for Phase 2.";
+};
+struct Phase3
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="Current AC charging voltage (rms) at inlet for Phase 3.";
+};
+};
+
+struct PowerLoss
+{
+string uuid;
+float value;
+//const string unit="W";
+//const string type ="sensor";
+//const string description="Electrical energy lost by power dissipation to heat inside the AC/DC converter.";
+};
+struct Temperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Current temperature of AC/DC converter converting grid voltage to battery voltage.";
+};
+struct ChargeRate
+{
+string uuid;
+float value;
+//const string unit="km/h";
+//const string type ="sensor";
+//const string description="Current charging rate, as in kilometers of range added per hour.";
+};
+struct TimeToComplete
+{
+string uuid;
+unsigned long value;
+//const string unit="s";
+//const string type ="sensor";
+//const string description="The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.";
+};
+module Timer
+{
+enum ModeValues{INACTIVE,START_TIME,END_TIME};
+
+struct Mode
+{
+string uuid;
+ModeValues value;
+//const string type ="actuator";
+//const string description="Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach Charging.ChargeLimit) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.";
+};
+struct Time
+{
+string uuid;
+string value;
+//const string type ="actuator";
+//const string description="Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'.";
+};
+};
+
+};
+
+module DCDC
+{
+struct PowerLoss
+{
+string uuid;
+float value;
+//const string unit="W";
+//const string type ="sensor";
+//const string description="Electrical energy lost by power dissipation to heat inside DC/DC converter.";
+};
+struct Temperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).";
+};
+};
+
+};
+
+module FuelSystem
+{
+enum SupportedFuelTypesValues{GASOLINE,DIESEL,E85,LPG,CNG,LNG,H2,OTHER};
+
+struct SupportedFuelTypes
+{
+string uuid;
+SupportedFuelTypesValues value;
+//const string type ="attribute";
+//const string description="High level information of fuel types supported";
+};
+enum SupportedFuelValues{E5_95,E5_98,E10_95,E10_98,E85,B7,B10,B20,B30,B100,XTL,LPG,CNG,LNG,H2,OTHER};
+
+struct SupportedFuel
+{
+string uuid;
+SupportedFuelValues value;
+//const string type ="attribute";
+//const string description="Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.";
+};
+enum HybridTypeValues{UNKNOWN,NOT_APPLICABLE,STOP_START,BELT_ISG,CIMG,PHEV};
+
+struct HybridType
+{
+string uuid;
+HybridTypeValues value;
+//const string type ="attribute";
+//const string description="Defines the hybrid type of the vehicle.";
+};
+struct TankCapacity
+{
+string uuid;
+float value;
+//const string unit="l";
+//const string type ="attribute";
+//const string description="Capacity of the fuel tank in liters.";
+};
+struct Level
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Level in fuel tank as percent of capacity. 0 = empty. 100 = full.";
+};
+struct Range
+{
+string uuid;
+unsigned long value;
+//const string unit="m";
+//const string type ="sensor";
+//const string description="Remaining range in meters using only liquid fuel.";
+};
+struct InstantConsumption
+{
+string uuid;
+float value;
+//const string unit="l/100km";
+//const string type ="sensor";
+//const string description="Current consumption in liters per 100 km.";
+};
+struct AverageConsumption
+{
+string uuid;
+float value;
+//const string unit="l/100km";
+//const string type ="sensor";
+//const string description="Average consumption in liters per 100 km.";
+};
+struct ConsumptionSinceStart
+{
+string uuid;
+float value;
+//const string unit="l";
+//const string type ="sensor";
+//const string description="Fuel amount in liters consumed since start of current trip.";
+};
+struct TimeSinceStart
+{
+string uuid;
+unsigned long value;
+//const string unit="s";
+//const string type ="sensor";
+//const string description="Time in seconds elapsed since start of current trip.";
+};
+struct IsEngineStopStartEnabled
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates whether eco start stop is currently enabled.";
+};
+struct IsFuelLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates that the fuel level is low (e.g. <50km range).";
+};
+};
+
+};
+
+module Body
+{
+struct BodyType
+{
+string uuid;
+string value;
+//const string type ="attribute";
+//const string description="Body type code as defined by ISO 3779.";
+};
+enum RefuelPositionValues{FRONT_LEFT,FRONT_RIGHT,MIDDLE_LEFT,MIDDLE_RIGHT,REAR_LEFT,REAR_RIGHT};
+
+struct RefuelPosition
+{
+string uuid;
+RefuelPositionValues value;
+//const string type ="attribute";
+//const string description="Location of the fuel cap or charge port.";
+};
+module Hood
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Hood open or closed. True = Open. False = Closed.";
+};
+};
+
+module Trunk
+{
+module Front
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Trunk open or closed. True = Open. False = Closed.";
+};
+struct IsLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is trunk locked or unlocked. True = Locked. False = Unlocked.";
+};
+};
+
+module Rear
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Trunk open or closed. True = Open. False = Closed.";
+};
+struct IsLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is trunk locked or unlocked. True = Locked. False = Unlocked.";
+};
+};
+
+};
+
+module Horn
+{
+struct IsActive
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Horn active or inactive. True = Active. False = Inactive.";
+};
+};
+
+module Raindetection
+{
+struct Intensity
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Rain intensity. 0 = Dry, No Rain. 100 = Covered.";
+};
+};
+
+module Windshield
+{
+module Front
+{
+module Wiping
+{
+enum ModeValues{OFF,SLOW,MEDIUM,FAST,INTERVAL,RAIN_SENSOR};
+
+struct Mode
+{
+string uuid;
+ModeValues value;
+//const string type ="actuator";
+//const string description="Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.";
+};
+struct Intensity
+{
+string uuid;
+octet value;
+//const string type ="actuator";
+//const string description="Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.";
+};
+module System
+{
+enum ModeValues{STOP_HOLD,WIPE,PLANT_MODE,EMERGENCY_STOP};
+
+struct Mode
+{
+string uuid;
+ModeValues value;
+//const string type ="actuator";
+//const string description="Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.";
+};
+struct Frequency
+{
+string uuid;
+octet value;
+//const string type ="actuator";
+//const string description="Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.";
+};
+struct TargetPosition
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.";
+};
+struct ActualPosition
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.";
+};
+struct DriveCurrent
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Actual current used by wiper drive.";
+};
+struct IsWiping
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.";
+};
+struct IsEndingWipeCycle
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.";
+};
+struct IsWiperError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates system failure. True if wiping is disabled due to system failure.";
+};
+struct IsPositionReached
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.";
+};
+struct IsBlocked
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.";
+};
+struct IsOverheated
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.";
+};
+};
+
+struct WiperWear
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.";
+};
+struct IsWipersWorn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.";
+};
+};
+
+struct IsHeatingOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Windshield heater status. False - off, True - on.";
+};
+module WasherFluid
+{
+struct IsLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Low level indication for washer fluid. True = Level Low. False = Level OK.";
+};
+struct Level
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Washer fluid level as a percent. 0 = Empty. 100 = Full.";
+};
+};
+
+};
+
+module Rear
+{
+module Wiping
+{
+enum ModeValues{OFF,SLOW,MEDIUM,FAST,INTERVAL,RAIN_SENSOR};
+
+struct Mode
+{
+string uuid;
+ModeValues value;
+//const string type ="actuator";
+//const string description="Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.";
+};
+struct Intensity
+{
+string uuid;
+octet value;
+//const string type ="actuator";
+//const string description="Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.";
+};
+module System
+{
+enum ModeValues{STOP_HOLD,WIPE,PLANT_MODE,EMERGENCY_STOP};
+
+struct Mode
+{
+string uuid;
+ModeValues value;
+//const string type ="actuator";
+//const string description="Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.";
+};
+struct Frequency
+{
+string uuid;
+octet value;
+//const string type ="actuator";
+//const string description="Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.";
+};
+struct TargetPosition
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.";
+};
+struct ActualPosition
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.";
+};
+struct DriveCurrent
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="Actual current used by wiper drive.";
+};
+struct IsWiping
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.";
+};
+struct IsEndingWipeCycle
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.";
+};
+struct IsWiperError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates system failure. True if wiping is disabled due to system failure.";
+};
+struct IsPositionReached
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.";
+};
+struct IsBlocked
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.";
+};
+struct IsOverheated
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.";
+};
+};
+
+struct WiperWear
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.";
+};
+struct IsWipersWorn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.";
+};
+};
+
+struct IsHeatingOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Windshield heater status. False - off, True - on.";
+};
+module WasherFluid
+{
+struct IsLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Low level indication for washer fluid. True = Level Low. False = Level OK.";
+};
+struct Level
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Washer fluid level as a percent. 0 = Empty. 100 = Full.";
+};
+};
+
+};
+
+};
+
+module Lights
+{
+struct IsHighBeamOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is high beam on?";
+};
+struct IsLowBeamOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is low beam on?";
+};
+struct IsRunningOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Are running lights on?";
+};
+struct IsBackupOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is backup (reverse) light on?";
+};
+struct IsParkingOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is parking light on?";
+};
+struct IsBrakeOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is brake light on?";
+};
+struct IsRearFogOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is rear fog light on?";
+};
+struct IsFrontFogOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is front fog light on?";
+};
+struct IsHazardOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Are hazards on?";
+};
+struct IsLeftIndicatorOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is left indicator flashing?";
+};
+struct IsRightIndicatorOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is right indicator flashing?";
+};
+};
+
+module Mirrors
+{
+module Left
+{
+struct Tilt
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.";
+};
+struct Pan
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.";
+};
+struct IsHeatingOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Mirror Heater on or off. True = Heater On. False = Heater Off.";
+};
+};
+
+module Right
+{
+struct Tilt
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.";
+};
+struct Pan
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.";
+};
+struct IsHeatingOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Mirror Heater on or off. True = Heater On. False = Heater Off.";
+};
+};
+
+};
+
+struct RearMainSpoilerPosition
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.";
+};
+};
+
+module Cabin
+{
+module RearShade
+{
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Position of window blind. 0 = Fully retracted. 100 = Fully deployed.";
+};
+};
+
+module HVAC
+{
+module Station
+{
+module Row1
+{
+module Left
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+module Right
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+};
+
+module Row2
+{
+module Left
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+module Right
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+};
+
+module Row3
+{
+module Left
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+module Right
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+};
+
+module Row4
+{
+module Left
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+module Right
+{
+struct FanSpeed
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Fan Speed, 0 = off. 100 = max";
+};
+struct Temperature
+{
+string uuid;
+octet value;
+//const string unit="celsius";
+//const string type ="actuator";
+//const string description="Temperature";
+};
+enum AirDistributionValues{UP,MIDDLE,DOWN};
+
+struct AirDistribution
+{
+string uuid;
+AirDistributionValues value;
+//const string type ="actuator";
+//const string description="Direction of airstream";
+};
+};
+
+};
+
+};
+
+struct IsRecirculationActive
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is recirculation active.";
+};
+struct IsFrontDefrosterActive
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is front defroster active.";
+};
+struct IsRearDefrosterActive
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is rear defroster active.";
+};
+struct IsAirConditioningActive
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is Air conditioning active.";
+};
+struct AmbientAirTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Ambient air temperature inside the vehicle.";
+};
+};
+
+module Infotainment
+{
+module Media
+{
+enum ActionValues{UNKNOWN,STOP,PLAY,FAST_FORWARD,FAST_BACKWARD,SKIP_FORWARD,SKIP_BACKWARD};
+
+struct Action
+{
+string uuid;
+ActionValues value;
+//const string type ="actuator";
+//const string description="Tells if the media was";
+};
+module Played
+{
+enum SourceValues{UNKNOWN,SIRIUS_XM,AM,FM,DAB,TV,CD,DVD,AUX,USB,DISK,BLUETOOTH,INTERNET,VOICE,BEEP};
+
+struct Source
+{
+string uuid;
+SourceValues value;
+//const string type ="actuator";
+//const string description="Media selected for playback";
+};
+struct Artist
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Name of artist being played";
+};
+struct Album
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Name of album being played";
+};
+struct Track
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Name of track being played";
+};
+struct URI
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="User Resource associated with the media";
+};
+};
+
+struct DeclinedURI
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="URI of suggested media that was declined";
+};
+struct SelectedURI
+{
+string uuid;
+string value;
+//const string type ="actuator";
+//const string description="URI of suggested media that was selected";
+};
+struct Volume
+{
+string uuid;
+octet value;
+//const string type ="actuator";
+//const string description="Current Media Volume";
+};
+};
+
+module Navigation
+{
+module DestinationSet
+{
+struct Latitude
+{
+string uuid;
+double value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Latitude of destination in WGS 84 geodetic coordinates.";
+};
+struct Longitude
+{
+string uuid;
+double value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Longitude of destination in WGS 84 geodetic coordinates.";
+};
+};
+
+};
+
+module HMI
+{
+struct CurrentLanguage
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="ISO 639-1 standard language code for the current HMI";
+};
+enum DateFormatValues{YYYY_MM_DD,DD_MM_YYYY,MM_DD_YYYY,YY_MM_DD,DD_MM_YY,MM_DD_YY};
+
+struct DateFormat
+{
+string uuid;
+DateFormatValues value;
+//const string type ="actuator";
+//const string description="Date format used in the current HMI";
+};
+enum TimeFormatValues{HR_12,HR_24};
+
+struct TimeFormat
+{
+string uuid;
+TimeFormatValues value;
+//const string type ="actuator";
+//const string description="Time format used in the current HMI";
+};
+enum DistanceUnitValues{MILES,KILOMETERS};
+
+struct DistanceUnit
+{
+string uuid;
+DistanceUnitValues value;
+//const string type ="actuator";
+//const string description="Distance unit used in the current HMI";
+};
+enum FuelEconomyUnitsValues{MPG_UK,MPG_US,MILES_PER_LITER,KILOMETERS_PER_LITER,LITERS_PER_100_KILOMETERS};
+
+struct FuelEconomyUnits
+{
+string uuid;
+FuelEconomyUnitsValues value;
+//const string type ="actuator";
+//const string description="Fuel economy unit used in the current HMI";
+};
+enum EVEconomyUnitsValues{MILES_PER_KILOWATT_HOUR,KILOMETERS_PER_KILOWATT_HOUR,KILOWATT_HOURS_PER_100_MILES,KILOWATT_HOURS_PER_100_KILOMETERS,WATT_HOURS_PER_MILE,WATT_HOURS_PER_KILOMETER};
+
+struct EVEconomyUnits
+{
+string uuid;
+EVEconomyUnitsValues value;
+//const string type ="actuator";
+//const string description="EV fuel economy unit used in the current HMI";
+};
+enum TemperatureUnitValues{C,F};
+
+struct TemperatureUnit
+{
+string uuid;
+TemperatureUnitValues value;
+//const string type ="actuator";
+//const string description="Temperature unit used in the current HMI";
+};
+enum DayNightModeValues{DAY,NIGHT};
+
+struct DayNightMode
+{
+string uuid;
+DayNightModeValues value;
+//const string type ="actuator";
+//const string description="Current display theme";
+};
+};
+
+};
+
+module Sunroof
+{
+struct Position
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.";
+};
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN,TILT_UP,TILT_DOWN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or shade.";
+};
+module Shade
+{
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Position of window blind. 0 = Fully retracted. 100 = Fully deployed.";
+};
+};
+
+};
+
+module RearviewMirror
+{
+struct DimmingLevel
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.";
+};
+};
+
+module Lights
+{
+struct IsGloveBoxOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is glove box light on";
+};
+struct IsTrunkOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is trunk light light on";
+};
+struct IsDomeOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is central dome light light on";
+};
+struct AmbientLight
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness";
+};
+struct LightIntensity
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Intensity of the interior lights. 0 = Off. 100 = Full brightness.";
+};
+module Spotlight
+{
+module Row1
+{
+struct IsSharedOn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is a shared light across a specific row on";
+};
+struct IsLeftOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the left side switched on";
+};
+struct IsRightOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the right side switched on";
+};
+};
+
+module Row2
+{
+struct IsSharedOn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is a shared light across a specific row on";
+};
+struct IsLeftOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the left side switched on";
+};
+struct IsRightOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the right side switched on";
+};
+};
+
+module Row3
+{
+struct IsSharedOn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is a shared light across a specific row on";
+};
+struct IsLeftOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the left side switched on";
+};
+struct IsRightOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the right side switched on";
+};
+};
+
+module Row4
+{
+struct IsSharedOn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is a shared light across a specific row on";
+};
+struct IsLeftOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the left side switched on";
+};
+struct IsRightOn
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is light on the right side switched on";
+};
+};
+
+};
+
+};
+
+module Door
+{
+module Row1
+{
+module Left
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door open or closed";
+};
+struct IsLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door locked or unlocked. True = Locked. False = Unlocked.";
+};
+module Window
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window open or closed?";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Window position. 0 = Fully closed 100 = Fully opened.";
+};
+struct IsChildLockEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window child lock engaged. True = Engaged. False = Disengaged.";
+};
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+};
+
+struct IsChildLockActive
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is door child lock engaged. True = Engaged. False = Disengaged.";
+};
+module Shade
+{
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Position of window blind. 0 = Fully retracted. 100 = Fully deployed.";
+};
+};
+
+};
+
+module Right
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door open or closed";
+};
+struct IsLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door locked or unlocked. True = Locked. False = Unlocked.";
+};
+module Window
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window open or closed?";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Window position. 0 = Fully closed 100 = Fully opened.";
+};
+struct IsChildLockEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window child lock engaged. True = Engaged. False = Disengaged.";
+};
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+};
+
+struct IsChildLockActive
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is door child lock engaged. True = Engaged. False = Disengaged.";
+};
+module Shade
+{
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Position of window blind. 0 = Fully retracted. 100 = Fully deployed.";
+};
+};
+
+};
+
+};
+
+module Row2
+{
+module Left
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door open or closed";
+};
+struct IsLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door locked or unlocked. True = Locked. False = Unlocked.";
+};
+module Window
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window open or closed?";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Window position. 0 = Fully closed 100 = Fully opened.";
+};
+struct IsChildLockEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window child lock engaged. True = Engaged. False = Disengaged.";
+};
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+};
+
+struct IsChildLockActive
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is door child lock engaged. True = Engaged. False = Disengaged.";
+};
+module Shade
+{
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Position of window blind. 0 = Fully retracted. 100 = Fully deployed.";
+};
+};
+
+};
+
+module Right
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door open or closed";
+};
+struct IsLocked
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is door locked or unlocked. True = Locked. False = Unlocked.";
+};
+module Window
+{
+struct IsOpen
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window open or closed?";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Window position. 0 = Fully closed 100 = Fully opened.";
+};
+struct IsChildLockEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is window child lock engaged. True = Engaged. False = Disengaged.";
+};
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+};
+
+struct IsChildLockActive
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is door child lock engaged. True = Engaged. False = Disengaged.";
+};
+module Shade
+{
+enum SwitchValues{INACTIVE,CLOSE,OPEN,ONE_SHOT_CLOSE,ONE_SHOT_OPEN};
+
+struct Switch
+{
+string uuid;
+SwitchValues value;
+//const string type ="actuator";
+//const string description="Switch controlling sliding action such as window, sunroof, or blind.";
+};
+struct Position
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Position of window blind. 0 = Fully retracted. 100 = Fully deployed.";
+};
+};
+
+};
+
+};
+
+};
+
+struct DoorCount
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="Number of doors in vehicle.";
+};
+module Seat
+{
+module Row1
+{
+module Pos1
+{
+struct IsOccupied
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Does the seat have a passenger in it.";
+};
+module Occupant
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+};
+
+struct IsBelted
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is the belt engaged.";
+};
+struct Heating
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.";
+};
+struct Massage
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat massage level. 0 = off. 100 = max massage.";
+};
+struct Position
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.";
+};
+struct Tilt
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Tilting of seat relative to vehicle z-axis. 0 = seating is flat, seat and vehicle z-axis are parallel. Positive degrees = seat tilted backwards, seat z-axis is tilted backward.";
+};
+module Backrest
+{
+struct Recline
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.";
+};
+module Lumbar
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.";
+};
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.";
+};
+};
+
+module SideBolster
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.";
+};
+};
+
+};
+
+module Seating
+{
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).";
+};
+};
+
+module Headrest
+{
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.";
+};
+struct Angle
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.";
+};
+};
+
+module Airbag
+{
+struct IsDeployed
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.";
+};
+};
+
+module Switch
+{
+struct IsWarmerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Warmer switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsCoolerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Cooler switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat forward switch engaged (SingleSeat.Position).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat backward switch engaged (SingleSeat.Position).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat up switch engaged (SingleSeat.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat down switch engaged (SingleSeat.Height).";
+};
+struct IsTiltForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt forward switch engaged (SingleSeat.Tilt).";
+};
+struct IsTiltBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt backward switch engaged (SingleSeat.Tilt).";
+};
+module Backrest
+{
+struct IsReclineForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).";
+};
+struct IsReclineBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).";
+};
+module Lumbar
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+};
+
+module SideBolster
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+};
+
+};
+
+module Seating
+{
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to increase seating length engaged (SingleSeat.Seating.Length).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to decrease seating length engaged (SingleSeat.Seating.Length).";
+};
+};
+
+module Headrest
+{
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest up switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest down switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest forward switch engaged (SingleSeat.Headrest.Angle).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest backward switch engaged (SingleSeat.Headrest.Angle).";
+};
+};
+
+module Massage
+{
+struct IsIncreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Increase massage level switch engaged (SingleSeat.Massage).";
+};
+struct IsDecreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Decrease massage level switch engaged (SingleSeat.Massage).";
+};
+};
+
+};
+
+};
+
+module Pos2
+{
+struct IsOccupied
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Does the seat have a passenger in it.";
+};
+module Occupant
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+};
+
+struct IsBelted
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is the belt engaged.";
+};
+struct Heating
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.";
+};
+struct Massage
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat massage level. 0 = off. 100 = max massage.";
+};
+struct Position
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.";
+};
+struct Tilt
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Tilting of seat relative to vehicle z-axis. 0 = seating is flat, seat and vehicle z-axis are parallel. Positive degrees = seat tilted backwards, seat z-axis is tilted backward.";
+};
+module Backrest
+{
+struct Recline
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.";
+};
+module Lumbar
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.";
+};
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.";
+};
+};
+
+module SideBolster
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.";
+};
+};
+
+};
+
+module Seating
+{
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).";
+};
+};
+
+module Headrest
+{
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.";
+};
+struct Angle
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.";
+};
+};
+
+module Airbag
+{
+struct IsDeployed
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.";
+};
+};
+
+module Switch
+{
+struct IsWarmerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Warmer switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsCoolerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Cooler switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat forward switch engaged (SingleSeat.Position).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat backward switch engaged (SingleSeat.Position).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat up switch engaged (SingleSeat.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat down switch engaged (SingleSeat.Height).";
+};
+struct IsTiltForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt forward switch engaged (SingleSeat.Tilt).";
+};
+struct IsTiltBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt backward switch engaged (SingleSeat.Tilt).";
+};
+module Backrest
+{
+struct IsReclineForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).";
+};
+struct IsReclineBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).";
+};
+module Lumbar
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+};
+
+module SideBolster
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+};
+
+};
+
+module Seating
+{
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to increase seating length engaged (SingleSeat.Seating.Length).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to decrease seating length engaged (SingleSeat.Seating.Length).";
+};
+};
+
+module Headrest
+{
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest up switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest down switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest forward switch engaged (SingleSeat.Headrest.Angle).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest backward switch engaged (SingleSeat.Headrest.Angle).";
+};
+};
+
+module Massage
+{
+struct IsIncreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Increase massage level switch engaged (SingleSeat.Massage).";
+};
+struct IsDecreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Decrease massage level switch engaged (SingleSeat.Massage).";
+};
+};
+
+};
+
+};
+
+module Pos3
+{
+struct IsOccupied
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Does the seat have a passenger in it.";
+};
+module Occupant
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+};
+
+struct IsBelted
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is the belt engaged.";
+};
+struct Heating
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.";
+};
+struct Massage
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat massage level. 0 = off. 100 = max massage.";
+};
+struct Position
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.";
+};
+struct Tilt
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Tilting of seat relative to vehicle z-axis. 0 = seating is flat, seat and vehicle z-axis are parallel. Positive degrees = seat tilted backwards, seat z-axis is tilted backward.";
+};
+module Backrest
+{
+struct Recline
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.";
+};
+module Lumbar
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.";
+};
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.";
+};
+};
+
+module SideBolster
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.";
+};
+};
+
+};
+
+module Seating
+{
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).";
+};
+};
+
+module Headrest
+{
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.";
+};
+struct Angle
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.";
+};
+};
+
+module Airbag
+{
+struct IsDeployed
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.";
+};
+};
+
+module Switch
+{
+struct IsWarmerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Warmer switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsCoolerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Cooler switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat forward switch engaged (SingleSeat.Position).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat backward switch engaged (SingleSeat.Position).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat up switch engaged (SingleSeat.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat down switch engaged (SingleSeat.Height).";
+};
+struct IsTiltForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt forward switch engaged (SingleSeat.Tilt).";
+};
+struct IsTiltBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt backward switch engaged (SingleSeat.Tilt).";
+};
+module Backrest
+{
+struct IsReclineForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).";
+};
+struct IsReclineBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).";
+};
+module Lumbar
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+};
+
+module SideBolster
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+};
+
+};
+
+module Seating
+{
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to increase seating length engaged (SingleSeat.Seating.Length).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to decrease seating length engaged (SingleSeat.Seating.Length).";
+};
+};
+
+module Headrest
+{
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest up switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest down switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest forward switch engaged (SingleSeat.Headrest.Angle).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest backward switch engaged (SingleSeat.Headrest.Angle).";
+};
+};
+
+module Massage
+{
+struct IsIncreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Increase massage level switch engaged (SingleSeat.Massage).";
+};
+struct IsDecreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Decrease massage level switch engaged (SingleSeat.Massage).";
+};
+};
+
+};
+
+};
+
+};
+
+module Row2
+{
+module Pos1
+{
+struct IsOccupied
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Does the seat have a passenger in it.";
+};
+module Occupant
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+};
+
+struct IsBelted
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is the belt engaged.";
+};
+struct Heating
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.";
+};
+struct Massage
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat massage level. 0 = off. 100 = max massage.";
+};
+struct Position
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.";
+};
+struct Tilt
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Tilting of seat relative to vehicle z-axis. 0 = seating is flat, seat and vehicle z-axis are parallel. Positive degrees = seat tilted backwards, seat z-axis is tilted backward.";
+};
+module Backrest
+{
+struct Recline
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.";
+};
+module Lumbar
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.";
+};
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.";
+};
+};
+
+module SideBolster
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.";
+};
+};
+
+};
+
+module Seating
+{
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).";
+};
+};
+
+module Headrest
+{
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.";
+};
+struct Angle
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.";
+};
+};
+
+module Airbag
+{
+struct IsDeployed
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.";
+};
+};
+
+module Switch
+{
+struct IsWarmerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Warmer switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsCoolerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Cooler switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat forward switch engaged (SingleSeat.Position).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat backward switch engaged (SingleSeat.Position).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat up switch engaged (SingleSeat.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat down switch engaged (SingleSeat.Height).";
+};
+struct IsTiltForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt forward switch engaged (SingleSeat.Tilt).";
+};
+struct IsTiltBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt backward switch engaged (SingleSeat.Tilt).";
+};
+module Backrest
+{
+struct IsReclineForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).";
+};
+struct IsReclineBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).";
+};
+module Lumbar
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+};
+
+module SideBolster
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+};
+
+};
+
+module Seating
+{
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to increase seating length engaged (SingleSeat.Seating.Length).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to decrease seating length engaged (SingleSeat.Seating.Length).";
+};
+};
+
+module Headrest
+{
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest up switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest down switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest forward switch engaged (SingleSeat.Headrest.Angle).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest backward switch engaged (SingleSeat.Headrest.Angle).";
+};
+};
+
+module Massage
+{
+struct IsIncreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Increase massage level switch engaged (SingleSeat.Massage).";
+};
+struct IsDecreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Decrease massage level switch engaged (SingleSeat.Massage).";
+};
+};
+
+};
+
+};
+
+module Pos2
+{
+struct IsOccupied
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Does the seat have a passenger in it.";
+};
+module Occupant
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+};
+
+struct IsBelted
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is the belt engaged.";
+};
+struct Heating
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.";
+};
+struct Massage
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat massage level. 0 = off. 100 = max massage.";
+};
+struct Position
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.";
+};
+struct Tilt
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Tilting of seat relative to vehicle z-axis. 0 = seating is flat, seat and vehicle z-axis are parallel. Positive degrees = seat tilted backwards, seat z-axis is tilted backward.";
+};
+module Backrest
+{
+struct Recline
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.";
+};
+module Lumbar
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.";
+};
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.";
+};
+};
+
+module SideBolster
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.";
+};
+};
+
+};
+
+module Seating
+{
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).";
+};
+};
+
+module Headrest
+{
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.";
+};
+struct Angle
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.";
+};
+};
+
+module Airbag
+{
+struct IsDeployed
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.";
+};
+};
+
+module Switch
+{
+struct IsWarmerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Warmer switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsCoolerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Cooler switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat forward switch engaged (SingleSeat.Position).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat backward switch engaged (SingleSeat.Position).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat up switch engaged (SingleSeat.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat down switch engaged (SingleSeat.Height).";
+};
+struct IsTiltForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt forward switch engaged (SingleSeat.Tilt).";
+};
+struct IsTiltBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt backward switch engaged (SingleSeat.Tilt).";
+};
+module Backrest
+{
+struct IsReclineForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).";
+};
+struct IsReclineBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).";
+};
+module Lumbar
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+};
+
+module SideBolster
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+};
+
+};
+
+module Seating
+{
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to increase seating length engaged (SingleSeat.Seating.Length).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to decrease seating length engaged (SingleSeat.Seating.Length).";
+};
+};
+
+module Headrest
+{
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest up switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest down switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest forward switch engaged (SingleSeat.Headrest.Angle).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest backward switch engaged (SingleSeat.Headrest.Angle).";
+};
+};
+
+module Massage
+{
+struct IsIncreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Increase massage level switch engaged (SingleSeat.Massage).";
+};
+struct IsDecreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Decrease massage level switch engaged (SingleSeat.Massage).";
+};
+};
+
+};
+
+};
+
+module Pos3
+{
+struct IsOccupied
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Does the seat have a passenger in it.";
+};
+module Occupant
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+};
+
+struct IsBelted
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Is the belt engaged.";
+};
+struct Heating
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.";
+};
+struct Massage
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Seat massage level. 0 = off. 100 = max massage.";
+};
+struct Position
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.";
+};
+struct Height
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.";
+};
+struct Tilt
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Tilting of seat relative to vehicle z-axis. 0 = seating is flat, seat and vehicle z-axis are parallel. Positive degrees = seat tilted backwards, seat z-axis is tilted backward.";
+};
+module Backrest
+{
+struct Recline
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.";
+};
+module Lumbar
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.";
+};
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.";
+};
+};
+
+module SideBolster
+{
+struct Support
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.";
+};
+};
+
+};
+
+module Seating
+{
+struct Length
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).";
+};
+};
+
+module Headrest
+{
+struct Height
+{
+string uuid;
+octet value;
+//const string unit="mm";
+//const string type ="actuator";
+//const string description="Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.";
+};
+struct Angle
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="actuator";
+//const string description="Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.";
+};
+};
+
+module Airbag
+{
+struct IsDeployed
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.";
+};
+};
+
+module Switch
+{
+struct IsWarmerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Warmer switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsCoolerEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Cooler switch for Seat heater (SingleSeat.Heating).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat forward switch engaged (SingleSeat.Position).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat backward switch engaged (SingleSeat.Position).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat up switch engaged (SingleSeat.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Seat down switch engaged (SingleSeat.Height).";
+};
+struct IsTiltForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt forward switch engaged (SingleSeat.Tilt).";
+};
+struct IsTiltBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Tilt backward switch engaged (SingleSeat.Tilt).";
+};
+module Backrest
+{
+struct IsReclineForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline forward switch engaged (SingleSeat.Backrest.Recline).";
+};
+struct IsReclineBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).";
+};
+module Lumbar
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support).";
+};
+};
+
+module SideBolster
+{
+struct IsMoreSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+struct IsLessSupportEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).";
+};
+};
+
+};
+
+module Seating
+{
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to increase seating length engaged (SingleSeat.Seating.Length).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Is switch to decrease seating length engaged (SingleSeat.Seating.Length).";
+};
+};
+
+module Headrest
+{
+struct IsUpEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest up switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsDownEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest down switch engaged (SingleSeat.Headrest.Height).";
+};
+struct IsForwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest forward switch engaged (SingleSeat.Headrest.Angle).";
+};
+struct IsBackwardEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Head rest backward switch engaged (SingleSeat.Headrest.Angle).";
+};
+};
+
+module Massage
+{
+struct IsIncreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Increase massage level switch engaged (SingleSeat.Massage).";
+};
+struct IsDecreaseEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Decrease massage level switch engaged (SingleSeat.Massage).";
+};
+};
+
+};
+
+};
+
+};
+
+};
+
+struct DriverPosition
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="The position of the driver seat in row 1.";
+};
+struct SeatRowCount
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="Number of seat rows in vehicle.";
+};
+struct SeatPosCount
+{
+string uuid;
+sequence<octet> value;
+//const string type ="attribute";
+//const string description="Number of seats across each row from the front to the rear.";
+};
+module Convertible
+{
+enum StatusValues{UNDEFINED,CLOSED,OPEN,CLOSING,OPENING,STALLED};
+
+struct Status
+{
+string uuid;
+StatusValues value;
+//const string type ="sensor";
+//const string description="Roof status on convertible vehicles.";
+};
+};
+
+};
+
+module ADAS
+{
+enum ActiveAutonomyLevelValues{SAE_0,SAE_1,SAE_2_DISENGAGING,SAE_2,SAE_3_DISENGAGING,SAE_3,SAE_4_DISENGAGING,SAE_4,SAE_5};
+
+struct ActiveAutonomyLevel
+{
+string uuid;
+ActiveAutonomyLevelValues value;
+//const string type ="sensor";
+//const string description="Indicates the currently active level of autonomy according to SAE J3016 taxonomy.";
+};
+enum SupportedAutonomyLevelValues{SAE_0,SAE_1,SAE_2,SAE_3,SAE_4,SAE_5};
+
+struct SupportedAutonomyLevel
+{
+string uuid;
+SupportedAutonomyLevelValues value;
+//const string type ="attribute";
+//const string description="Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.";
+};
+module CruiseControl
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.";
+};
+struct IsActive
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.";
+};
+struct SpeedSet
+{
+string uuid;
+float value;
+//const string unit="km/h";
+//const string type ="actuator";
+//const string description="Set cruise control speed in kilometers per hour.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if cruise control system incurred an error condition. True = Error. False = No Error.";
+};
+};
+
+module LaneDepartureDetection
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.";
+};
+struct IsWarning
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if lane departure detection registered a lane departure.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if lane departure system incurred an error condition. True = Error. False = No Error.";
+};
+};
+
+module ObstacleDetection
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.";
+};
+struct IsWarning
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if obstacle sensor system registered an obstacle.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.";
+};
+};
+
+module ABS
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if ABS is enabled. True = Enabled. False = Disabled.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if ABS incurred an error condition. True = Error. False = No Error.";
+};
+struct IsEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.";
+};
+};
+
+module TCS
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if TCS is enabled. True = Enabled. False = Disabled.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if TCS incurred an error condition. True = Error. False = No Error.";
+};
+struct IsEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.";
+};
+};
+
+module ESC
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if ESC is enabled. True = Enabled. False = Disabled.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if ESC incurred an error condition. True = Error. False = No Error.";
+};
+struct IsEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.";
+};
+struct IsStrongCrossWindDetected
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.";
+};
+module RoadFriction
+{
+struct MostProbable
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.";
+};
+struct LowerBound
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.";
+};
+struct UpperBound
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.";
+};
+};
+
+};
+
+module EBD
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if EBD is enabled. True = Enabled. False = Disabled.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if EBD incurred an error condition. True = Error. False = No Error.";
+};
+struct IsEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.";
+};
+};
+
+module EBA
+{
+struct IsEnabled
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Indicates if EBA is enabled. True = Enabled. False = Disabled.";
+};
+struct IsError
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if EBA incurred an error condition. True = Error. False = No Error.";
+};
+struct IsEngaged
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.";
+};
+};
+
+};
+
+module Chassis
+{
+struct Wheelbase
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Overall wheel base, in mm.";
+};
+struct Track
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Overall wheel tracking, in mm.";
+};
+module Axle
+{
+module Row1
+{
+struct WheelCount
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="Number of wheels on the axle";
+};
+struct WheelDiameter
+{
+string uuid;
+float value;
+//const string unit="inch";
+//const string type ="attribute";
+//const string description="Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.";
+};
+struct WheelWidth
+{
+string uuid;
+float value;
+//const string unit="inch";
+//const string type ="attribute";
+//const string description="Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.";
+};
+struct TireDiameter
+{
+string uuid;
+float value;
+//const string unit="inch";
+//const string type ="attribute";
+//const string description="Outer diameter of tires, in inches, as per ETRTO / TRA standard.";
+};
+struct TireWidth
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Nominal section width of tires, in mm, as per ETRTO / TRA standard.";
+};
+struct TireAspectRatio
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="attribute";
+//const string description="Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.";
+};
+module Wheel
+{
+module Left
+{
+module Brake
+{
+struct FluidLevel
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake fluid level as percent. 0 = Empty. 100 = Full.";
+};
+struct IsFluidLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.";
+};
+struct PadWear
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake pad wear as percent. 0 = No Wear. 100 = Worn.";
+};
+struct IsBrakesWorn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake pad wear status. True = Worn. False = Not Worn.";
+};
+};
+
+module Tire
+{
+struct Pressure
+{
+string uuid;
+unsigned short value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="Tire pressure in kilo-Pascal.";
+};
+struct IsPressureLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.";
+};
+struct Temperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Tire temperature in Celsius.";
+};
+};
+
+};
+
+module Right
+{
+module Brake
+{
+struct FluidLevel
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake fluid level as percent. 0 = Empty. 100 = Full.";
+};
+struct IsFluidLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.";
+};
+struct PadWear
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake pad wear as percent. 0 = No Wear. 100 = Worn.";
+};
+struct IsBrakesWorn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake pad wear status. True = Worn. False = Not Worn.";
+};
+};
+
+module Tire
+{
+struct Pressure
+{
+string uuid;
+unsigned short value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="Tire pressure in kilo-Pascal.";
+};
+struct IsPressureLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.";
+};
+struct Temperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Tire temperature in Celsius.";
+};
+};
+
+};
+
+};
+
+};
+
+module Row2
+{
+struct WheelCount
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="Number of wheels on the axle";
+};
+struct WheelDiameter
+{
+string uuid;
+float value;
+//const string unit="inch";
+//const string type ="attribute";
+//const string description="Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.";
+};
+struct WheelWidth
+{
+string uuid;
+float value;
+//const string unit="inch";
+//const string type ="attribute";
+//const string description="Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.";
+};
+struct TireDiameter
+{
+string uuid;
+float value;
+//const string unit="inch";
+//const string type ="attribute";
+//const string description="Outer diameter of tires, in inches, as per ETRTO / TRA standard.";
+};
+struct TireWidth
+{
+string uuid;
+unsigned short value;
+//const string unit="mm";
+//const string type ="attribute";
+//const string description="Nominal section width of tires, in mm, as per ETRTO / TRA standard.";
+};
+struct TireAspectRatio
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="attribute";
+//const string description="Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.";
+};
+module Wheel
+{
+module Left
+{
+module Brake
+{
+struct FluidLevel
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake fluid level as percent. 0 = Empty. 100 = Full.";
+};
+struct IsFluidLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.";
+};
+struct PadWear
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake pad wear as percent. 0 = No Wear. 100 = Worn.";
+};
+struct IsBrakesWorn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake pad wear status. True = Worn. False = Not Worn.";
+};
+};
+
+module Tire
+{
+struct Pressure
+{
+string uuid;
+unsigned short value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="Tire pressure in kilo-Pascal.";
+};
+struct IsPressureLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.";
+};
+struct Temperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Tire temperature in Celsius.";
+};
+};
+
+};
+
+module Right
+{
+module Brake
+{
+struct FluidLevel
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake fluid level as percent. 0 = Empty. 100 = Full.";
+};
+struct IsFluidLevelLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.";
+};
+struct PadWear
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake pad wear as percent. 0 = No Wear. 100 = Worn.";
+};
+struct IsBrakesWorn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Brake pad wear status. True = Worn. False = Not Worn.";
+};
+};
+
+module Tire
+{
+struct Pressure
+{
+string uuid;
+unsigned short value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="Tire pressure in kilo-Pascal.";
+};
+struct IsPressureLow
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.";
+};
+struct Temperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Tire temperature in Celsius.";
+};
+};
+
+};
+
+};
+
+};
+
+};
+
+struct AxleCount
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="Number of axles on the vehicle";
+};
+module ParkingBrake
+{
+struct IsEngaged
+{
+string uuid;
+boolean value;
+//const string type ="actuator";
+//const string description="Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.";
+};
+};
+
+module SteeringWheel
+{
+struct Angle
+{
+string uuid;
+short value;
+//const string unit="degrees";
+//const string type ="sensor";
+//const string description="Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.";
+};
+struct Tilt
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.";
+};
+struct Extension
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="actuator";
+//const string description="Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.";
+};
+enum PositionValues{FRONT_LEFT,FRONT_RIGHT};
+
+struct Position
+{
+string uuid;
+PositionValues value;
+//const string type ="attribute";
+//const string description="Position of the steering wheel on the left or right side of the vehicle.";
+};
+};
+
+module Accelerator
+{
+struct PedalPosition
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Accelerator pedal position as percent. 0 = Not depressed. 100 = Fully depressed.";
+};
+};
+
+module Brake
+{
+struct PedalPosition
+{
+string uuid;
+octet value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.";
+};
+struct IsDriverEmergencyBrakingDetected
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.";
+};
+};
+
+};
+
+module OBD
+{
+struct PidsA
+{
+string uuid;
+unsigned long value;
+//const string type ="sensor";
+//const string description="PID 00 - Bit array of the supported pids 01 to 20";
+};
+module Status
+{
+struct IsMILOn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Malfunction Indicator Light (MIL) False = Off, True = On";
+};
+struct DTCCount
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="Number of sensor Trouble Codes (DTC)";
+};
+enum IgnitionTypeValues{SPARK,COMPRESSION};
+
+struct IgnitionType
+{
+string uuid;
+IgnitionTypeValues value;
+//const string type ="sensor";
+//const string description="Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)";
+};
+};
+
+struct DTCList
+{
+string uuid;
+sequence<string> value;
+//const string type ="sensor";
+//const string description="List of currently active DTCs formatted according OBD II (SAE-J2012DA_201812) standard ([P|C|B|U]XXXXX )";
+};
+struct FreezeDTC
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="PID 02 - DTC that triggered the freeze frame";
+};
+struct FuelStatus
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="PID 03 - Fuel status";
+};
+struct EngineLoad
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 04 - Engine load in percent - 0 = no load, 100 = full load";
+};
+struct CoolantTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 05 - Coolant temperature";
+};
+struct ShortTermFuelTrim1
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer";
+};
+struct LongTermFuelTrim1
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer";
+};
+struct ShortTermFuelTrim2
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer";
+};
+struct LongTermFuelTrim2
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer";
+};
+struct FuelPressure
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 0A - Fuel pressure";
+};
+struct MAP
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 0B - Intake manifold pressure";
+};
+struct EngineSpeed
+{
+string uuid;
+float value;
+//const string unit="rpm";
+//const string type ="sensor";
+//const string description="PID 0C - Engine speed measured as rotations per minute";
+};
+struct Speed
+{
+string uuid;
+float value;
+//const string unit="km/h";
+//const string type ="sensor";
+//const string description="PID 0D - Vehicle speed";
+};
+struct TimingAdvance
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="sensor";
+//const string description="PID 0E - Time advance";
+};
+struct IntakeTemp
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 0F - Intake temperature";
+};
+struct MAF
+{
+string uuid;
+float value;
+//const string unit="g/s";
+//const string type ="sensor";
+//const string description="PID 10 - Grams of air drawn into engine per second";
+};
+struct ThrottlePosition
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle";
+};
+struct AirStatus
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="PID 12 - Secondary air status";
+};
+struct OxygenSensorsIn2Banks
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="PID 13 - Presence of oxygen sensors in 2 banks. [A0..A3] == Bank 1, Sensors 1-4. [A4..A7] == Bank 2, Sensors 1-4";
+};
+module O2
+{
+module Sensor1
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor2
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor3
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor4
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor5
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor6
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor7
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+module Sensor8
+{
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 1x (byte A) - Sensor voltage";
+};
+struct ShortTermFuelTrim
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 1x (byte B) - Short term fuel trim";
+};
+};
+
+};
+
+struct OBDStandards
+{
+string uuid;
+octet value;
+//const string type ="attribute";
+//const string description="PID 1C - OBD standards this vehicle conforms to";
+};
+struct OxygenSensorsIn4Banks
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="PID 1D - Presence of oxygen sensors in 4 banks. Similar to PID 13, but [A0..A7] == [B1S1, B1S2, B2S1, B2S2, B3S1, B3S2, B4S1, B4S2]";
+};
+struct IsPTOActive
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="PID 1E - Auxiliary input status (power take off)";
+};
+struct RunTime
+{
+string uuid;
+float value;
+//const string unit="s";
+//const string type ="sensor";
+//const string description="PID 1F - Engine run time";
+};
+struct PidsB
+{
+string uuid;
+unsigned long value;
+//const string type ="sensor";
+//const string description="PID 20 - Bit array of the supported pids 21 to 40";
+};
+struct DistanceWithMIL
+{
+string uuid;
+float value;
+//const string unit="km";
+//const string type ="sensor";
+//const string description="PID 21 - Distance traveled with MIL on";
+};
+struct FuelRailPressureVac
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 22 - Fuel rail pressure relative to vacuum";
+};
+struct FuelRailPressureDirect
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 23 - Fuel rail pressure direct inject";
+};
+module O2WR
+{
+module Sensor1
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor2
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor3
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor4
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor5
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor6
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor7
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+module Sensor8
+{
+struct Lambda
+{
+string uuid;
+float value;
+//const string type ="sensor";
+//const string description="PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor";
+};
+struct Voltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 2x (byte CD) - Voltage for wide range/band oxygen sensor";
+};
+struct Current
+{
+string uuid;
+float value;
+//const string unit="A";
+//const string type ="sensor";
+//const string description="PID 3x (byte CD) - Current for wide range/band oxygen sensor";
+};
+};
+
+};
+
+struct CommandedEGR
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 2C - Commanded exhaust gas recirculation (EGR)";
+};
+struct EGRError
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 2D - Exhaust gas recirculation (EGR) error";
+};
+struct CommandedEVAP
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 2E - Commanded evaporative purge (EVAP) valve";
+};
+struct FuelLevel
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 2F - Fuel level in the fuel tank";
+};
+struct WarmupsSinceDTCClear
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="PID 30 - Number of warm-ups since codes cleared";
+};
+struct DistanceSinceDTCClear
+{
+string uuid;
+float value;
+//const string unit="km";
+//const string type ="sensor";
+//const string description="PID 31 - Distance traveled since codes cleared";
+};
+struct EVAPVaporPressure
+{
+string uuid;
+float value;
+//const string unit="Pa";
+//const string type ="sensor";
+//const string description="PID 32 - Evaporative purge (EVAP) system pressure";
+};
+struct BarometricPressure
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 33 - Barometric pressure";
+};
+module Catalyst
+{
+module Bank1
+{
+struct Temperature1
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 3C - Catalyst temperature from bank 1, sensor 1";
+};
+struct Temperature2
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 3E - Catalyst temperature from bank 1, sensor 2";
+};
+};
+
+module Bank2
+{
+struct Temperature1
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 3D - Catalyst temperature from bank 2, sensor 1";
+};
+struct Temperature2
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 3F - Catalyst temperature from bank 2, sensor 2";
+};
+};
+
+};
+
+struct PidsC
+{
+string uuid;
+unsigned long value;
+//const string type ="sensor";
+//const string description="PID 40 - Bit array of the supported pids 41 to 60";
+};
+module DriveCycleStatus
+{
+struct IsMILOn
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Malfunction Indicator Light (MIL) - False = Off, True = On";
+};
+struct DTCCount
+{
+string uuid;
+octet value;
+//const string type ="sensor";
+//const string description="Number of sensor Trouble Codes (DTC)";
+};
+enum IgnitionTypeValues{SPARK,COMPRESSION};
+
+struct IgnitionType
+{
+string uuid;
+IgnitionTypeValues value;
+//const string type ="sensor";
+//const string description="Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)";
+};
+};
+
+struct ControlModuleVoltage
+{
+string uuid;
+float value;
+//const string unit="V";
+//const string type ="sensor";
+//const string description="PID 42 - Control module voltage";
+};
+struct AbsoluteLoad
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 43 - Absolute load value";
+};
+struct CommandedEquivalenceRatio
+{
+string uuid;
+float value;
+//const string unit="ratio";
+//const string type ="sensor";
+//const string description="PID 44 - Commanded equivalence ratio";
+};
+struct RelativeThrottlePosition
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 45 - Relative throttle position";
+};
+struct AmbientAirTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 46 - Ambient air temperature";
+};
+struct ThrottlePositionB
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 47 - Absolute throttle position B";
+};
+struct ThrottlePositionC
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 48 - Absolute throttle position C";
+};
+struct AcceleratorPositionD
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 49 - Accelerator pedal position D";
+};
+struct AcceleratorPositionE
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 4A - Accelerator pedal position E";
+};
+struct AcceleratorPositionF
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 4B - Accelerator pedal position F";
+};
+struct ThrottleActuator
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 4C - Commanded throttle actuator";
+};
+struct RunTimeMIL
+{
+string uuid;
+float value;
+//const string unit="min";
+//const string type ="sensor";
+//const string description="PID 4D - Run time with MIL on";
+};
+struct TimeSinceDTCCleared
+{
+string uuid;
+float value;
+//const string unit="min";
+//const string type ="sensor";
+//const string description="PID 4E - Time since trouble codes cleared";
+};
+struct MaxMAF
+{
+string uuid;
+float value;
+//const string unit="g/s";
+//const string type ="sensor";
+//const string description="PID 50 - Maximum flow for mass air flow sensor";
+};
+struct FuelType
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="PID 51 - Fuel type";
+};
+struct EthanolPercent
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 52 - Percentage of ethanol in the fuel";
+};
+struct EVAPVaporPressureAbsolute
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 53 - Absolute evaporative purge (EVAP) system pressure";
+};
+struct EVAPVaporPressureAlternate
+{
+string uuid;
+float value;
+//const string unit="Pa";
+//const string type ="sensor";
+//const string description="PID 54 - Alternate evaporative purge (EVAP) system pressure";
+};
+struct ShortTermO2Trim1
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 55 (byte A) - Short term secondary O2 trim - Bank 1";
+};
+struct ShortTermO2Trim3
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 55 (byte B) - Short term secondary O2 trim - Bank 3";
+};
+struct LongTermO2Trim1
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 56 (byte A) - Long term secondary O2 trim - Bank 1";
+};
+struct LongTermO2Trim3
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 56 (byte B) - Long term secondary O2 trim - Bank 3";
+};
+struct ShortTermO2Trim2
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 57 (byte A) - Short term secondary O2 trim - Bank 2";
+};
+struct ShortTermO2Trim4
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 57 (byte B) - Short term secondary O2 trim - Bank 4";
+};
+struct LongTermO2Trim2
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 58 (byte A) - Long term secondary O2 trim - Bank 2";
+};
+struct LongTermO2Trim4
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 58 (byte B) - Long term secondary O2 trim - Bank 4";
+};
+struct FuelRailPressureAbsolute
+{
+string uuid;
+float value;
+//const string unit="kPa";
+//const string type ="sensor";
+//const string description="PID 59 - Absolute fuel rail pressure";
+};
+struct RelativeAcceleratorPosition
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 5A - Relative accelerator pedal position";
+};
+struct HybridBatteryRemaining
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="PID 5B - Remaining life of hybrid battery";
+};
+struct OilTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="PID 5C - Engine oil temperature";
+};
+struct FuelInjectionTiming
+{
+string uuid;
+float value;
+//const string unit="degrees";
+//const string type ="sensor";
+//const string description="PID 5D - Fuel injection timing";
+};
+struct FuelRate
+{
+string uuid;
+float value;
+//const string unit="l/h";
+//const string type ="sensor";
+//const string description="PID 5E - Engine fuel rate";
+};
+};
+
+module Driver
+{
+module Identifier
+{
+struct Subject
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Subject for the authentication of the occupant. E.g. UserID 7331677.";
+};
+struct Issuer
+{
+string uuid;
+string value;
+//const string type ="sensor";
+//const string description="Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com.";
+};
+};
+
+struct DistractionLevel
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.";
+};
+struct IsEyesOnRoad
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Has driver the eyes on road or not?";
+};
+struct AttentiveProbability
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Probability of attentiveness of the driver.";
+};
+struct FatigueLevel
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status.";
+};
+struct HeartRate
+{
+string uuid;
+unsigned short value;
+//const string type ="sensor";
+//const string description="Heart rate of the driver.";
+};
+};
+
+module Exterior
+{
+struct AirTemperature
+{
+string uuid;
+float value;
+//const string unit="celsius";
+//const string type ="sensor";
+//const string description="Air temperature outside the vehicle.";
+};
+struct Humidity
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.";
+};
+struct LightIntensity
+{
+string uuid;
+float value;
+//const string unit="percent";
+//const string type ="sensor";
+//const string description="Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.";
+};
+};
+
+module Service
+{
+struct IsServiceDue
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service.";
+};
+struct DistanceToService
+{
+string uuid;
+float value;
+//const string unit="km";
+//const string type ="sensor";
+//const string description="Remaining distance to service (of any kind). Negative values indicate service overdue.";
+};
+struct TimeToService
+{
+string uuid;
+long value;
+//const string unit="s";
+//const string type ="sensor";
+//const string description="Remaining time to service (of any kind). Negative values indicate service overdue.";
+};
+};
+
+module Connectivity
+{
+struct IsConnectivityAvailable
+{
+string uuid;
+boolean value;
+//const string type ="sensor";
+//const string description="Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.";
+};
+};
+
+};

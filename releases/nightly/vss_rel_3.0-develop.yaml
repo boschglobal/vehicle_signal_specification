@@ -448,6 +448,8 @@ Vehicle.Body.Mirrors.Left.IsHeatingOn:
 Vehicle.Body.Mirrors.Left.Pan:
   datatype: int8
   description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  max: 100
+  min: -100
   type: actuator
   unit: percent
   uuid: 9dae4bc33a28531199fce500e0562f82
@@ -455,6 +457,8 @@ Vehicle.Body.Mirrors.Left.Pan:
 Vehicle.Body.Mirrors.Left.Tilt:
   datatype: int8
   description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  max: 100
+  min: -100
   type: actuator
   unit: percent
   uuid: 698fee82cc115f3cba54825a298b46ab
@@ -473,6 +477,8 @@ Vehicle.Body.Mirrors.Right.IsHeatingOn:
 Vehicle.Body.Mirrors.Right.Pan:
   datatype: int8
   description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  max: 100
+  min: -100
   type: actuator
   unit: percent
   uuid: 26088f96804d5d7e811ba50bfb1113eb
@@ -480,6 +486,8 @@ Vehicle.Body.Mirrors.Right.Pan:
 Vehicle.Body.Mirrors.Right.Tilt:
   datatype: int8
   description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  max: 100
+  min: -100
   type: actuator
   unit: percent
   uuid: 9a28a6ec824c57408881b916a1a0e32b
@@ -492,6 +500,7 @@ Vehicle.Body.Raindetection:
 Vehicle.Body.Raindetection.Intensity:
   datatype: uint8
   description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
+  max: 100
   type: sensor
   unit: percent
   uuid: 1ee0a2f22e8257d299425a4ff2652555
@@ -587,6 +596,7 @@ Vehicle.Body.Windshield.Front.WasherFluid.IsLevelLow:
 Vehicle.Body.Windshield.Front.WasherFluid.Level:
   datatype: uint8
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
+  max: 100
   type: sensor
   unit: percent
   uuid: a36dfb91414f5792bd01d193dceff1f4
@@ -596,7 +606,19 @@ Vehicle.Body.Windshield.Front.Wiping:
   type: branch
   uuid: 2cffeccdc19a587cbe2264f426c6881a
 
-Vehicle.Body.Windshield.Front.Wiping.Status:
+Vehicle.Body.Windshield.Front.Wiping.Intensity:
+  datatype: uint8
+  description: Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.
+  type: actuator
+  uuid: 7cdd36d1cc8f5f9a9f079f663190b588
+
+Vehicle.Body.Windshield.Front.Wiping.IsWipersWorn:
+  datatype: boolean
+  description: Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.
+  type: sensor
+  uuid: b04ccc7daedb559c9bcdda6b00332be5
+
+Vehicle.Body.Windshield.Front.Wiping.Mode:
   allowed:
   - 'OFF'
   - SLOW
@@ -605,9 +627,95 @@ Vehicle.Body.Windshield.Front.Wiping.Status:
   - INTERVAL
   - RAIN_SENSOR
   datatype: string
-  description: Wiper status.
+  description: Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.
   type: actuator
-  uuid: 2d5509513e4b52e0a337ade730166aec
+  uuid: 3ee6552c96e551c5b06b79ad30226767
+
+Vehicle.Body.Windshield.Front.Wiping.System:
+  description: Signals to control behavior of wipers in detail. By default VSS expects only one instance.
+  type: branch
+  uuid: 9002ff76166950e0aa3b7c9df3b53468
+
+Vehicle.Body.Windshield.Front.Wiping.System.ActualPosition:
+  datatype: float
+  description: Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.
+  type: actuator
+  unit: degrees
+  uuid: 026307b591465a8a99ffc0ebf262b393
+
+Vehicle.Body.Windshield.Front.Wiping.System.DriveCurrent:
+  datatype: float
+  description: Actual current used by wiper drive.
+  type: sensor
+  unit: A
+  uuid: 251e695821b758e7b7d459d5e2ab6ca4
+
+Vehicle.Body.Windshield.Front.Wiping.System.Frequency:
+  datatype: uint8
+  description: Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.
+  type: actuator
+  uuid: 7394c8b8d20d52638881161ec1b41fc0
+
+Vehicle.Body.Windshield.Front.Wiping.System.IsBlocked:
+  datatype: boolean
+  description: Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.
+  type: sensor
+  uuid: 4b526a2c781e56e386c82df226061f9e
+
+Vehicle.Body.Windshield.Front.Wiping.System.IsEndingWipeCycle:
+  datatype: boolean
+  description: Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.
+  type: sensor
+  uuid: 5000f7f0c39e5fed9a95413ae4166482
+
+Vehicle.Body.Windshield.Front.Wiping.System.IsOverheated:
+  datatype: boolean
+  description: Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.
+  type: sensor
+  uuid: e05d376ec2525ba2b61039d55f93760f
+
+Vehicle.Body.Windshield.Front.Wiping.System.IsPositionReached:
+  datatype: boolean
+  description: Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.
+  type: sensor
+  uuid: d42149fa8982593991aa5cd13a1cdee9
+
+Vehicle.Body.Windshield.Front.Wiping.System.IsWiperError:
+  datatype: boolean
+  description: Indicates system failure. True if wiping is disabled due to system failure.
+  type: sensor
+  uuid: 5276055d973f57998e1b8d6e536de735
+
+Vehicle.Body.Windshield.Front.Wiping.System.IsWiping:
+  datatype: boolean
+  description: Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.
+  type: sensor
+  uuid: 2015a4610d7a5fbdbb63b260640838e6
+
+Vehicle.Body.Windshield.Front.Wiping.System.Mode:
+  allowed:
+  - STOP_HOLD
+  - WIPE
+  - PLANT_MODE
+  - EMERGENCY_STOP
+  datatype: string
+  description: Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.
+  type: actuator
+  uuid: d15518f5d1bc54a38718f43ef749dd34
+
+Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition:
+  datatype: float
+  description: Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.
+  type: actuator
+  unit: degrees
+  uuid: 7a4a3fdd2947596dbada6980c142f090
+
+Vehicle.Body.Windshield.Front.Wiping.WiperWear:
+  datatype: uint8
+  description: Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.
+  max: 100
+  type: sensor
+  uuid: 92c879c11bc65e6da30d582a3928caac
 
 Vehicle.Body.Windshield.Rear:
   description: Windshield signals.
@@ -634,6 +742,7 @@ Vehicle.Body.Windshield.Rear.WasherFluid.IsLevelLow:
 Vehicle.Body.Windshield.Rear.WasherFluid.Level:
   datatype: uint8
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
+  max: 100
   type: sensor
   unit: percent
   uuid: c167e5b265895c108da1b9582de2dd91
@@ -643,7 +752,19 @@ Vehicle.Body.Windshield.Rear.Wiping:
   type: branch
   uuid: f56e80a50fd75dbca48581aea4f012b7
 
-Vehicle.Body.Windshield.Rear.Wiping.Status:
+Vehicle.Body.Windshield.Rear.Wiping.Intensity:
+  datatype: uint8
+  description: Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.
+  type: actuator
+  uuid: f18b13b9d96b51c492c031d3d86d22da
+
+Vehicle.Body.Windshield.Rear.Wiping.IsWipersWorn:
+  datatype: boolean
+  description: Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.
+  type: sensor
+  uuid: 0e8d5f7cb6295b908be3a03e8792cca8
+
+Vehicle.Body.Windshield.Rear.Wiping.Mode:
   allowed:
   - 'OFF'
   - SLOW
@@ -652,9 +773,95 @@ Vehicle.Body.Windshield.Rear.Wiping.Status:
   - INTERVAL
   - RAIN_SENSOR
   datatype: string
-  description: Wiper status.
+  description: Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.
   type: actuator
-  uuid: 1aca19889d375a699bc3750993777b08
+  uuid: 8cc0b88ac8b45f5fa30bb7755ce22648
+
+Vehicle.Body.Windshield.Rear.Wiping.System:
+  description: Signals to control behavior of wipers in detail. By default VSS expects only one instance.
+  type: branch
+  uuid: a00826f6ecc25c3fae7ad164361bdb33
+
+Vehicle.Body.Windshield.Rear.Wiping.System.ActualPosition:
+  datatype: float
+  description: Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.
+  type: actuator
+  unit: degrees
+  uuid: eddee2607a135582bbcf3d3afc845892
+
+Vehicle.Body.Windshield.Rear.Wiping.System.DriveCurrent:
+  datatype: float
+  description: Actual current used by wiper drive.
+  type: sensor
+  unit: A
+  uuid: 7a254692329055dfb4089e2dcc1d4ef3
+
+Vehicle.Body.Windshield.Rear.Wiping.System.Frequency:
+  datatype: uint8
+  description: Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.
+  type: actuator
+  uuid: 371171d971995c999585b028e19be461
+
+Vehicle.Body.Windshield.Rear.Wiping.System.IsBlocked:
+  datatype: boolean
+  description: Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.
+  type: sensor
+  uuid: 046e818b4dd9595a8301503e9afe028b
+
+Vehicle.Body.Windshield.Rear.Wiping.System.IsEndingWipeCycle:
+  datatype: boolean
+  description: Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.
+  type: sensor
+  uuid: c1357156d87c58f49d4c43c2a6e97c03
+
+Vehicle.Body.Windshield.Rear.Wiping.System.IsOverheated:
+  datatype: boolean
+  description: Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.
+  type: sensor
+  uuid: d30bc6f33b995ef491c252980a559ee2
+
+Vehicle.Body.Windshield.Rear.Wiping.System.IsPositionReached:
+  datatype: boolean
+  description: Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.
+  type: sensor
+  uuid: ad35e8d17cd95273b1091dcef2104ea1
+
+Vehicle.Body.Windshield.Rear.Wiping.System.IsWiperError:
+  datatype: boolean
+  description: Indicates system failure. True if wiping is disabled due to system failure.
+  type: sensor
+  uuid: ac5983deacbe59d7ba1312d44bfd9cd4
+
+Vehicle.Body.Windshield.Rear.Wiping.System.IsWiping:
+  datatype: boolean
+  description: Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.
+  type: sensor
+  uuid: 4e001bf679e85c9aa7319bafc3a86e75
+
+Vehicle.Body.Windshield.Rear.Wiping.System.Mode:
+  allowed:
+  - STOP_HOLD
+  - WIPE
+  - PLANT_MODE
+  - EMERGENCY_STOP
+  datatype: string
+  description: Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.
+  type: actuator
+  uuid: f2f47522466d570baa7618fac5b0359c
+
+Vehicle.Body.Windshield.Rear.Wiping.System.TargetPosition:
+  datatype: float
+  description: Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.
+  type: actuator
+  unit: degrees
+  uuid: c39bef0760185555904a92a305392080
+
+Vehicle.Body.Windshield.Rear.Wiping.WiperWear:
+  datatype: uint8
+  description: Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.
+  max: 100
+  type: sensor
+  uuid: afd6a352230f5eeaa8ac5f1f188bfd33
 
 Vehicle.Cabin:
   description: All in-cabin components, including doors.
@@ -1745,6 +1952,7 @@ Vehicle.Cabin.RearviewMirror:
 Vehicle.Cabin.RearviewMirror.DimmingLevel:
   datatype: uint8
   description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.
+  max: 100
   type: actuator
   unit: percent
   uuid: 4e2bcbaa6dc1586d8282324b475e5dee
@@ -4015,6 +4223,7 @@ Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake:
 Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.FluidLevel:
   datatype: uint8
   description: Brake fluid level as percent. 0 = Empty. 100 = Full.
+  max: 100
   type: sensor
   unit: percent
   uuid: 63aa9c4973ef50b18bd7214c9f2634c5
@@ -4034,7 +4243,9 @@ Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.IsFluidLevelLow:
 Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.PadWear:
   datatype: uint8
   description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
+  max: 100
   type: sensor
+  unit: percent
   uuid: b4ed36f8143d512fadaca3e641739ee2
 
 Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire:
@@ -4075,6 +4286,7 @@ Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake:
 Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.FluidLevel:
   datatype: uint8
   description: Brake fluid level as percent. 0 = Empty. 100 = Full.
+  max: 100
   type: sensor
   unit: percent
   uuid: 386bfddee4605e419d59755a51835650
@@ -4094,7 +4306,9 @@ Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.IsFluidLevelLow:
 Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.PadWear:
   datatype: uint8
   description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
+  max: 100
   type: sensor
+  unit: percent
   uuid: f3c53c8c5628527a8501e12778dae6c7
 
 Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire:
@@ -4186,6 +4400,7 @@ Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake:
 Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.FluidLevel:
   datatype: uint8
   description: Brake fluid level as percent. 0 = Empty. 100 = Full.
+  max: 100
   type: sensor
   unit: percent
   uuid: 4b0d4f80b8855973a55ffee80fdfc4ba
@@ -4205,7 +4420,9 @@ Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsFluidLevelLow:
 Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.PadWear:
   datatype: uint8
   description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
+  max: 100
   type: sensor
+  unit: percent
   uuid: 8eff72d583015e1e94eab98bf8f0497e
 
 Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire:
@@ -4246,6 +4463,7 @@ Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake:
 Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.FluidLevel:
   datatype: uint8
   description: Brake fluid level as percent. 0 = Empty. 100 = Full.
+  max: 100
   type: sensor
   unit: percent
   uuid: 83e5e261302d5ab38c9ee4dddc18c8ae
@@ -4265,7 +4483,9 @@ Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.IsFluidLevelLow:
 Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.PadWear:
   datatype: uint8
   description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
+  max: 100
   type: sensor
+  unit: percent
   uuid: 63a564bca18a5b1fabd7d3cff1af0e6d
 
 Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire:
@@ -4407,6 +4627,17 @@ Vehicle.Chassis.Wheelbase:
   unit: mm
   uuid: 11677e0433935dc7aa9c1806c96a8a6b
 
+Vehicle.Connectivity:
+  description: Connectivity data.
+  type: branch
+  uuid: 89c267fccea35f3da9871cca2b4dc4df
+
+Vehicle.Connectivity.IsConnectivityAvailable:
+  datatype: boolean
+  description: Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.
+  type: sensor
+  uuid: b6d11be2a6565996b68ffb07a96595a7
+
 Vehicle.CurbWeight:
   datatype: uint16
   default: 0
@@ -4536,6 +4767,8 @@ Vehicle.Driver:
 Vehicle.Driver.AttentiveProbability:
   datatype: float
   description: Probability of attentiveness of the driver.
+  max: 100
+  min: 0
   type: sensor
   unit: percent
   uuid: fcd202467afb533fbbf9e7da89cc1cee
@@ -4543,6 +4776,8 @@ Vehicle.Driver.AttentiveProbability:
 Vehicle.Driver.DistractionLevel:
   datatype: float
   description: Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.
+  max: 100
+  min: 0
   type: sensor
   unit: percent
   uuid: cb35ec0b924e58979e1469146d65c3fa
@@ -4550,6 +4785,8 @@ Vehicle.Driver.DistractionLevel:
 Vehicle.Driver.FatigueLevel:
   datatype: float
   description: Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status.
+  max: 100
+  min: 0
   type: sensor
   unit: percent
   uuid: 49b1626295705a79ae20d8a270c48b6b
@@ -4635,6 +4872,12 @@ Vehicle.Height:
   type: attribute
   unit: mm
   uuid: 9784d39f68b8541f90c355178ded7d7c
+
+Vehicle.IsBrokenDown:
+  datatype: boolean
+  description: Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.
+  type: sensor
+  uuid: 469ebd2a76b45e5b97b799262a085330
 
 Vehicle.IsMoving:
   datatype: boolean
@@ -5955,12 +6198,12 @@ Vehicle.Powertrain.ElectricMotor.Power:
   unit: kW
   uuid: 46b86286fba059349a733fed9a0e3232
 
-Vehicle.Powertrain.ElectricMotor.Rpm:
+Vehicle.Powertrain.ElectricMotor.Speed:
   datatype: int32
   description: Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.
   type: sensor
   unit: rpm
-  uuid: b31746b142de52fea3f84d860a0b717e
+  uuid: ca961aa6ca435095a89f9d404a5d849d
 
 Vehicle.Powertrain.ElectricMotor.Temperature:
   datatype: int16
@@ -6117,6 +6360,13 @@ Vehicle.Powertrain.TractionBattery.AccumulatedChargedEnergy:
   unit: kWh
   uuid: 739d06021d795da0877bc0ef3c107de1
 
+Vehicle.Powertrain.TractionBattery.AccumulatedChargedThroughput:
+  datatype: float
+  description: The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.
+  type: sensor
+  unit: Ah
+  uuid: 6d038ccc313351fba3a9104c1158a207
+
 Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy:
   datatype: float
   description: The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
@@ -6124,21 +6374,54 @@ Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy:
   unit: kWh
   uuid: b844cb96765f574d8d31edb09ccaef81
 
+Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroughput:
+  datatype: float
+  description: The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
+  type: sensor
+  unit: Ah
+  uuid: f3e2ca21f3b550288d494827c9a172dd
+
 Vehicle.Powertrain.TractionBattery.Charging:
   description: Properties related to battery charging.
   type: branch
   uuid: 49b9ef0c8b145a36afdf17d0cb44131b
 
 Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent:
-  datatype: float
   description: Current charging current.
+  type: branch
+  uuid: 94739cf563735b438878ac0f85601f27
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.DC:
+  datatype: float
+  description: Current DC charging current at inlet. Negative if returning energy to grid.
   type: sensor
   unit: A
-  uuid: 94739cf563735b438878ac0f85601f27
+  uuid: 44204d7ae6fd5f8e954d0670a739bdf2
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.Phase1:
+  datatype: float
+  description: Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.
+  type: sensor
+  unit: A
+  uuid: 400dca50fcde52a6bb605d7e86f49776
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.Phase2:
+  datatype: float
+  description: Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.
+  type: sensor
+  unit: A
+  uuid: 32cb24d1c495503a9087d6f55997cf57
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.Phase3:
+  datatype: float
+  description: Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.
+  type: sensor
+  unit: A
+  uuid: 55fb7fb7ff4a5df9b6a3af435eac868e
 
 Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit:
   datatype: uint8
-  description: Maximum charge level for battery, can potentially be set manually.
+  description: Target charge limit (state of charge) for battery.
   max: 100
   min: 0
   type: actuator
@@ -6159,8 +6442,8 @@ Vehicle.Powertrain.TractionBattery.Charging.ChargePlugType:
   - GBT_AC
   - GBT_DC
   - OTHER
-  datatype: string
-  description: Type of charge plug (charging connector) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.
+  datatype: string[]
+  description: Type of charge plug (charging inlet) available on the vehicle. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.
   type: attribute
   uuid: 4c56357a6f1d586395215a9beeb26d91
 
@@ -6181,11 +6464,37 @@ Vehicle.Powertrain.TractionBattery.Charging.ChargeRate:
   uuid: a287cea3fdaa533180c8e349343a7851
 
 Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage:
+  description: Current charging voltage, as measured at the charging inlet.
+  type: branch
+  uuid: 7170151d653b52c6bb5e75cb0a14d1c5
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.DC:
   datatype: float
-  description: Current charging voltage.
+  description: Current DC charging voltage at charging inlet.
   type: sensor
   unit: V
-  uuid: 7170151d653b52c6bb5e75cb0a14d1c5
+  uuid: 701c21d1a4815b35ba061415789ec911
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.Phase1:
+  datatype: float
+  description: Current AC charging voltage (rms) at inlet for Phase 1.
+  type: sensor
+  unit: V
+  uuid: 15991c8316585816815d6f4fb6b06776
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.Phase2:
+  datatype: float
+  description: Current AC charging voltage (rms) at inlet for Phase 2.
+  type: sensor
+  unit: V
+  uuid: 6c0dcf98169d5a5190736a6dd81291a4
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.Phase3:
+  datatype: float
+  description: Current AC charging voltage (rms) at inlet for Phase 3.
+  type: sensor
+  unit: V
+  uuid: 1ab06b48231e54e2ac27e543508c84f0
 
 Vehicle.Powertrain.TractionBattery.Charging.IsCharging:
   datatype: boolean
@@ -6195,26 +6504,72 @@ Vehicle.Powertrain.TractionBattery.Charging.IsCharging:
 
 Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableConnected:
   datatype: boolean
-  description: Indicates if a charging cable is connected to the vehicle or not.
+  description: Indicates if a charging cable is physically connected to the vehicle or not.
   type: sensor
   uuid: a1c8e2f662b95a54a9933a1b163fff84
 
+Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableLocked:
+  datatype: boolean
+  description: Is charging cable locked to prevent removal.
+  type: actuator
+  uuid: 7fa81693f3b8587f8d71e7b1619c8e21
+
+Vehicle.Powertrain.TractionBattery.Charging.IsDischarging:
+  datatype: boolean
+  description: True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.
+  type: sensor
+  uuid: 534d884fb36652688535543b52419529
+
 Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent:
+  description: Maximum charging current that can be accepted by the system, as measured at the charging inlet.
+  type: branch
+  uuid: e3f2e57e7a395d9ca9931d429e540a34
+
+Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent.DC:
   datatype: float
-  description: Maximum charging current that can be accepted by the system.
+  description: Maximum DC charging current at inlet that can be accepted by the system.
   type: sensor
   unit: A
-  uuid: e3f2e57e7a395d9ca9931d429e540a34
+  uuid: 5a70acfd3c8959898b43738151ab36e1
+
+Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent.Phase1:
+  datatype: float
+  description: Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.
+  type: sensor
+  unit: A
+  uuid: e3c1034e89cc55968ff51b990906db43
+
+Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent.Phase2:
+  datatype: float
+  description: Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.
+  type: sensor
+  unit: A
+  uuid: ab3514bc982e54f2b98698fb6c752368
+
+Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent.Phase3:
+  datatype: float
+  description: Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.
+  type: sensor
+  unit: A
+  uuid: 47dd5e99c30d562e9e2e1c58007846b6
 
 Vehicle.Powertrain.TractionBattery.Charging.Mode:
   allowed:
   - MANUAL
   - TIMER
   - GRID
+  - PROFILE
   datatype: string
-  description: Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).
+  description: Control of the charge process. MANUAL means manually initiated (plug-in event, companion app, etc). TIMER means timer-based. GRID means grid-controlled (eg ISO 15118). PROFILE means controlled by profile download to vehicle.
   type: actuator
   uuid: 1e4be3280b265873945531f6f6d0ec6b
+
+Vehicle.Powertrain.TractionBattery.Charging.PowerLoss:
+  datatype: float
+  description: Electrical energy lost by power dissipation to heat inside the AC/DC converter.
+  type: sensor
+  unit: W
+  uuid: 88f40bbeb80b5dfb97ceba13269665c5
 
 Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging:
   allowed:
@@ -6225,9 +6580,16 @@ Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging:
   type: actuator
   uuid: 80506d3e9a2557c2b52f74a50d89593f
 
+Vehicle.Powertrain.TractionBattery.Charging.Temperature:
+  datatype: float
+  description: Current temperature of AC/DC converter converting grid voltage to battery voltage.
+  type: sensor
+  unit: celsius
+  uuid: c3c0ef3a41db5df1bab659803adbc7ba
+
 Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete:
   datatype: uint32
-  description: The time needed for the current charging process to reach StateOfCharge.Target. 0 if charging is complete or no charging process is active or planned.
+  description: The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.
   type: sensor
   unit: s
   uuid: c6439c2e068652b08383b9654e2e784a
@@ -6243,7 +6605,7 @@ Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode:
   - START_TIME
   - END_TIME
   datatype: string
-  description: 'Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to ''inactive'' or set a new Charging.Timer.Time. Charging shall start immediately if mode is ''starttime'' or ''endtime'' and Charging.Timer.Time is a time in the past.'
+  description: 'Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach Charging.ChargeLimit) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to ''inactive'' or set a new Charging.Timer.Time. Charging shall start immediately if mode is ''starttime'' or ''endtime'' and Charging.Timer.Time is a time in the past.'
   type: actuator
   uuid: b09fb52261735977af275dda1904a7a1
 
@@ -6253,12 +6615,58 @@ Vehicle.Powertrain.TractionBattery.Charging.Timer.Time:
   type: actuator
   uuid: c08dcaeda02b5e26aacd7e2542f0fc90
 
+Vehicle.Powertrain.TractionBattery.CurrentCurrent:
+  datatype: float
+  description: Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.
+  type: sensor
+  unit: A
+  uuid: 7a1488e0c83f50a6b69d8ea85c5bb592
+
+Vehicle.Powertrain.TractionBattery.CurrentPower:
+  datatype: float
+  description: Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.
+  type: sensor
+  unit: W
+  uuid: 8859e1b0386a5eda880a9c30cd0dfa8e
+
+Vehicle.Powertrain.TractionBattery.CurrentVoltage:
+  datatype: float
+  description: Current Voltage of the battery.
+  type: sensor
+  unit: V
+  uuid: 7b54ea22ee7d5f559da552aefcc07222
+
+Vehicle.Powertrain.TractionBattery.DCDC:
+  description: Properties related to DC/DC converter converting high voltage (from high voltage battery) to vehicle low voltage (supply voltage, typically 12 Volts).
+  type: branch
+  uuid: 01f4943795b55cbd8f94e1bca137fc0a
+
+Vehicle.Powertrain.TractionBattery.DCDC.PowerLoss:
+  datatype: float
+  description: Electrical energy lost by power dissipation to heat inside DC/DC converter.
+  type: sensor
+  unit: W
+  uuid: f29e37087cdf57ca998188c7b945a77b
+
+Vehicle.Powertrain.TractionBattery.DCDC.Temperature:
+  datatype: float
+  description: Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).
+  type: sensor
+  unit: celsius
+  uuid: 4e587c3af2aa5fbb9205e42a64fc8d77
+
 Vehicle.Powertrain.TractionBattery.GrossCapacity:
   datatype: uint16
   description: Gross capacity of the battery.
   type: attribute
   unit: kWh
   uuid: 5460530488435dc8bfa1298bf47a993d
+
+Vehicle.Powertrain.TractionBattery.Id:
+  datatype: string
+  description: Battery Identification Number as assigned by OEM.
+  type: attribute
+  uuid: c8279874660c55b38c7ac64a8503a519
 
 Vehicle.Powertrain.TractionBattery.IsGroundConnected:
   datatype: boolean
@@ -6272,10 +6680,17 @@ Vehicle.Powertrain.TractionBattery.IsPowerConnected:
   type: sensor
   uuid: e30ef59fc2a25f6b8990248e19a5cdf9
 
+Vehicle.Powertrain.TractionBattery.MaxVoltage:
+  datatype: uint16
+  description: Max allowed voltage of the battery, e.g. during charging.
+  type: attribute
+  unit: V
+  uuid: a81264a0ef0c55d288671cfc62c4add5
+
 Vehicle.Powertrain.TractionBattery.NetCapacity:
   datatype: uint16
-  description: Net capacity of the battery.
-  type: attribute
+  description: Total net capacity of the battery considering aging.
+  type: sensor
   unit: kWh
   uuid: 9c68fe42cb81501eb6349f8c9b0b6899
 
@@ -6286,19 +6701,25 @@ Vehicle.Powertrain.TractionBattery.NominalVoltage:
   unit: V
   uuid: 3eccae5633185b998d5bdb6ea33cd926
 
+Vehicle.Powertrain.TractionBattery.PowerLoss:
+  datatype: float
+  description: Electrical energy lost by power dissipation to heat inside the battery.
+  type: sensor
+  unit: W
+  uuid: 880082aafe025cb3a5776b623f9a48b5
+
+Vehicle.Powertrain.TractionBattery.ProductionDate:
+  datatype: string
+  description: Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.
+  type: attribute
+  uuid: c9509ba4d76c56d9a8c1d6e2280ae02f
+
 Vehicle.Powertrain.TractionBattery.Range:
   datatype: uint32
   description: Remaining range in meters using only battery.
   type: sensor
   unit: m
   uuid: c0376a425e5d578d9d86ae0dc2ad9778
-
-Vehicle.Powertrain.TractionBattery.ReferentVoltage:
-  datatype: uint16
-  description: Referent Voltage of the battery.
-  type: attribute
-  unit: V
-  uuid: 51b5e378ccab5dd4905b552d1306cf7c
 
 Vehicle.Powertrain.TractionBattery.StateOfCharge:
   description: Information on the state of charge of the vehicle's high voltage battery.
@@ -6307,7 +6728,7 @@ Vehicle.Powertrain.TractionBattery.StateOfCharge:
 
 Vehicle.Powertrain.TractionBattery.StateOfCharge.Current:
   datatype: float
-  description: Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.
+  description: Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.
   max: 100.0
   min: 0
   type: sensor
@@ -6323,21 +6744,40 @@ Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed:
   unit: percent
   uuid: 1bfcc228293b5512aafe2508ab0500d2
 
-Vehicle.Powertrain.TractionBattery.StateOfCharge.Target:
-  datatype: uint8
-  description: Target state of charge set (eg. by customer). Shall never exceed Charging.ChargeLimit.
+Vehicle.Powertrain.TractionBattery.StateOfHealth:
+  datatype: float
+  description: Calculated battery state of health at standard conditions.
   max: 100
   min: 0
-  type: actuator
+  type: sensor
   unit: percent
-  uuid: 6aca8e9650be5a7782ce34ec4f03b96b
+  uuid: 4d982c47f3245048bcfec1190973a3ed
 
 Vehicle.Powertrain.TractionBattery.Temperature:
+  description: Temperature Information for the battery pack.
+  type: branch
+  uuid: 1cfbcf8c152959dcb3eb2c54fc42e623
+
+Vehicle.Powertrain.TractionBattery.Temperature.Average:
   datatype: float
-  description: Temperature of the battery pack.
+  description: Current average temperature of the battery cells.
   type: sensor
   unit: celsius
-  uuid: 1cfbcf8c152959dcb3eb2c54fc42e623
+  uuid: ae28e502137f56b9a037ed9b32bc04e1
+
+Vehicle.Powertrain.TractionBattery.Temperature.Max:
+  datatype: float
+  description: Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.
+  type: sensor
+  unit: celsius
+  uuid: 07aa7c8ba1d355398d7469c2b337152a
+
+Vehicle.Powertrain.TractionBattery.Temperature.Min:
+  datatype: float
+  description: Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.
+  type: sensor
+  unit: celsius
+  uuid: 4e3f630fefa7558fa302b175bc7eb5c7
 
 Vehicle.Powertrain.Transmission:
   description: Transmission-specific data, stopping at the drive shafts.
