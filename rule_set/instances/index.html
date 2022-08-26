@@ -12,21 +12,21 @@
     <title>Instances :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1655714773" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1655714773" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1661524039" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1661524039" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1655714773" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1661524039" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1655714773"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1661524039"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1655714773"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1655714773"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1661524039"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1661524039"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1655714773"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1661524039"></script>
 
     
   </div>
@@ -415,9 +415,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/private_branch/" title="Private Branch" class="dd-item ">
-        <a href="/vehicle_signal_specification/rule_set/private_branch/">
-        Private Branch
+      <li data-nav-id="/vehicle_signal_specification/rule_set/overlay/" title="Overlay" class="dd-item ">
+        <a href="/vehicle_signal_specification/rule_set/overlay/">
+        Overlay
         
         </a>
     </li>
@@ -589,7 +589,7 @@
     
     <a class="github-button" href="https://github.com/covesa/vehicle_signal_specification/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
 
-    Latest Released Version: 2.2
+    Latest Released Version: 3.0
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -658,7 +658,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#definition">Definition</a></li>
+    <li><a href="#definition">Definition</a>
+      <ul>
+        <li><a href="#how-can-i-instances-for-my-branch">How can I instances for my <code>branch</code>?</a></li>
+        <li><a href="#how-can-i-exclude-child-nodes-from-instantiation">How can I exclude child-nodes from instantiation?</a></li>
+      </ul>
+    </li>
     <li><a href="#example">Example</a></li>
     <li><a href="#redefinition">Redefinition</a></li>
     <li><a href="#recommendations">Recommendations</a>
@@ -701,6 +706,7 @@ the resulting tree. They are meant as a short-cut in the specification and
 interpreted by the tools.</p>
 <p><img src="/vehicle_signal_specification/images/instances.png?width=60pc" alt="Example tree"></p>
 <h2 id="definition">Definition</h2>
+<h3 id="how-can-i-instances-for-my-branch">How can I instances for my <code>branch</code>?</h3>
 <ol>
 <li>An instance can be defined in any branch.</li>
 <li>The instantiation is done for every node in the following path.</li>
@@ -722,6 +728,16 @@ the instances get combined, by the order of occurrence. Following the example ab
 four position instances will be created for each of the &lsquo;Left&rsquo; and &lsquo;Right&rsquo; instances,
 resulting into a total number of 8 instances.</li>
 </ol>
+<h3 id="how-can-i-exclude-child-nodes-from-instantiation">How can I exclude child-nodes from instantiation?</h3>
+<p>Often it makes sense to instantiate all child-nodes of a branch.
+But there are cases, when nodes are linked more the general concept of
+a branch, but not to the single instance. This could be the <code>DoorCount</code>,
+which would rather be <code>Door.Count</code>, <code>WheelDiamater</code>, which is rather linked
+to an axle rather than the wheel itself or <code>Brake.FluidLevel</code> which is not
+measured for a single break, but rather a system indication.</p>
+<p>To exclude a child-node from the instantiation of the <em>direct</em> parent node, set the
+keyword <code>instantiate</code> to <code>false</code> (<code>true</code> by default). Please check the following
+example for details.</p>
 <h2 id="example">Example</h2>
 <p>The example from above in the specification:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># Cabin.vspec</span>
@@ -733,8 +749,13 @@ resulting into a total number of 8 instances.</li>
   <span style="color:#f92672">description</span>: <span style="color:#ae81ff">All doors, including windows and switches</span>
 <span style="color:#75715e">#include SingleDoor.vspec Door</span>
 
-
-<span style="color:#75715e"># SingleDoor.vspec</span>
+<span style="color:#f92672">Door.Count</span>:
+  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
+  <span style="color:#f92672">default</span>: <span style="color:#ae81ff">4</span>
+  <span style="color:#f92672">instantiate</span>: <span style="color:#66d9ef">false</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Number of doors in vehicle.</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># SingleDoor.vspec</span>
 
 <span style="color:#75715e">#</span>
 <span style="color:#75715e"># Definition of a single door</span>
@@ -745,6 +766,7 @@ resulting into a total number of 8 instances.</li>
   <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Is door open or closed</span>
 </code></pre></div><p>Results in the following dot-notated output:</p>
 <pre><code>Vehicle.Cabin.Door
+Vehicle.Cabin.Door.Count
 Vehicle.Cabin.Door.Row1
 Vehicle.Cabin.Door.Row1.Left
 Vehicle.Cabin.Door.Row1.Left.IsOpen
@@ -1223,19 +1245,19 @@ to ignore <code>Vehicle.Body.Windshield.Front.Heating</code>.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1655714773"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1661524039"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1655714773"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1655714773"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1661524039"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1661524039"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1655714773"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1661524039"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
