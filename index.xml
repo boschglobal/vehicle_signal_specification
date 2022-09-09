@@ -25,10 +25,8 @@ Some helpful tools are available in the vss-tools project.</description>
       <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</guid>
-      <description>Specification format A domain specification is written as a flat YAML list, where each signal and branch is a self-contained YAML list element.
-The YAML list is a single file, called a vspec file.
-A vspec can, in addition to a YAML list, also contain include directives.
-An include directive refers to another vspec file that is to replace the directive, much like #include in C/C++. Please note that, from a YAML perspective, the include directive is just another comment.</description>
+      <description>Specification format The Vehicle Signal Specification domain specification consist of vspec files. vspec files are YAML files following the rule set defined for VSS. They also support the use of include directives to refer to other vspec files, much like #include in C/C++. . Please note that, from a YAML perspective, the include directive is just another comment.
+The file VehicleSignalSpecification.vspec serves as root and includes other vspec files from the VSS repository.</description>
     </item>
     
     <item>
@@ -62,8 +60,8 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
       <pubDate>Tue, 30 Jul 2019 14:46:01 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
-      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.
-A standardized vehicle data specification allows an industry actor to use a common naming space for communication and, ultimately, abstracts underlying vehicle implementation details.</description>
+      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:
+ A syntax for defining vehicle signals in a structured manner. A catalogue of signals related to vehicles.  It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
     </item>
     
     <item>

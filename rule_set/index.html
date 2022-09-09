@@ -12,21 +12,21 @@
     <title>Rule Set :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662363099" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662721969" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1662363099" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1662721969" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662721969"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662363099"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662363099"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662721969"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662363099"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662721969"></script>
 
     
   </div>
@@ -664,7 +664,19 @@
 
 	<h1 id="rule-set">Rule Set</h1>
 <p>The <code>Rule Set</code> of a <a href="/vehicle_signal_specification/introduction/taxonomy/">domain taxonomy</a> is used to describe how to write the data definition syntactically.</p>
-<p>In this chapter you learn about the rule set for VSS.</p>
+<p>This chapter defines and describes the rule set for VSS.
+Tools in the <a href="https://github.com/COVESA/vss-tools">vss-tools repository</a> can be used to validate that a specification follows the rule set for VSS,
+but those tools may have limitations and may not check all rules stated in this document.
+In case of conflict, what is stated in the rule set in this documentation is considered to have precedence over tool implementations.</p>
+<h2 id="version-handling">Version handling</h2>
+<p>The source for the rule set is in <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/docs-gen/content">VSS Git repository</a>.
+The online version of the rule set in the <a href="https://covesa.github.io/vehicle_signal_specification/">generated VSS documentation</a>
+is updated whenever a new commit is merged to the VSS master branch and does this not necessarily correspond to the rule set for the last release VSS version.</p>
+<p>To highlight important changes to the VSS rule set two notations are used in the documen</p>
+<ul>
+<li><code>since version X.Y</code> means that the concept/syntax was introduced in version X.Y. Older tools not supporting VSS version X.Y may not support this concept/syntax.</li>
+<li><code>deprecated since version X.Y</code> means that the concept/syntax is no longer recommended from version X.Y onwards. The concept/syntax may be removed in the next major release.</li>
+</ul>
 
 
 
@@ -1053,19 +1065,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662721969"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662721969"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662363099"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662721969"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -12,21 +12,21 @@
     <title>Overview :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662363099" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662721968" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1662363099" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1662721968" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662721968"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662363099"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662363099"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662721968"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662721968"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662363099"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662721968"></script>
 
     
   </div>
@@ -660,10 +660,12 @@
   <ul>
     <li><a href="#what-is-vss">What is VSS?</a>
       <ul>
-        <li></li>
+        <li><a href="#whats-in">What&rsquo;s in</a></li>
+        <li><a href="#whats-out">What&rsquo;s out</a></li>
       </ul>
     </li>
     <li><a href="#example">Example</a></li>
+    <li><a href="#vss-usage-for-other-domains">VSS usage for other domains</a></li>
   </ul>
 </nav>
     </div>
@@ -690,7 +692,12 @@
 
 <h2 id="what-is-vss">What is VSS?</h2>
 <p>The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals.
-It can be used as standard in automotive applications to communicate information
+In short this means that VSS introduces:</p>
+<ul>
+<li>A syntax for defining vehicle signals in a structured manner.</li>
+<li>A catalogue of signals related to vehicles.</li>
+</ul>
+<p>It can be used as standard in automotive applications to communicate information
 around the vehicle, which is semantically well defined. It focuses on vehicle
 signals, in the sense of classical attributes, sensors and actuators with the raw data
 communicated over vehicle buses and data which is more commonly associated with
@@ -698,25 +705,30 @@ the infotainment system alike.</p>
 <p>A standardized vehicle data specification allows an industry actor to use a
 common naming space for communication and, ultimately, abstracts underlying
 vehicle implementation details.</p>
-<p>The representation of vehicle data specifications is vendor independent.
-Vendor-specific extensions can be specified in a dedicated and uncontrolled
-branch of the specification tree.</p>
-<h4 id="whats-in">What&rsquo;s in</h4>
+<p>While the data in the VSS standard catalogue aims to be vendor-independent,
+vendor specific extensions and adaptations complying with the VSS syntax rules can be specified
+(see <a href="../rule_set/overlay.md">Overlays</a>.</p>
+<h3 id="whats-in">What&rsquo;s in</h3>
 <ul>
-<li>Standardized data definition for vehicle signals</li>
-<li>Same semantic understanding across different domains</li>
-<li>Basic definition for interfaces working on vehicle data (w3c, etc.)</li>
+<li>Standardized data definition for vehicle signals.</li>
+<li>Same semantic understanding across different domains.</li>
+<li>Basic definition for interfaces working on vehicle data (w3c, etc.).</li>
 </ul>
-<h4 id="whats-out">What&rsquo;s out</h4>
+<h3 id="whats-out">What&rsquo;s out</h3>
 <ul>
-<li>Everything outside the vehicle signal domain (customer, weather, etc.)</li>
-<li>Concrete interface definition</li>
+<li>Everything outside the vehicle signal domain (customer, weather, etc.).</li>
+<li>Concrete interface definition.</li>
 </ul>
 <h2 id="example">Example</h2>
 <p>The figure below shows an example snapshot of a generated tree of the
 specification. The leafs contain the actual information as shown in the figure.
 Before going into detail of the specification, let&rsquo;s dig deeper into taxonomies.</p>
 <p><img src="/vehicle_signal_specification/images/tree.png?classes=shadow&amp;width=60pc" alt="Example tree"></p>
+<h2 id="vss-usage-for-other-domains">VSS usage for other domains</h2>
+<p>The VSS catalogue focuses on signals related to vehicles.
+It is not the intention of the VSS project to add signals for other domains.
+The syntax used for defining VSS signals and related tooling could however be used to define similar signal trees
+for other domains.</p>
 
 
 <footer class="footline">
@@ -1098,19 +1110,19 @@ Before going into detail of the specification, let&rsquo;s dig deeper into taxon
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662721968"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1662721968"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662721968"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662363099"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662721968"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

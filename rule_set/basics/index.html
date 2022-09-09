@@ -12,21 +12,21 @@
     <title>Basic Rules :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1662363099" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662363099" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1662721968" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662721968" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1662363099" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1662721968" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662721968"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662363099"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662363099"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662721968"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662721968"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662363099"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662721968"></script>
 
     
   </div>
@@ -697,48 +697,49 @@
 
 
 <h2 id="specification-format">Specification format</h2>
-<p>A domain specification is written as a flat YAML list, where each signal and
-branch is a self-contained YAML list element.</p>
-<p>The YAML list is a single file, called a <em>vspec</em> file.</p>
-<p>A vspec can, in addition to a YAML list, also contain include directives.</p>
-<p>An include directive refers to another vspec file that is to replace the
-directive, much like <code>#include</code> in C/C++. Please note that, from a YAML
-perspective, the include directive is just another comment.</p>
+<p>The Vehicle Signal Specification domain specification consist of <em>vspec</em> files.
+<em>vspec</em> files are YAML files following the rule set defined for VSS.
+They also support the use of include directives to refer to other <em>vspec</em> files, much like <code>#include</code> in C/C++. .
+Please note that, from a YAML perspective, the include directive is just another comment.</p>
+<p>The file <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/VehicleSignalSpecification.vspec">VehicleSignalSpecification.vspec</a> serves as root
+and includes other <em>vspec</em> files from the <a href="https://github.com/COVESA/vehicle_signal_specification">VSS repository</a>.</p>
+<p>The raw specification files can with help of tools in the <a href="https://github.com/COVESA/vss-tools">vss-tools repository</a> be converted to other formats that are more user friendly to read. Converted representations are also included as release artifacts for each <a href="https://github.com/COVESA/vehicle_signal_specification/releases">VSS release</a>.</p>
 <h2 id="addressing-nodes">Addressing Nodes</h2>
 <p>Tree nodes are addressed, left-to-right, from the root of the tree
 toward the node itself. Each element in the name is delimited with
 a period (&quot;.&quot;). The element hops from the root to the leaf is called <code>path</code>.</p>
 <p>For example, the dimming status of the rearview mirror in the cabin is addressed:</p>
-<pre><code>Cabin.RearviewMirror.Dimmed
+<pre><code>Vehicle.Cabin.RearviewMirror.Dimmed
 </code></pre>
 <p>If there are an array of elements, such as door rows 1-3, they will be
 addressed with an index branch:</p>
-<pre><code>Cabin.Door.Row1.Left.IsLocked
-Cabin.Door.Row1.Left.Window.Position
+<pre><code>Vehicle.Cabin.Door.Row1.Left.IsLocked
+Vehicle.Cabin.Door.Row1.Left.Window.Position
 
-Cabin.Door.Row2.Left.IsLocked
-Cabin.Door.Row2.Left.Window.Position
+Vehicle.Cabin.Door.Row2.Left.IsLocked
+Vehicle.Cabin.Door.Row2.Left.Window.Position
 
-Cabin.Door.Row3.Left.IsLocked
-Cabin.Door.Row3.Left.Window.Position
+Vehicle.Cabin.Door.Row3.Left.IsLocked
+Vehicle.Cabin.Door.Row3.Left.Window.Position
 </code></pre><p>In a similar fashion, seats are located by row and their left-to-right position.</p>
-<pre><code>Cabin.Seat.Row1.Pos1.IsBelted  # Left front seat
-Cabin.Seat.Row1.Pos2.IsBelted  # Right front seat
+<pre><code>Vehicle.Cabin.Seat.Row1.Pos1.IsBelted  # Left front seat
+Vehicle.Cabin.Seat.Row1.Pos2.IsBelted  # Right front seat
 
-Cabin.Seat.Row2.Pos1.IsBelted  # Left rear seat
-Cabin.Seat.Row2.Pos2.IsBelted  # Middle rear seat
-Cabin.Seat.Row2.Pos3.IsBelted  # Right rear seat
+Vehicle.Cabin.Seat.Row2.Pos1.IsBelted  # Left rear seat
+Vehicle.Cabin.Seat.Row2.Pos2.IsBelted  # Middle rear seat
+Vehicle.Cabin.Seat.Row2.Pos3.IsBelted  # Right rear seat
 </code></pre><p>The exact use of <code>PosX</code> elements and how they correlate to actual
 positions in the car, is dependent on the actual vehicle using the
 spec.</p>
 <h2 id="parent-nodes">Parent Nodes</h2>
 <p>If a new leaf node is defined, all parent branches included in its name must
 be included as well, as shown below:</p>
-<pre><code>[Signal] Cabin.Door.Row1.Left.IsLocked
-[Branch] Cabin.Door.Row1.Left
-[Branch] Cabin.Door.Row1
-[Branch] Cabin.Door
-[Branch] Cabin
+<pre><code>[Signal] Vehicle.Cabin.Door.Row1.Left.IsLocked
+[Branch] Vehicle.Cabin.Door.Row1.Left
+[Branch] Vehicle.Cabin.Door.Row1
+[Branch] Vehicle.Cabin.Door
+[Branch] Vehicle.Cabin
+[Branch] Vehicle
 </code></pre><p>The branches do not have to be defined in any specific order as long
 as each branch component is defined somewhere in the vspec file (or an
 included vspec file).</p>
@@ -755,7 +756,7 @@ if the meta-data of the moved node hasn&rsquo;t changed.</li>
 <li>Nodes which are deprecated will be removed from the specification, either in the second minor update or, if earlier, the next major update.</li>
 </ul>
 <h3 id="example">Example</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Navigation.CurrentLocation</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Vehicle.Navigation.CurrentLocation</span>:
   <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
   <span style="color:#f92672">description</span>: <span style="color:#ae81ff">The current latitude and longitude of the vehicle.</span>
   <span style="color:#f92672">deprecation</span>: <span style="color:#ae81ff">V2.1 moved to Vehicle.CurrentLocation</span>
@@ -767,7 +768,7 @@ if the meta-data of the moved node hasn&rsquo;t changed.</li>
 <code>A-Z</code>, <code>a-z</code> and <code>0-9</code> in node names. For boolean signals it is recommended to start the name with <code>Is</code>.</p>
 <p>Examples:</p>
 <pre><code>SomeBranch.AnotherBranch.MySignalName
-Cabin.Door.Row1.Left.IsLocked
+Vehicle.Cabin.Door.Row1.Left.IsLocked
 </code></pre><p>Naming convention for string literals can be found in the <a href="/vehicle_signal_specification/rule_set/data_entry/allowed">chapter</a>for specifying allowed values.</p>
 <h3 id="line-length">Line Length</h3>
 <p>It is recommended that line length for files in this repository ( e.g. <code>*.vspec</code> and <code>*.md</code> files) shall not exceed 120 characters. This is not a strict limit, it is e.g. not recommended to split long URLs present in files over multiple lines.</p>
@@ -1155,19 +1156,19 @@ Cabin.Door.Row1.Left.IsLocked
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662721969"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1662363099"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662363099"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662721969"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662363099"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662721969"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
