@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>Basic Rules :: Vehicle Signal Specification</title>
+    <title>Governance :: Vehicle Signal Specification</title>
 
     
     <link href="/vehicle_signal_specification/css/nucleus.css?1669046954" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vehicle_signal_specification/rule_set/basics/">
+  <body class="" data-url="/vehicle_signal_specification/governance/">
     <nav id="sidebar" class="">
 
 
@@ -163,7 +163,7 @@
     
     <li data-nav-id="/vehicle_signal_specification/governance/" title="Governance" class="dd-item
         
-        
+        active
         
         ">
       <a href="/vehicle_signal_specification/governance/">
@@ -186,7 +186,7 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/rule_set/" title="Rule Set" class="dd-item
-        parent
+        
         
         
         ">
@@ -214,7 +214,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/basics/" title="Basic Rules" class="dd-item active">
+      <li data-nav-id="/vehicle_signal_specification/rule_set/basics/" title="Basic Rules" class="dd-item ">
         <a href="/vehicle_signal_specification/rule_set/basics/">
         Basic Rules
         
@@ -636,7 +636,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/basics.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/governance/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -663,13 +663,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > Basic Rules
-          
-        
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > Governance
           
         
           
@@ -682,20 +676,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#specification-format">Specification format</a></li>
-    <li><a href="#addressing-nodes">Addressing Nodes</a></li>
-    <li><a href="#parent-nodes">Parent Nodes</a></li>
-    <li><a href="#deprecation-since-version-21">Deprecation <code>since version 2.1</code></a>
-      <ul>
-        <li><a href="#example">Example</a></li>
-      </ul>
-    </li>
-    <li><a href="#style-guide">Style Guide</a>
-      <ul>
-        <li><a href="#naming-conventions">Naming Conventions</a></li>
-        <li><a href="#line-length">Line Length</a></li>
-      </ul>
-    </li>
+    <li><a href="#contribution-process">Contribution process</a></li>
+    <li><a href="#branches">Branches</a></li>
+    <li><a href="#normative-vs-non-normative-content">Normative vs. non-normative content</a></li>
+    <li><a href="#handling-of-backward-compatibility">Handling of backward compatibility</a></li>
+    <li><a href="#release-process">Release Process</a></li>
   </ul>
 </nav>
     </div>
@@ -713,92 +698,75 @@
           
             <h1>
               
-              Basic Rules
+              Governance
             </h1>
           
 
         
 
 
-<h2 id="specification-format">Specification format</h2>
-<p>The Vehicle Signal Specification domain specification consist of <em>vspec</em> files.
-<em>vspec</em> files are YAML files following the rule set defined for VSS.
-They also support the use of include directives to refer to other <em>vspec</em> files, much like <code>#include</code> in C/C++. .
-Please note that, from a YAML perspective, the include directive is just another comment.</p>
-<p>The file <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/VehicleSignalSpecification.vspec">VehicleSignalSpecification.vspec</a> serves as root
-and includes other <em>vspec</em> files from the <a href="https://github.com/COVESA/vehicle_signal_specification">VSS repository</a>.</p>
-<p>The raw specification files can with help of tools in the <a href="https://github.com/COVESA/vss-tools">vss-tools repository</a> be converted to other formats that are more user friendly to read. Converted representations are also included as release artifacts for each <a href="https://github.com/COVESA/vehicle_signal_specification/releases">VSS release</a>.</p>
-<h2 id="addressing-nodes">Addressing Nodes</h2>
-<p>Tree nodes are addressed, left-to-right, from the root of the tree
-toward the node itself. Each element in the name is delimited with
-a period (&quot;.&quot;). The element hops from the root to the leaf is called <code>path</code>.</p>
-<p>For example, the dimming status of the rearview mirror in the cabin is addressed:</p>
-<pre><code>Vehicle.Cabin.RearviewMirror.Dimmed
-</code></pre>
-<p>If there are an array of elements, such as door rows 1-3, they will be
-addressed with an index branch:</p>
-<pre tabindex="0"><code>Vehicle.Cabin.Door.Row1.Left.IsLocked
-Vehicle.Cabin.Door.Row1.Left.Window.Position
 
-Vehicle.Cabin.Door.Row2.Left.IsLocked
-Vehicle.Cabin.Door.Row2.Left.Window.Position
-
-Vehicle.Cabin.Door.Row3.Left.IsLocked
-Vehicle.Cabin.Door.Row3.Left.Window.Position
-</code></pre><p>In a similar fashion, seats are located by row and their left-to-right position.</p>
-<pre tabindex="0"><code>Vehicle.Cabin.Seat.Row1.Pos1.IsBelted  # Left front seat
-Vehicle.Cabin.Seat.Row1.Pos2.IsBelted  # Right front seat
-
-Vehicle.Cabin.Seat.Row2.Pos1.IsBelted  # Left rear seat
-Vehicle.Cabin.Seat.Row2.Pos2.IsBelted  # Middle rear seat
-Vehicle.Cabin.Seat.Row2.Pos3.IsBelted  # Right rear seat
-</code></pre><p>The exact use of <code>PosX</code> elements and how they correlate to actual
-positions in the car, is dependent on the actual vehicle using the
-spec.</p>
-<h2 id="parent-nodes">Parent Nodes</h2>
-<p>If a new leaf node is defined, all parent branches included in its name must
-be included as well, as shown below:</p>
-<pre tabindex="0"><code>[Signal] Vehicle.Cabin.Door.Row1.Left.IsLocked
-[Branch] Vehicle.Cabin.Door.Row1.Left
-[Branch] Vehicle.Cabin.Door.Row1
-[Branch] Vehicle.Cabin.Door
-[Branch] Vehicle.Cabin
-[Branch] Vehicle
-</code></pre><p>The branches do not have to be defined in any specific order as long
-as each branch component is defined somewhere in the vspec file (or an
-included vspec file).</p>
-<h2 id="deprecation-since-version-21">Deprecation <code>since version 2.1</code></h2>
-<p>During the process of model development, nodes might be
-moved or deleted. Giving developers a chance to adopt to the
-changes, the original nodes are marked as deprecated with the following rules.</p>
+	<h1 id="governance">Governance</h1>
+<p>The Vehicle Signal Specification (VSS) project is an initiative by <a href="https://www.covesa.global/">COVESA</a> to define a syntax and a catalog for vehicle signals.</p>
+<p>The artifacts maintained by the VSS project consist of:</p>
 <ul>
-<li>Nodes, which are moved in the tree or are intended to be removed from the specification are marked with the deprecation keyword.</li>
-<li>The string following the deprecation keyword shall start with the version, when the node was deprecated starting with <code>V</code> (e.g. <code>V2.1</code>) followed by the reason for deprecation.</li>
-<li>If the node was moved, it shall be indicated by <code>moved to</code> followed by the new node name in dot notation as deprecation reason. This keyword shall be used only
-if the meta-data of the moved node hasn&rsquo;t changed.</li>
-<li>If the node is intended to be removed from the specification or the meta data changed, it shall be indicated by <code>removed</code> and optionally the reason for the removal as deprecation reason.</li>
-<li>Nodes which are deprecated will be removed from the specification, either in the second minor update or, if earlier, the next major update.</li>
+<li>Source code, documentation and releases in the <a href="https://github.com/COVESA/vehicle_signal_specification">VSS github repository</a>.</li>
+<li>Tools for parsing and converting VSS files in the <a href="https://github.com/COVESA/vss-tools">VSS-tools github repository</a>.</li>
 </ul>
-<h3 id="example">Example</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Navigation.CurrentLocation</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">The current latitude and longitude of the vehicle.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deprecation</span>: <span style="color:#ae81ff">V2.1 moved to Vehicle.CurrentLocation</span>
-</span></span></code></pre></div><p>It is recommended for servers, which are implementing protocols for the vehicle signal specification, to serve old and new nodes during the deprecation period described above.</p>
-<h2 id="style-guide">Style Guide</h2>
-<p>The VSS specification must adhere to YAML syntax. To keep the standardized VSS specification in this repository consistent the following style guide is provided.</p>
-<h3 id="naming-conventions">Naming Conventions</h3>
-<p>The recommended naming convention for node elements is to use camel case notation starting with a capital letter. It is recommended to use only
-<code>A-Z</code>, <code>a-z</code> and <code>0-9</code> in node names. For boolean signals it is recommended to start the name with <code>Is</code>.</p>
-<p>Examples:</p>
-<pre tabindex="0"><code>SomeBranch.AnotherBranch.MySignalName
-Vehicle.Cabin.Door.Row1.Left.IsLocked
-</code></pre><p>Naming convention for string literals can be found in the <a href="/vehicle_signal_specification/rule_set/data_entry/allowed">chapter</a>for specifying allowed values.</p>
-<h3 id="line-length">Line Length</h3>
-<p>It is recommended that line length for files in this repository ( e.g. <code>*.vspec</code> and <code>*.md</code> files) shall not exceed 120 characters. This is not a strict limit, it is e.g. not recommended to split long URLs present in files over multiple lines.</p>
+<p>The VSS project has an informal structure with a chair and github maintainers appointed by COVESA.
+Tasks for the chair includes hosting regular meeting to discuss incoming pull requests and issues, as well as roadmap and release planning.</p>
+<h2 id="contribution-process">Contribution process</h2>
+<p>Anyone may propose changes to VSS. It is up to the VSS project to decide if the changes are feasible to include in VSS.
+The VSS project does not have any developers or maintainers paid by COVESA.
+Instead, the VSS project relies on voluntary contributions, typically from member organizations.
+The maintainers are expected to review incoming pull requests.
+All contributions must follow the <a href="https://www.covesa.global/contribute">COVESA contribution guidelines</a>.</p>
+<p>In general, pull requests shall be opened for at least a week before being merged to give time for COVESA members to review the pull request and provide comments.
+In case of larger changes or changes that affect backward compatibility pull requests are typically opened for a longer period, to allow for a through review.
+Pull requests, unless trivial, are typically merged first after a decision at one of the regular VSS meetings, see link at <a href="https://wiki.covesa.global/display/WIK4/VSS+-+Vehicle+Signal+Specification">COVESA VSS wiki page</a>.
+These rules concerns primarily normative content (see below), non-normative content may be updated without thorough reviews.</p>
+<p>For more information and guides on how to contribute see <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<h2 id="branches">Branches</h2>
+<p>VSS development is typically developed in the master branch only.
+Each release is tagged and a maintenance branch is created (e.g. <code>release/3.0</code>) which could be used as target for pull requests intending to patch a release.</p>
+<h2 id="normative-vs-non-normative-content">Normative vs. non-normative content</h2>
+<p>The VSS repositories contain some artifacts that can be considered normative, i.e. an implementation claiming to &ldquo;support&rdquo; VSS shall:</p>
+<ul>
+<li>Support signals defined according to the rules in the VSS documentation
+(<a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/docs-gen">source</a>, <a href="https://covesa.github.io/vehicle_signal_specification/">generated</a>)</li>
+<li>Support the signals currently defined in VSS.
+<ul>
+<li>The signals in source format (*.vspec files) can be found in <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec">Github repository</a>.</li>
+<li>Derived formats supported by VSS project are included in each <a href="https://github.com/COVESA/vehicle_signal_specification/releases">release</a>,
+originating from the tools in the VSS-tools github repository](<a href="https://github.com/COVESA/vss-tools)">https://github.com/COVESA/vss-tools)</a>.</li>
+</ul>
+</li>
+</ul>
+<p>In addition to this the VSS repositores contain artifacts that currently are considered non-normative. This includes immature concepts and work-in progress. Non-normative content include:</p>
+<ul>
+<li><a href="https://github.com/COVESA/vehicle_signal_specification/wiki">VSS Github Wiki</a></li>
+<li><a href="https://github.com/COVESA/vss-tools/wiki">VSS Tools Wiki</a></li>
+<li><a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/overlays">Overlays and Profiles</a></li>
+<li><a href="https://github.com/COVESA/vss-tools/tree/master/contrib">Contributed tools</a></li>
+</ul>
+<p>The list of what is considered normative and non-normative is no static, it may change over time.</p>
+<h2 id="handling-of-backward-compatibility">Handling of backward compatibility</h2>
+<p>The VSS project aims to keep backward compatibility as far as feasible.
+VSS is however an evolving syntax and catalog and there are still areas where changes are need to fit the need of users.
+Changes that breaks backward compatibility are typically introduced only in major releases (e.g. <code>X.0</code>) and shall be documented in release notes.
+This concerns changes to syntax and signals, but also to tools.</p>
+<p>The VSS project has introduced a <a href="../rule_set/basics.md#deprecation-since-version-21">deprecation concept</a>.
+If possible, when e.g. renaming or moving a signal or changing tools the old signal or parameter set shall be kept but marked as deprecated.
+That allows the change to be introduced in a minor version (e.g. <code>X.Y</code>). The old signal shall be removed first in the next major release, or later if needed.</p>
+<p>A history of past changes and planned changes that affects backward compatibility can be found in the <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/CHANGELOG.md">Changelog</a>.</p>
+<h2 id="release-process">Release Process</h2>
+<p>The release process is further described in the <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/RELEASE_PROCESS.md">Github repository</a>.</p>
 
 
-<footer class="footline">
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -884,38 +852,6 @@ Vehicle.Cabin.Door.Row1.Left.IsLocked
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -935,6 +871,37 @@ Vehicle.Cabin.Door.Row1.Left.IsLocked
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1183,10 +1150,10 @@ Vehicle.Cabin.Door.Row1.Left.IsLocked
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/" title="Rule Set"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vehicle_signal_specification/introduction/taxonomy/" title="Taxonomies"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/branches/" title="Branch Entry" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/" title="Rule Set" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1218,4 +1185,3 @@ Vehicle.Cabin.Door.Row1.Left.IsLocked
 
   </body>
 </html>
-

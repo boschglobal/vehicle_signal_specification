@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.78.1" />
+    <meta name="generator" content="Hugo 0.103.1" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>Overlay :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1669046954" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1669046954" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1669046954"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662721969"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1669046954"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1669046954"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1669046954"></script>
 
     
   </div>
@@ -147,6 +147,30 @@
           
         
         </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vehicle_signal_specification/governance/" title="Governance" class="dd-item
+        
+        
+        
+        ">
+      <a href="/vehicle_signal_specification/governance/">
+          Governance
+          
+      </a>
+      
       
     </li>
   
@@ -702,11 +726,11 @@ Extending the model with richer information is a fundamental feature enabled by 
 <li><strong>Multiple layer files:</strong> VSS layers can be split into several files in order to clearly separate concerns. Layering allows all the features above to be applied in a composable manner. In order to keep a determinstic result a clear order has to remain.</li>
 </ol>
 <h3 id="scenarios-for-using-overlays">Scenarios for using Overlays</h3>
-<p>The standard catalogue is specified within COVESA and defines a common view of the major
+<p>The standard catalog is specified within COVESA and defines a common view of the major
 attributes, sensors and actuators of vehicles. This is used in many different scenarios,
 protocols and environments. Additional meta data might be required for data-governance,
 -quality or -sources. The instantiation of branches might not fit your vehicle.
-Proprietrary signals might be needed for extending the specification for your own use-cases.
+Proprietary signals might be needed for extending the specification for your own use-cases.
 Up to now you were on your own in these scenarios. Overlays give you the chance to change
 and modify the standard catalog in a standardized way.</p>
 <h3 id="how-does-it-work">How does it work?</h3>
@@ -715,9 +739,9 @@ specification file, which can overwrite or extend data in the VSS tree defined b
 the original specification.Before you start you should know:</p>
 <ul>
 <li><strong>Overlay-files have to be valid specification files by themselves.</strong>
-In practice that means, that the path to a node has to be well defined.
-Just to specify the changes of a certain node isn&rsquo;t enough and needs the
-nodes, which form the path to the node in question.</li>
+In practice that means, that the path to a node has to be well defined.</li>
+<li><strong>You can omit parent branches if there is no need to change them</strong>
+Tooling supports implicit branches.</li>
 <li><strong>Order matters.</strong> The order on how the overlay files are called in the CLI
 command matters! An example is shown in the figure below.</li>
 </ul>
@@ -725,59 +749,46 @@ command matters! An example is shown in the figure below.</li>
 separate overlay files, an example call of the tooling and the resulting tree.</p>
 <p><img src="/vehicle_signal_specification/images/overlay.drawio.png" alt="Include directive"><!-- raw HTML omitted -->
 <em>Figure: Overview on how overlays work within VSS</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># The file has to be a valid specification by itself</span>
-<span style="color:#75715e"># so the path to new nodes or nodes, which will be</span>
-<span style="color:#75715e"># altered has to be well defined</span>
-
-<span style="color:#f92672">Vehicle</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin.NewBranch</span>: <span style="color:#75715e">#&lt; introduction of a new branch</span>
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;new test branch&#34;</span>
-
-<span style="color:#f92672">Vehicle.Cabin.NewBranch.HasNewSignal</span>: <span style="color:#75715e">#&lt; introduction of a new signal</span>
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
-    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;new test signal&#34;</span>
-    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">int8</span>
-
-<span style="color:#f92672">Vehicle.Cabin.Door</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin.Door.IsOpen</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span> <span style="color:#75715e">#&lt; change of node type</span>
-    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
-</code></pre></div><p><em>File: overlay_1.vspec</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># The file has to be a valid specification by itself</span>
-<span style="color:#75715e"># so the path to new nodes or nodes, which will be</span>
-<span style="color:#75715e"># altered has to be well defined</span>
-
-<span style="color:#f92672">Vehicle</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin.NewBranch</span>: <span style="color:#75715e">#&lt; extend branch of overlay_1...</span>
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin.NewBranch.HasNewAttribute</span>: <span style="color:#75715e">#&lt; ...with a new attribute</span>
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
-    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;new test attribute&#34;</span>
-    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
-
-<span style="color:#f92672">Vehicle.Cabin.Door</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-
-<span style="color:#f92672">Vehicle.Cabin.Door.IsOpen</span>:
-    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
-    <span style="color:#f92672">newKey</span>: <span style="color:#ae81ff">value </span> <span style="color:#75715e">#&lt; Add a new key to the node and add a value</span>
-    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
-
-</code></pre></div><p><em>File: overlay_2.vspec</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#75715e"># In this overlay all parent branches are included.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># That is not mandatory, as tooling supports implicit branches.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.NewBranch</span>: <span style="color:#75715e">#&lt; introduction of a new branch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;new test branch&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.NewBranch.HasNewSignal</span>: <span style="color:#75715e">#&lt; introduction of a new signal</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;new test signal&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">int8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.Door</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.Door.IsOpen</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span> <span style="color:#75715e">#&lt; change of node type</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
+</span></span></code></pre></div><p><em>File: overlay_1.vspec</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This overlay use implicit branches.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This means that tooling will either reuse the existing Vehicle.Cabin.NewBranch,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or if not found create it with default values.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.NewBranch.HasNewAttribute</span>: <span style="color:#75715e">#&lt; ...with a new attribute</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;new test attribute&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.Door.IsOpen</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">newKey</span>: <span style="color:#ae81ff">value </span> <span style="color:#75715e">#&lt; Add a new key to the node and add a value</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
+</span></span></code></pre></div><p><em>File: overlay_2.vspec</em></p>
 <h3 id="overlays-in-the-standard-catalog">Overlays in the standard catalog</h3>
 <p>With the feature of overlays, we introduced a new folder in the
 repository called <code>overlays</code>. In there you&rsquo;ll find two additional folders:</p>
@@ -869,6 +880,22 @@ The overlays in those folders shall currently be seen as examples only, and are 
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1177,19 +1204,19 @@ The overlays in those folders shall currently be seen as examples only, and are 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1669046954"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1669046954"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662721969"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1669046954"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

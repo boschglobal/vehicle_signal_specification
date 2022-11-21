@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.78.1" />
+    <meta name="generator" content="Hugo 0.103.1" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>Data Types :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1669046954" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1669046954" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1669046954"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662721969"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1669046954"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1669046954"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1669046954"></script>
 
     
   </div>
@@ -147,6 +147,30 @@
           
         
         </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vehicle_signal_specification/governance/" title="Governance" class="dd-item
+        
+        
+        
+        ">
+      <a href="/vehicle_signal_specification/governance/">
+          Governance
+          
+      </a>
+      
       
     </li>
   
@@ -784,18 +808,18 @@
 definition</em>, wherein it&rsquo;s specified. By default the size of the array is undefined.
 By the optional keyword <code>arraysize</code> the size of the array can be specified.
 The following syntax shall be used to declare an array:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># Array of datatype uint32, by default size of the array is undefined</span>
-<span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint32[]</span>
-<span style="color:#75715e"># Optional: specified number of elements in the array</span>
-<span style="color:#f92672">arraysize</span>: <span style="color:#ae81ff">5</span>
-</code></pre></div><p>An example for the usage of <code>arrays</code> is <code>Vehicle.OBD.DTCList</code> which contains a list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#75715e"># Array of datatype uint32, by default size of the array is undefined</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint32[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Optional: specified number of elements in the array</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">arraysize</span>: <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>An example for the usage of <code>arrays</code> is <code>Vehicle.OBD.DTCList</code> which contains a list
 of Diagnostic Trouble Codes (DTCs) present in a vehicle.</p>
 <h2 id="timestamps">Timestamps</h2>
 <p>Timestamps are in VSS typically represented as strings, formatted according to ISO 8601.
 Timestamps shall be expressed in UTC (Coordinated Universal Time), with special UTC designator (&ldquo;Z&rdquo;).
 Time resolution SHALL at least be seconds, with subsecond resolution as an optional degree of precision when desired.
 The time and date format shall be as shown below, where the sub-second data and delimiter is optional.</p>
-<pre><code>YYYY-MM-DDTHH:MM:SS.ssssssZ
+<pre tabindex="0"><code>YYYY-MM-DDTHH:MM:SS.ssssssZ
 </code></pre><h2 id="data-streams">Data Streams</h2>
 <p>Data Entries, which describe sensors offering binary streams
 (e.g. cameras), are not supported directly by VSS with a
@@ -804,21 +828,20 @@ meta data about the sensor itself and how to retrieve the
 corresponding data stream.</p>
 <p>A camera can be a good example of it. The Data Entry for the camera
 and the corresponding video stream could look like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">Camera</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Information about the camera and how to connect to the video stream</span>
-
-<span style="color:#f92672">Camera.IsActive</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
-  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">If the camera is active, the client is able to retrieve the video stream</span>
-
-<span style="color:#f92672">Camera.URI</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
-  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">URI for retrieving the video stream, with information on how to access the stream (e.g. protocol,  data format, encoding, etc.)</span>
-
-</code></pre></div><p>In this example, it shows the usage of meta data about
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">Camera</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Information about the camera and how to connect to the video stream</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Camera.IsActive</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">If the camera is active, the client is able to retrieve the video stream</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Camera.URI</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">URI for retrieving the video stream, with information on how to access the stream (e.g. protocol,  data format, encoding, etc.)</span>
+</span></span></code></pre></div><p>In this example, it shows the usage of meta data about
 the status of the sensor. The camera can be set to active through
 the same data entry (<code>actuator</code>). A dynamic data entry (<code>sensor</code>)
 is used for the URI of the video stream. Information on how to access
@@ -902,6 +925,22 @@ the stream is expected.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1211,19 +1250,19 @@ the stream is expected.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1669046954"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1669046954"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662721969"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1669046954"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

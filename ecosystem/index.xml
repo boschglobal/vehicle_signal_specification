@@ -28,7 +28,7 @@ Some helpful tools are available in the vss-tools project.</description>
       <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
 The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
 To learn more check
- Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development  </description>
+Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development </description>
     </item>
     
     <item>

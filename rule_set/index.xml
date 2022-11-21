@@ -61,7 +61,7 @@ The include directive has the following format:</description>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</guid>
       <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.
 The following features with the intended usage patterns are currently supported:
- Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
+Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
     </item>
     
   </channel>

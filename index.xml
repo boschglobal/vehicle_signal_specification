@@ -36,7 +36,7 @@ The file VehicleSignalSpecification.vspec serves as root and includes other vspe
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
       <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
-Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255   int8 signed 8-bit integer -128 127   uint16 unsigned 16-bit integer 0 65535   int16 signed 16-bit integer -32768 32767   uint32 unsigned 32-bit integer 0 4294967295   int32 signed 32-bit integer -2147483648 2147483647   uint64 unsigned 64-bit integer 0 2^64 - 1   int64 signed 64-bit integer -2^63 2^63 - 1   boolean boolean value 0/false 1/true   float floating point number -3.</description>
+Supported datatypes Name Type Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float floating point number -3.</description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
       
       <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
       <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:
- A syntax for defining vehicle signals in a structured manner. A catalogue of signals related to vehicles.  It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
+A syntax for defining vehicle signals in a structured manner. A catalog of signals related to vehicles. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
     </item>
     
     <item>
@@ -73,7 +73,7 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
       <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
 The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
 To learn more check
- Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development  </description>
+Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development </description>
     </item>
     
     <item>
@@ -165,7 +165,7 @@ The include directive has the following format:</description>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</guid>
       <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.
 The following features with the intended usage patterns are currently supported:
- Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
+Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
     </item>
     
   </channel>

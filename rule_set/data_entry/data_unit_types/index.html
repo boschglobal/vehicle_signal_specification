@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.78.1" />
+    <meta name="generator" content="Hugo 0.103.1" />
     <meta name="description" content="">
 
 
@@ -12,21 +12,21 @@
     <title>Data Unit Types :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1662721969" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1669046954" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1669046954" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1662721969" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1669046954" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1669046954"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1662721969"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1669046954"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1669046954"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1662721969"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1669046954"></script>
 
     
   </div>
@@ -147,6 +147,30 @@
           
         
         </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vehicle_signal_specification/governance/" title="Governance" class="dd-item
+        
+        
+        
+        ">
+      <a href="/vehicle_signal_specification/governance/">
+          Governance
+          
+      </a>
+      
       
     </li>
   
@@ -697,7 +721,7 @@
 <h2 id="introduction-to-data-unit-types-in-vss">Introduction to Data Unit Types in VSS</h2>
 <p>It is in VSS possible for signals to specify a unit of measurement from a list of predefined data unit types.
 For most signals in the VSS standard catalog, a data unit type has been selected. A typical example is <code>Vehicle.Speed</code>, as shown below.</p>
-<pre><code>Vehicle.Speed:
+<pre tabindex="0"><code>Vehicle.Speed:
   datatype: float
   type: sensor
   unit: km/h
@@ -712,7 +736,7 @@ But in protocols not explicitly specifying data unit types (like <a href="https:
 it is expected that <code>Vehicle.Speed</code> is sent and received as <code>km/h</code> (without scaling or offset).</p>
 <p>In some cases it is natural to omit the data unit type. This concerns typically signals where data type <code>string</code> is used,
 but also signals where the value just represents a number, like in the example below:</p>
-<pre><code>Vehicle.Cabin.DoorCount:
+<pre tabindex="0"><code>Vehicle.Cabin.DoorCount:
   datatype: uint8
   type: attribute
   default: 4
@@ -722,7 +746,7 @@ but also signals where the value just represents a number, like in the example b
 In some cases, the definition on how to calculate the signal value is obvious, like for <code>Vehicle.Powertrain.FuelSystem.Level</code>
 below. It is likely that all VSS users will calculate fuel level in the same way, i.e. the meaning of a fuel level of 50%
 is well agreed, the liters of fuel in the tank is exactly 50% of nominal capacity.</p>
-<pre><code>Vehicle.Powertrain.FuelSystem.Level:
+<pre tabindex="0"><code>Vehicle.Powertrain.FuelSystem.Level:
   datatype: uint8
   type: sensor
   unit: percent
@@ -736,7 +760,7 @@ the exact formula for calculating clutch wear for a used clutch will likely be v
 Some vehicles might monitor actual wear, others might estimate it based on vehicle usage.
 This is in VSS called a logical range, a VSS user knows what range to use but are free to define the formula for calculating the value.
 Values from different vehicles (of different make/model) can not always be compared, as the formula used for calculation may differ.</p>
-<pre><code>Vehicle.Powertrain.Transmission.ClutchWear:
+<pre tabindex="0"><code>Vehicle.Powertrain.Transmission.ClutchWear:
   datatype: uint8
   type: sensor
   unit: percent
@@ -1104,6 +1128,22 @@ Values from different vehicles (of different make/model) can not always be compa
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1407,19 +1447,19 @@ Values from different vehicles (of different make/model) can not always be compa
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1669046954"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1662721969"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1662721969"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1669046954"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1669046954"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1662721969"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1669046954"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
