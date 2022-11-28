@@ -219,6 +219,12 @@ Charging.ChargePortFlap:
   allowed: ['OPEN', 'CLOSED']
   description: Status of the charge port cover, can potentially be controlled manually.
 
+ChargePortPosition:
+  datatype: string
+  type: attribute
+  allowed: ['FRONT_LEFT', 'FRONT_RIGHT', 'MIDDLE_LEFT', 'MIDDLE_RIGHT', 'REAR_LEFT', 'REAR_RIGHT', 'FRONT', 'REAR']
+  description: Location of the charge port
+
 Charging.IsChargingCableConnected:
   datatype: boolean
   type: sensor

@@ -26,6 +26,11 @@ Pan:
   max: 100
   description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
 
+IsFolded:
+  datatype: boolean
+  type: actuator
+  description: Indicates if mirrors are folded.
+  
 IsHeatingOn:
   datatype: boolean
   type: actuator
