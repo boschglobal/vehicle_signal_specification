@@ -62,8 +62,12 @@ AmbientAirTemperature:
   unit: celsius
   description: Ambient air temperature inside the vehicle.
 
-IsDualMode:
+IsIndividualMode:
   datatype: boolean
   type: actuator
-  description: Indicates if single mode is on.
-               In dual mode changing fan speed and temperature for one HVAC station change it for every station.
+  description: Indicates if individual mode is on.
+               True = changing fan speed and temperature for one HVAC station change it only for that station.
+               False = changing fan speed and temperature on master HVAC station shall change it for all HVAC stations.
+  comment: The master HVAC station is typically the HVAC station controlled by the driver.
+           A vehicle may automatically change to IsIndividualMode=True if someone change temperature or fan speed on other HVAC stations.
+           IsIndividualMode=True is sometimes referred to as dual mode. IsIndividualMode=False is sometimes referred to as synchronized mode. 
