@@ -70,4 +70,32 @@ Speed:
   datatype: float
   type: sensor
   unit: km/h
-  description: Rotational speed of a vehicle's wheel.
+  description: Rotational speed of a vehicle's wheel, 
+  comment: The value refers to average speed during the interval specified by SpeedMeasurementInterval.
+
+#
+# TODO: Discuss if this will vary on wheel basis, or if it always is the same for all wheels.
+#
+SpeedMeasurementInterval:
+  datatype: float
+  type: sensor
+  unit: s
+  description: Interval used for calculating wheel speed.
+  comment: The interval may vary depending on vehicle state.
+
+# Wheel Ticks for now considered less prioritized, unclear if actually needed for VSS use cases
+
+WheelTicks:
+  datatype: int32
+  type: sensor
+  description: Counter for wheel ticks. Counter increase when wheel rotates forward and decrease when wheel rotates backward.
+               Counter is reset when vehicle is powered on.
+  comment: Wheel tick value can be negative, for example if the vehicle after being powered on starts driving backward.
+           Theoretically the value may wrap around but it will unlikely happen in reality as an int32 with typical 
+           WheelTicksPerRotation (<100) and tire circumference ( about 2 cm per tick) can handle about 40000 km before wrap around.
+
+WheelTicksPerRotation:
+  datatype: uint16
+  type: attribute
+  description: Number of ticks registered for one rotation of the wheel
+
