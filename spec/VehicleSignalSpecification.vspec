@@ -193,3 +193,12 @@ Vehicle.Connectivity:
   description: Connectivity data.
 
 #include Vehicle/Connectivity.vspec Vehicle.Connectivity
+
+#
+# Power Optimize
+#
+Vehicle.PowerOptimize:
+  type: branch
+  description: Power optimization status for various subsystems.
+
+#include PowerOptimize/PowerOptimize.vspec Vehicle.PowerOptimize

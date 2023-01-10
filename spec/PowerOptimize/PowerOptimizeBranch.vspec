@@ -1,0 +1,25 @@
+#
+# (C) 2023 Robert Bosch GmbH
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+
+##
+# Power Optimization
+##
+
+PowerOptimize:
+  type: branch
+  description: Power Optimization Data
+  
+PowerOptimize.Level:
+  datatype: uint8
+  type: actuator
+  min: 1
+  max: 10
+  description: Power optimization level for this branch/subsystem.
+               A lower number indicates more aggressive power optimization.
+               Level 1 indicates most aggressive power optimization mode, only essential functionality enabled.
+               Level 10 indicates that all functionality is enabled, no power optimization enabled.

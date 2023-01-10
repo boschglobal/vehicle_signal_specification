@@ -1,0 +1,82 @@
+#
+# (C) 2023 Robert Bosch GmbH
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Architectural Concept
+#
+# A vehicle may have a power optimization system to control functionality in order to extend available range of the vehicle.
+# It is assumed that the power optimization system does not know in detail which functionalities that exist in the vehicle
+# and which functionalities that can be turned off without causing interruptions to essential functionality.
+#
+# This is proposed to be handled by a distributed system where the power optimization system only gives recommendations
+# on power optimization for different areas.
+# The areas are in standard VSS catalog assumed to correspond to branches in VSS, and are represented as a signal in the corresponding branch,
+# like `Vehicle.<Branch>.PowerOptimize.Level`. The level has a numerical value from 1 to 10.
+# Level 10 means that power optimization is not needed, all functionality can behave "normally".
+# Level 1 means that power consumption shall be minimized. Non-essential functionality shall be disabled.
+# Essential functionality to fulfill legal and safety requirements shall still be enabled.
+# Intermediate numbers (2-9) indicates intermediate states, where a lower number indicates a more aggressive power optmization policy.
+# 
+# This allows for subsystems to implement their own power saving logic.
+# It is totally up to the subsystem to know "what to do" for different power optimize levels.
+# It is up to the OEM to configure subsystems to achieve the wanted behavior
+#
+# A hypothetical simple example could be as follows
+#
+# Level 10 - All subsystems working normally
+# Level 9 - Most software update functionality disabled
+# Level 7 - Sport mode disabled
+# Level 4 - Media/Music disabled
+# Level 2 - HVAC temperature range/efficiency limited
+# Level 1 - All except essential functionality disabled. Limp mode activated.
+#
+#
+# A hypothetical example for Display/HMI brightness could be as follows
+#
+#
+# There is a signal Vehicle.Cabin.Infotainment.HMI.Brightness that for example the driver could use to change HMI Brightness.
+# The signal has a range 0-100 percent, where 0% means the lowest value allowed from legal/safety-reasons as well as usability reasons.
+# To allow for energy optimization an OEM might want to change the actual brightness based on power optimization level for cabin.
+#
+# A possible schema could be as follows
+#
+#
+#  REAL_MIN = 30 /* Lowest allowed value for safety/legal/convenience-reasons */
+#  REAL_MAX = 90 /* Maximum allowed value for safety/legal/convenience/technical-reasons */
+#  POWERSAVE_MAX_RELATIVE = 45 /* Maximum relative brightness during power optimize */
+#  POWERSAVE_LIMIT = 5 /* Reduce brightness if level is below this value */
+#
+#  if (Vehicle.PowerOptimize.IsEnabled AND (Vehicle.Cabin.PowerOptimize. < POWERSAVE_LIMIT)):
+#    if (Vehicle.Cabin.Infotainment.HMI.Brightness > POWERSAVE_MAX_RELATIVE):
+#      old_value = Vehicle.Cabin.Infotainment.HMI;
+#      Vehicle.Cabin.Infotainment.HMI = POWERSAVE_MAX_RELATIVE;
+#  else
+#    // Revert to old value
+#    Vehicle.Cabin.Infotainment.HMI = old_value;
+#
+#
+# Note that no additional VSS signals is added to represent wanted brightness at power optimization.
+# It is possible that a such signal may be needed in individual deployments, but if so it can be handled by a vehicle specific overlay.
+#
+# Customization
+#
+# In addition to power optimize signals added in standard VSS catalog a project/OEM may customize the model by overlay by e.g.
+#
+# 1. Adding addition elevel signals
+#
+# For instance by adding `#include PowerOptimize/PowerOptimizeBranch.vspec` in additional files
+#
+# 2. Adding signals for supporting data
+#
+# In specific deployments there might be a need for private signals with additional data for the power optimiation strategy used.
+# This could for instance be signals to specify maximum speed for specific power optimization levels.
+
+IsEnabled:
+  datatype: boolean
+  type: actuator
+  description: Indicates if the power optimization system is enabled.
+  comment: If power optimization is enabled, subsystems may adapt behavior based on the signals below.
