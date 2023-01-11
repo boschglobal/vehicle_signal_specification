@@ -72,8 +72,9 @@ Axle.SteeringAngle:
   datatype: float
   type: sensor
   unit: degrees
-  description: Bicycle model steering angle. Positive = degrees to the right. Negative = degrees to the left.
-  comment: Bicycle model steering angle refers to the angle that a centrally mounted wheel would have.
+  description: Single track two-axle model steering angle.
+               Angle according to ISO 8855. Positive = degrees to the left. Negative = degrees to the right.
+  comment: Single track two-axle model steering angle refers to the angle that a centrally mounted wheel would have.
 #
 # Tire attributes
 #
@@ -136,13 +137,13 @@ SteeringWheel:
   description: Steering wheel signals
 
 SteeringWheel.Angle:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees
   description: Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.
 
 SteeringWheel.Tilt:
-  datatype: uint8
+  datatype: float
   type: actuator
   min: 0
   max: 100
@@ -150,7 +151,7 @@ SteeringWheel.Tilt:
   description: Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.
 
 SteeringWheel.Extension:
-  datatype: uint8
+  datatype: float
   type: actuator
   min: 0
   max: 100
