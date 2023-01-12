@@ -285,5 +285,5 @@ EBA.IsEngaged:
   type: sensor
   description: Indicates if EBA is currently regulating brake pressure. True = Engaged. False = Not Engaged.
 
-#include PowerOptimize/PowerOptimizeBranch.vspec
+#include include/PowerOptimize.vspec
 

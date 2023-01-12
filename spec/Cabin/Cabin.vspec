@@ -186,4 +186,4 @@ Convertible.Status:
   allowed: ['UNDEFINED', 'CLOSED', 'OPEN', 'CLOSING', 'OPENING', 'STALLED']
   description: Roof status on convertible vehicles.
 
-#include PowerOptimize/PowerOptimizeBranch.vspec
+#include include/PowerOptimize.vspec

@@ -23,4 +23,4 @@ Type:
   comment: For vehicles with a combustion engine (including hybrids) more detailed information on fuels supported can
            be found in FuelSystem.SupportedFuelTypes and FuelSystem.SupportedFuels.
 
-#include PowerOptimize/PowerOptimizeBranch.vspec
+#include include/PowerOptimize.vspec

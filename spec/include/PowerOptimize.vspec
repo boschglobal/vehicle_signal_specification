@@ -14,29 +14,42 @@
 #
 # This is proposed to be handled by a distributed system where the power optimization system only gives recommendations
 # on power optimization for different areas.
-# The areas are in standard VSS catalog assumed to correspond to branches in VSS, and are represented as a signal in the corresponding branch,
-# like `Vehicle.<Branch>.PowerOptimize.Level`. The level has a numerical value from 1 to 10.
+# The areas are in standard VSS catalog initially assumed to correspond to branches in VSS, and are represented as a signal in the corresponding branch,
+# like `Vehicle.<Branch>.PowerOptimizeLevel`.
+#
+# The signal can be added to a branch by including this file, like:
+#
+# "#include include/PowerOptimize.vspec"
+#
+#
+# Initially the standard VSS catalog contains the following level signals:
+#
+#Vehicle.Powertrain.PowerOptimizeLevel
+#Vehicle.Body.PowerOptimizeLevel
+#Vehicle.Cabin.PowerOptimizeLevel
+#Vehicle.Cabin.HVAC.PowerOptimizeLevel
+#Vehicle.Cabin.Infotainment.PowerOptimizeLevel
+#Vehicle.ADAS.PowerOptimizeLevel
+#
+# When there are multiple level signals in a subtree (like for the Cabin subtree) a feature may typically consider the "closest" level signal.
+#
+# Example 1: HVAC functionality (signals in branch Vehicle.Cabin.HVAC) may consider Vehicle.Cabin.HVAC.PowerOptimizeLevel
+# Example 2: Sunroof functionality (signals in branch Vehicle.Cabin.Sunroof) may consider Vehicle.Cabin.PowerOptimizeLevel 
+#            as there is no specific level signal in Vehicle.Cabin.Sunroof.
+#
+# The power optimization level has a numerical value from 1 to 10.
 # Level 10 means that power optimization is not needed, all functionality can behave "normally".
 # Level 1 means that power consumption shall be minimized. Non-essential functionality shall be disabled.
 # Essential functionality to fulfill legal and safety requirements shall still be enabled.
-# Intermediate numbers (2-9) indicates intermediate states, where a lower number indicates a more aggressive power optmization policy.
+# Intermediate numbers (2-9) indicates intermediate states, where a lower number indicates a more aggressive power optimization policy.
 # 
 # This allows for subsystems to implement their own power saving logic.
 # It is totally up to the subsystem to know "what to do" for different power optimize levels.
-# It is up to the OEM to configure subsystems to achieve the wanted behavior
-#
-# A hypothetical simple example could be as follows
-#
-# Level 10 - All subsystems working normally
-# Level 9 - Most software update functionality disabled
-# Level 7 - Sport mode disabled
-# Level 4 - Media/Music disabled
-# Level 2 - HVAC temperature range/efficiency limited
-# Level 1 - All except essential functionality disabled. Limp mode activated.
-#
+# It is up to the OEM to configure subsystems to achieve the wanted behavior.
+# It is expected that power optimizations that are activated already at a high level have limited impact on the driver experience,
+# but power optimizations on lower levels will have significant impact on driver experience.
 #
 # A hypothetical example for Display/HMI brightness could be as follows
-#
 #
 # There is a signal Vehicle.Cabin.Infotainment.HMI.Brightness that for example the driver could use to change HMI Brightness.
 # The signal has a range 0-100 percent, where 0% means the lowest value allowed from legal/safety-reasons as well as usability reasons.
@@ -44,15 +57,15 @@
 #
 # A possible schema could be as follows
 #
-#
+
 #  REAL_MIN = 30 /* Lowest allowed value for safety/legal/convenience-reasons */
 #  REAL_MAX = 90 /* Maximum allowed value for safety/legal/convenience/technical-reasons */
 #  POWERSAVE_MAX_RELATIVE = 45 /* Maximum relative brightness during power optimize */
 #  POWERSAVE_LIMIT = 5 /* Reduce brightness if level is below this value */
 #
-#  if (Vehicle.PowerOptimize.IsEnabled AND (Vehicle.Cabin.PowerOptimize. < POWERSAVE_LIMIT)):
+#  if (Vehicle.Cabin.PowerOptimize. < POWERSAVE_LIMIT):
+#    old_value = Vehicle.Cabin.Infotainment.HMI;
 #    if (Vehicle.Cabin.Infotainment.HMI.Brightness > POWERSAVE_MAX_RELATIVE):
-#      old_value = Vehicle.Cabin.Infotainment.HMI;
 #      Vehicle.Cabin.Infotainment.HMI = POWERSAVE_MAX_RELATIVE;
 #  else
 #    // Revert to old value
@@ -66,17 +79,26 @@
 #
 # In addition to power optimize signals added in standard VSS catalog a project/OEM may customize the model by overlay by e.g.
 #
-# 1. Adding addition elevel signals
+# 1. Adding additional level signals
 #
-# For instance by adding `#include PowerOptimize/PowerOptimizeBranch.vspec` in additional files
+# For instance by adding `#include include/PowerOptimize.vspec` in additional files
 #
 # 2. Adding signals for supporting data
 #
-# In specific deployments there might be a need for private signals with additional data for the power optimiation strategy used.
+# In specific deployments there might be a need for private signals with additional data for the power optimization strategy used.
 # This could for instance be signals to specify maximum speed for specific power optimization levels.
 
-IsEnabled:
-  datatype: boolean
+##
+# Power Optimization
+##
+
+  
+PowerOptimizeLevel:
+  datatype: uint8
   type: actuator
-  description: Indicates if the power optimization system is enabled.
-  comment: If power optimization is enabled, subsystems may adapt behavior based on the signals below.
+  min: 1
+  max: 10
+  description: Power optimization level for this branch/subsystem.
+               A lower number indicates more aggressive power optimization.
+               Level 1 indicates most aggressive power optimization mode, only essential functionality enabled.
+               Level 10 indicates that all functionality is enabled, no power optimization enabled.
