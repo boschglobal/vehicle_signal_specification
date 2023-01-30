@@ -16,6 +16,7 @@ BodyType:
   description: Body type code as defined by ISO 3779.
 
 RefuelPosition:
+  deprecation: V3.1 replaced by Vehicle.Powertrain.TractionBattery.Charging.ChargePortPosition and Vehicle.Powertrain.FuelSystem.RefuelPosition
   datatype: string
   type: attribute
   allowed: ['FRONT_LEFT', 'FRONT_RIGHT', 'MIDDLE_LEFT', 'MIDDLE_RIGHT', 'REAR_LEFT', 'REAR_RIGHT']
@@ -198,7 +199,7 @@ Lights.Beam:
 
 Lights.Running:
   type: branch
-  description: Running lights.
+  description: Daytime running lights (DRL).
 #include StaticLights.vspec Lights.Running
 
 Lights.Backup:

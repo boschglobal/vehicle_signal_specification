@@ -18,12 +18,12 @@ IsGloveBoxOn:
 IsTrunkOn:
   datatype: boolean
   type: actuator
-  description: Is trunk light light on
+  description: Is trunk light on
 
 IsDomeOn:
   datatype: boolean
   type: actuator
-  description: Is central dome light light on
+  description: Is central dome light on
 
 AmbientLight:
   datatype: uint8

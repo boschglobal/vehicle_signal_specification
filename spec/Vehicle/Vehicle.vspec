@@ -386,11 +386,21 @@ Height:
 Width:
   datatype: uint16
   type: attribute
-  default: 0
   unit: mm
-  description: Overall vehicle width.
+  description: Overall vehicle width excluding mirrors, as defined by SAE J1100-2009 W103.
+
+WidthIncludingMirrors:
+  datatype: uint16
+  type: attribute
+  unit: mm
+  description: Overall vehicle width including mirrors, as defined by SAE J1100-2009 W144.
 
 
+TurnDiameter:
+  datatype: uint16
+  type: attribute
+  unit: mm
+  description: Minimum turn diameter, as defined by SAE J1100-2009 D102.
 #
 # Trailer
 #

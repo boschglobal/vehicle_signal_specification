@@ -134,6 +134,12 @@ HMI.TimeFormat:
   allowed: ['HR_12', 'HR_24']
   description: Time format used in the current HMI
 
+HMI.SpeedUnit:
+  datatype: string
+  type: actuator
+  allowed: ['METER_PER_SECOND', 'MILES_PER_HOUR', 'KILOMETERS_PER_HOUR']
+  description: Speed unit used in the current HMI
+
 HMI.DistanceUnit:
   datatype: string
   type: actuator
@@ -157,6 +163,14 @@ HMI.EVEconomyUnits:
   type: actuator
   allowed: ['MILES_PER_KILOWATT_HOUR', 'KILOMETERS_PER_KILOWATT_HOUR', 'KILOWATT_HOURS_PER_100_MILES', 'KILOWATT_HOURS_PER_100_KILOMETERS', 'WATT_HOURS_PER_MILE', 'WATT_HOURS_PER_KILOMETER']
   description: EV fuel economy unit used in the current HMI
+
+HMI.EVEnergyUnits:
+  datatype: string
+  type: actuator
+  allowed: ['WATT_HOURS','AMPERE_HOURS', 'KILOWATT_HOURS']
+  description: EV energy unit used in the current HMI
+  comment: Ampere hours is by definition not an energy unit, but can be used as a measurement of energy
+           if the voltage, like nominal voltage of the battery, is known.
 
 HMI.TemperatureUnit:
   datatype: string

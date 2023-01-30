@@ -24,6 +24,7 @@
 # z-axis is the axis going up/down on the vehicle
 #
 
+
 IsOccupied:
   datatype: boolean
   type: sensor
@@ -43,6 +44,14 @@ IsBelted:
   type: sensor
   description: Is the belt engaged.
 
+SeatBeltHeight:
+  datatype: uint16
+  type: actuator
+  min: 0
+  unit: mm
+  description: Seat belt position on vehicle z-axis. Position is relative within available movable range of the seat belt.
+               0 = Lowermost position supported.
+
 Heating:
   datatype: int8
   type: actuator
@@ -50,6 +59,13 @@ Heating:
   max: 100
   unit: percent
   description: Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.
+
+Ventilation:
+  datatype: uint8
+  type: actuator
+  max: 100
+  unit: percent
+  description: Seat ventilation. 0 = off. 100 = max ventilation.
 
 Massage:
   datatype: uint8
@@ -192,6 +208,16 @@ Switch.IsCoolerEngaged:
   type: actuator
   description: Cooler switch for Seat heater (SingleSeat.Heating).
 
+Switch.IsMoreVentilationEngaged:
+  datatype: boolean
+  type: actuator
+  description: Switch to increase seat ventilation (SingleSeat.Ventilation).
+  
+Switch.IsLessVentilationEngaged:
+  datatype: boolean
+  type: actuator
+  description: Switch to decrease seat ventilation (SingleSeat.Ventilation).
+
 Switch.IsForwardEngaged:
   datatype: boolean
   type: actuator
@@ -326,3 +352,21 @@ Switch.Massage.IsDecreaseEngaged:
   type: actuator
   description: Decrease massage level switch engaged (SingleSeat.Massage).
 
+
+
+SeatMemory:
+  type: branch
+  description: Data to control seat memory.
+
+SeatMemory.Select:
+  datatype: uint8
+  type: actuator
+  description: Specifies that saved settings from seat memory shall be used. 0 indicates that saved settings are not used.
+  comment: Number of seat memories available is vehicle dependent
+
+SeatMemory.Set:
+  datatype: uint8
+  type: actuator
+  description: Requests the vehicle to save current seat settings in the specified seat memory.
+               0 is reserved and indicates that nothing shall be saved.
+  comment: Number of seat memories available is vehicle dependent.

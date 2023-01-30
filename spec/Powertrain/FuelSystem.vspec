@@ -27,6 +27,18 @@ SupportedFuel:
                with additional suffix for octane (RON) where relevant.
   comment: RON 95 is sometimes referred to as Super, RON 98 as Super Plus.
 
+
+RefuelPosition:
+  datatype: string
+  type: attribute
+  allowed: ['FRONT_LEFT', 'FRONT_RIGHT', 'MIDDLE_LEFT', 'MIDDLE_RIGHT', 'REAR_LEFT', 'REAR_RIGHT', 'FRONT', 'REAR']
+  description: Location of the fuel cap.
+
+IsFuelDoorOpen:
+  datatype: boolean
+  type: actuator
+  description: Status of the fuel door.
+  
 HybridType:
   datatype: string
   type: attribute

@@ -29,3 +29,10 @@ AirDistribution:
   type: actuator
   allowed: ['UP', 'MIDDLE', 'DOWN']
   description: Direction of airstream
+  
+  
+IsAutoMode:
+  datatype: boolean
+  type: actuator
+  description: Indicates if auto mode is on.
+               In auto mode fan speed and air distribution may change without user action.

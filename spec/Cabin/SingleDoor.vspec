@@ -20,6 +20,16 @@ IsLocked:
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
 
 
+Position:
+  datatype: uint8
+  type: sensor
+  min: 0
+  max: 100
+  unit: percent
+  description: Door position. 0 = Fully closed 100 = Fully opened.
+
+#include SingleSliderSwitch.vspec
+
 #
 # Window description
 #
