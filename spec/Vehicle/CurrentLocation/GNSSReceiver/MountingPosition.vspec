@@ -1,0 +1,40 @@
+#
+# (C) 2022 Robert Bosch GmbH
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+
+MountingPosition:
+  type: branch
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+
+MountingPosition.X:
+  datatype: int16
+  type: attribute
+  unit: mm
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = forward of rear axle. Negative values = backward of rear axle.
+
+MountingPosition.Y:
+  datatype: int16
+  type: attribute
+  unit: mm
+  description: Mounting position of GNSS receiver antenna relative to vehicle coordinate system.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = left of origin. Negative values = right of origin.
+               Left/Right is as seen from driver perspective, i.e. by a person looking forward.
+               
+MountingPosition.Z:
+  datatype: int16
+  type: attribute
+  unit: mm
+  description: Mounting position of GNSS receiver on Z-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = above center of rear axle. Negative values = below center of rear axle.
+               

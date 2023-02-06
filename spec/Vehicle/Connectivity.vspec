@@ -13,7 +13,13 @@
 # and throughput.
 #
 
-IsConnectivityAvailable:
+#
+# Connectivity information
+#
+Connectivity:
+  type: branch
+  
+Connectivity.IsConnectivityAvailable:
   datatype: boolean
   type: sensor
   description: Indicates if connectivity between vehicle and cloud is available.

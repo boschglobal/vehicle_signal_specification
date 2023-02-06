@@ -23,12 +23,19 @@
 #
 
 #
+# Service information
+#
+Service:
+  type: branch
+  description: Service data.
+  
+#
 # Service Due Indicator
 # Indicates that it is now or in the near future time to bring the vehicle to a garage for service (of any kind).
 # The criteria for setting "ServiceDue" is not specified by VSS.
 # It may, but do not need to, be based on DistanceToService and TimeToService.
 #
-IsServiceDue:
+Service.IsServiceDue:
   datatype: boolean
   type: sensor
   description: Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service.
@@ -36,7 +43,7 @@ IsServiceDue:
 #
 # Remaining distance to service (of any kind).
 #
-DistanceToService:
+Service.DistanceToService:
   datatype: float
   type: sensor
   unit: km
@@ -45,7 +52,7 @@ DistanceToService:
 #
 # Remaining time to service (of any kind).
 #
-TimeToService:
+Service.TimeToService:
   datatype: int32
   type: sensor
   unit: s

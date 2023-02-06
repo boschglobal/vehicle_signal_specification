@@ -1,0 +1,39 @@
+#
+# (C) 2022 Robert Bosch GmbH
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Spatial Acceleration
+#
+
+
+#
+# Spatial Acceleration
+#
+Acceleration:
+  type: branch
+  description: Spatial acceleration. Axis definitions according to ISO 8855.
+  
+Acceleration.Longitudinal:
+  datatype: float
+  type: sensor
+  unit: m/s^2
+  description: Vehicle acceleration in X (longitudinal acceleration).
+
+Acceleration.Lateral:
+  datatype: float
+  type: sensor
+  unit: m/s^2
+  description: Vehicle acceleration in Y (lateral acceleration).
+
+Acceleration.Vertical:
+  datatype: float
+  type: sensor
+  unit: m/s^2
+  description: Vehicle acceleration in Z (vertical acceleration).
+

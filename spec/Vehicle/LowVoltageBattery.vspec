@@ -10,26 +10,35 @@
 # in traditional petrol/diesel vehecles.
 #
 
-NominalVoltage:
+##
+#  Low voltage battery
+##
+LowVoltageBattery:
+  type: branch
+  description: Signals related to low voltage battery.
+
+
+
+LowVoltageBattery.NominalVoltage:
   datatype: uint16
   type: attribute
   unit: V
   description: Nominal Voltage of the battery.
   comment: Nominal voltage typically refers to voltage of fully charged battery when delivering rated capacity.
 
-NominalCapacity:
+LowVoltageBattery.NominalCapacity:
   datatype: uint16
   type: attribute
   unit: Ah
   description: Nominal capacity of the low voltage battery.
 
-CurrentVoltage:
+LowVoltageBattery.CurrentVoltage:
   datatype: float
   type: sensor
   unit: V
   description: Current Voltage of the low voltage battery.
 
-CurrentCurrent:
+LowVoltageBattery.CurrentCurrent:
   datatype: float
   type: sensor
   unit: A

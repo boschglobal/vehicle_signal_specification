@@ -1,0 +1,40 @@
+#
+# (C) 2022 Robert Bosch GmbH
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# VSS Versioning information
+#
+
+VersionVSS:
+  type: branch
+  description: Supported Version of VSS.
+  
+VersionVSS.Major:
+  datatype: uint32
+  type: attribute
+  default: 3
+  description: Supported Version of VSS - Major version.
+
+VersionVSS.Minor:
+  datatype: uint32
+  type: attribute
+  default: 1
+  description: Supported Version of VSS - Minor version.
+
+VersionVSS.Patch:
+  datatype: uint32
+  type: attribute
+  default: 0
+  description: Supported Version of VSS - Patch version.
+
+VersionVSS.Label:
+  datatype: string
+  type: attribute
+  default: 'develop'
+  description: Label to further describe the version.

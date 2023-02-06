@@ -6,13 +6,20 @@
 #
 #
 
-AirTemperature:
+#
+# Exterior information
+#
+Exterior:
+  type: branch
+  description: Information about exterior measured by vehicle.
+  
+Exterior.AirTemperature:
   datatype: float
   type: sensor
   unit: celsius
   description: Air temperature outside the vehicle.
 
-Humidity:
+Exterior.Humidity:
   datatype: float
   type: sensor
   unit: percent
@@ -21,7 +28,7 @@ Humidity:
   description: Relative humidity outside the vehicle.
                0 = Dry, 100 = Air fully saturated.
 
-LightIntensity:
+Exterior.LightIntensity:
   datatype: float
   type: sensor
   unit: percent

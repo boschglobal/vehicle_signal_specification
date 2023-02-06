@@ -1,0 +1,20 @@
+#
+# (C) 2022 Robert Bosch GmbH
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Trailer
+#
+Trailer:
+  type: branch
+  description: Trailer signals.
+  
+Trailer.IsConnected:
+  datatype: boolean
+  type: sensor
+  description: Signal indicating if trailer is connected or not.
