@@ -1,0 +1,28 @@
+#
+# (C) 2022 Robert Bosch GmbH
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+GNSSReceiver:
+  type: branch
+  description: Information on the GNSS receiver used for determining current location.
+
+GNSSReceiver.FixType:
+  datatype: string
+  type: sensor
+  allowed: ['NONE', 
+            'TWO_D',
+            'TWO_D_SATELLITE_BASED_AUGMENTATION',
+            'TWO_D_GROUND_BASED_AUGMENTATION',
+            'TWO_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION',
+            'THREE_D',
+            'THREE_D_SATELLITE_BASED_AUGMENTATION',
+            'THREE_D_GROUND_BASED_AUGMENTATION',
+            'THREE_D_SATELLITE_AND_GROUND_BASED_AUGMENTATION']
+  description: Fix status of GNSS receiver.
+
+#include GNSSReceiver/MountingPosition.vspec GNSSReceiver
