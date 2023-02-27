@@ -18,6 +18,17 @@ Supported datatypes Name Type Min Max uint8 unsigned 8-bit integer 0 255 int8 si
     </item>
     
     <item>
+      <title>Struct Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</link>
+      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</guid>
+      <description>COVESA is in the process of introducing struct support. It is a still an experimental feature, and information on this page may be incorrect, may change, or may not be supported by tooling yet!
+Introduction VSS has historically supported only the following types:
+Integer-based types (e.g. uint8, int32) Float-based types (float, double) String Boolean In addition to this VSS arrays of the types given above has been supported. This has been considered insufficient for some use-cases.</description>
+    </item>
+    
+    <item>
       <title>Data Unit Types</title>
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
       <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>

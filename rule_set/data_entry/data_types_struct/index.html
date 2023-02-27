@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>W3C-VISS :: Vehicle Signal Specification</title>
+    <title>Struct Types :: Vehicle Signal Specification</title>
 
     
     <link href="/vehicle_signal_specification/css/nucleus.css?1677505732" rel="stylesheet">
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vehicle_signal_specification/ecosystem/viss/">
+  <body class="" data-url="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/">
     <nav id="sidebar" class="">
 
 
@@ -186,7 +186,7 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/rule_set/" title="Rule Set" class="dd-item
-        
+        parent
         
         
         ">
@@ -257,7 +257,7 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/" title="Data Entry" class="dd-item
-        
+        parent
         
         
         ">
@@ -304,7 +304,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/" title="Struct Types" class="dd-item ">
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/" title="Struct Types" class="dd-item active">
         <a href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/">
         Struct Types
         
@@ -513,7 +513,7 @@
   
     
     <li data-nav-id="/vehicle_signal_specification/ecosystem/" title="Ecosystem" class="dd-item
-        parent
+        
         
         
         ">
@@ -560,7 +560,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/ecosystem/viss/" title="W3C-VISS" class="dd-item active">
+      <li data-nav-id="/vehicle_signal_specification/ecosystem/viss/" title="W3C-VISS" class="dd-item ">
         <a href="/vehicle_signal_specification/ecosystem/viss/">
         W3C-VISS
         
@@ -657,7 +657,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/ecosystem/viss.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/data_entry/data_types_struct.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -688,7 +688,13 @@
             
           
           
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/ecosystem/'>Ecosystem</a> > W3C-VISS
+            
+            
+          
+          
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > <a href='/vehicle_signal_specification/rule_set/data_entry/'>Data Entry</a> > Struct Types
+          
+        
           
         
           
@@ -701,7 +707,25 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#intended-usage">Intended usage</a></li>
+    <li><a href="#structs-vs-aggregate">Structs vs. Aggregate</a></li>
+    <li><a href="#general-idea-and-basic-semantics">General Idea and Basic Semantics</a></li>
+    <li><a href="#naming-restrictions">Naming Restrictions</a></li>
+    <li><a href="#simple-definition-and-usage">Simple Definition and Usage</a></li>
+    <li><a href="#name-resolution">Name resolution</a></li>
+    <li><a href="#expectations-on-vss-implementations-eg-viss-kuksaval">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</a></li>
+    <li><a href="#array-support">Array Support</a></li>
+    <li><a href="#expectations-on-vss-implementations-eg-viss-kuksaval-1">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</a></li>
+    <li><a href="#structure-in-structure">Structure in Structure</a></li>
+    <li><a href="#order-of-declarationdefinition">Order of declaration/definition</a></li>
+    <li><a href="#inline-struct">Inline Struct</a></li>
+    <li><a href="#default-values">Default Values</a></li>
+    <li><a href="#allowed-values">Allowed Values</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -717,20 +741,228 @@
           
             <h1>
               
-              W3C-VISS
+              Struct Types
             </h1>
           
 
         
 
 
-<p>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to <em>access</em> VSS signals.</p>
-<p>The W3C Vehicle Information Service Specification (<strong>VISS</strong>) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).</p>
-<p>To learn more check</p>
+<p><em>COVESA is in the process of introducing struct support.</em>
+<em>It is a still an experimental feature, and information on this page may be incorrect, may change, or may not be supported by tooling yet!</em></p>
+<h2 id="introduction">Introduction</h2>
+<p>VSS has historically supported only the following types:</p>
 <ul>
-<li><a href="https://www.w3.org/TR/vehicle-information-service/">Vehicle Information Service Specification (VISS) V1</a></li>
-<li><a href="https://github.com/w3c/automotive/">Vehicle Information Service Specification (VISS) V2</a>,  still under active development</li>
+<li>Integer-based types (e.g. uint8, int32)</li>
+<li>Float-based types (float, double)</li>
+<li>String</li>
+<li>Boolean</li>
 </ul>
+<p>In addition to this VSS arrays of the types given above has been supported.
+This has been considered insufficient for some use-cases.
+Typical examples are when something cannot be described by a single value, but multiple values are needed.</p>
+<p>A few hypothetical examples include:</p>
+<ul>
+<li>GPS locations, where latitude and longitude must be handled together</li>
+<li>Obstacles - where each obstacle may contain information like category, probability and location</li>
+<li>Errors/Warnings - where each item might contain information on category and priority as well as time stamp</li>
+</ul>
+<p>Based on this a syntax for supporting structs in VSS has been defined</p>
+<h2 id="intended-usage">Intended usage</h2>
+<p>The struct support in VSS is introduced to facilitate logical binding/grouping of data that originates from the same source.
+It is intended to be used only when it is important that the data is read or written in an atomic operation.
+It is not intended to be used to specify how data shall be packaged and serialized when transported.</p>
+<p>By this reason VSS-project will not introduce smaller datatypes (like <code>uint1</code>,<code>uint4</code>) to enable bit-encoding of data.
+The order of elements in a struct is from a VSS perspective considered as arbitrary.
+The VSS project will by this reason not publish guidelines on how to order items in the struct to minimize size,
+and no concept for introducing padding will exist.</p>
+<p>Structs shall be used in VSS standard catalog only when considered to give a significant advantage compared to using only primitive types.</p>
+<h2 id="structs-vs-aggregate">Structs vs. Aggregate</h2>
+<p>VSS supports a keyword <code>aggregate</code> that can be used on <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/branches/">branches</a>
+to indicate that the branch preferably shall be read and written in atomic operations.
+The keyword is however currently not used in the standard catalog, and it is not known if any implementation exists that actually consider it.
+There have been criticism that <code>aggregate</code> changes the semantic meaning of branches and signals, i.e. that a signal is no longer handed as an independent object.
+The exact meaning of <code>aggregate</code> is furthermore not well defined by VSS.
+Shall for example a write request (or update of sensor values) be rejected by an implementation
+if not all signals in the branch are updated in the same operation?
+Semantic interpretation is also ambiguous if the branch contains a mix of sensors, attributes and actuators.
+Using structs as datatype is better aligned with the view that VSS signals are independent objects,
+and the semantic ambiguities related to <code>aggregate</code> are not present for structs.</p>
+<p>Aggregate could however be useful as information on deployment level.
+It gives the possibility to indicate that in this particular deployment the signals in the branch shall be treated as an aggregate.
+Exact meaning of the <code>aggregate</code> keyword is then deployment specific.
+With this view, aggregate shall never be used in the standard catalog, but can be used in overlays for deployment-specific purposes.</p>
+<h2 id="general-idea-and-basic-semantics">General Idea and Basic Semantics</h2>
+<p>A signal of struct type shall be defined in the same way as other VSS signals,
+the only difference would be that instead of using a primitive type there shall be a reference to a struct datatype.
+This means that structs can be used for all types of VSS signals (i.e. sensor, attribute and actuator).
+If a signal of struct type is sent or received, VSS expects all included items to have valid values, i.e. all items are mandatory.
+For example, if a struct contains the items A, B and C - then it is expected that the sent signal contains value for all items.
+If some items are considered optional then the value range of the items must be adapted to include values indicating &ldquo;not available&rdquo; or &ldquo;undefined&rdquo;,
+or additional items needs to be added to indicate which items that have valid values.</p>
+<p>VSS makes no assumption on how structs are transferred or stored by implementations.
+It is however expected that they are read and written by atomic operations.
+This means that the data storage shall be &ldquo;locked&rdquo; while the items of the struct are read, preventing changes to happen while reading/writing the items.</p>
+<p>Structs shall be defined in a separate tree. This means that signal definitions and types cannot exist in the same files.
+Tooling must thus accept one (or more) parameters for specifying type definition(s)</p>
+<p>The top level types file (e.g. <code>vss_types.vspec</code>) can refer to other type files similar to the
+<a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/VehicleSignalSpecification.vspec">top VSS file</a>.
+Tooling may in the future support overlays for type declarations similar to how it is supported for signals.</p>
+<p>For current vss-tools support for structs see <a href="https://github.com/COVESA/vss-tools/blob/master/docs/vspec2x.md">documentation</a> in the vss-tools repository.</p>
+<h2 id="naming-restrictions">Naming Restrictions</h2>
+<p>The VSS syntax and tooling shall not enforce any restrictions on naming for the type tree.
+It may even use the same branch structure as the signal tree.
+This means that it theoretically at the same time could exist both a signal <code>A.B.C</code> and a struct <code>A.B.C</code>.
+This is not a problem as it always from context is clear whether a name refers to a signal or a type.</p>
+<h2 id="simple-definition-and-usage">Simple Definition and Usage</h2>
+<p>This could be a hypothetical content of a VSS type file</p>
+<pre tabindex="0"><code>Types:
+  type: branch
+  
+Types.DeliveryInfo:
+  type: struct
+  description: A struct type containing info for each delivery
+  
+Types.DeliveryInfo.Address:
+  datatype: string
+  type: property
+  description: Destination address
+
+Types.DeliveryInfo.Receiver:
+  datatype: string
+  type: property
+  description: Name of receiver
+</code></pre><p>This struct definition could then be referenced from the VSS signal tree</p>
+<pre tabindex="0"><code>Delivery:
+  datatype: Types.DeliveryInfo
+  type: sensor
+</code></pre><p>The type file may contain sub-branches and <code>#include</code>-statements just like regular VSS files</p>
+<pre tabindex="0"><code>Types:
+  type: branch
+  
+Types.Powertrain:
+  type: branch
+  description: Powertrain types.
+#include Powertrain/Powertrain.vspec Types.Powertrain
+</code></pre><h2 id="name-resolution">Name resolution</h2>
+<p>Two ways of referring to a type shall be considered correct:</p>
+<ul>
+<li>Reference by (leaf) name to a struct definition within a branch with the same name in the type tree.</li>
+<li>Reference by absolute path</li>
+</ul>
+<p>Relative paths (e.g. <code>../Powertrain.SomeStruct</code>) shall not be supported.
+Structs in parent branches will not be visible, in those cases absolute path needs to be used instead.</p>
+<p><em>The reference by leaf name is applicable only for structs referencing other structs, and for the special case that the type branch has the same name/path as the signal branch!</em></p>
+<p>Parsers shall first look for a matching type in a branch with the same name, and if not found consider the name given to be an absolute name.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>A.B.C:
+  datatype: Types.D
+  type: sensor
+</code></pre><p>The parser shall first check if a type <code>A.B.Types.D</code> exist in the type tree, and if so use it.
+If not found it shall search for the type <code>Types.D</code> in the type tree.</p>
+<h2 id="expectations-on-vss-implementations-eg-viss-kuksaval">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</h2>
+<p>It is expected of implementations to support atomic read/write/subscribe of complete signals defined with struct datatype.
+They may support read of parts of signal, e.g. <code>DeliveryList.Receiver</code></p>
+<h2 id="array-support">Array Support</h2>
+<p>It is allowed to use a struct type in an array</p>
+<pre tabindex="0"><code>DeliveryList:
+  datatype: Types.DeliveryInfo[]
+  type: sensor
+  description: List of deliveries
+</code></pre><p>By default the array has an arbitrary number of element and may be empty.
+If a fixed size array is wanted the keyword <code>arraysize</code> can be used to specify size:</p>
+<pre tabindex="0"><code>DeliveryList:
+  datatype: Types.DeliveryInfo[]
+  arraysize: 5
+  type: sensor
+  description: List of deliveries
+</code></pre><h2 id="expectations-on-vss-implementations-eg-viss-kuksaval-1">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</h2>
+<p>For array types (like above) VSS implementations may support several mechanisms</p>
+<ul>
+<li>It is expected that they can support read/write/subscribe of the whole array, i.e. write all or read all in the same request</li>
+<li>They may optionally support additional operations like
+<ul>
+<li>Writing/Reading a single instance, e.g. <code>DeliveryList[2]</code> (index mechanism is implementation dependent)</li>
+<li>Appending/Deleting individual instances</li>
+<li>Searching for instances with specific conditions.</li>
+</ul>
+</li>
+</ul>
+<h2 id="structure-in-structure">Structure in Structure</h2>
+<p>It is allowed to refer to a structure type from within a structure</p>
+<pre tabindex="0"><code>OpenHours:
+  type: struct
+  description: A struct type containing information on open hours
+  
+OpenHours.Open:
+  datatype: uint8
+  type: property
+  max: 24
+  description: Time the address opens
+  
+OpenHours.Close:
+  datatype: uint8
+  type: property
+  max: 24
+  description: Time the address close
+
+DeliveryInfo:
+  type: struct
+  description: A struct type containing info for each delivery
+  
+DeliveryInfo.Address:
+  datatype: string
+  type: property
+  description: Destination address
+
+DeliveryInfo.Receiver:
+  datatype: string
+  type: property
+  description: Name of receiver
+  
+DeliveryInfo.Open:
+  datatype: OpenHours
+  type: property
+  description: When is receiver available
+</code></pre><h2 id="order-of-declarationdefinition">Order of declaration/definition</h2>
+<p>The order of declaration/definition shall not matter.
+As signals and types are defined in different trees this is a topic only for struct definitions referring to other struct definitions.
+A hypothetical example is shown below. An item in the struct <code>DeliveryInfo</code> can refer to the struct <code>OpenHours</code> even if that struct
+is defined further down in the same file.</p>
+<pre tabindex="0"><code>DeliveryInfo:
+  type: struct
+  description: A struct type containing info for each delivery
+
+...
+
+DeliveryInfo.Open:
+  datatype: OpenHours
+  type: property
+  description: When is receiver available
+
+OpenHours:
+  type: struct
+  description: A struct type containing information on open hours
+
+...
+</code></pre><h2 id="inline-struct">Inline Struct</h2>
+<p>Inline/anonymous structs shall not be supported!</p>
+<h2 id="default-values">Default Values</h2>
+<p>VSS supports <a href="/vehicle_signal_specification/rule_set/data_entry/attributes/">default values for attributes</a>,
+and there is a <a href="https://github.com/COVESA/vehicle_signal_specification/issues/377">discussion</a>
+to allow it also for sensors/actuators.</p>
+<p>Default values are not supported for signals of struct type.
+This also mean that VSS does not need to specify notation for struct values.
+An exception is arrays of struct-types, where &ldquo;empty array&rdquo;, i.e. <code>[]</code> shall be supported as default value.</p>
+<p>It shall be possible to define default values for properties (unless the item is of struct type).
+If all items of a struct type have default values,
+then a signal (or item) using the struct type is also considered to have a default value.</p>
+<h2 id="allowed-values">Allowed Values</h2>
+<p>VSS supports <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/">specification of allowed values</a>.
+As of today it is theoretically supported for all datatypes, but there is an <a href="https://github.com/COVESA/vehicle_signal_specification/issues/502">issue</a>
+discussing if it is to be supported only for string data and possible integer-based types.</p>
+<p>Using <code>allowed</code> for <code>type: property</code> is allowed (if <code>allowed</code> is supported for the used datatype).
+Using <code>allowed</code> for signals and items of struct type or array of struct type is not allowed.</p>
 
 
 <footer class="footline">
@@ -835,6 +1067,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -850,37 +1083,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -889,153 +1093,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1113,6 +1170,185 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1137,10 +1373,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vehicle_signal_specification/ecosystem/tools/" title="Tools"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/data_entry/data_types/" title="Data Types"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vehicle_signal_specification/ecosystem/software/" title="Software" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/" title="Data Unit Types" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

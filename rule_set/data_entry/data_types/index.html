@@ -12,21 +12,21 @@
     <title>Data Types :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1677141762" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1677141762" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1677505732" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1677141762" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1677505732" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1677141762"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1677505732"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1677141762"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1677141762"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1677505732"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1677505732"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1677141762"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1677505732"></script>
 
     
   </div>
@@ -286,6 +286,27 @@
       <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/" title="Data Types" class="dd-item active">
         <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">
         Data Types
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/" title="Struct Types" class="dd-item ">
+        <a href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/">
+        Struct Types
         
         </a>
     </li>
@@ -613,7 +634,7 @@
     
     <a class="github-button" href="https://github.com/covesa/vehicle_signal_specification/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
 
-    Latest Released Version: 3.0
+    Latest Released Version: 3.1
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -690,6 +711,7 @@
   <ul>
     <li><a href="#supported-datatypes">Supported datatypes</a></li>
     <li><a href="#arrays">Arrays</a></li>
+    <li><a href="#structs">Structs</a></li>
     <li><a href="#timestamps">Timestamps</a></li>
     <li><a href="#data-streams">Data Streams</a></li>
   </ul>
@@ -814,6 +836,8 @@ The following syntax shall be used to declare an array:</p>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">arraysize</span>: <span style="color:#ae81ff">5</span>
 </span></span></code></pre></div><p>An example for the usage of <code>arrays</code> is <code>Vehicle.OBD.DTCList</code> which contains a list
 of Diagnostic Trouble Codes (DTCs) present in a vehicle.</p>
+<h2 id="structs">Structs</h2>
+<p>VSS struct support is further described on <a href="data_types_struct">this page</a>.</p>
 <h2 id="timestamps">Timestamps</h2>
 <p>Timestamps are in VSS typically represented as strings, formatted according to ISO 8601.
 Timestamps shall be expressed in UTC (Coordinated Universal Time), with special UTC designator (&ldquo;Z&rdquo;).
@@ -1094,6 +1118,22 @@ the stream is expected.</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1240,7 +1280,7 @@ the stream is expected.</p>
 			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/data_entry/" title="Data Entry"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/" title="Data Unit Types" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/" title="Struct Types" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1250,19 +1290,19 @@ the stream is expected.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1677141762"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1677505732"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1677141762"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1677141762"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1677505732"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1677141762"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1677505732"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

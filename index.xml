@@ -30,16 +30,6 @@ The file VehicleSignalSpecification.vspec serves as root and includes other vspe
     </item>
     
     <item>
-      <title>Data Types</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
-      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
-      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
-Supported datatypes Name Type Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float floating point number -3.</description>
-    </item>
-    
-    <item>
       <title>Branch Entry</title>
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</link>
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
@@ -77,16 +67,6 @@ Vehicle Information Service Specification (VISS) V1 Vehicle Information Service 
     </item>
     
     <item>
-      <title>Data Unit Types</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
-      <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
-      <description>Introduction to Data Unit Types in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data unit types. For most signals in the VSS standard catalog, a data unit type has been selected. A typical example is Vehicle.Speed, as shown below.
-Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed. The ambition when selecting data unit types for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
-    </item>
-    
-    <item>
       <title>Taxonomies</title>
       <link>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</link>
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
@@ -106,34 +86,6 @@ Components of a domain taxonomy A domain taxonomy, like VSS, consists of three i
 W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/w3c/automotive-viss2.
 KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
 IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge.</description>
-    </item>
-    
-    <item>
-      <title>Sensors &amp; Actuators</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
-      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
-Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
-    </item>
-    
-    <item>
-      <title>Attributes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
-      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
-    </item>
-    
-    <item>
-      <title>Value restrictions</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</guid>
-      <description>Specifying allowed values Optionally it is possible to define an array of allowed values, which will restrict the usage of the data entry in the implementation of the specification. It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly. The datatype of the array elements is the datatype defined for the data entry itself. For attributes it is possible to optionally set a default value.</description>
     </item>
     
     <item>
@@ -166,6 +118,65 @@ The include directive has the following format:</description>
       <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.
 The following features with the intended usage patterns are currently supported:
 Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
+    </item>
+    
+    <item>
+      <title>Data Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
+      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
+      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
+Supported datatypes Name Type Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float floating point number -3.</description>
+    </item>
+    
+    <item>
+      <title>Struct Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</link>
+      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</guid>
+      <description>COVESA is in the process of introducing struct support. It is a still an experimental feature, and information on this page may be incorrect, may change, or may not be supported by tooling yet!
+Introduction VSS has historically supported only the following types:
+Integer-based types (e.g. uint8, int32) Float-based types (float, double) String Boolean In addition to this VSS arrays of the types given above has been supported. This has been considered insufficient for some use-cases.</description>
+    </item>
+    
+    <item>
+      <title>Data Unit Types</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
+      <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
+      <description>Introduction to Data Unit Types in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data unit types. For most signals in the VSS standard catalog, a data unit type has been selected. A typical example is Vehicle.Speed, as shown below.
+Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed. The ambition when selecting data unit types for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
+    </item>
+    
+    <item>
+      <title>Sensors &amp; Actuators</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
+      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
+Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
+    </item>
+    
+    <item>
+      <title>Attributes</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
+      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
+    </item>
+    
+    <item>
+      <title>Value restrictions</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
+      
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</guid>
+      <description>Specifying allowed values Optionally it is possible to define an array of allowed values, which will restrict the usage of the data entry in the implementation of the specification. It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly. The datatype of the array elements is the datatype defined for the data entry itself. For attributes it is possible to optionally set a default value.</description>
     </item>
     
   </channel>
