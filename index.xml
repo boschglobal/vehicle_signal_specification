@@ -38,10 +38,8 @@ The file VehicleSignalSpecification.vspec serves as root and includes other vspe
       <description>A branch entry describes a tree branch (or node) containing other branches and signals.
 A branch entry example is given below:
 Trunk: type: branch description: All signals related to the rear trunk aggregate: false The following elements are defined:
-Body.Trunk
-The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
-type
-The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
+Body.Trunk The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
+type The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
     </item>
     
     <item>

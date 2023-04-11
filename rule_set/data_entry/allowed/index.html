@@ -12,21 +12,21 @@
     <title>Value restrictions :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1677505732" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1681221668" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1681221668" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1677505732" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1681221668" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1681221668"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1677505732"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1677505732"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1681221668"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1681221668"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1677505732"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1681221668"></script>
 
     
   </div>
@@ -765,18 +765,18 @@ Similarly, for the example above, if the steering wheel position is unknown then
 <p>The <code>allowed</code> keyword can also be used for signals of array type. In that case, <code>allowed</code> specifies the only valid values for array elements.
 The actual value of the signal is expected to contain a subset of the values specified in <code>allowed</code>.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">FavoriteColors</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">DogBreeds</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string[]</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">allowed</span>: [<span style="color:#e6db74">&#39;RED&#39;</span>, <span style="color:#e6db74">&#39;GREEN&#39;</span>, <span style="color:#e6db74">&#39;BLUE&#39;</span>, <span style="color:#e6db74">&#39;YELLOW&#39;</span>, <span style="color:#e6db74">&#39;BROWN&#39;</span>]
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Driver&#39;s favorite colors.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">allowed</span>: [<span style="color:#e6db74">&#39;AKITA&#39;</span>, <span style="color:#e6db74">&#39;BOXER&#39;</span>, <span style="color:#e6db74">&#39;DACHSHUND&#39;</span>, <span style="color:#e6db74">&#39;PAPILLON&#39;</span>, <span style="color:#e6db74">&#39;PUG&#39;</span>, <span style="color:#e6db74">&#39;VIZSLA&#39;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Brief list of dog breeds.</span>
 </span></span></code></pre></div><p>Examples of valid arrays:</p>
 <pre tabindex="0"><code>  [] # Empty array
-  [&#39;RED&#39;]
-  [&#39;YELLOW&#39;, &#39;BROWN&#39;, &#39;RED&#39;, &#39;GREEN&#39;, &#39;BLUE&#39;]
-  [&#39;BLUE&#39;, &#39;BLUE&#39;] # duplication is allowed
+  [&#39;BOXER&#39;]
+  [&#39;PAPILLON&#39;, &#39;VIZSLA&#39;, &#39;BOXER&#39;, &#39;AKITA&#39;, &#39;DACHSHUND&#39;]
+  [&#39;PUG&#39;, &#39;PUG&#39;] # duplication is allowed
 </code></pre><p>Example of an invalid array:</p>
-<pre tabindex="0"><code>  [&#39;RED&#39;, &#39;BLUE&#39;, &#39;BLACK&#39;] # BLACK is not an allowed value
+<pre tabindex="0"><code>  [&#39;PAPILLON&#39;, &#39;VIZSLA&#39;, &#39;LOBSTER&#39;] # LOBSTER is not in the allowed value list
 </code></pre>
 
 <footer class="footline">
@@ -1200,19 +1200,19 @@ The actual value of the signal is expected to contain a subset of the values spe
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1681221668"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1677505732"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1677505732"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1681221668"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1681221668"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1677505732"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1681221668"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
