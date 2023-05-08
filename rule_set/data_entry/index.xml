@@ -23,9 +23,9 @@ Supported datatypes Name Type Min Max uint8 unsigned 8-bit integer 0 255 int8 si
       <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</guid>
-      <description>COVESA is in the process of introducing struct support. It is a still an experimental feature, and information on this page may be incorrect, may change, or may not be supported by tooling yet!
+      <description>Structs are a newly introduced feature to the VSS-syntax. Please note that all VSS-tools exporters do not yet support structs.
 Introduction VSS has historically supported only the following types:
-Integer-based types (e.g. uint8, int32) Float-based types (float, double) String Boolean In addition to this VSS arrays of the types given above has been supported. This has been considered insufficient for some use-cases.</description>
+Integer-based types (e.g. uint8, int32) Float-based types (float, double) String Boolean In addition to this VSS arrays of the types given above has been supported. This has been considered insufficient for some use-cases. Typical examples are when something cannot be described by a single value, but multiple values are needed.</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@ Actuators are used to control the desired value of a property. Some properties i
     </item>
     
     <item>
-      <title>Value restrictions</title>
+      <title>Value Restrictions</title>
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</link>
       <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
       

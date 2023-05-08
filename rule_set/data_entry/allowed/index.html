@@ -9,24 +9,24 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>Value restrictions :: Vehicle Signal Specification</title>
+    <title>Value Restrictions :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1681988722" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1681988722" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1683556538" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1683556538" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1681988722" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1683556538" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1681988722"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1683556538"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1681988722"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1681988722"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1683556538"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1683556538"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1681988722"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1683556538"></script>
 
     
   </div>
@@ -388,9 +388,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/" title="Value restrictions" class="dd-item active">
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/" title="Value Restrictions" class="dd-item active">
         <a href="/vehicle_signal_specification/rule_set/data_entry/allowed/">
-        Value restrictions
+        Value Restrictions
         
         </a>
     </li>
@@ -634,7 +634,7 @@
     
     <a class="github-button" href="https://github.com/covesa/vehicle_signal_specification/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
 
-    Latest Released Version: 3.1
+    Latest Released Version: 4.0
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -692,7 +692,7 @@
             
           
           
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > <a href='/vehicle_signal_specification/rule_set/data_entry/'>Data Entry</a> > Value restrictions
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > <a href='/vehicle_signal_specification/rule_set/data_entry/'>Data Entry</a> > Value Restrictions
           
         
           
@@ -712,6 +712,7 @@
     <li><a href="#specifying-allowed-values">Specifying allowed values</a></li>
     <li><a href="#recommendation-on-string-values">Recommendation on String values</a></li>
     <li><a href="#allowed-values-for-array-types">Allowed values for array types</a></li>
+    <li><a href="#allowed-for-struct-types">Allowed for struct types</a></li>
   </ul>
 </nav>
     </div>
@@ -729,7 +730,7 @@
           
             <h1>
               
-              Value restrictions
+              Value Restrictions
             </h1>
           
 
@@ -752,7 +753,7 @@ For <code>attributes</code> it is possible to optionally set a default value.</p
 in a list.  Only values can be assigned to the data entry, which are
 specified in this list.</p>
 <p>The <code>datatype</code> specifier gives the type of the individual elements of the <code>allowed</code>
-list.</p>
+list. In general <code>allowed:</code> is valid for all datatypes, including integer- and float-based types, unless othwerise specified.</p>
 <h2 id="recommendation-on-string-values">Recommendation on String values</h2>
 <p>For string values used for <code>default</code> and <code>allowed</code> statements it is recommended to start with <code>A-Z</code>
 and then use only <code>A-Z</code>, <code>0-9</code> and underscore (<code>_</code>).
@@ -777,7 +778,9 @@ The actual value of the signal is expected to contain a subset of the values spe
   [&#39;PUG&#39;, &#39;PUG&#39;] # duplication is allowed
 </code></pre><p>Example of an invalid array:</p>
 <pre tabindex="0"><code>  [&#39;PAPILLON&#39;, &#39;VIZSLA&#39;, &#39;LOBSTER&#39;] # LOBSTER is not in the allowed value list
-</code></pre>
+</code></pre><h2 id="allowed-for-struct-types">Allowed for struct types</h2>
+<p>Please see <a href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/#allowed-values">struct</a> documentation.</p>
+
 
 <footer class="footline">
 	
@@ -1200,19 +1203,19 @@ The actual value of the signal is expected to contain a subset of the values spe
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1681988722"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1683556538"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1681988722"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1681988722"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1683556538"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1683556538"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1681988722"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1683556538"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
