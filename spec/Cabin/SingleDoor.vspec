@@ -9,16 +9,8 @@
 #
 # Definition of a single door
 #
-IsOpen:
-  datatype: boolean
-  type: actuator
-  description: Is door open or closed
 
-IsLocked:
-  datatype: boolean
-  type: actuator
-  description: Is door locked or unlocked. True = Locked. False = Unlocked.
-
+#include ../include/LockableMovableItem.vspec
 
 #
 # Window description
@@ -27,7 +19,7 @@ Window:
   type: branch
   description: Door window status
 
-#include SingleWindow.vspec Window
+#include ../include/MovableItem.vspec Window
 
 #
 # Child lock active for door
@@ -44,9 +36,9 @@ IsChildLockActive:
 #
 Shade:
   type: branch
-  description: Side window shade
+  description: Side window shade. Open = Retracted, Closed = Deployed.
 
 # Include the standard shade definition used by sunroof
 # and rear shade.
 
-#include SingleShade.vspec Shade
+#include ../include/MovableItem.vspec Shade
