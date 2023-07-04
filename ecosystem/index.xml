@@ -6,41 +6,40 @@
     <description>Recent content in Ecosystem on Vehicle Signal Specification</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jul 2021 15:12:25 +0200</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/ecosystem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 May 2023 15:12:25 +0200</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/ecosystem/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tools</title>
+      <title>Official VSS-Tools</title>
       <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</link>
-      <pubDate>Sun, 04 Jul 2021 13:27:46 +0000</pubDate>
+      <pubDate>Thu, 18 May 2023 13:27:46 +0000</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</guid>
-      <description>The VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.
-Fig 1 shows the schematics of the top-level process.
-Fig 1. Generating documents from specification
-Some helpful tools are available in the vss-tools project.</description>
+      <description>VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.
+The COVESA vss-tools project contains various helpful converters and is also used to validate the syntactic validity of the VSS standard catalogue.
+If new features are introduced to the VSS specification, the community will ensure they are supported in the official vss-tools as well.
+Fig 1. Generating various output formats from a VSS specification</description>
     </item>
     
     <item>
-      <title>W3C-VISS</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/viss/</link>
-      <pubDate>Sun, 04 Jul 2021 13:29:46 +0000</pubDate>
+      <title>Related Standards</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/</link>
+      <pubDate>Thu, 18 May 2023 13:29:46 +0000</pubDate>
       
-      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/viss/</guid>
-      <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
-The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
+      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/</guid>
+      <description>Ohter standards or specifications sometimes reference VSS.
+W3C VISS When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
+The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP/MQTT (VISSv2).
 To learn more check
-Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development </description>
+Vehicle Information Service Specification (VISS) V1 published as a Discontinued Draft. Vehicle Information Service Specification (VISS) V2, feature complete and in process to enter the Candidate Recommendation stage.</description>
     </item>
     
     <item>
-      <title>Software</title>
+      <title>Software &amp; Solutions</title>
       <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</link>
-      <pubDate>Sun, 04 Jul 2021 13:31:46 +0000</pubDate>
+      <pubDate>Thu, 18 May 2023 13:31:46 +0000</pubDate>
       
       <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</guid>
-      <description>Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.
-W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/w3c/automotive-viss2.
-KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
-IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge.</description>
+      <description>Various software frameworks and products exist to work with VSS data. Some are Open Source, some are commercial prducts and services. There are solutions to work with VSS in-vehicle, as well as using it in the cloud.
+The best entry-point for an up-to-date introduction to VSS products and Use Cases is the COVESA VSS wiki.</description>
     </item>
     
   </channel>

@@ -1,10 +1,10 @@
 [
 {
 	"uri": "https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/",
-	"title": "Tools",
+	"title": "Official VSS-Tools",
 	"tags": [],
 	"description": "",
-	"content": "The VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.\nFig 1 shows the schematics of the top-level process.\nFig 1. Generating documents from specification\nSome helpful tools are available in the vss-tools project.\n"
+	"content": "VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.\nThe COVESA vss-tools project contains various helpful converters and is also used to validate the syntactic validity of the VSS standard catalogue.\nIf new features are introduced to the VSS specification, the community will ensure they are supported in the official vss-tools as well.\nFig 1. Generating various output formats from a VSS specification\n"
 },
 {
 	"uri": "https://covesa.github.io/vehicle_signal_specification/rule_set/basics/",
@@ -28,11 +28,11 @@
 	"content": "What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:\nA syntax for defining vehicle signals in a structured manner. A catalog of signals related to vehicles. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.\nA standardized vehicle data specification allows an industry actor to use a common naming space for communication and, ultimately, abstracts underlying vehicle implementation details.\nWhile the data in the VSS standard catalog aims to be vendor-independent, vendor specific extensions and adaptations complying with the VSS syntax rules can be specified (see Overlays).\nWhat\u0026rsquo;s in Standardized data definition for vehicle signals. Same semantic understanding across different domains. Basic definition for interfaces working on vehicle data (w3c, etc.). What\u0026rsquo;s out Everything outside the vehicle signal domain (customer, weather, etc.). Concrete interface definition. Example The figure below shows an example snapshot of a generated tree of the specification. The leafs contain the actual information as shown in the figure. Before going into detail of the specification, let\u0026rsquo;s dig deeper into taxonomies.\nVSS usage for other domains The VSS catalog focuses on signals related to vehicles. It is not the intention of the VSS project to add signals for other domains. The syntax used for defining VSS signals and related tooling could however be used to define similar signal trees for other domains.\n"
 },
 {
-	"uri": "https://covesa.github.io/vehicle_signal_specification/ecosystem/viss/",
-	"title": "W3C-VISS",
+	"uri": "https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/",
+	"title": "Related Standards",
 	"tags": [],
 	"description": "",
-	"content": "When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.\nThe W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).\nTo learn more check\nVehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development "
+	"content": "Ohter standards or specifications sometimes reference VSS.\nW3C VISS When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.\nThe W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP/MQTT (VISSv2).\nTo learn more check\nVehicle Information Service Specification (VISS) V1 published as a Discontinued Draft. Vehicle Information Service Specification (VISS) V2, feature complete and in process to enter the Candidate Recommendation stage. W3C VSSo If you want to interconnect VSS data with other domains, you might want to employ ontology-based tech stacks. The W3C VSS Ontology enables you to express VSS in form of an OWL ontology.\nTo learn more check\nVSSo Core: Vehicle Signal Specification Core Ontology "
 },
 {
 	"uri": "https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/",
@@ -50,10 +50,10 @@
 },
 {
 	"uri": "https://covesa.github.io/vehicle_signal_specification/ecosystem/software/",
-	"title": "Software",
+	"title": "Software &amp; Solutions",
 	"tags": [],
 	"description": "",
-	"content": "Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.\nW3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/w3c/automotive-viss2.\nKUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.\nIoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge. The IoTEA tooling can automatically import VSS an data model, and it can optionally use KUKSA.val to ingest live data from a vehicle.\nAOS The AOS platform can support VSS to access vehicle data.\n"
+	"content": "Various software frameworks and products exist to work with VSS data. Some are Open Source, some are commercial prducts and services. There are solutions to work with VSS in-vehicle, as well as using it in the cloud.\nThe best entry-point for an up-to-date introduction to VSS products and Use Cases is the COVESA VSS wiki.\n"
 },
 {
 	"uri": "https://covesa.github.io/vehicle_signal_specification/rule_set/instances/",
@@ -137,7 +137,7 @@
 	"title": "Ecosystem",
 	"tags": [],
 	"description": "",
-	"content": "Tools VSS can be used in various systems. This section will give some pointers to the wider VSS ecosystem\n"
+	"content": "Ecosystem VSS is used in different products, solutions and use cases. This section will give some pointers to the wider VSS ecosystem\n"
 },
 {
 	"uri": "https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/",

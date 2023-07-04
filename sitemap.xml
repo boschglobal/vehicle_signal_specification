@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</loc>
-    <lastmod>2021-07-04T13:27:46+00:00</lastmod>
+    <lastmod>2023-05-18T13:27:46+00:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</loc>
     <lastmod>2019-08-04T13:05:11+02:00</lastmod>
@@ -14,8 +14,8 @@
     <loc>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</loc>
     <lastmod>2019-07-30T14:46:01+02:00</lastmod>
   </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/viss/</loc>
-    <lastmod>2021-07-04T13:29:46+00:00</lastmod>
+    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/</loc>
+    <lastmod>2023-05-18T13:29:46+00:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/</loc>
     <lastmod>2019-08-04T11:11:30+02:00</lastmod>
@@ -24,7 +24,7 @@
     <lastmod>2019-07-31T12:11:31+02:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</loc>
-    <lastmod>2021-07-04T13:31:46+00:00</lastmod>
+    <lastmod>2023-05-18T13:31:46+00:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</loc>
     <lastmod>2019-07-31T15:27:36+02:00</lastmod>
@@ -58,7 +58,7 @@
     <loc>https://covesa.github.io/vehicle_signal_specification/license/</loc>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/</loc>
-    <lastmod>2021-07-05T15:12:25+02:00</lastmod>
+    <lastmod>2023-05-18T15:12:25+02:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</loc>
     <lastmod>2019-08-04T12:37:31+02:00</lastmod>
@@ -67,7 +67,7 @@
     <lastmod>2019-08-04T12:37:12+02:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/</loc>
-    <lastmod>2021-07-05T15:12:25+02:00</lastmod>
+    <lastmod>2023-05-18T13:31:46+00:00</lastmod>
   </url><url>
     <loc>https://covesa.github.io/vehicle_signal_specification/categories/</loc>
   </url><url>
