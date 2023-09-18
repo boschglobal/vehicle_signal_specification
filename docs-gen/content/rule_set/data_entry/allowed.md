@@ -27,7 +27,7 @@ in a list.  Only values can be assigned to the data entry, which are
 specified in this list.
 
 The `datatype` specifier gives the type of the individual elements of the `allowed`
-list. In general `allowed:` is valid for all datatypes, including integer- and float-based types, unless othwerise specified.
+list. In general `allowed:` is valid for all datatypes, including integer- and float-based types, unless otherwise specified.
 
 ## Recommendation on String values
 

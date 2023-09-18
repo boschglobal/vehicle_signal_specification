@@ -103,14 +103,31 @@ Vehicle.Navigation.CurrentLocation:
 
 It is recommended for servers, which are implementing protocols for the vehicle signal specification, to serve old and new nodes during the deprecation period described above.
 
+## Naming Rules
+
+Different languages and environments have different rules for identifiers.
+To simplify usage of VSS in as many languages and environments as possible the following rules apply.
+
+* The allowed character set for node names (branch and data nodes) is `A-Z`, `a-z` and `0-9`.
+* Node names must not start with a digit.
+* Names are case sensitive, but it is not allowed to have two nodes that only differ by case,
+  i.e. it is not allowed to have both `Vehicle.Aaa` and `Vehicle.AaA`.
+* It is not allowed to reuse the same node name as a parent or ancestor node for a child node,
+  i.e., it is not allowed to have a child `A` if the parent or any ancestor is called `A`
+* For string literals only the characters `A-Z`, `0-9` and `_` are allowed,
+  and the value must start with `A-Z`. See the [chapter](/vehicle_signal_specification/rule_set/data_entry/allowed/) for specifying allowed values.
+
+It is recommended that VSS Tools shall give an error if the rules above are not followed.
+
 ## Style Guide
 
-The VSS specification must adhere to YAML syntax. To keep the standardized VSS specification in this repository consistent the following style guide is provided.
+For a contribution to VSS standard catalog the following recommendations must be followed:
 
 ### Naming Conventions
 
-The recommended naming convention for node elements is to use camel case notation starting with a capital letter. It is recommended to use only
-`A-Z`, `a-z` and `0-9` in node names. For boolean signals it is recommended to start the name with `Is`.
+* The recommended naming convention for node elements is to use camel case notation starting with a capital letter.
+* For boolean signals it is recommended to start the name with `Is`.
+* For acronyms in node names only the first letter in the acronym shall be capitalized, like `Vehicle.Adas.Abs.IsAbsEnabled`
 
 Examples:
 
@@ -118,7 +135,6 @@ Examples:
 SomeBranch.AnotherBranch.MySignalName
 Vehicle.Cabin.Door.Row1.Left.IsLocked
 ```
-Naming convention for string literals can be found in the [chapter](/vehicle_signal_specification/rule_set/data_entry/allowed/)for specifying allowed values.
 
 ### Line Length
 
