@@ -184,4 +184,7 @@ have been removed from the [VSS syntax](docs-gen/content/rule_set/data_entry/sen
 
 ## Planned Changes VSS 5.0
 
--
+### No UUID in relese artifacts
+
+From VSS 5.0 there will be no UUIDs in [release artifacts](https://github.com/COVESA/vehicle_signal_specification/releases)
+and the commands in the `Makefile` used for both CI and release artifacts will no longer include the `--uuid`argument.
