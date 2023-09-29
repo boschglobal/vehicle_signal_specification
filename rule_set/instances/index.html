@@ -12,21 +12,21 @@
     <title>Instances :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1688460184" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1688460184" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1695980546" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1688460184" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1695980546" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1688460184"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1695980546"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1688460184"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1688460184"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1695980546"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1695980546"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1688460184"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1695980546"></script>
 
     
   </div>
@@ -748,8 +748,12 @@ quite often there is a need to repeat branches and data entries
 branches and data entries in the specification an instance-concept is supported.
 Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in
 the resulting tree. They are meant as a short-cut in the specification and
-interpreted by the tools.</p>
-<p><img src="/vehicle_signal_specification/images/instances.png?width=60pc" alt="Example tree"></p>
+interpreted by the tools. As an example is shown below for doors:</p>
+<!-- raw HTML omitted -->
+<p><img src="/vehicle_signal_specification/images/instance_tree.png" alt="Example tree"></p>
+<p>When expanded this corresponds to:</p>
+<!-- raw HTML omitted -->
+<p><img src="/vehicle_signal_specification/images/instance_tree_expand.png?width=60pc" alt="Example tree"></p>
 <h2 id="definition">Definition</h2>
 <h3 id="how-can-i-create-instances-for-my-branch">How can I create instances for my <code>branch</code>?</h3>
 <ol>
@@ -759,8 +763,8 @@ interpreted by the tools.</p>
 definition, which can be either:
 <ul>
 <li>a list of strings, where each element defines a single instance, e.g.
-<code>['Left','Right']</code> results into two instances of every following
-data entry in the path, named <code>Left</code> and <code>Right</code></li>
+<code>['DriverSide','PassengerSide']</code> results into two instances of every following
+data entry in the path, named <code>DriverSide</code> and <code>PassengerSide</code></li>
 <li>a string, followed by a range defined through <code>[n,m]</code>, with <code>n,m</code> as integer and <code>n &lt;= m</code>,
 which defines the number of instances.
 <code>Position[1,4]</code> results into 4 instances of every following
@@ -770,16 +774,13 @@ and <code>Position4</code>. It is in VSS recommended to use <code>1</code> as st
 </li>
 <li>If multiple instances occur in one node or on the path to a data entry,
 the instances get combined, by the order of occurrence. Following the example above,
-four position instances will be created for each of the &lsquo;Left&rsquo; and &lsquo;Right&rsquo; instances,
+four position instances will be created for each of the &lsquo;DriverSide&rsquo; and &lsquo;PasengerSide&rsquo; instances,
 resulting into a total number of 8 instances.</li>
 </ol>
 <h3 id="how-can-i-exclude-child-nodes-from-instantiation">How can I exclude child-nodes from instantiation?</h3>
 <p>Often it makes sense to instantiate all child-nodes of a branch.
-But there are cases, when nodes are linked more the general concept of
-a branch, but not to the single instance. This could be the <code>DoorCount</code>,
-which would rather be <code>Door.Count</code>, <code>WheelDiameter</code>, which is rather linked
-to an axle rather than the wheel itself or <code>Brake.FluidLevel</code> which is not
-measured for a single break, but rather a system indication.</p>
+But there could be cases, when nodes are linked more the general concept of
+a branch, but not to the single instance.</p>
 <p>To exclude a child-node from the instantiation of the <em>direct</em> parent node, set the
 keyword <code>instantiate</code> to <code>false</code> (<code>true</code> by default). Please check the following
 example for details.</p>
@@ -789,17 +790,16 @@ example for details.</p>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">Door</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">instances</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Row[1,4]</span>
-</span></span><span style="display:flex;"><span>    - [<span style="color:#e6db74">&#34;Left&#34;</span>,<span style="color:#e6db74">&#34;Right&#34;</span>]
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Row[1,2]</span>
+</span></span><span style="display:flex;"><span>    - [<span style="color:#e6db74">&#34;DriverSide&#34;</span>,<span style="color:#e6db74">&#34;PassengerSide&#34;</span>]
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">All doors, including windows and switches</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#include SingleDoor.vspec Door</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Door.Count</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Door.SomeSignal</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default</span>: <span style="color:#ae81ff">4</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">instantiate</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Number of doors in vehicle.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A door signal that should not be instantiated.</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># SingleDoor.vspec</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
@@ -809,42 +809,25 @@ example for details.</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">boolean</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Is door open or closed</span>
-</span></span></code></pre></div><p>Results in the following dot-notated output:</p>
-<pre tabindex="0"><code>Vehicle.Cabin.Door
-Vehicle.Cabin.Door.Count
-Vehicle.Cabin.Door.Row1
-Vehicle.Cabin.Door.Row1.Left
-Vehicle.Cabin.Door.Row1.Left.IsOpen
-Vehicle.Cabin.Door.Row1.Right
-Vehicle.Cabin.Door.Row1.Right.IsOpen
-Vehicle.Cabin.Door.Row2
-Vehicle.Cabin.Door.Row2.Left
-Vehicle.Cabin.Door.Row2.Left.IsOpen
-Vehicle.Cabin.Door.Row2.Right
-Vehicle.Cabin.Door.Row2.Right.IsOpen
-Vehicle.Cabin.Door.Row3
-Vehicle.Cabin.Door.Row3.Left
-Vehicle.Cabin.Door.Row3.Left.IsOpen
-Vehicle.Cabin.Door.Row3.Right
-Vehicle.Cabin.Door.Row3.Right.IsOpen
-Vehicle.Cabin.Door.Row4
-Vehicle.Cabin.Door.Row4.Left
-Vehicle.Cabin.Door.Row4.Left.IsOpen
-Vehicle.Cabin.Door.Row4.Right
-Vehicle.Cabin.Door.Row4.Right.IsOpen
+</span></span></code></pre></div><p>Results in the following signals:</p>
+<pre tabindex="0"><code>Vehicle.Cabin.Door.SomeSignal
+Vehicle.Cabin.Door.Row1.DriverSide.IsOpen
+Vehicle.Cabin.Door.Row1.PassengerSide.IsOpen
+Vehicle.Cabin.Door.Row2.DriverSide.IsOpen
+Vehicle.Cabin.Door.Row2.PassengerSide.IsOpen
 </code></pre><h2 id="redefinition">Redefinition</h2>
 <p>It is possible to override the default instantiation provided by VSS by redefining the branch with
 different instantiation information. If multiple definitions of a branch exist with different
 instance definitions, then the last found definition will be used.
-As an example, if only two rows of doors are needed, then the default VSS instance definition
+As an example, if three row of doors are needed, then the default VSS instance definition
 can be overridden by redefining the Door branch as shown in the example below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#75715e">#Redefinition changing number of rows from 4 to 2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#75715e">#Redefinition changing number of rows from 2 to 3</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#The redefinition must appear &#34;after&#34; the original definition</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.Door</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">instances</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Row[1,2]</span>
-</span></span><span style="display:flex;"><span>    - [<span style="color:#e6db74">&#34;Left&#34;</span>,<span style="color:#e6db74">&#34;Right&#34;</span>]
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">Row[1,3]</span>
+</span></span><span style="display:flex;"><span>    - [<span style="color:#e6db74">&#34;DriverSide&#34;</span>,<span style="color:#e6db74">&#34;PassengerSide&#34;</span>]
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">All doors, including windows and switches</span>
 </span></span></code></pre></div><h2 id="recommendations">Recommendations</h2>
 <p>VSS is designed to cover a wide range of vehicles.
@@ -1322,19 +1305,19 @@ to ignore <code>Vehicle.Body.Windshield.Front.Heating</code>.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1688460184"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1695980546"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1688460184"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1688460184"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1695980546"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1688460184"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1695980546"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
