@@ -20,8 +20,6 @@ SteeringWheel.Position:
 
 ```
 
-If `allowed` is set, `min` or `max` cannot be defined.
-
 The `allowed` element is an array of values, all of which must be specified
 in a list.  Only values can be assigned to the data entry, which are
 specified in this list.

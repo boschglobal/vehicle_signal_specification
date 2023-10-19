@@ -14,17 +14,32 @@ entry example is given below:
 ```YAML
 Speed:
   type: sensor
-  description: The vehicle speed.
+  definition: Vehicle speed relative to the X-axis of the intermediate axis system as defined by ISO 8855 section 2.13.
+  description: Vehicle speed relative to road surface. Positive if vehicle is moving forward, negative if vehicle is moving backward.
   comment: For engine speed see Vehicle.Powertrain.CombustionEngine.Engine.Speed.
   datatype: float
   unit: km/h
   min: 0
   max: 300
+  allowed: ...
 ```
 
-**```Drivetrain.Transmission.Speed```**
-Defines the dot-notated name of the data entry. Please note that
-all parental branches included in the name must be defined as well.
+**```<signal name>```**
+Defines (parts of) the name of the data entry.
+The full name/path of a VSS signal, considering parent branches, must be unique,
+but the name specified in the **.vspec* file do not necessarily need to be unique.
+
+The VSS **.vspec* format supports [#include](/vehicle_signal_specification/rule_set/includes/) directives.
+When including a **.vspec* file it is possible to define a branch prefix that shall be used on entries in the
+included file. If the definition above exists in a signal included like:
+
+```YAML
+#include Vehicle/Vehicle.vspec Vehicle
+```
+
+... then the full name of the signal using VSS dot-notation will be `Vehicle.Speed`
+
+*Note: VSS implementations does not necessarily need to use VSS dot-notation to reference signals, they can use alternative mechanisms to uniquely reference signals!*
 
 **```type```**
 Defines the type of the node. This can be `branch`,
@@ -35,9 +50,23 @@ The string value of the type specifies the scalar type of the data entry
 value. See [data type](/vehicle_signal_specification/rule_set/data_entry/data_types/) chapter for a list of available types.
 
 **```description```**
-Describes the meaning and content of the signal.
-The `description`shall together with other mandatory members like `datatype` and `unit` provide sufficient information
+The description is less formal and provides any kind of information that helps humans to conceptualize the entry.
+The `description` member shall together with other mandatory members like `datatype` and `unit` provide sufficient information
 to understand what the signal contains and how signal values shall be constructed or interpreted.
+Recommended to start with a capital letter and end with a dot (`.`).
+
+<!--
+In general VSS community seems to favor definition over description, and ther is limited interest in supporting both.
+Changing to definition (only) would however require significant effort as content of descriptions needs to be reviewed/refactored
+Proposed first step is to open up for definitions.
+When (if ever) the majority of signals have definition it can be discussed if we shall make definition mandatory
+and deprecate description.
+-->
+
+**```definition```** *[optional]* `since version 5.0`
+The definition is a formal specification of the signal that includes necessary and sufficient conditions.
+It's the king of specification you find in a dictionary. To state the obvious, that provides unambiguous semantics.
+It is recommended that all new signals added to VSS standard catalog shall contain definition.
 Recommended to start with a capital letter and end with a dot (`.`).
 
 **```comment ```**  *[optional]* `since version 3.0`
@@ -50,15 +79,15 @@ Recommended to start with a capital letter and end with a dot (`.`).
 The minimum value, within the interval of the given ```type```, that the
 data entry can be assigned.
 If omitted, the minimum value will be the "Min" value for the given type.
-Cannot be specified if ```allowed``` is defined for the same data entry.
 
 **```max```** *[optional]*
 The maximum value, within the interval of the given ```type```, that the
 data entry can be assigned.
 If omitted, the maximum value will be the "Max" value for the given type.
-Cannot be specified if ```allowed``` is defined for the same data entry.
 
 **```unit```** *[optional]*
 The unit of measurement that the data entry has. See [Data Unit Types](/vehicle_signal_specification/rule_set/data_entry/data_unit_types/)
-chapter for a list of available unit types. This
-cannot be specified if ```allowed``` is defined as the signal type.
+chapter for a list of available unit types.
+
+**```allowed```** *[optional]*
+List of values allowed for this signal. See [Allowed](/vehicle_signal_specification/rule_set/data_entry/allowed/).

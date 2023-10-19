@@ -29,11 +29,13 @@ own branch to attach the included file to.
 
 An example of an include directive is:
 
-    #include doors.vpsec chassis.doors
+    #include doors.vspec Chassis.Doors
 
 The ```door.vspec``` section specifies the file to include.
 
-The ```chassis.doors``` section specifies that all signal entries in ```door.vspec``` should have their names prefixed with ```chassis.doors```.
+The ```Chassis.Doors``` section specifies that all signal entries in ```door.vspec``` should have their names prefixed with ```Chassis.Doors```.
+If there is a chain of include-files then all previous prefixes will be iherited.
+This means that the full prefix may be something like `Vehicle.Chassis.Doors`.
 
 If an included vspec file has branch or signal specifications that have
 already been defined prior to the included file, the new specifications in the

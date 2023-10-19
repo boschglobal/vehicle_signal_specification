@@ -31,6 +31,9 @@ opposed to a signal entry). This is the default, in case ```type``` is omitted.
 Describes the meaning and content of the branch.
 Recommended to start with a capital letter and end with a dot (`.`).
 
+<!-- We cannot really give a definition of a "branch", can we? -->
+<!-- So keep "description" but keep it optional? -->
+
 **```comment ```**  *[optional]* `since version 3.0`
 A comment can be used to provide additional informal information on a branch.
 This could include background information on the rationale for the branch,
