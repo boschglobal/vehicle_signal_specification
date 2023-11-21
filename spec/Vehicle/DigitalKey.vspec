@@ -1,0 +1,236 @@
+# Copyright (c) 2023 Contributors to COVESA
+#
+# This program and the accompanying materials are made available under the
+# terms of the Mozilla Public License 2.0 which is available at
+# https://www.mozilla.org/en-US/MPL/2.0/
+#
+# SPDX-License-Identifier: MPL-2.0
+
+#
+# This file specifies VSS signals that can be used to access and manage digital access keys for a vehicle.
+#
+# ************************ Feature Description **************************
+#
+# The digital key representation in VSS is based on the following feature:
+# - The vehicle key storage may store 1:n keys.
+# - The vehicle may interact with multiple keys at the same time.
+# - The capabilities associated with each key may differ, e.g., one key may give access to features like
+#   unlocking the vehicle and start the HVAC, while another one may be used to start the engine
+# - There is at most one valid "primary key" present in the vehicle key storage.
+#   - The primary key by default has all capabilities that are specified for a digital key.
+#   - It can be used to create additional "secondary keys". The creation process is outside the scope of this spec.
+# - The primary key registration process is outside the scope of this spec. It may require additional methods of authorization, e.g.,
+#   through a designated physical master key that is held by the vehicle owner.
+# - The secondary key registration process is for now outside the scope of this spec.
+#   - Secondary key invalidation is based on a custom implementation.
+#
+# The intention of the VSS signals in this file is to view and manage already existing keys.
+# The API is stateful with regard to selection of the key. Thus, the implementer need to take precautions to manage concurrent access correctly.
+#
+#  ************************ DISCLAIMER **********************************
+#
+# The VSS signals in this file shall only be used for information and management purposes!
+# The VSS signals in this file shall NOT be used for security relevant decisions!
+#
+# The main reason for this is that the VSS signals in this file may not contain all information
+# required for making the decision, and the VSS implementation may not support security requirements
+# on for example latency and update frequency.
+#
+# **************** Digital Key Pairing State (Primary Key) ****************************
+#
+# The first step for using the digital key feature is to register a primary digital key.
+# If no valid primary digital key exists, the system is remains in the UNPAIRED state.
+# During pairing the system is in PAIRING state and when paired in PAIRED state.
+# In addition to these state and additional state BLOCKED exists.
+#
+# For more information see signal DigitalKey.PairingState
+#
+# Storing of keys
+#
+# VSS does not make any assumptions on how keys are stored, but the VSS model only allows access to one
+# key at at a time. The signal DigitalKey.ManagedKeyIndex can be used by an application to
+# control for which key information is provided.
+#
+# Key State (Primary and secondary keys)
+#
+# Each key (primary key or secondary keys) has an associated state.
+# The state indicates for example if the key is correctly setup and valid.
+#
+# For more information see DigitalKey.KeyData.KeyState
+#
+# There are several reasons why a key state may change. Note that the implementation is outside the scope of this spec.
+#
+# Examples (informative):
+# - If the primary key paring state changes to UNPAIRED all existing secondary keys may be terminated or removed.
+# - If the vehicle identity (DigitalKey.VehicleId) changes all existing keys may be terminated or removed.
+#
+#
+# Key Capabilities and Key Presence
+#
+# Keys may have different capabilities. Some keys can be used to drive the vehicle while others
+# only can be used for specific purposes or with specific restrictions.
+# The VSS model does not make any assumptions on what capabilities exist, but includes a signal
+# DigitalKey.KeyData.KeyCapability (of string datatype) which can be used to show capabilities
+# of the current key.
+#
+# Multiple digital keys may be in the vicinity of the vehicle simultaneously.
+# The VSS model include two signals (DigitalKey.KeyPresence and DigitalKey.KeyPresenceInVehicle)
+# that show which keys that are present in the vicinity of the vehicle and inside the vehicle, respectively.
+
+DigitalKey:
+  type: branch
+  description: Data related to management of Digital Keys
+
+DigitalKey.VehicleId:
+  datatype: uint8[]
+  type: attribute
+  description: Identifier used to identify the vehicle for digital key purposes.
+  comment: The vehicle identifier used for key purposes is not necessarily the same as any identifier used
+           for other purposes. For privacy reasons, it is likely not the same as the VIN.
+           The identifier may change during the lifetime of the vehicle, for example at owner change
+           to effectively invalidate all existing digital keys.
+
+DigitalKey.PairingState:
+  datatype: string
+  type: sensor
+  allowed: ['UNPAIRED', 'PAIRED', 'PAIRING','BLOCKED']
+  description: Pairing State for the primary digital key.
+               UNPAIRED indicates that no valid primary key exists for the vehicle.
+               PAIRED indicates that pairing has been performed and valid primary key has been registered.
+               PAIRING indicates that pairing is in progress.
+               BLOCKED indicates that pairing is disabled.
+
+DigitalKey.WirelessCapabilities:
+  type: attribute
+  datatype: string
+  allowed: ['NFC', 'NFC_BLE', 'NFC_BLE_UWB']
+  description: Specifies which wireless capabilities the digital key system in the vehicle supports.
+               NFC indicates NFC Forum Analog and Digital Technical Specification 2.1.
+               BLE indicates Bluetooth Core Specification 5.0 or later.
+               UWB indicates IEEE Standard for Low-Rate Wireless Networks (802.15.4z-2020).
+
+DigitalKey.BluetoothLeAddress:
+  type: attribute
+  datatype: uint8[]
+  description: Bluetooth Low Energy Address (48 bits) of the vehicle for digital key usage.
+
+DigitalKey.BluetoothLeState:
+  type: sensor
+  datatype: string
+  allowed: ['CONNECTED', 'BONDED', 'DISCONNECTED']
+  description: Bluetooth Low Energy connection status.
+               CONNECTED indicates that vehicle BLE for digital key is connected but not bonded to any key device.
+               BONDED indicates that vehicle BLE for digital key is connected to at least one bonded key device.
+               DISCONNECTED indicates that vehicle BLE for digital key is not connected to any key device.
+
+DigitalKey.BluetoothIdentityResolvingKey:
+  type: attribute
+  datatype: uint8[]
+  description: Bluetooth Low Energy Identity Resolving Key (IRK, 128 bits) of vehicle for digital key usage.
+
+DigitalKey.PrimaryKeyIndex:
+  type: attribute
+  datatype: uint16
+  description: Indicates the internal index to use for DigitalKey.ManagedKeyIndex to access the primary key.
+
+DigitalKey.KeySelector:
+  type: actuator
+  datatype: uint16
+  description: Selects the key to be managed by DigitalKey.KeyData.
+               The value is the internal index used within the vehicle for accessing this particular key.
+  comment: Example - If this signal has the value 3, then DigitalKey.KeyData will show data
+           for the key at index 3, and changing something will change data for key at index 3.
+           Available index range is vehicle dependent, but only the range 0-(2^16-1) is supported by this signal.
+
+DigitalKey.KeyData:
+  type: branch
+  description: Data related to the key at the index specified by DigitalKey.KeySelector.
+
+DigitalKey.KeyData.KeyState:
+  datatype: string
+  type: sensor
+  allowed: ['OUT_OF_RANGE', 'UNUSED', 'SETUP', 'NOT_ACTIVATED','ACTIVE', 'SUSPENDED', 'TERMINATING', 'TERMINATED', 'EXPIRED']
+  description: State for Digital Key at index given by DigitalKey.KeySelector.
+               OUT_OF_RANGE indicates that the vehicle does not store keys at the given index.
+               UNUSED indicates that this slot is UNUSED
+               SETUP indicates that key setup is in progress - key is not yet available.
+               NOT_ACTIVATED indicates that key setup is completed and the key is available for use,
+               but activation (if required) has not yet been performed.
+               ACTIVE indicates that the key setup is completed, the key is activated and valid for use. Note time period constraints below.
+               SUSPENDED indicates that key has been temporarily disabled.
+               TERMINATING indicates that process for terminating the key has been initiated
+               TERMINATED indicates that key has been terminated.
+               EXPIRED indicates that key has expired and is no longer valid.
+               In the states OUT_OF_RANGE, UNUSED and SETUP other signals of DigitalKey.KeyData shall not be used.
+
+DigitalKey.KeyData.RequestedState:
+  datatype: string
+  type: actuator
+  allowed: ['NONE', 'TERMINATE', 'SUSPEND', 'RESUME']
+  description: Specifies if there is a request to change state of the key.
+               NONE indicates that no request is active.
+               TERMINATE indicates a request to permanently terminate the key.
+               SUSPEND indicates a request to temporarily suspend the key.
+               RESUME indicates a request to resume key status from SUSPENDED to ACTIVE.
+  comment: This signal can be used by a client to initiate a request.
+           Additional steps not part of VSS may be required to actually change the state of key.
+
+DigitalKey.KeyData.GlobalKeyIdentifier:
+  type: sensor
+  datatype: uint8[]
+  description: Globally unique identifier of the key.
+  comment: Byte/char array used to uniquely identify this key.
+
+DigitalKey.KeyData.VehicleKeyIdentifier:
+  type: sensor
+  datatype: uint8[]
+  description: Vehicle unique identifier of the key.
+  comment: Byte/char array used to uniquely identify this key within the vehicle.
+           This may be identical to DigitalKey.KeyData.KeyIdentifier but could as well be something
+           different.
+
+DigitalKey.KeyData.KeyCapability:
+  type: sensor
+  datatype: string
+  description: String indicating capabilities of the key.
+               Allowed values and interpretation is implementation-specific.
+
+DigitalKey.KeyData.StartTime:
+  type: sensor
+  datatype: uint64
+  description: Start time of validity for the key.
+  unit: unix-time
+  comment: If time is before DigitalKey.KeyData.StartTime then the key cannot be used, even if state is ACTIVE.
+
+DigitalKey.KeyData.EndTime:
+  type: sensor
+  datatype: uint64
+  description: End time of validity for the key.
+  unit: unix-time
+  comment: If time is after DigitalKey.KeyData.StartTime then the key cannot be used, even if state is ACTIVE.
+           After DigitalKey.KeyData.EndTime state of key may be changed to EXPIRED.
+
+DigitalKey.KeyData.FriendlyName:
+  type: actuator
+  datatype: string
+  description: User-friendly name for the key.
+
+DigitalKey.KeyData.BluetoothLeAddress:
+  type: sensor
+  datatype: uint8[]
+  description: Bluetooth Low Energy Address (48 bits) of the key device.
+
+DigitalKey.KeysPresent:
+  type: sensor
+  datatype: uint8[]
+  description: List of keys identified by their index currently present within detection range or inside the vehicle.
+               The signal only indicates if the key is present, it does not indicate if the key is valid.
+  comment: Criteria may vary between different types of keys.
+
+DigitalKey.KeysPresentInVehicle:
+  type: sensor
+  datatype: uint8[]
+  description: List of keys identified by their index currently present inside the vehicle.
+               The signal only indicates if the key is present, it does not indicate if the key is valid.
+  comment: For some use-cases like driving the vehicle, it may be required
+           that the used key is physically present inside the vehicle.

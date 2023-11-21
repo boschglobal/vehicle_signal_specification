@@ -192,3 +192,6 @@ Vehicle.Connectivity:
   description: Connectivity data.
 
 #include Vehicle/Connectivity.vspec Vehicle.Connectivity
+
+
+#include Vehicle/DigitalKey.vspec Vehicle
