@@ -12,21 +12,21 @@
     <title>Sensors &amp; Actuators :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1695980546" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1701117012" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1701117012" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1695980546" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1701117012" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1701117012"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1695980546"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1695980546"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1701117012"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1701117012"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1695980546"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1701117012"></script>
 
     
   </div>
@@ -283,9 +283,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/" title="Data Types" class="dd-item ">
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/" title="Datatypes" class="dd-item ">
         <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">
-        Data Types
+        Datatypes
         
         </a>
     </li>
@@ -325,9 +325,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/" title="Data Unit Types" class="dd-item ">
-        <a href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/">
-        Data Unit Types
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_units/" title="Data Units" class="dd-item ">
+        <a href="/vehicle_signal_specification/rule_set/data_entry/data_units/">
+        Data Units
         
         </a>
     </li>
@@ -749,8 +749,8 @@ all parental branches included in the name must be defined as well.</p>
 Defines the type of the node. This can be <code>branch</code>,
 <code>sensor</code>, <code>actuator</code> or <code>attribute</code>.</p>
 <p><strong><code>datatype</code></strong>
-The string value of the type specifies the scalar type of the data entry
-value. See <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">data type</a> chapter for a list of available types.</p>
+The string value of the datatype specifies the scalar type of the data entry
+value. See <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">datatype</a> chapter for a list of available datatypes.</p>
 <p><strong><code>description</code></strong>
 Describes the meaning and content of the signal.
 The <code>description</code>shall together with other mandatory members like <code>datatype</code> and <code>unit</code> provide sufficient information
@@ -762,19 +762,19 @@ This could include background information on the rationale for the signal design
 references to related signals, standards and similar.
 Recommended to start with a capital letter and end with a dot (<code>.</code>).</p>
 <p><strong><code>min</code></strong> <em>[optional]</em>
-The minimum value, within the interval of the given <code>type</code>, that the
+The minimum value, within the interval of the given <code>datatype</code>, that the
 data entry can be assigned.
-If omitted, the minimum value will be the &ldquo;Min&rdquo; value for the given type.
+If omitted, the minimum value will be the &ldquo;Min&rdquo; value for the given datatype.
 Cannot be specified if <code>allowed</code> is defined for the same data entry.</p>
 <p><strong><code>max</code></strong> <em>[optional]</em>
-The maximum value, within the interval of the given <code>type</code>, that the
+The maximum value, within the interval of the given <code>datatype</code>, that the
 data entry can be assigned.
-If omitted, the maximum value will be the &ldquo;Max&rdquo; value for the given type.
+If omitted, the maximum value will be the &ldquo;Max&rdquo; value for the given datatype.
 Cannot be specified if <code>allowed</code> is defined for the same data entry.</p>
 <p><strong><code>unit</code></strong> <em>[optional]</em>
-The unit of measurement that the data entry has. See <a href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/">Data Unit Types</a>
-chapter for a list of available unit types. This
-cannot be specified if <code>allowed</code> is defined as the signal type.</p>
+The unit of measurement that the data entry has. See <a href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/">Data Units</a>
+chapter for a list of available units. This
+cannot be specified if <code>allowed</code> is defined for the same data entry.</p>
 
 
 <footer class="footline">
@@ -1185,7 +1185,7 @@ cannot be specified if <code>allowed</code> is defined as the signal type.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/data_entry/data_unit_types/" title="Data Unit Types"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/data_entry/data_units/" title="Data Units"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/vehicle_signal_specification/rule_set/data_entry/attributes/" title="Attributes" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1198,19 +1198,19 @@ cannot be specified if <code>allowed</code> is defined as the signal type.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1701117012"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1695980546"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1695980546"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1701117012"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1701117012"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1695980546"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1701117012"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
