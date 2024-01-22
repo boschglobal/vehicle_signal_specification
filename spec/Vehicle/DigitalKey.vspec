@@ -61,8 +61,8 @@
 # There are several reasons why a key state may change. Note that the implementation is outside the scope of this spec.
 #
 # Examples (informative):
-# - If the primary key paring state changes to UNPAIRED all existing secondary keys may be terminated or removed.
-# - If the vehicle identity (DigitalKey.VehicleId) changes all existing keys may be terminated or removed.
+# - If the primary key pairing state changes to UNPAIRED all existing secondary keys may be terminated or removed.
+# - If the vehicle identity (DigitalKey.VehicleId) changes, all existing keys may be terminated or removed.
 #
 #
 # Key Capabilities and Key Presence
@@ -70,7 +70,7 @@
 # Keys may have different capabilities. Some keys can be used to drive the vehicle while others
 # only can be used for specific purposes or with specific restrictions.
 # The VSS model does not make any assumptions on what capabilities exist, but includes a signal
-# DigitalKey.KeyData.KeyCapability (of string datatype) which can be used to show capabilities
+# DigitalKey.KeyData.KeyCapability (of string datatype) that can be used to show capabilities
 # of the current key.
 #
 # Multiple digital keys may be in the vicinity of the vehicle simultaneously.
@@ -93,7 +93,7 @@ DigitalKey.VehicleId:
 DigitalKey.PairingState:
   datatype: string
   type: sensor
-  allowed: ['UNPAIRED', 'PAIRED', 'PAIRING','BLOCKED']
+  allowed: ['UNPAIRED', 'PAIRED', 'PAIRING', 'BLOCKED']
   description: Pairing State for the primary digital key.
                UNPAIRED indicates that no valid primary key exists for the vehicle.
                PAIRED indicates that pairing has been performed and valid primary key has been registered.
