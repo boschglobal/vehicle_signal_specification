@@ -197,16 +197,16 @@ DigitalKey.KeyData.KeyCapability:
 
 DigitalKey.KeyData.StartTime:
   type: sensor
-  datatype: uint64
-  description: Start time of validity for the key.
-  unit: unix-time
+  datatype: string
+  description: Start time of validity for the key, formatted according to ISO 8601 with UTC time zone.
+  unit: iso8601
   comment: If time is before DigitalKey.KeyData.StartTime then the key cannot be used, even if state is ACTIVE.
 
 DigitalKey.KeyData.EndTime:
   type: sensor
-  datatype: uint64
-  description: End time of validity for the key.
-  unit: unix-time
+  datatype: string
+  description: End time of validity for the key, formatted according to ISO 8601 with UTC time zone.
+  unit: iso8601
   comment: If time is after DigitalKey.KeyData.StartTime then the key cannot be used, even if state is ACTIVE.
            After DigitalKey.KeyData.EndTime state of key may be changed to EXPIRED.
 
