@@ -30,7 +30,7 @@ jsonschema:
 	${TOOLSDIR}/vspec2jsonschema.py -I ./spec --uuid -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).jsonschema
 
 franca:
-	${TOOLSDIR}/vspec2franca.py -v $$(cat VERSION)  -I ./spec --uuid -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).fidl
+	${TOOLSDIR}/vspec2franca.py --franca-vss-version $$(cat VERSION)  -I ./spec --uuid -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).fidl
 
 yaml:
 	${TOOLSDIR}/vspec2yaml.py -I ./spec --uuid -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).yaml
@@ -57,7 +57,7 @@ protobuf:
 	${TOOLSDIR}/vspec2protobuf.py  -I ./spec -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).proto
 
 graphql:
-	${TOOLSDIR}/vspec2graphql.py -I ./spec --uuid -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).graphql.ts
+	${TOOLSDIR}/vspec2graphql.py -I ./spec  -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).graphql.ts
 
 ttl:
 	${TOOLSDIR}/contrib/vspec2ttl/vspec2ttl.py -I ./spec -u ./spec/units.yaml ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).ttl
