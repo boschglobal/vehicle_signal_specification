@@ -52,3 +52,92 @@ HeartRate:
   type: sensor
   unit: bpm
   description: Heart rate of the driver.
+
+# Assumption - The vehicle will only keep track of the eyes of the driver, and there will be (at most) one driver.
+
+# Vehicle x/y/z-axis as defined by ISO 8855:
+# x-axis is the axis going forward on the vehicle
+# y-axis is the axis going left on the vehicle
+# z-axis is the axis going upwards from the vehicle
+# Origin at center of (first) rear axle.
+
+
+HeadPosition:
+  type: branch
+  description: The current position of the driver head.
+
+# TODO: Is there a standard on how to define head "center"?
+# y-axis is quite easy to accurately define as the left and right side of head typically have the same shape
+# but is there a better definition for head x-axis than "forward" and "z-axis" as upwards
+# And how is head origin/center defined? Center of ears?
+
+HeadPosition.X:
+  datatype: int16
+  type: sensor
+  unit: mm
+  description: Longitudinal position of head center on vehicle X-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = forward of rear axle. Negative values = backward of rear axle.
+
+HeadPosition.Y:
+  datatype: int16
+  type: sensor
+  unit: mm
+  description: Lateral position of head center on vehicle Y-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = left of origin. Negative values = right of origin.
+
+HeadPosition.Z:
+  datatype: int16
+  type: sensor
+  unit: mm
+  description: Lateral position of head center on vehicle Z-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = above center of rear axle. Negative values = below center of rear axle.
+
+HeadPosition.Roll:
+  datatype: float
+  type: sensor
+  unit: degree
+  min: -180
+  max: 180
+  description: Head roll (right-hand rule) on vehicle X-axis.
+               Axis definitions according to ISO 8855.
+               Positive values = head leaned to the right. Negative values = head leaned to the left.
+
+HeadPosition.Pitch:
+  datatype: float
+  type: sensor
+  unit: degree
+  min: -180
+  max: 180
+  description: Head pitch (right-hand rule) on vehicle Y-axis.
+               Axis definitions according to ISO 8855.
+               Positive values = head leaning down. Negative values = head leaning up.
+
+HeadPosition.Yaw:
+  datatype: float
+  type: sensor
+  unit: degree
+  min: -180
+  max: 180
+  description: Head yaw (right-hand rule) on vehicle Z-axis.
+               Axis definitions according to ISO 8855.
+               Positive values = head turned left. Negative values = head turned right.
+
+
+# TODO: Do we have a good definition for confidence, like what does 50% actually mean?
+# Example: Lets say +-100 mm or +- 10 degrees is acceptable
+# Then signal shows probability we are within that interval for ALL 6 signals (position+direction)
+
+HeadPosition.Confidence:
+  datatype: float
+  type: sensor
+  unit: percent
+  min: 0
+  max: 100
+  description: Confidence that head position error is at most 100 wrong for all axis
+               and that all angles have at most 10 degrees error.
+               100% = Guaranteed that there are no error larger than 100 mm or 10 degrees.
+               50% = 50% likelihood that all signals has errors less than 100mm or 10 degrees.
+               0% = Guaranteed that at least one value has an error more than 100 mm or 10 degrees
