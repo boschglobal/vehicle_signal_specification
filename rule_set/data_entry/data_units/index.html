@@ -12,21 +12,21 @@
     <title>Data Units :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1708440680" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1709034976" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1708440680" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1709034976" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1708440680"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1709034976"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1708440680"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1708440680"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1709034976"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1709034976"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1708440680"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1709034976"></script>
 
     
   </div>
@@ -714,9 +714,17 @@
         <li><a href="#logical-data-units">Logical Data Units</a></li>
       </ul>
     </li>
-    <li><a href="#list-of-supported-data-unit">List of supported Data Unit</a></li>
+    <li><a href="#supported-data-units-in-vss-standard-catalog">Supported Data Units in VSS Standard Catalog</a>
+      <ul>
+        <li><a href="#addition-of-new-data-units-to-vss-standard-catalog">Addition of new Data Units to VSS standard catalog</a></li>
+      </ul>
+    </li>
     <li><a href="#unit-file-syntax">Unit file syntax</a></li>
-    <li><a href="#quantity-file-syntax">Quantity file syntax</a></li>
+    <li><a href="#quantity-file-syntax">Quantity file syntax</a>
+      <ul>
+        <li><a href="#addition-of-new-quantities-to-vss-standard-catalog">Addition of new Quantities to VSS standard catalog</a></li>
+      </ul>
+    </li>
     <li><a href="#defining-custom-units">Defining custom units</a></li>
   </ul>
 </nav>
@@ -758,6 +766,11 @@ as <code>km/h</code> (with float as datatype). A user interface or API may show 
 and a transport protocol may send speed in another unit, possibly also involving scaling and offset.
 But in protocols not explicitly specifying data units (like <a href="https://raw.githack.com/w3c/automotive/gh-pages/spec/VISSv2_Core.html">VISS</a>)
 it is expected that <code>Vehicle.Speed</code> is sent and received as <code>km/h</code> (without scaling or offset).</p>
+<p>VSS does not offer any syntax for defining alternative units for a specific signal.
+The VSS project has specified for all units a corresponding quantity e.g. <code>velocity</code> for <code>km/h</code>.
+An API may use the quantity information to identify alternative units that can be used to represent the signal.
+The VSS list of units does not specify conversion factors, so even if VSS list both <code>km/h</code> and <code>m/s</code> as units for
+the quantity <code>velocity</code>, it is not specified how they relate to each other.</p>
 <p>In some cases it is natural to omit the data unit. This concerns typically signals where datatype <code>string</code> is used,
 but also signals where the value just represents a number (dimensionless quantities), like in the example below:</p>
 <pre tabindex="0"><code>Vehicle.Cabin.DoorCount:
@@ -789,16 +802,27 @@ Values from different vehicles (of different make/model) can not always be compa
   unit: percent
   max: 100
   description: Clutch wear as percent. 0 = no wear. 100 = worn.
-</code></pre><h2 id="list-of-supported-data-unit">List of supported Data Unit</h2>
+</code></pre><h2 id="supported-data-units-in-vss-standard-catalog">Supported Data Units in VSS Standard Catalog</h2>
 <p>The VSS syntax does not in itself specify what units can be used, the unit attribute as declared for signals in *.vspec files is optional and can contain an arbitrary string value.
-<a href="https://github.com/COVESA/vss-tools">VSS-Tools</a> however require that all units used are defined.
+<a href="https://github.com/COVESA/vss-tools">VSS-Tools</a> however require that all units used are defined,
+and at is also a requirement for signals in the VSS standard catalog.
 Units are defined by including them in a unit file with syntax as described below.
 One or more unit files can be specified by the <code>-u</code> parameter and, if not given, the tools search for a file <code>units.yaml</code>
 in the same directory as the root *.vspec file.</p>
 <p>For the VSS standard catalog the VSS-project has defined a set of units that can be used for signals in the VSS standard catalog.
 This list is composed of definitions according to International Units (SI) and few automotive-specific units:
-<a href="https://www.iso.org/standard/30669.html">Specification</a>, <a href="https://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia</a></p>
+<a href="https://www.iso.org/standard/30669.html">Specification</a>, <a href="https://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia</a>.
+It can be noted that not all units in the list are currently used by the VSS standard catalog,
+but they may be used in the future or may be used for customization of the VSS catalog.</p>
 <p>The VSS list of units for the standard catalog exists in <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/units.yaml">units.yaml</a>.</p>
+<h3 id="addition-of-new-data-units-to-vss-standard-catalog">Addition of new Data Units to VSS standard catalog</h3>
+<p>The <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/units.yaml">list of units</a> in VSS standard catalog
+is not static. New units can be added if needed for signals in the VSS standard catalog, or if the VSS-project considers that
+the unit might be useful for customization of the VSS tree. If you would like to propose a new unit to be added to the list
+please create a pull request where the new unit is added to
+<a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/units.yaml">units.yaml</a>.</p>
+<p>If the unit is needed for a new signal in the VSS standard catalog you can propose the new signal and the new unit
+in the same Pull Request.</p>
 <h2 id="unit-file-syntax">Unit file syntax</h2>
 <p>Unit files follow the syntax defined below:</p>
 <pre tabindex="0"><code>[
@@ -833,8 +857,8 @@ As an example, both <code>uint8</code> and <code>float</code> can be used to rep
 If using <code>uint8</code> you will have range restrictions, but that might be acceptable for some signals.
 For some units more specific datatype restrictions are relevant. Some examples:</p>
 <ul>
-<li>A date/time expressed in ISO 8061 format can only be represented as a string</li>
-<li>A UNIX Timestamp signal must be at least 32 bit unsigned to be able to handle date/time after year 2038.</li>
+<li>A date/time expressed in ISO 8061 format (<code>unit: iso8601</code>) can only be represented as a string</li>
+<li>A UNIX Timestamp signal (<code>unit: unix-time</code>) must be at least 32 bit unsigned to be able to handle date/time after year 2038.</li>
 </ul>
 <p>The <code>deprecation</code> keyword can be used to indicate that a specific unit may be removed in the future.
 Tooling shall preferably give a warning if a signal uses a deprecated unit or the unit used belongs to a deprecated quantity.
@@ -859,9 +883,10 @@ tooling also supports unit files using the old syntax described below.</p>
       quantity: &lt;string&gt;
   ]*
 </code></pre><h2 id="quantity-file-syntax">Quantity file syntax</h2>
-<p>Defing quantities is recommended, but currently optional for backward compatibility reasons.
+<p>Defining quantities is recommended, but currently optional for backward compatibility reasons.
 If tooling supports quantity files it can verify that all units provided in unit files
-use defined quantities.</p>
+use defined quantities.
+For the VSS standard catalog it is required that matching quantities have been defined for all units.</p>
 <pre tabindex="0"><code>
   [
     &lt;vss-quantity-identifier&gt;: # Identifier preferably taken from a standard, like ISO 80000
@@ -870,12 +895,19 @@ use defined quantities.</p>
       [comment: &lt;string&gt;]
       [deprecation: &lt;reason&gt;]
   ]*
-</code></pre><p>The VSS list of quantitiess for the standard catalog exists in <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/quantities.yaml">quantities.yaml</a>.</p>
+</code></pre><p>The VSS list of quantities for the standard catalog exists in <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/quantities.yaml">quantities.yaml</a>.</p>
+<h3 id="addition-of-new-quantities-to-vss-standard-catalog">Addition of new Quantities to VSS standard catalog</h3>
+<p>The <a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/quantities.yaml">list of quantities</a> in VSS standard catalog
+is not static. New quantities can be added if needed for units in the VSS standard catalog, or if the VSS-project considers that
+the quantity might be useful for custom units. If you would like to propose a new quantity to be added to the list
+please create a pull request.</p>
+<p>If the quantity is needed for a new unit in the VSS standard catalog you can propose the new quantity and the new unit
+in the same Pull Request.</p>
 <h2 id="defining-custom-units">Defining custom units</h2>
 <p>It is possible to define custom units in a unit file.
 Assume for instance you want to have a signal showing remaining range in <a href="https://en.wikipedia.org/wiki/Furlong">furlong</a>.
 Then you could add an additional unit <code>furlong</code>. No need to specify <code>unit</code> or <code>symbol</code> as they equals the default (i.e. &ldquo;furlong&rdquo;).
-As this is unit not commonly used and not described in any standards, it might be relevant to describe how it can be converted to other units.
+As this unit is not commonly used and not described in any standards, it might be relevant to describe how it can be converted to other units.
 That is however only informative, as it a custom unit a downstream implementation supporting unit conversion may not support automatic conversion
 of furlong to other units.</p>
 <pre tabindex="0"><code>units:
@@ -1306,19 +1338,19 @@ of furlong to other units.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1708440680"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1709034976"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1708440680"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1709034976"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1708440680"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1709034976"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

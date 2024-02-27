@@ -12,21 +12,21 @@
     <title>Value Restrictions :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1708440680" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1708440680" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1709034976" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1709034976" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1708440680" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1709034976" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1708440680"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1709034976"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1708440680"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1708440680"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1709034976"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1709034976"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1708440680"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1709034976"></script>
 
     
   </div>
@@ -753,15 +753,15 @@ For <code>attributes</code> it is possible to optionally set a default value.</p
 in a list.  Only values can be assigned to the data entry, which are
 specified in this list.</p>
 <p>The <code>datatype</code> specifier gives the datatype of the individual elements of the <code>allowed</code>
-list. In general <code>allowed:</code> is valid for all datatypes, including integer- and float-based datatypes, unless othwerise specified.</p>
+list. In general <code>allowed:</code> is valid for all datatypes, including integer- and float-based datatypes, unless otherwise specified.</p>
 <h2 id="recommendation-on-string-values">Recommendation on String values</h2>
-<p>For string values used for <code>default</code> and <code>allowed</code> statements it is recommended to start with <code>A-Z</code>
-and then use only <code>A-Z</code>, <code>0-9</code> and underscore (<code>_</code>).
-It is recommended to use single quotes (<code>'</code>) as tooling otherwise might handle literals like <code>OFF</code> as boolean values with unexpected result.
+<p>String values used for <code>default</code> and <code>allowed</code> statements may contain characters from the printable subset of the Unicode character set.
+If using <a href="https://github.com/COVESA/vss-tools">COVESA VSS-tools</a> it is recommended to use single quotes (<code>'</code>) around values as tooling otherwise might handle literals like <code>OFF</code> as boolean values with unexpected result.
 It is recommended not to specify a dedicated value corresponding to &ldquo;unknown&rdquo; or &ldquo;undefined&rdquo; unless there is a relevant use-case for that particular signal.
 The background is that a signal with an array of allowed values shall be handled just as any other signal.
 If e.g. the value of current speed or vehicle weight is unknown, then the vehicle shall not publish the corresponding signal.
-Similarly, for the example above, if the steering wheel position is unknown then <code>SteeringWheel.Position</code>shall not be published.</p>
+Similarly, for the example above, if the steering wheel position is unknown then
+<code>SteeringWheel.Position</code> shall not be published.</p>
 <h2 id="allowed-values-for-array-datatypes">Allowed values for array datatypes</h2>
 <p>The <code>allowed</code> keyword can also be used for signals of array datatype. In that case, <code>allowed</code> specifies the only valid values for array elements.
 The actual value of the signal is expected to contain a subset of the values specified in <code>allowed</code>.</p>
@@ -1203,19 +1203,19 @@ The actual value of the signal is expected to contain a subset of the values spe
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1708440680"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1709034976"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1708440680"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1708440680"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1709034976"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1709034976"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1708440680"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1709034976"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

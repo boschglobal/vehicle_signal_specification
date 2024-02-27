@@ -14,7 +14,7 @@
       
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
       <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float floating point number -3.</description>
+Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.</description>
     </item>
     
     <item>
