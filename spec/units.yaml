@@ -96,6 +96,12 @@ degrees/s:
   unit: degree per second
   quantity: angular-speed
   allowed-datatypes: ['numeric']
+rad/s:
+  definition: Angular speed measured in radians per second
+  unit: radians per second
+  quantity: angular-speed
+  allowed-datatypes: ['numeric']
+
 
 # Power
 
