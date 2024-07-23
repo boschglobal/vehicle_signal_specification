@@ -1,7 +1,7 @@
 baseURL = "https://covesa.github.io/vehicle_signal_specification/"
 languageCode = "en-us"
 title = "Vehicle Signal Specification"
-theme = "learn"
+theme = "hugo-theme-relearn"
 publishDir = "../docs"
 [params]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
@@ -24,4 +24,4 @@ weight = 12
 
 # Generation of JSON index to allow search
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+home = ['html', 'rss', 'search', 'searchpage']

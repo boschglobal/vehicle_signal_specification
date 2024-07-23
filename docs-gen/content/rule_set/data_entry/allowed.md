@@ -72,4 +72,4 @@ Example of an invalid array:
 
 ## Allowed for struct datatypes
 
-Please see [struct]({{< ref "data_types_struct#allowed-values" >}} ) documentation.
+Please see [struct]({{% ref "data_types_struct#allowed-values" %}} ) documentation.

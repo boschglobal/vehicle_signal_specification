@@ -52,10 +52,10 @@ Run check with `Check linked documents recursively`
 The static page is generated with:
 
 - [HUGO](https://gohugo.io/)
-- [Learn Theme](https://github.com/matcornic/hugo-theme-learn)
+- [Relearn Theme](https://github.com/McShelby/hugo-theme-relearn)
 
 Please follow the [documentation](https://gohugo.io/documentation/) for installation and further questions around the framework.
-Currently, the HUGO version used for generating VSS documentation is `0.103.1`,
+Currently, the HUGO version used for generating VSS documentation is `0.129.0`,
 as controlled by the [buildcheck.yml](https://github.com/COVESA/vehicle_signal_specification/blob/master/.github/workflows/buildcheck.yml)
 
 

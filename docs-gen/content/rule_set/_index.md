@@ -1,10 +1,8 @@
 ---
 title: Rule Set
 weight: 20
-chapter: true
+chapter: false
 ---
-
-# Rule Set
 
 The `Rule Set` of a [domain taxonomy](/vehicle_signal_specification/introduction/taxonomy/) is used to describe how to write the data definition syntactically.
 

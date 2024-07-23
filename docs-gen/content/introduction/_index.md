@@ -1,9 +1,7 @@
 ---
 title: Introduction
 weight: 10
-chapter: true
+chapter: false
 ---
-
-# Introduction
 
 Discover what the Vehicle Signal Specification is all about.
