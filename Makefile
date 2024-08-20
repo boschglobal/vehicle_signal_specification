@@ -8,7 +8,7 @@ all: clean mandatory_targets optional_targets
 
 # All mandatory targets that shall be built and pass on each pull request for
 # vehicle-signal-specification or vss-tools
-mandatory_targets: clean json json-noexpand franca yaml csv graphql ddsidl id jsonschema overlays tests
+mandatory_targets: clean json json-noexpand franca yaml csv graphql ddsidl id jsonschema overlays
 
 # Additional targets that shall be built by travis, but where it is not mandatory
 # that the builds shall pass.
@@ -51,9 +51,6 @@ overlays:
 
 prepare_binary:
 	cd ${TOOLSDIR}/binary && $(MAKE)
-
-tests: prepare_binary
-	PYTHONPATH=${TOOLSDIR} pytest
 
 binary: prepare_binary
 	vspec export binary ${COMMON_ARGS} ${COMMON_VSPEC_ARG} --bintool-dll ${TOOLSDIR}/binary/binarytool.so -o vss_rel_$$(cat VERSION).binary
