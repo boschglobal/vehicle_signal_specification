@@ -8,7 +8,7 @@ all: clean mandatory_targets optional_targets
 
 # All mandatory targets that shall be built and pass on each pull request for
 # vehicle-signal-specification or vss-tools
-mandatory_targets: clean json json-noexpand franca yaml binary csv graphql ddsidl id jsonschema overlays tests
+mandatory_targets: clean json json-noexpand franca yaml csv graphql ddsidl id jsonschema overlays tests
 
 # Additional targets that shall be built by travis, but where it is not mandatory
 # that the builds shall pass.
@@ -16,7 +16,7 @@ mandatory_targets: clean json json-noexpand franca yaml binary csv graphql ddsid
 # from time to time
 # Can be run from e.g. travis with "make -k optional_targets || true" to continue
 # even if errors occur and not do not halt travis build if errors occur
-optional_targets: clean protobuf ttl
+optional_targets: clean protobuf ttl binary
 
 TOOLSDIR?=./vss-tools
 COMMON_ARGS=-u ./spec/units.yaml --strict
