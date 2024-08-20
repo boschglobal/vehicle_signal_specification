@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on Vehicle Signal Specification</title>
-    <link>https://covesa.github.io/vehicle_signal_specification/introduction/</link>
-    <description>Recent content in Introduction on Vehicle Signal Specification</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Introduction :: Vehicle Signal Specification</title>
+    <link>https://covesa.github.io/vehicle_signal_specification/introduction/index.html</link>
+    <description>Discover what the Vehicle Signal Specification is all about.</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jul 2019 12:11:31 +0200</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/introduction/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2019 12:11:31 +0200</lastBuildDate>
+    <atom:link href="https://covesa.github.io/vehicle_signal_specification/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overview</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/introduction/overview/index.html</link>
       <pubDate>Tue, 30 Jul 2019 14:46:01 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
-      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:
-A syntax for defining vehicle signals in a structured manner. A catalog of signals related to vehicles. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/index.html</guid>
+      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:&#xA;A syntax for defining vehicle signals in a structured manner. A catalog of signals related to vehicles. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
     </item>
-    
     <item>
       <title>Taxonomies</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/index.html</link>
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</guid>
-      <description>The figure below explains the idea of a taxonomy as bridge between human and machine understanding of data. It is important to focus on a specific domain to get common understanding and acceptance. The link between two or more domain taxonomies can be seen as second step.
-Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/index.html</guid>
+      <description>The figure below explains the idea of a taxonomy as bridge between human and machine understanding of data. It is important to focus on a specific domain to get common understanding and acceptance. The link between two or more domain taxonomies can be seen as second step.&#xA;Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:</description>
     </item>
-    
   </channel>
 </rss>

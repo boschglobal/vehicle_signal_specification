@@ -1,76 +1,99 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</loc>
+    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/index.html</loc>
     <lastmod>2023-05-18T13:27:46+00:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/index.html</loc>
     <lastmod>2019-08-04T13:05:11+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/index.html</loc>
     <lastmod>2019-07-31T15:27:36+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/introduction/overview/index.html</loc>
     <lastmod>2019-07-30T14:46:01+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/index.html</loc>
     <lastmod>2023-05-18T13:29:46+00:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</loc>
     <lastmod>2019-08-04T11:11:30+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/index.html</loc>
     <lastmod>2019-07-31T12:11:31+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/index.html</loc>
     <lastmod>2023-05-18T13:31:46+00:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/index.html</loc>
     <lastmod>2019-07-31T15:27:36+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/index.html</loc>
     <lastmod>2019-08-04T12:59:44+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/index.html</loc>
     <lastmod>2019-08-04T12:46:30+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/index.html</loc>
     <lastmod>2019-08-04T11:11:48+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/introduction/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/introduction/index.html</loc>
     <lastmod>2019-07-31T12:11:31+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html</loc>
     <lastmod>2019-08-04T11:11:48+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/governance/</loc>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/governance/index.html</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/index.html</loc>
     <lastmod>2019-08-04T13:05:11+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/index.html</loc>
     <lastmod>2019-08-04T12:36:12+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</loc>
     <lastmod>2019-08-04T12:37:03+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/license/</loc>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/license/index.html</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/ecosystem/index.html</loc>
     <lastmod>2023-05-18T15:12:25+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/index.html</loc>
     <lastmod>2019-08-04T12:37:31+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/index.html</loc>
     <lastmod>2019-08-04T12:37:12+02:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/index.html</loc>
     <lastmod>2023-05-18T13:31:46+00:00</lastmod>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/categories/</loc>
-  </url><url>
-    <loc>https://covesa.github.io/vehicle_signal_specification/tags/</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/categories/index.html</loc>
+  </url>
+  <url>
+    <loc>https://covesa.github.io/vehicle_signal_specification/tags/index.html</loc>
   </url>
 </urlset>

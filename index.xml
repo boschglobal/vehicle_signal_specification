@@ -2,179 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vehicle Signal Specification</title>
-    <link>https://covesa.github.io/vehicle_signal_specification/</link>
-    <description>Recent content on Vehicle Signal Specification</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <link>https://covesa.github.io/vehicle_signal_specification/index.html</link>
+    <description>The Vehicle Signal Specification (VSS) is an initiative by COVESA to define a syntax and a catalog for vehicle signals. The source code and releases can be found in the VSS github repository. Some tools for parsing and converting VSS files can be found in the VSS-tools github repository.&#xA;This documentation gives you an overview of VSS:&#xA;Introduction Read this part if you want to know more about what the specification is all about, what’s in and out and how to quickly browse through the current status.</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 May 2023 13:31:46 +0000</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 May 2023 15:12:25 +0200</lastBuildDate>
+    <atom:link href="https://covesa.github.io/vehicle_signal_specification/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Official VSS-Tools</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</link>
-      <pubDate>Thu, 18 May 2023 13:27:46 +0000</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</guid>
-      <description>VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.
-The COVESA vss-tools project contains various helpful converters and is also used to validate the syntactic validity of the VSS standard catalogue.
-If new features are introduced to the VSS specification, the community will ensure they are supported in the official vss-tools as well.
-Fig 1. Generating various output formats from a VSS specification</description>
-    </item>
-    
-    <item>
-      <title>Basic Rules</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</link>
-      <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</guid>
-      <description>Specification format The Vehicle Signal Specification domain specification consist of vspec files. vspec files are YAML files following the rule set defined for VSS. They also support the use of include directives to refer to other vspec files, much like #include in C/C++. . Please note that, from a YAML perspective, the include directive is just another comment.
-The file VehicleSignalSpecification.vspec serves as root and includes other vspec files from the VSS repository.</description>
-    </item>
-    
-    <item>
-      <title>Branch Entry</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</link>
-      <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</guid>
-      <description>A branch entry describes a tree branch (or node) containing other branches and signals.
-A branch entry example is given below:
-Trunk: type: branch description: All signals related to the rear trunk aggregate: false The following elements are defined:
-Body.Trunk The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
-type The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
-    </item>
-    
-    <item>
-      <title>Overview</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</link>
-      <pubDate>Tue, 30 Jul 2019 14:46:01 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
-      <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. In short this means that VSS introduces:
-A syntax for defining vehicle signals in a structured manner. A catalog of signals related to vehicles. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.</description>
-    </item>
-    
-    <item>
-      <title>Related Standards</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/</link>
-      <pubDate>Thu, 18 May 2023 13:29:46 +0000</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/standards/</guid>
-      <description>Ohter standards or specifications sometimes reference VSS.
-W3C VISS When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
-The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP/MQTT (VISSv2).
-To learn more check
-Vehicle Information Service Specification (VISS) V1 published as a Discontinued Draft. Vehicle Information Service Specification (VISS) V2, feature complete and in process to enter the Candidate Recommendation stage.</description>
-    </item>
-    
-    <item>
-      <title>Taxonomies</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</link>
+      <title>Introduction</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/introduction/index.html</link>
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</guid>
-      <description>The figure below explains the idea of a taxonomy as bridge between human and machine understanding of data. It is important to focus on a specific domain to get common understanding and acceptance. The link between two or more domain taxonomies can be seen as second step.
-Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/index.html</guid>
+      <description>Discover what the Vehicle Signal Specification is all about.</description>
     </item>
-    
     <item>
-      <title>Software &amp; Solutions</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</link>
-      <pubDate>Thu, 18 May 2023 13:31:46 +0000</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</guid>
-      <description>Various software frameworks and products exist to work with VSS data. Some are Open Source, some are commercial prducts and services. There are solutions to work with VSS in-vehicle, as well as using it in the cloud.
-The best entry-point for an up-to-date introduction to VSS products and Use Cases is the COVESA VSS wiki.</description>
+      <title>Governance</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/governance/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/governance/index.html</guid>
+      <description>Governance The Vehicle Signal Specification (VSS) project is an initiative by COVESA to define a syntax and a catalog for vehicle signals.&#xA;The artifacts maintained by the VSS project consist of:&#xA;Source code, documentation and releases in the VSS github repository. Tools for parsing and converting VSS files in the VSS-tools github repository. The VSS project has an informal structure with a chair and github maintainers appointed by COVESA. Tasks for the chair includes hosting regular meeting to discuss incoming pull requests and issues, as well as roadmap and release planning.</description>
     </item>
-    
     <item>
-      <title>Instances</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</link>
-      <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</guid>
-      <description>VSS resembles primarily the physical structure of the vehicle, so quite often there is a need to repeat branches and data entries (e.g. doors, axles, etc). To avoid hard-coded repetitions of branches and data entries in the specification an instance-concept is supported. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
+      <title>Rule Set</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/index.html</link>
+      <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/index.html</guid>
+      <description>The Rule Set of a domain taxonomy is used to describe how to write the data definition syntactically.&#xA;This chapter defines and describes the rule set for VSS. Tools in the vss-tools repository can be used to validate that a specification follows the rule set for VSS, but those tools may have limitations and may not check all rules stated in this document. In case of conflict, what is stated in the rule set in this documentation is considered to have precedence over tool implementations.</description>
     </item>
-    
     <item>
-      <title>Includes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</link>
-      <pubDate>Sun, 04 Aug 2019 12:59:44 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</guid>
-      <description>An include directive in a vspec file will read the file it refers to and the contents of that file will be inserted into the current buffer in place of the include directive. The included file will, in its turn, be scanned for include directives to be replaced, effectively forming a tree of included files.
-See Fig 6 for an example of such a tree.
-Fig 6. Include directives
-The include directive has the following format:</description>
+      <title>License</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/license/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/license/index.html</guid>
+      <description>Warning DISCLAIMER: The following information about open source licensing shall not be considered legal advice. For advice on licensing, COVESA suggests that you contact your open source officer or legal counsel.&#xA;Which license applies VSS as well as the VSS-tools are covered by the Mozilla Public License 2.0 (MPL-2.0). The MPL-2.0 is an OSI approved Open Source license that gives you a lot of freedom using VSS in your products, or for (academic) research.</description>
     </item>
-    
     <item>
-      <title>Overlay</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</link>
-      <pubDate>Sun, 04 Aug 2019 12:46:30 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</guid>
-      <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.
-The following features with the intended usage patterns are currently supported:
-Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
+      <title>Ecosystem</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/index.html</link>
+      <pubDate>Thu, 18 May 2023 15:12:25 +0200</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/index.html</guid>
+      <description>VSS is used in different products, solutions and use cases. This section will give some pointers to the wider VSS ecosystem</description>
     </item>
-    
-    <item>
-      <title>Datatypes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
-      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
-      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.</description>
-    </item>
-    
-    <item>
-      <title>Struct Types</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</link>
-      <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</guid>
-      <description>Structs are a newly introduced feature to the VSS-syntax. Please note that all VSS-tools exporters do not yet support structs.
-Introduction VSS has historically supported only the following datatypes:
-Integer-based datatypes (e.g. uint8, int32) Float-based datatypes (float, double) String Boolean In addition to this VSS arrays of the datatypes given above has been supported. This has been considered insufficient for some use-cases. Typical examples are when something cannot be described by a single value, but multiple values are needed.</description>
-    </item>
-    
-    <item>
-      <title>Data Units</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/</link>
-      <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/</guid>
-      <description>Introduction to Data Units in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data units. For most signals in the VSS standard catalog, a data unit has been selected. A typical example is Vehicle.Speed, as shown below.
-Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed. The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
-    </item>
-    
-    <item>
-      <title>Sensors &amp; Actuators</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
-      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
-Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
-    </item>
-    
-    <item>
-      <title>Attributes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
-      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
-    </item>
-    
-    <item>
-      <title>Value Restrictions</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</guid>
-      <description>Specifying allowed values Optionally it is possible to define an array of allowed values, which will restrict the usage of the data entry in the implementation of the specification. It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly. The datatype of the array elements is the datatype defined for the data entry itself. For attributes it is possible to optionally set a default value.</description>
-    </item>
-    
   </channel>
 </rss>

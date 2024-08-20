@@ -1,70 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Entry on Vehicle Signal Specification</title>
-    <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/</link>
-    <description>Recent content in Data Entry on Vehicle Signal Specification</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Data Entry :: Vehicle Signal Specification</title>
+    <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</link>
+    <description>Leaf nodes of the tree contain metadata describing the data associated to the node. In order to help application developers, who are using the specification, it makes a distinction between three types of signals - sensor, actuator - and attribute. The difference between sensors/actuators and attributes is that sensors/actuators typically have a publisher (or producer) that updates the signal value continuously when a change occur while an attribute has a set value that should typically not change more than once per ignition cycle.</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2019 11:11:30 +0200</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Aug 2019 12:37:31 +0200</lastBuildDate>
+    <atom:link href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Datatypes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/index.html</link>
       <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
-      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/index.html</guid>
+      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry&#xA;Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.</description>
     </item>
-    
     <item>
       <title>Struct Types</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html</link>
       <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/</guid>
-      <description>Structs are a newly introduced feature to the VSS-syntax. Please note that all VSS-tools exporters do not yet support structs.
-Introduction VSS has historically supported only the following datatypes:
-Integer-based datatypes (e.g. uint8, int32) Float-based datatypes (float, double) String Boolean In addition to this VSS arrays of the datatypes given above has been supported. This has been considered insufficient for some use-cases. Typical examples are when something cannot be described by a single value, but multiple values are needed.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html</guid>
+      <description>Structs are a newly introduced feature to the VSS-syntax. Please note that all VSS-tools exporters do not yet support structs.&#xA;Introduction VSS has historically supported only the following datatypes:&#xA;Integer-based datatypes (e.g. uint8, int32) Float-based datatypes (float, double) String Boolean In addition to this VSS arrays of the datatypes given above has been supported. This has been considered insufficient for some use-cases. Typical examples are when something cannot be described by a single value, but multiple values are needed.</description>
     </item>
-    
     <item>
       <title>Data Units</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/</guid>
-      <description>Introduction to Data Units in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data units. For most signals in the VSS standard catalog, a data unit has been selected. A typical example is Vehicle.Speed, as shown below.
-Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed. The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_units/index.html</guid>
+      <description>Introduction to Data Units in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data units. For most signals in the VSS standard catalog, a data unit has been selected. A typical example is Vehicle.Speed, as shown below.&#xA;Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed.The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
     </item>
-    
     <item>
       <title>Sensors &amp; Actuators</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
-      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.
-Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</guid>
+      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.&#xA;Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
     </item>
-    
     <item>
       <title>Attributes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/index.html</guid>
       <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
     </item>
-    
     <item>
       <title>Value Restrictions</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/index.html</guid>
       <description>Specifying allowed values Optionally it is possible to define an array of allowed values, which will restrict the usage of the data entry in the implementation of the specification. It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly. The datatype of the array elements is the datatype defined for the data entry itself. For attributes it is possible to optionally set a default value.</description>
     </item>
-    
   </channel>
 </rss>

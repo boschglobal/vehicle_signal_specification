@@ -1,66 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rule Set on Vehicle Signal Specification</title>
-    <link>https://covesa.github.io/vehicle_signal_specification/rule_set/</link>
-    <description>Recent content in Rule Set on Vehicle Signal Specification</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Rule Set :: Vehicle Signal Specification</title>
+    <link>https://covesa.github.io/vehicle_signal_specification/rule_set/index.html</link>
+    <description>The Rule Set of a domain taxonomy is used to describe how to write the data definition syntactically.&#xA;This chapter defines and describes the rule set for VSS. Tools in the vss-tools repository can be used to validate that a specification follows the rule set for VSS, but those tools may have limitations and may not check all rules stated in this document. In case of conflict, what is stated in the rule set in this documentation is considered to have precedence over tool implementations.</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2019 13:05:11 +0200</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/rule_set/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Aug 2019 13:05:11 +0200</lastBuildDate>
+    <atom:link href="https://covesa.github.io/vehicle_signal_specification/rule_set/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Rules</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/index.html</link>
       <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</guid>
-      <description>Specification format The Vehicle Signal Specification domain specification consist of vspec files. vspec files are YAML files following the rule set defined for VSS. They also support the use of include directives to refer to other vspec files, much like #include in C/C++. . Please note that, from a YAML perspective, the include directive is just another comment.
-The file VehicleSignalSpecification.vspec serves as root and includes other vspec files from the VSS repository.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/index.html</guid>
+      <description>Specification format The Vehicle Signal Specification domain specification consist of vspec files. vspec files are YAML files following the rule set defined for VSS. They also support the use of include directives to refer to other vspec files, much like #include in C/C++. . Please note that, from a YAML perspective, the include directive is just another comment.&#xA;The file VehicleSignalSpecification.vspec serves as root and includes other vspec files from the VSS repository.</description>
     </item>
-    
     <item>
       <title>Branch Entry</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/index.html</link>
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</guid>
-      <description>A branch entry describes a tree branch (or node) containing other branches and signals.
-A branch entry example is given below:
-Trunk: type: branch description: All signals related to the rear trunk aggregate: false The following elements are defined:
-Body.Trunk The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
-type The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/index.html</guid>
+      <description>A branch entry describes a tree branch (or node) containing other branches and signals.&#xA;A branch entry example is given below:&#xA;Trunk: type: branch description: All signals related to the rear trunk aggregate: falseThe following elements are defined:&#xA;Body.Trunk The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.&#xA;type The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
     </item>
-    
+    <item>
+      <title>Data Entry</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</link>
+      <pubDate>Sun, 04 Aug 2019 11:11:30 +0200</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</guid>
+      <description>Leaf nodes of the tree contain metadata describing the data associated to the node. In order to help application developers, who are using the specification, it makes a distinction between three types of signals - sensor, actuator - and attribute. The difference between sensors/actuators and attributes is that sensors/actuators typically have a publisher (or producer) that updates the signal value continuously when a change occur while an attribute has a set value that should typically not change more than once per ignition cycle.</description>
+    </item>
     <item>
       <title>Instances</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/index.html</link>
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/index.html</guid>
       <description>VSS resembles primarily the physical structure of the vehicle, so quite often there is a need to repeat branches and data entries (e.g. doors, axles, etc). To avoid hard-coded repetitions of branches and data entries in the specification an instance-concept is supported. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
     </item>
-    
     <item>
       <title>Includes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:59:44 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</guid>
-      <description>An include directive in a vspec file will read the file it refers to and the contents of that file will be inserted into the current buffer in place of the include directive. The included file will, in its turn, be scanned for include directives to be replaced, effectively forming a tree of included files.
-See Fig 6 for an example of such a tree.
-Fig 6. Include directives
-The include directive has the following format:</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/index.html</guid>
+      <description>An include directive in a vspec file will read the file it refers to and the contents of that file will be inserted into the current buffer in place of the include directive. The included file will, in its turn, be scanned for include directives to be replaced, effectively forming a tree of included files.&#xA;See Fig 6 for an example of such a tree.&#xA;Fig 6. Include directives&#xA;The include directive has the following format:</description>
     </item>
-    
     <item>
       <title>Overlay</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:46:30 +0200</pubDate>
-      
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/</guid>
-      <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.
-The following features with the intended usage patterns are currently supported:
-Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/index.html</guid>
+      <description>VSS defines the standard catalog for vehicle signals independent of the used protocol and environment. In order to adopt the specification we realize that certain additions and modifications to the standard catalog are necessary. VSS Overlays are meant to bring you a standardized way of handling those changes.&#xA;The following features with the intended usage patterns are currently supported:&#xA;Adding new nodes: By adding nodes the standard catalog can be extended with proprietary concepts.</description>
     </item>
-    
   </channel>
 </rss>
