@@ -72,5 +72,4 @@ id:
 	vspec export id ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION).vspec
 
 clean:
-	cd ${TOOLSDIR}/binary && $(MAKE) clean
 	rm -f vss_rel_*
