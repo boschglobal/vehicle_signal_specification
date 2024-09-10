@@ -8,7 +8,7 @@ all: clean mandatory_targets optional_targets
 
 # All mandatory targets that shall be built and pass on each pull request for
 # vehicle-signal-specification or vss-tools
-mandatory_targets: clean json json-noexpand franca yaml binary csv graphql ddsidl id jsonschema overlays tests
+mandatory_targets: clean json json-noexpand franca yaml binary csv graphql ddsidl id jsonschema apigear samm overlays tests
 
 # Additional targets that shall be built by travis, but where it is not mandatory
 # that the builds shall pass.
@@ -49,20 +49,25 @@ overlays:
 	vspec export json ${COMMON_ARGS} -l overlays/extensions/dual_wiper_systems.vspec ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION)_dualwiper.json
 	vspec export json ${COMMON_ARGS} -l overlays/extensions/OBD.vspec ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION)_obd.json
 
-prepare_binary:
-	cd ${TOOLSDIR}/binary && $(MAKE)
-
-tests: prepare_binary
+tests:
 	PYTHONPATH=${TOOLSDIR} pytest
 
-binary: prepare_binary
-	vspec export binary ${COMMON_ARGS} ${COMMON_VSPEC_ARG} --bintool-dll ${TOOLSDIR}/binary/binarytool.so -o vss_rel_$$(cat VERSION).binary
+binary:
+	vspec export binary ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION).binary
 
 protobuf:
 	vspec export protobuf ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION).proto
 
 graphql:
 	vspec export graphql ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION).graphql.ts
+
+apigear:
+	vspec export apigear ${COMMON_ARGS} ${COMMON_VSPEC_ARG} --output-dir apigear
+	cd apigear && tar -czvf ../vss_rel_$$(cat ../VERSION)_apigear.tar.gz * && cd ..
+
+samm:
+	vspec export samm ${COMMON_ARGS} ${COMMON_VSPEC_ARG} --target-folder samm
+	cd samm && tar -czvf ../vss_rel_$$(cat ../VERSION)_samm.tar.gz * && cd ..
 
 # vspec2ttl does not use common generator framework
 ttl:
@@ -72,5 +77,6 @@ id:
 	vspec export id ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_rel_$$(cat VERSION).vspec
 
 clean:
-	cd ${TOOLSDIR}/binary && $(MAKE) clean
 	rm -f vss_rel_*
+	rm -rf apigear
+	rm -rf samm
