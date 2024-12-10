@@ -3,7 +3,7 @@
   <channel>
     <title>Data Entry :: Vehicle Signal Specification</title>
     <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</link>
-    <description>Leaf nodes of the tree contain metadata describing the data associated to the node. In order to help application developers, who are using the specification, it makes a distinction between three types of signals - sensor, actuator - and attribute. The difference between sensors/actuators and attributes is that sensors/actuators typically have a publisher (or producer) that updates the signal value continuously when a change occur while an attribute has a set value that should typically not change more than once per ignition cycle.</description>
+    <description>Leaf nodes of the tree contain metadata describing the data associated to the node. In order to help application developers, who are using the specification, it makes a distinction between three types of signals:&#xA;sensor actuator attribute Examples and more information you’ll find in the Sensors, Actuators and Attributes chapter.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Aug 2019 12:37:31 +0200</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/index.html</link>
       <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/index.html</guid>
-      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry&#xA;Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.</description>
+      <description>In VSS each data entry (except branches and structs) must specify a datatype. It can be a primitive type, an array of a primitive type or a struct type.&#xA;This is the default datatype for the given entry. The VSS project typically selects datatype (and unit) so that values are easily understandable by humans, can cover a reasonable range and supports reasonable precision. An example is given below where Vehicle.Speed has been assigned the datatype float and the unit km/h.</description>
     </item>
     <item>
       <title>Struct Types</title>
@@ -30,18 +30,18 @@
       <description>Introduction to Data Units in VSS It is in VSS possible for signals to specify a unit of measurement from a list of predefined data units. For most signals in the VSS standard catalog, a data unit has been selected. A typical example is Vehicle.Speed, as shown below.&#xA;Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed.The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.</description>
     </item>
     <item>
-      <title>Sensors &amp; Actuators</title>
+      <title>Sensors, Actuators and Attributes</title>
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</guid>
       <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.&#xA;Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
     </item>
     <item>
-      <title>Attributes</title>
-      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/index.html</link>
+      <title>Default Values</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/default/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
-      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/index.html</guid>
-      <description>An attribute is an entity that has a default value, specified by its default member. The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle. If the standard defines a default value but it does not fit the actual vehicle, then the OEM must override the standard default value.</description>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/default/index.html</guid>
+      <description>VSS supports default values by the default attribute. The intention is to provide a mechanism to provide initial values for data entries already when loading a VSS catalog. This could typically be useful for attributes that never or rarely change, like vehicle VIN or vehicle color.&#xA;The standard Vehicle Signal Specification does not include default values for all attributes. If a default value has not been specified then the OEM must define a default value matching the actual vehicle, either by using the default concept, or by the same other mechanism.</description>
     </item>
     <item>
       <title>Value Restrictions</title>

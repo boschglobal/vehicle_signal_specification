@@ -31,20 +31,20 @@ Introduction VSS has historically supported only the following datatypes:
 Integer-based datatypes (e.g. uint8, int32) Float-based datatypes (float, double) String Boolean In addition to this VSS arrays of the datatypes given above has been supported. This has been considered insufficient for some use-cases. Typical examples are when something cannot be described by a single value, but multiple values are needed.">
     <meta itemprop="datePublished" content="2019-08-04T11:11:48+02:00">
     <meta itemprop="dateModified" content="2019-08-04T11:11:48+02:00">
-    <meta itemprop="wordCount" content="1683">
+    <meta itemprop="wordCount" content="1778">
     <title>Struct Types :: Vehicle Signal Specification</title><link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/nucleus.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fonts.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/theme.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1724166834" rel="stylesheet" id="R-variant-style">
-    <link href="/vehicle_signal_specification/css/chroma-learn.css?1724166834" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/vehicle_signal_specification/css/variant.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/print.css?1724166834" rel="stylesheet" media="print">
-    <script src="/vehicle_signal_specification/js/variant.js?1724166834"></script>
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/nucleus.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fonts.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/theme.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1733831988" rel="stylesheet" id="R-variant-style">
+    <link href="/vehicle_signal_specification/css/chroma-learn.css?1733831988" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/vehicle_signal_specification/css/variant.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/print.css?1733831988" rel="stylesheet" media="print">
+    <script src="/vehicle_signal_specification/js/variant.js?1733831988"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..';
@@ -84,10 +84,10 @@ Integer-based datatypes (e.g. uint8, int32) Float-based datatypes (float, double
     <li><a href="#naming-restrictions">Naming Restrictions</a></li>
     <li><a href="#simple-definition-and-usage">Simple Definition and Usage</a></li>
     <li><a href="#name-resolution">Name resolution</a></li>
-    <li><a href="#expectations-on-vss-implementations-eg-viss-kuksaval">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</a></li>
+    <li><a href="#expectations-on-vss-implementations-eg-viss-kuksa">Expectations on VSS implementations (e.g. VISS, KUKSA)</a></li>
     <li><a href="#array-support">Array Support</a>
       <ul>
-        <li><a href="#expectations-on-vss-implementations-eg-viss-kuksaval-1">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</a></li>
+        <li><a href="#expectations-on-vss-implementations-eg-viss-kuksaval">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</a></li>
       </ul>
     </li>
     <li><a href="#structure-in-structure">Structure in Structure</a></li>
@@ -211,32 +211,32 @@ This means that it theoretically at the same time could exist both a signal <cod
 This is not a problem as it always from context is clear whether a name refers to a signal or a datatype.</p>
 <h2 id="simple-definition-and-usage">Simple Definition and Usage</h2>
 <p>This could be a hypothetical content of a VSS datatype file</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Types:
-  type: branch
-
-Types.DeliveryInfo:
-  type: struct
-  description: A struct datatype containing info for each delivery
-
-Types.DeliveryInfo.Address:
-  datatype: string
-  type: property
-  description: Destination address
-
-Types.DeliveryInfo.Receiver:
-  datatype: string
-  type: property
-  description: Name of receiver</code></pre></div><p>This struct definition could then be referenced from the VSS signal tree</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Delivery:
-  datatype: Types.DeliveryInfo
-  type: sensor</code></pre></div><p>The datatype file may contain sub-branches and <code>#include</code>-statements just like regular VSS files</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Types:
-  type: branch
-
-Types.Powertrain:
-  type: branch
-  description: Powertrain datatypes.
-#include Powertrain/Powertrain.vspec Types.Powertrain</code></pre></div><h2 id="name-resolution">Name resolution</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Types</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Types.DeliveryInfo</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">struct</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A struct datatype containing info for each delivery</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Types.DeliveryInfo.Address</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Destination address</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Types.DeliveryInfo.Receiver</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Name of receiver</span></span></span></code></pre></div><p>This struct definition could then be referenced from the VSS signal tree</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Delivery</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">Types.DeliveryInfo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span></span></span></code></pre></div><p>The datatype file may contain sub-branches and <code>#include</code>-statements just like regular VSS files</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Types</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Types.Powertrain</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Powertrain datatypes.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include Powertrain/Powertrain.vspec Types.Powertrain</span></span></span></code></pre></div><h2 id="name-resolution">Name resolution</h2>
 <p>Two ways of referring to a datatype are considered correct:</p>
 <p>In Datatype Tree:</p>
 <ul>
@@ -250,21 +250,21 @@ Types.Powertrain:
 <p>Relative paths (e.g. <code>../Powertrain.SomeStruct</code>) are not allowed.
 Structs in parent branches will not be visible, in those cases absolute path needs to be used instead.</p>
 <p><em>The reference by leaf name is applicable only for structs referencing other structs!</em></p>
-<h2 id="expectations-on-vss-implementations-eg-viss-kuksaval">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</h2>
+<h2 id="expectations-on-vss-implementations-eg-viss-kuksa">Expectations on VSS implementations (e.g. VISS, KUKSA)</h2>
 <p>It is expected of implementations to support atomic read/write/subscribe of complete signals defined with struct datatype.
 They may support read of parts of signal, e.g. <code>DeliveryList.Receiver</code></p>
 <h2 id="array-support">Array Support</h2>
 <p>It is allowed to use a struct type in an array</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>DeliveryList:
-  datatype: Types.DeliveryInfo[]
-  type: sensor
-  description: List of deliveries</code></pre></div><p>By default the array has an arbitrary number of element and may be empty.
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">DeliveryList</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">Types.DeliveryInfo[]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">List of deliveries</span></span></span></code></pre></div><p>By default the array has an arbitrary number of element and may be empty.
 If a fixed size array is wanted the keyword <code>arraysize</code> can be used to specify size:</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>DeliveryList:
-  datatype: Types.DeliveryInfo[]
-  arraysize: 5
-  type: sensor
-  description: List of deliveries</code></pre></div><h3 id="expectations-on-vss-implementations-eg-viss-kuksaval-1">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">DeliveryList</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">Types.DeliveryInfo[]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">arraysize</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">List of deliveries</span></span></span></code></pre></div><h3 id="expectations-on-vss-implementations-eg-viss-kuksaval">Expectations on VSS implementations (e.g. VISS, KUKSA.val)</h3>
 <p>For array datatypes (like above) VSS implementations may support several mechanisms</p>
 <ul>
 <li>It is expected that they can support read/write/subscribe of the whole array, i.e. write all or read all in the same request</li>
@@ -278,76 +278,101 @@ If a fixed size array is wanted the keyword <code>arraysize</code> can be used t
 </ul>
 <h2 id="structure-in-structure">Structure in Structure</h2>
 <p>It is allowed to refer to a structure datatype from within a structure</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>OpenHours:
-  type: struct
-  description: A struct datatype containing information on open hours
-
-OpenHours.Open:
-  datatype: uint8
-  type: property
-  max: 24
-  description: Time the address opens
-
-OpenHours.Close:
-  datatype: uint8
-  type: property
-  max: 24
-  description: Time the address close
-
-DeliveryInfo:
-  type: struct
-  description: A struct datatype containing info for each delivery
-
-DeliveryInfo.Address:
-  datatype: string
-  type: property
-  description: Destination address
-
-DeliveryInfo.Receiver:
-  datatype: string
-  type: property
-  description: Name of receiver
-
-DeliveryInfo.Open:
-  datatype: OpenHours
-  type: property
-  description: When is receiver available</code></pre></div><h2 id="order-of-declarationdefinition">Order of declaration/definition</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">OpenHours</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">struct</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A struct datatype containing information on open hours</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">OpenHours.Open</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">max</span>: <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Time the address opens</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">OpenHours.Close</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">max</span>: <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Time the address close</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">DeliveryInfo</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">struct</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A struct datatype containing info for each delivery</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">DeliveryInfo.Address</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Destination address</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">DeliveryInfo.Receiver</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Name of receiver</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">DeliveryInfo.Open</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">OpenHours</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">When is receiver available</span></span></span></code></pre></div><h2 id="order-of-declarationdefinition">Order of declaration/definition</h2>
 <p>The order of declaration/definition shall not matter.
 As signals and datatypes are defined in different trees this is a topic only for struct definitions referring to other struct definitions.
 A hypothetical example is shown below. An item in the struct <code>DeliveryInfo</code> can refer to the struct <code>OpenHours</code> even if that struct
 is defined further down in the same file.
-If using <code>-vt &lt; file&gt;</code> multiple times all files except the first will be treated similar to overlays.
+If using <code>--types &lt;file&gt;</code> multiple times all files except the first will be treated similar to overlays.
 This means that is allowed to define <code>A.B.C</code> in multiple files, but then subsequent (re-)definitions will overwrite
-what has been defined previously.</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>DeliveryInfo:
-  type: struct
-  description: A struct datatype containing info for each delivery
-
-...
-
-DeliveryInfo.Open:
-  datatype: OpenHours
-  type: property
-  description: When is receiver available
-
-OpenHours:
-  type: struct
-  description: A struct datatype containing information on open hours
-
-...</code></pre></div><h2 id="inline-struct">Inline Struct</h2>
+what has been defined previously. Note that if type files want to use structs from other files that the dependent
+files are specified first. Therefore the order of given type files matters.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">DeliveryInfo</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">struct</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A struct datatype containing info for each delivery</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">DeliveryInfo.Open</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">OpenHours</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">property</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">When is receiver available</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">OpenHours</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">struct</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">A struct datatype containing information on open hours</span></span></span></code></pre></div><h2 id="inline-struct">Inline Struct</h2>
 <p>Inline/anonymous structs are not allowed!</p>
 <h2 id="default-values">Default Values</h2>
-<p>VSS supports <a href="/vehicle_signal_specification/rule_set/data_entry/attributes/">default values</a>.</p>
-<p>Default values are not allowed for signals of struct datatype.
-This also mean that VSS does not need to specify notation for struct values.
-An exception is arrays of struct-datatypes, where &ldquo;empty array&rdquo;, i.e. <code>[]</code> shall be supported as default value.</p>
-<p>It shall be possible to define default values for properties (unless the item is of struct datatype).
+<p>VSS supports <a href="/vehicle_signal_specification/rule_set/data_entry/default/">default values</a>.</p>
+<p>Default values are also allowed for signals of struct datatype.</p>
+<p>It is also possible to define default values for properties.
 If all items of a struct datatype have default values,
 then a signal (or item) using the struct datatype is also considered to have a default value.</p>
+<p>Default values are given in Yaml syntax, two examples are given below</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ReturnAddress</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">Types.DeliveryInfo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Where to send returns</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Address</span>: <span style="color:#e6db74">&#34;221B Baker Street&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Receiver</span>: <span style="color:#e6db74">&#34;Sherlock Holmes&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Open</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">Open</span>: <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">Close</span>: <span style="color:#ae81ff">17</span></span></span></code></pre></div><div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ReturnAddresses</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">Types.DeliveryInfo[]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Where to send returns</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Address</span>: <span style="color:#e6db74">&#34;221B Baker Street&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Receiver</span>: <span style="color:#e6db74">&#34;Sherlock Holmes&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Open</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">Open</span>: <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">Close</span>: <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">Address</span>: <span style="color:#e6db74">&#34;742 Evergreen Terrace&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Receiver</span>: <span style="color:#e6db74">&#34;Homer Simpson&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Open</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">Open</span>: <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">Close</span>: <span style="color:#ae81ff">16</span></span></span></code></pre></div><p>As a special case, <code>[]</code> can be used as default value to denote an empty array.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">DeliveryAddresses</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">Types.DeliveryInfo[]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensors</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">List of deliveries</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default</span>: []</span></span></code></pre></div><p>It is also possible to use JSON syntax to specify default values for structs.</p>
 <h2 id="allowed-values">Allowed Values</h2>
 <p>VSS supports <a href="/vehicle_signal_specification/rule_set/data_entry/allowed/">specification of allowed values</a>.</p>
 <p>Using <code>allowed</code> for <code>type: property</code> is allowed (if <code>allowed</code> is supported for the used datatype).
-Using <code>allowed</code> for signals and items of struct datatype or array of struct datatype is not allowed.</p>
+Using <code>allowed</code> for signals and items of struct datatype or array of struct datatype is allowed.</p>
 
             <footer class="footline">
             </footer>
@@ -376,12 +401,12 @@ Using <code>allowed</code> for signals and items of struct datatype or array of 
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/vehicle_signal_specification/js/auto-complete.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/search.js?1724166834" defer></script>
+        <script src="/vehicle_signal_specification/js/auto-complete.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/search.js?1733831988" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -400,12 +425,14 @@ Using <code>allowed</code> for signals and items of struct datatype or array of 
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html">Datatypes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html" class="active"><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html">Struct Types</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html">Data Units</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors &amp; Actuators</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/attributes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/attributes/index.html">Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors, Actuators and Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/default/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/default/index.html">Default Values</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html">Value Restrictions</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/instances/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/instances/index.html">Instances</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/includes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/includes/index.html">Includes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/overlay/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/overlay/index.html">Overlay</a></li></ul></li>
+          <li data-nav-id="/vehicle_signal_specification/catalog/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/index.html">VSS Catalog</a><ul id="R-subsections-665f6cae1c56b0dcfe0d69bfe3f4be93" class="morespace collapsible-menu">
+          <li data-nav-id="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html">Vehicle Motion Management</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/license/index.html" class=""><a class="padding" href="/vehicle_signal_specification/license/index.html">License</a></li>
           <li data-nav-id="/vehicle_signal_specification/ecosystem/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/index.html">Ecosystem</a><ul id="R-subsections-30d29cf6aaa7fb1e0e056430337d3cd8" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/ecosystem/tools/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/tools/index.html">Official VSS-Tools</a></li>
@@ -474,7 +501,7 @@ Using <code>allowed</code> for signals and items of struct datatype or array of 
     
     <a class="github-button" href="https://github.com/covesa/vehicle_signal_specification/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
 
-    Latest Released Version: 4.0
+    Latest Released Version: 5.0
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -483,8 +510,8 @@ Using <code>allowed</code> for signals and items of struct datatype or array of 
         </div>
       </div>
     </aside>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1724166834" defer></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1724166834" defer></script>
-    <script src="/vehicle_signal_specification/js/theme.js?1724166834" defer></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1733831988" defer></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1733831988" defer></script>
+    <script src="/vehicle_signal_specification/js/theme.js?1733831988" defer></script>
   </body>
 </html>

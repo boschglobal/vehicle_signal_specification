@@ -20,14 +20,14 @@
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/index.html</link>
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/index.html</guid>
-      <description>A branch entry describes a tree branch (or node) containing other branches and signals.&#xA;A branch entry example is given below:&#xA;Trunk: type: branch description: All signals related to the rear trunk aggregate: falseThe following elements are defined:&#xA;Body.Trunk The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.&#xA;type The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
+      <description>A branch entry describes a tree branch (or node) containing other branches and signals.&#xA;A branch entry example is given below:&#xA;Vehicle.Trunk: type: branch description: All signals related to the rear trunk aggregate: falseEach data entry has a name, in the example above Vehicle.Trunk. VSS use a dot-notated name style where the full path of a branch consists of all parent branches from the root node separated by dots and at the end the name of the current branch.</description>
     </item>
     <item>
       <title>Data Entry</title>
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</link>
       <pubDate>Sun, 04 Aug 2019 11:11:30 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/index.html</guid>
-      <description>Leaf nodes of the tree contain metadata describing the data associated to the node. In order to help application developers, who are using the specification, it makes a distinction between three types of signals - sensor, actuator - and attribute. The difference between sensors/actuators and attributes is that sensors/actuators typically have a publisher (or producer) that updates the signal value continuously when a change occur while an attribute has a set value that should typically not change more than once per ignition cycle.</description>
+      <description>Leaf nodes of the tree contain metadata describing the data associated to the node. In order to help application developers, who are using the specification, it makes a distinction between three types of signals:&#xA;sensor actuator attribute Examples and more information you’ll find in the Sensors, Actuators and Attributes chapter.</description>
     </item>
     <item>
       <title>Instances</title>

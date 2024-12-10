@@ -27,20 +27,20 @@ Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle spee
 Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle speed.The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units, or a unit commonly used within the vehicle industry.">
     <meta itemprop="datePublished" content="2019-08-04T12:36:12+02:00">
     <meta itemprop="dateModified" content="2019-08-04T12:36:12+02:00">
-    <meta itemprop="wordCount" content="1619">
+    <meta itemprop="wordCount" content="1573">
     <title>Data Units :: Vehicle Signal Specification</title><link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/nucleus.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fonts.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/theme.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1724166834" rel="stylesheet" id="R-variant-style">
-    <link href="/vehicle_signal_specification/css/chroma-learn.css?1724166834" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/vehicle_signal_specification/css/variant.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/print.css?1724166834" rel="stylesheet" media="print">
-    <script src="/vehicle_signal_specification/js/variant.js?1724166834"></script>
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/nucleus.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fonts.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/theme.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1733831988" rel="stylesheet" id="R-variant-style">
+    <link href="/vehicle_signal_specification/css/chroma-learn.css?1733831988" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/vehicle_signal_specification/css/variant.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/print.css?1733831988" rel="stylesheet" media="print">
+    <script src="/vehicle_signal_specification/js/variant.js?1733831988"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..';
@@ -108,7 +108,7 @@ Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle spee
             </div>
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html" title="Struct Types (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" title="Sensors &amp; Actuators (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" title="Sensors, Actuators and Attributes (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -133,18 +133,19 @@ Vehicle.Speed: datatype: float type: sensor unit: km/h description: Vehicle spee
 <h2 id="introduction-to-data-units-in-vss">Introduction to Data Units in VSS</h2>
 <p>It is in VSS possible for signals to specify a unit of measurement from a list of predefined data units.
 For most signals in the VSS standard catalog, a data unit has been selected. A typical example is <code>Vehicle.Speed</code>, as shown below.</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Vehicle.Speed:
-  datatype: float
-  type: sensor
-  unit: km/h
-  description: Vehicle speed.</code></pre></div><p>The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units,
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Speed</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">float</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">km/h</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Vehicle speed.</span></span></span></code></pre></div><p>The ambition when selecting data unit for signals in VSS standard catalog has been to use either a unit based on SI-units,
 or a unit commonly used within the vehicle industry. For the <code>Vehicle.Speed</code> example above this means that <code>km/h</code> has been selected,
 even if <code>m/s</code> from an SI-perspective would have been a better choice.</p>
 <p>It must be noted that the selected unit does not imply that the value of <code>Vehicle.Speed</code> always needs to be sent or visualized
 as <code>km/h</code> (with float as datatype). A user interface or API may show or request vehicle speed in any unit it likes,
 and a transport protocol may send speed in another unit, possibly also involving scaling and offset.
 But in protocols not explicitly specifying data units (like <a href="https://raw.githack.com/w3c/automotive/gh-pages/spec/VISSv2_Core.html" rel="external" target="_blank">VISS</a>)
-it is expected that <code>Vehicle.Speed</code> is sent and received as <code>km/h</code> (without scaling or offset).</p>
+it is expected that <code>Vehicle.Speed</code> is sent and received as <code>km/h</code> (without scaling or offset).
+However since units define possible <code>allowed-datatypes</code> the given <code>datatype</code> has to match the allowed ones.</p>
 <p>VSS does not offer any syntax for defining alternative units for a specific signal.
 The VSS project has specified for all units a corresponding quantity e.g. <code>velocity</code> for <code>km/h</code>.
 An API may use the quantity information to identify alternative units that can be used to represent the signal.
@@ -152,36 +153,36 @@ The VSS list of units does not specify conversion factors, so even if VSS list b
 the quantity <code>velocity</code>, it is not specified how they relate to each other.</p>
 <p>In some cases it is natural to omit the data unit. This concerns typically signals where datatype <code>string</code> is used,
 but also signals where the value just represents a number (dimensionless quantities), like in the example below:</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Vehicle.Cabin.DoorCount:
-  datatype: uint8
-  type: attribute
-  default: 4
-  description: Number of doors in vehicle.</code></pre></div><h3 id="logical-data-units">Logical Data Units</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Cabin.DoorCount</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">default</span>: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Number of doors in vehicle.</span></span></span></code></pre></div><h3 id="logical-data-units">Logical Data Units</h3>
 <p>VSS supports <code>percent</code> as data unit, typically with 0 to 100% as the allowed range.
 In some cases, the definition on how to calculate the signal value is obvious, like for <code>Vehicle.Powertrain.FuelSystem.Level</code>
 below. It is likely that all VSS users will calculate fuel level in the same way, i.e. the meaning of a fuel level of 50%
 is well agreed, the liters of fuel in the tank is exactly 50% of nominal capacity.</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Vehicle.Powertrain.FuelSystem.Level:
-  datatype: uint8
-  type: sensor
-  unit: percent
-  min: 0
-  max: 100
-  description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.</code></pre></div><p>In other cases, the formula for calculating the signal is not obvious and is not specified in VSS. A typical example is shown below for clutch wear.
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Powertrain.FuelSystem.Level</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">percent</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">min</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">max</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Level in fuel tank as percent of capacity. 0 = empty. 100 = full.</span></span></span></code></pre></div><p>In other cases, the formula for calculating the signal is not obvious and is not specified in VSS. A typical example is shown below for clutch wear.
 While most VSS users likely can agree that a brand new clutch shall have 0 as &ldquo;ClutchWear&rdquo;,
 the exact formula for calculating clutch wear for a used clutch will likely be vehicle specific.
 Some vehicles might monitor actual wear, others might estimate it based on vehicle usage.
 This is in VSS called a logical range, a VSS user knows what range to use but are free to define the formula for calculating the value.
 Values from different vehicles (of different make/model) can not always be compared, as the formula used for calculation may differ.</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>Vehicle.Powertrain.Transmission.ClutchWear:
-  datatype: uint8
-  type: sensor
-  unit: percent
-  max: 100
-  description: Clutch wear as percent. 0 = no wear. 100 = worn.</code></pre></div><h2 id="supported-data-units-in-vss-standard-catalog">Supported Data Units in VSS Standard Catalog</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Powertrain.Transmission.ClutchWear</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">percent</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">max</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Clutch wear as percent. 0 = no wear. 100 = worn.</span></span></span></code></pre></div><h2 id="supported-data-units-in-vss-standard-catalog">Supported Data Units in VSS Standard Catalog</h2>
 <p>The VSS syntax does not in itself specify what units can be used, the unit attribute as declared for signals in *.vspec files is optional and can contain an arbitrary string value.
-<a href="https://github.com/COVESA/vss-tools" rel="external" target="_blank">VSS-Tools</a> however require that all units used are defined,
-and at is also a requirement for signals in the VSS standard catalog.
+<a href="https://github.com/COVESA/vss-tools" rel="external" target="_blank">VSS-Tools</a> however require that all units used are defined
+and therefore is also a requirement for signals in the VSS standard catalog.
 Units are defined by including them in a unit file with syntax as described below.
 One or more unit files can be specified by the <code>-u</code> parameter and, if not given, the tools search for a file <code>units.yaml</code>
 in the same directory as the root *.vspec file.</p>
@@ -214,17 +215,17 @@ However, from a VSS perspective quantities do not need to correspond to physical
 It could be an arbitrary term, but it is generally expected that it is possible to convert between values
 using different units but defined with the same quantity.</p>
 <p>Example:</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>m:
-  definition: Length measured in meters
-  unit: meter
-  quantity: length
-  allowed-datatypes: [&#39;numeric&#39;]
-
-mm:
-  definition: Length measured in millimeters
-  unit: millimeter
-  quantity: length
-  allowed-datatypes: [&#39;numeric&#39;]</code></pre></div><p>As <code>m</code> and <code>mm</code> are defined with the same quantity it is expected that you can convert a value from <code>m</code> to <code>mm</code>.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">m</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">definition</span>: <span style="color:#ae81ff">Length measured in meters</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">meter</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">quantity</span>: <span style="color:#ae81ff">length</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">allowed-datatypes</span>: [<span style="color:#e6db74">&#39;numeric&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">mm</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">definition</span>: <span style="color:#ae81ff">Length measured in millimeters</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">millimeter</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">quantity</span>: <span style="color:#ae81ff">length</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">allowed-datatypes</span>: [<span style="color:#e6db74">&#39;numeric&#39;</span>]</span></span></code></pre></div><p>As <code>m</code> and <code>mm</code> are defined with the same quantity it is expected that you can convert a value from <code>m</code> to <code>mm</code>.</p>
 <p>The <code>allowed-datatypes</code> attributes can be used to specify which VSS datatypes can contain values of a particular unit.
 For most units the symbolic datatype <code>numeric</code> meaning any float or integer datatype can be used.
 As an example, both <code>uint8</code> and <code>float</code> can be used to represent a length value.
@@ -237,24 +238,16 @@ For some units more specific datatype restrictions are relevant. Some examples:<
 <p>The <code>deprecation</code> keyword can be used to indicate that a specific unit may be removed in the future.
 Tooling shall preferably give a warning if a signal uses a deprecated unit or the unit used belongs to a deprecated quantity.
 The reason should preferably list when and why the unit is deprecated, a hypothetical example is given below:</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>  inch:
-    definition: Distance measured in inches
-    unit: inch
-    quantity: distance
-    deprecation: V5.0 replaced by &#39;in&#39;
-  in:
-    definition: Distance measured in inches
-    unit: inch
-    quantity: distance</code></pre></div><p>The unit syntax has recently been changed. To simplify transition to the new syntax it is recommended that
-tooling also supports unit files using the old syntax described below.</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>units:
-  [
-    &lt;vss-unit-identifier&gt;: # Typically unit abbreviation, like km/h or mm, but
-      label: &lt;string&gt; # Replaced with &#34;unit&#34;
-      description: &lt;string&gt; # Replaced with &#34;definition&#34;
-      quantity: &lt;string&gt;
-  ]*</code></pre></div><h2 id="quantity-file-syntax">Quantity file syntax</h2>
-<p>Defining quantities is recommended, but currently optional for backward compatibility reasons.
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">inch</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">definition</span>: <span style="color:#ae81ff">Distance measured in inches</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">inch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">quantity</span>: <span style="color:#ae81ff">distance</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">deprecation</span>: <span style="color:#ae81ff">V5.0 replaced by &#39;in&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">in</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">definition</span>: <span style="color:#ae81ff">Distance measured in inches</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">inch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">quantity</span>: <span style="color:#ae81ff">distance</span></span></span></code></pre></div><h2 id="quantity-file-syntax">Quantity file syntax</h2>
+<p>Defining of quantities is required.
 If tooling supports quantity files it can verify that all units provided in unit files
 use defined quantities.
 For the VSS standard catalog it is required that matching quantities have been defined for all units.</p>
@@ -279,11 +272,11 @@ Then you could add an additional unit <code>furlong</code>. No need to specify <
 As this unit is not commonly used and not described in any standards, it might be relevant to describe how it can be converted to other units.
 That is however only informative, as it a custom unit a downstream implementation supporting unit conversion may not support automatic conversion
 of furlong to other units.</p>
-<div class="highlight wrap-code"><pre tabindex="0"><code>units:
-  furlong:
-    definition: Length measured in furlong, 1 furlong equals 201.1680 m
-    quantity: length
-    allowed-datatypes: [&#39;numeric&#39;]</code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">units</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">furlong</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">definition</span>: <span style="color:#ae81ff">Length measured in furlong, 1 furlong equals 201.1680 m</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">quantity</span>: <span style="color:#ae81ff">length</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">allowed-datatypes</span>: [<span style="color:#e6db74">&#39;numeric&#39;</span>]</span></span></code></pre></div>
             <footer class="footline">
             </footer>
           </article>
@@ -311,12 +304,12 @@ of furlong to other units.</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/vehicle_signal_specification/js/auto-complete.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/search.js?1724166834" defer></script>
+        <script src="/vehicle_signal_specification/js/auto-complete.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/search.js?1733831988" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -335,12 +328,14 @@ of furlong to other units.</p>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html">Datatypes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html">Struct Types</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html" class="active"><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html">Data Units</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors &amp; Actuators</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/attributes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/attributes/index.html">Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors, Actuators and Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/default/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/default/index.html">Default Values</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html">Value Restrictions</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/instances/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/instances/index.html">Instances</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/includes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/includes/index.html">Includes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/overlay/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/overlay/index.html">Overlay</a></li></ul></li>
+          <li data-nav-id="/vehicle_signal_specification/catalog/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/index.html">VSS Catalog</a><ul id="R-subsections-665f6cae1c56b0dcfe0d69bfe3f4be93" class="morespace collapsible-menu">
+          <li data-nav-id="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html">Vehicle Motion Management</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/license/index.html" class=""><a class="padding" href="/vehicle_signal_specification/license/index.html">License</a></li>
           <li data-nav-id="/vehicle_signal_specification/ecosystem/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/index.html">Ecosystem</a><ul id="R-subsections-30d29cf6aaa7fb1e0e056430337d3cd8" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/ecosystem/tools/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/tools/index.html">Official VSS-Tools</a></li>
@@ -409,7 +404,7 @@ of furlong to other units.</p>
     
     <a class="github-button" href="https://github.com/covesa/vehicle_signal_specification/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
 
-    Latest Released Version: 4.0
+    Latest Released Version: 5.0
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -418,8 +413,8 @@ of furlong to other units.</p>
         </div>
       </div>
     </aside>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1724166834" defer></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1724166834" defer></script>
-    <script src="/vehicle_signal_specification/js/theme.js?1724166834" defer></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1733831988" defer></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1733831988" defer></script>
+    <script src="/vehicle_signal_specification/js/theme.js?1733831988" defer></script>
   </body>
 </html>

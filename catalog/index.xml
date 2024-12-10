@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VSS Catalog :: Vehicle Signal Specification</title>
+    <link>https://covesa.github.io/vehicle_signal_specification/catalog/index.html</link>
+    <description>The source for the COVESA VSS Catalog can be found in *.vspec files in the COVESA VSS Repository. Released versions of the catalog in various formats can be found at release artifacts.&#xA;Each signal in the VSS catalog has a description field and they may have a comment field. In some cases that is not sufficient to explain the rationale for the signal and how it is intended to be used.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Aug 2019 12:46:30 +0200</lastBuildDate>
+    <atom:link href="https://covesa.github.io/vehicle_signal_specification/catalog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vehicle Motion Management</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/catalog/vehicle_motion_management/index.html</link>
+      <pubDate>Sun, 04 Aug 2019 12:46:30 +0200</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/catalog/vehicle_motion_management/index.html</guid>
+      <description>Introduction In modern vehicles multiple electronic controlled systems are interacting to realize the overall vehicle motion in all physical directions. Typically, the driver gives input e.g. using the steering wheel and the accelerator and brake pedals, but additional vehicle functions may have also requests towards the motion actuators. One example is that a traction control system may want to limit the performance due to slippery road conditions or that the emergency braking system requests braking.</description>
+    </item>
+  </channel>
+</rss>

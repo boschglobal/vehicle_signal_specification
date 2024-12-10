@@ -5,42 +5,42 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.129.0">
     <meta name="generator" content="Relearn 6.0.0">
-    <meta name="description" content="Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.">
+    <meta name="description" content="In VSS each data entry (except branches and structs) must specify a datatype. It can be a primitive type, an array of a primitive type or a struct type.
+This is the default datatype for the given entry. The VSS project typically selects datatype (and unit) so that values are easily understandable by humans, can cover a reasonable range and supports reasonable precision. An example is given below where Vehicle.Speed has been assigned the datatype float and the unit km/h.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Datatypes :: Vehicle Signal Specification">
-    <meta name="twitter:description" content="Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.">
+    <meta name="twitter:description" content="In VSS each data entry (except branches and structs) must specify a datatype. It can be a primitive type, an array of a primitive type or a struct type.
+This is the default datatype for the given entry. The VSS project typically selects datatype (and unit) so that values are easily understandable by humans, can cover a reasonable range and supports reasonable precision. An example is given below where Vehicle.Speed has been assigned the datatype float and the unit km/h.">
     <meta property="og:url" content="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/index.html">
     <meta property="og:site_name" content="Vehicle Signal Specification">
     <meta property="og:title" content="Datatypes :: Vehicle Signal Specification">
-    <meta property="og:description" content="Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.">
+    <meta property="og:description" content="In VSS each data entry (except branches and structs) must specify a datatype. It can be a primitive type, an array of a primitive type or a struct type.
+This is the default datatype for the given entry. The VSS project typically selects datatype (and unit) so that values are easily understandable by humans, can cover a reasonable range and supports reasonable precision. An example is given below where Vehicle.Speed has been assigned the datatype float and the unit km/h.">
     <meta property="og:locale" content="en-us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Rule Set">
     <meta property="article:published_time" content="2019-08-04T11:11:48+02:00">
     <meta property="article:modified_time" content="2019-08-04T11:11:48+02:00">
     <meta itemprop="name" content="Datatypes :: Vehicle Signal Specification">
-    <meta itemprop="description" content="Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used for branch entry
-Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int8 signed 8-bit integer -128 127 uint16 unsigned 16-bit integer 0 65535 int16 signed 16-bit integer -32768 32767 uint32 unsigned 32-bit integer 0 4294967295 int32 signed 32-bit integer -2147483648 2147483647 uint64 unsigned 64-bit integer 0 2^64 - 1 int64 signed 64-bit integer -2^63 2^63 - 1 boolean boolean value 0/false 1/true float IEEE 754-2008 binary32 floating point number -3.">
+    <meta itemprop="description" content="In VSS each data entry (except branches and structs) must specify a datatype. It can be a primitive type, an array of a primitive type or a struct type.
+This is the default datatype for the given entry. The VSS project typically selects datatype (and unit) so that values are easily understandable by humans, can cover a reasonable range and supports reasonable precision. An example is given below where Vehicle.Speed has been assigned the datatype float and the unit km/h.">
     <meta itemprop="datePublished" content="2019-08-04T11:11:48+02:00">
     <meta itemprop="dateModified" content="2019-08-04T11:11:48+02:00">
-    <meta itemprop="wordCount" content="439">
+    <meta itemprop="wordCount" content="746">
     <title>Datatypes :: Vehicle Signal Specification</title><link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/nucleus.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fonts.css?1724166834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1724166834" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/theme.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1724166834" rel="stylesheet" id="R-variant-style">
-    <link href="/vehicle_signal_specification/css/chroma-learn.css?1724166834" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/vehicle_signal_specification/css/variant.css?1724166834" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/print.css?1724166834" rel="stylesheet" media="print">
-    <script src="/vehicle_signal_specification/js/variant.js?1724166834"></script>
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/nucleus.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fonts.css?1733831988" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1733831988" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/theme.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1733831988" rel="stylesheet" id="R-variant-style">
+    <link href="/vehicle_signal_specification/css/chroma-learn.css?1733831988" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/vehicle_signal_specification/css/variant.css?1733831988" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/print.css?1733831988" rel="stylesheet" media="print">
+    <script src="/vehicle_signal_specification/js/variant.js?1733831988"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..\/..';
@@ -118,8 +118,40 @@ Supported datatypes Name Datatype Min Max uint8 unsigned 8-bit integer 0 255 int
 
 <h1 id="datatypes">Datatypes</h1>
 
-<p>Each <a href="/vehicle_signal_specification/rule_set/data_entry/">data entry</a> specifies a <code>datatype</code> from the following set (from Franca IDL).
-Datatypes shall not be used for <a href="/vehicle_signal_specification/rule_set/branches/">branch entry</a></p>
+<p>In VSS each <a href="/vehicle_signal_specification/rule_set/data_entry/">data entry</a> (except branches and structs) must specify a <code>datatype</code>.
+It can be a primitive type, an array of a primitive type or a struct type.</p>
+<p>This is the default datatype for the given entry.
+The VSS project typically selects datatype (and unit) so that values are easily understandable by humans,
+can cover a reasonable range and supports reasonable precision.
+An example is given below where <code>Vehicle.Speed</code> has been assigned the datatype <code>float</code> and the unit <code>km/h</code>.</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Vehicle.Speed:
+  datatype: float
+  type: sensor
+  unit: km/h
+  description: Vehicle speed.</code></pre></div><p>The meaning of this is that unless otherwise specified (by an API), the value is supposed to be given as a decimal number with km/h as unit.
+An example from <a href="https://github.com/COVESA/vehicle-information-service-specification" rel="external" target="_blank">VISS</a> is given below, showing how the speed 123.45 km/h is returned As <code>&quot;123.45&quot;</code>.</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>HTTP/1.1 200 OK
+            Content-Type: application/json; charset=utf-8
+	    ...
+            {
+              “data”:{“path”:”Vehicle.Speed”,
+                      “dp”:{“value”:”123.45”, “ts”:”2020-04-15T13:37:00Z”}
+                     }
+            }</code></pre></div><p>Another example is the <a href="https://github.com/eclipse-kuksa/kuksa-python-sdk" rel="external" target="_blank">Kuksa Client</a> where values are to be given in the unit and datatype specified by VSS.</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code>Test Client&gt; setValue Vehicle.Speed 43.2
+2024-10-18 16:12:54,307 INFO kuksa_client.grpc.aio: Using v2
+OK
+
+Test Client&gt; getValue Vehicle.Speed
+{
+    &#34;path&#34;: &#34;Vehicle.Speed&#34;,
+    &#34;value&#34;: {
+        &#34;value&#34;: 43.20000076293945,
+        &#34;timestamp&#34;: &#34;2024-10-18T14:12:54.314814+00:00&#34;
+    }
+}</code></pre></div><p>It is <em>not</em> mandatory for an implementation, protocol or an API to use the datatype and unit specified by the COVESA VSS catalog.
+A VSS entity can in a customized or extended VSS catalog, be annotated with information specifying that the data entry shall be transmitted or stored using a different datatype, possibly involving scaling and offset. An API may in addition or as replacement to the default datatype and offset allow the entity to be read or written using alternative representations or alternative units.</p>
+<p>It is however recommended that the default method to read or write a dataentry shall be based on the datatype and unit definined in the standard VSS catalog for signals definied in the standard VSS catalog, as there otherwise is a risk that the client and the server interpret the value differently.</p>
 <h2 id="supported-datatypes">Supported datatypes</h2>
 <table>
 <thead>
@@ -214,7 +246,7 @@ specified by VSS, that is to up to the Protocol/API/SDK implementing VSS support
 definition</em>, wherein it&rsquo;s specified. By default the size of the array is undefined.
 By the optional keyword <code>arraysize</code> the size of the array can be specified.
 The following syntax shall be used to declare an array:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#75715e"># Array of datatype uint32, by default size of the array is undefined</span>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Array of datatype uint32, by default size of the array is undefined</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">uint32[]</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Optional: specified number of elements in the array</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">arraysize</span>: <span style="color:#ae81ff">5</span></span></span></code></pre></div><p>An example for the usage of <code>arrays</code> is <code>Vehicle.OBD.DTCList</code> which contains a list
@@ -229,7 +261,7 @@ meta data about the sensor itself and how to retrieve the
 corresponding data stream.</p>
 <p>A camera can be a good example of it. The Data Entry for the camera
 and the corresponding video stream could look like:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span><span style="color:#f92672">Camera</span>:
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Camera</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">branch</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Information about the camera and how to connect to the video stream</span>
 </span></span><span style="display:flex;"><span>
@@ -274,12 +306,12 @@ the stream is expected.</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/vehicle_signal_specification/js/auto-complete.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1724166834" defer></script>
-        <script src="/vehicle_signal_specification/js/search.js?1724166834" defer></script>
+        <script src="/vehicle_signal_specification/js/auto-complete.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1733831988" defer></script>
+        <script src="/vehicle_signal_specification/js/search.js?1733831988" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -298,12 +330,14 @@ the stream is expected.</p>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html" class="active"><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html">Datatypes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html">Struct Types</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html">Data Units</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors &amp; Actuators</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/attributes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/attributes/index.html">Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors, Actuators and Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/default/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/default/index.html">Default Values</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html">Value Restrictions</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/instances/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/instances/index.html">Instances</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/includes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/includes/index.html">Includes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/overlay/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/overlay/index.html">Overlay</a></li></ul></li>
+          <li data-nav-id="/vehicle_signal_specification/catalog/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/index.html">VSS Catalog</a><ul id="R-subsections-665f6cae1c56b0dcfe0d69bfe3f4be93" class="morespace collapsible-menu">
+          <li data-nav-id="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html">Vehicle Motion Management</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/license/index.html" class=""><a class="padding" href="/vehicle_signal_specification/license/index.html">License</a></li>
           <li data-nav-id="/vehicle_signal_specification/ecosystem/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/index.html">Ecosystem</a><ul id="R-subsections-30d29cf6aaa7fb1e0e056430337d3cd8" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/ecosystem/tools/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/tools/index.html">Official VSS-Tools</a></li>
@@ -372,7 +406,7 @@ the stream is expected.</p>
     
     <a class="github-button" href="https://github.com/covesa/vehicle_signal_specification/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
 
-    Latest Released Version: 4.0
+    Latest Released Version: 5.0
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -381,8 +415,8 @@ the stream is expected.</p>
         </div>
       </div>
     </aside>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1724166834" defer></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1724166834" defer></script>
-    <script src="/vehicle_signal_specification/js/theme.js?1724166834" defer></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1733831988" defer></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1733831988" defer></script>
+    <script src="/vehicle_signal_specification/js/theme.js?1733831988" defer></script>
   </body>
 </html>
