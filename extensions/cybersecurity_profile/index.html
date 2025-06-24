@@ -5,30 +5,30 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.129.0">
     <meta name="generator" content="Relearn 6.0.0">
-    <meta name="description" content="Property Types Overview sensor type Sensors are properties that, from a VSS-perspective, are read-only. The values of a sensor property typically change over time and within an ignition cycle (i.e., a driving journey). Reading a sensor shall return the actual value of the related property (e.g., the current speed or the current position of the seat).
-actuator type Similarly, actuators are properties that, from a VSS-perspective, can be read and written.">
+    <meta name="description" content="This profile can be used to specify how VSS signals can be extended to include cybersecurity attibutes.
+Mapping Syntax The syntax for definition of a signal with cybersecurty attributes (in an overlay) is specified below.
+&lt;VSS Signal name&gt;: type: &lt;VSS type&gt; datatype: &lt;VSS datatype&gt; cybersecurity: [authentication: {true|false}] [encryption: {true|false}] [integrity_check: {true|false}] [impact_profiles: {[{motion|privacy|regulation|safety|operational}]}] Set authentication attribute to true if you need to ensure serialized data is being exchanged between trusted entities or prevent unauthorized access to serialized data during transmission.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Sensors, Actuators and Attributes :: Vehicle Signal Specification">
-    <meta name="twitter:description" content="Property Types Overview sensor type Sensors are properties that, from a VSS-perspective, are read-only. The values of a sensor property typically change over time and within an ignition cycle (i.e., a driving journey). Reading a sensor shall return the actual value of the related property (e.g., the current speed or the current position of the seat).
-actuator type Similarly, actuators are properties that, from a VSS-perspective, can be read and written.">
-    <meta property="og:url" content="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">
+    <meta name="twitter:title" content="Cybersecurity Profile :: Vehicle Signal Specification">
+    <meta name="twitter:description" content="This profile can be used to specify how VSS signals can be extended to include cybersecurity attibutes.
+Mapping Syntax The syntax for definition of a signal with cybersecurty attributes (in an overlay) is specified below.
+&lt;VSS Signal name&gt;: type: &lt;VSS type&gt; datatype: &lt;VSS datatype&gt; cybersecurity: [authentication: {true|false}] [encryption: {true|false}] [integrity_check: {true|false}] [impact_profiles: {[{motion|privacy|regulation|safety|operational}]}] Set authentication attribute to true if you need to ensure serialized data is being exchanged between trusted entities or prevent unauthorized access to serialized data during transmission.">
+    <meta property="og:url" content="https://covesa.github.io/vehicle_signal_specification/extensions/cybersecurity_profile/index.html">
     <meta property="og:site_name" content="Vehicle Signal Specification">
-    <meta property="og:title" content="Sensors, Actuators and Attributes :: Vehicle Signal Specification">
-    <meta property="og:description" content="Property Types Overview sensor type Sensors are properties that, from a VSS-perspective, are read-only. The values of a sensor property typically change over time and within an ignition cycle (i.e., a driving journey). Reading a sensor shall return the actual value of the related property (e.g., the current speed or the current position of the seat).
-actuator type Similarly, actuators are properties that, from a VSS-perspective, can be read and written.">
+    <meta property="og:title" content="Cybersecurity Profile :: Vehicle Signal Specification">
+    <meta property="og:description" content="This profile can be used to specify how VSS signals can be extended to include cybersecurity attibutes.
+Mapping Syntax The syntax for definition of a signal with cybersecurty attributes (in an overlay) is specified below.
+&lt;VSS Signal name&gt;: type: &lt;VSS type&gt; datatype: &lt;VSS datatype&gt; cybersecurity: [authentication: {true|false}] [encryption: {true|false}] [integrity_check: {true|false}] [impact_profiles: {[{motion|privacy|regulation|safety|operational}]}] Set authentication attribute to true if you need to ensure serialized data is being exchanged between trusted entities or prevent unauthorized access to serialized data during transmission.">
     <meta property="og:locale" content="en-us">
     <meta property="og:type" content="article">
-    <meta property="article:section" content="Rule Set">
-    <meta property="article:published_time" content="2019-08-04T12:37:03+02:00">
-    <meta property="article:modified_time" content="2019-08-04T12:37:03+02:00">
-    <meta itemprop="name" content="Sensors, Actuators and Attributes :: Vehicle Signal Specification">
-    <meta itemprop="description" content="Property Types Overview sensor type Sensors are properties that, from a VSS-perspective, are read-only. The values of a sensor property typically change over time and within an ignition cycle (i.e., a driving journey). Reading a sensor shall return the actual value of the related property (e.g., the current speed or the current position of the seat).
-actuator type Similarly, actuators are properties that, from a VSS-perspective, can be read and written.">
-    <meta itemprop="datePublished" content="2019-08-04T12:37:03+02:00">
-    <meta itemprop="dateModified" content="2019-08-04T12:37:03+02:00">
-    <meta itemprop="wordCount" content="1003">
-    <title>Sensors, Actuators and Attributes :: Vehicle Signal Specification</title><link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
+    <meta property="article:section" content="Extending and Customizing VSS">
+    <meta itemprop="name" content="Cybersecurity Profile :: Vehicle Signal Specification">
+    <meta itemprop="description" content="This profile can be used to specify how VSS signals can be extended to include cybersecurity attibutes.
+Mapping Syntax The syntax for definition of a signal with cybersecurty attributes (in an overlay) is specified below.
+&lt;VSS Signal name&gt;: type: &lt;VSS type&gt; datatype: &lt;VSS datatype&gt; cybersecurity: [authentication: {true|false}] [encryption: {true|false}] [integrity_check: {true|false}] [impact_profiles: {[{motion|privacy|regulation|safety|operational}]}] Set authentication attribute to true if you need to ensure serialized data is being exchanged between trusted entities or prevent unauthorized access to serialized data during transmission.">
+    <meta itemprop="wordCount" content="247">
+    <title>Cybersecurity Profile :: Vehicle Signal Specification</title><link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
     <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1750767937" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1750767937" rel="stylesheet"></noscript>
     <link href="/vehicle_signal_specification/css/nucleus.css?1750767937" rel="stylesheet">
@@ -43,8 +43,8 @@ actuator type Similarly, actuators are properties that, from a VSS-perspective, 
     <script src="/vehicle_signal_specification/js/variant.js?1750767937"></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.relBasePath='..\/..\/..';
-      window.relearn.relBaseUri='..\/..\/..\/..';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..\/..';
       window.relearn.absBaseUri='https:\/\/covesa.github.io\/vehicle_signal_specification';
       window.index_js_url="/vehicle_signal_specification/index.search.js";
       // variant stuff
@@ -60,7 +60,7 @@ actuator type Similarly, actuators are properties that, from a VSS-perspective, 
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/vehicle_signal_specification/extensions/cybersecurity_profile/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -73,14 +73,11 @@ actuator type Similarly, actuators are properties that, from a VSS-perspective, 
               <div class="topbar-content">
                 <div class="topbar-content-wrapper"><nav class="TableOfContents">
   <ul>
-    <li><a href="#sensor-type"><code>sensor</code> type</a></li>
-    <li><a href="#actuator-type"><code>actuator</code> type</a></li>
-    <li><a href="#attribute-type"><code>attribute</code> type</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#mandatory-data-entry-attributes">Mandatory Data Entry Attributes</a></li>
-    <li><a href="#optional-data-entry-attributes">Optional Data Entry Attributes</a></li>
+    <li><a href="#mapping-syntax">Mapping Syntax</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                 </div>
@@ -89,17 +86,16 @@ actuator type Similarly, actuators are properties that, from a VSS-perspective, 
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vehicle_signal_specification/index.html"><span itemprop="name">Vehicle Signal Specification</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vehicle_signal_specification/rule_set/index.html"><span itemprop="name">Rule Set</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vehicle_signal_specification/rule_set/data_entry/index.html"><span itemprop="name">Data Entry</span></a><meta itemprop="position" content="3">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Sensors, Actuators and Attributes</span><meta itemprop="position" content="4"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/vehicle_signal_specification/extensions/index.html"><span itemprop="name">Extending and Customizing VSS</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Cybersecurity Profile</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
 				
-            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/data_entry/sensor_actuator.md" target="_blank" title="Edit (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
+            <div class="topbar-button topbar-button-edit" data-content-empty="disable" data-width-s="area-more" data-width-m="show" data-width-l="show"><a class="topbar-control" href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/extensions/cybersecurity_profile.md" target="_blank" title="Edit (CTRL&#43;ALT&#43;w)"><i class="fa-fw fas fa-pen"></i></a>
             </div>
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html" title="Data Units (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/extensions/overlay/index.html" title="VSS Overlay Mechanism (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/rule_set/data_entry/default/index.html" title="Default Values (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/vehicle_signal_specification/extensions/network_serialization_profile/index.html" title="Network Serialization Profile (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -119,133 +115,41 @@ actuator type Similarly, actuators are properties that, from a VSS-perspective, 
             <header class="headline">
             </header>
 
-<h1 id="sensors-actuators-and-attributes">Sensors, Actuators and Attributes</h1>
+<h1 id="cybersecurity-profile">Cybersecurity Profile</h1>
 
-<h1 id="property-types-overview">Property Types Overview</h1>
-<h2 id="sensor-type"><code>sensor</code> type</h2>
-<p>Sensors are properties that, from a VSS-perspective, are read-only.
-The values of a <code>sensor</code> property typically change over time and within an ignition cycle (i.e., a driving journey).
-Reading a <code>sensor</code> shall return the actual value of the related property (e.g., the current speed or the current position of the seat).</p>
-<h2 id="actuator-type"><code>actuator</code> type</h2>
-<p>Similarly, actuators are properties that, from a VSS-perspective, can be read and written.
-Actuators in VSS can be used to represent both the actual value (i.e., read) and the desired value of a property (i.e., write).
-The value written to a property that involves a slow mechanical action or certain motion might not be immediately reflected in a read operation if the property value is read immediately after a write operation.
-Some properties like <code>Window.Position</code> or <code>Seat.Position</code> are clear examples of things that might not change instantly.
-Hence, the written value (i.e., the desired target) and actual value may differ.
-Unless otherwise specified it is assumed that APIs implementing access to VSS data shall return actual value for read/subscribe-operations,
-and update the desired value for write-operations.</p>
-<p>A typical example could be if someone wants to change the position of a seat from 0 to 100. This can be changed by setting the corresponding actuator to 100.
-If the actuator is read directly after the set request it will still return 0 as it might take some seconds before the seat reaches the wanted position of 100.
-If the seat by some reason is blocked or cannot be moved due to safety reasons it might never reach the wanted position.
-It is up to the vehicle to decide how long time it shall try to reach the desired value and what to do if it needs to give up.</p>
-<h2 id="attribute-type"><code>attribute</code> type</h2>
-<p>Attributes are properties whose values do not change within an ignition cycle (i.e., a driving journey).
-In other words, characteristics that are often static.
-For example, the color and model of a car.
-If a default value has not been specified, then the user of the specification must define the associated value matching the actual vehicle.
-For example, the specification might have the attribute <code>Brand</code> without a default value associated.
-Then, the user of the specification is responsible to assign <code>Some example brand</code> as the value for that attribute.
-If the standard defines a default value but it does not fit the actual vehicle,
-then the OEM must override the standard default value.</p>
-<p>Attribute values can also change, similar to sensor values.
-The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle.
-However, attribute values should typically not change more than once per ignition cycle,
-or else it should be defined as a sensor instead.</p>
-<h1 id="data-entry">Data Entry</h1>
-<p>A data entry for a signal defines its members. A data
-entry example is given below:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Speed</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">sensor</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">float</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unit</span>: <span style="color:#ae81ff">km/h</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Vehicle speed.</span></span></span></code></pre></div><p>Each data entry has a name, in the example above <code>Vehicle.Speed</code>.
-VSS use a dot-notated name style where the full path of a data entry consists of all parent branches from the root node separated by dots and at the end the name of the data entry itself. In the standard VSS catalog the root node is called <code>Vehicle</code>.</p>
-<p>When using <code>*.vspec</code> files to define a VSS catalog it is not necessary to give the full dot-notated name for each data-entry, as the
-<code>*.vspec</code> format supports <a href="/vehicle_signal_specification/rule_set/includes/index.html">includes</a> that can be used to append entries to a specific branch.</p>
-<p>In addition to <code>sensor</code>, <code>actuator</code>and <code>attribute</code> VSS also supports entries to describe <a href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/">struct data types</a>. The information on data entry attributes below is partially valid also for structs.</p>
-<h2 id="mandatory-data-entry-attributes">Mandatory Data Entry Attributes</h2>
-<p>This is the list of attributes that must be specified for every data entry.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>type</code></td>
-<td>Defines the type of the node. This can be <code>branch</code>, <code>sensor</code>, <code>actuator</code> or <code>attribute</code>.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>datatype</code></td>
-<td>Specifies the scalar type of the data entry value.  See <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">datatype</a> chapter for a list of available datatypes. Shall not be used for <code>branch</code> entries.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>Describes the meaning and content of the signal. The <code>description</code>shall together with other members like <code>datatype</code> and <code>unit</code> provide sufficient information to understand what the signal contains and how signal values shall be constructed or interpreted. Recommended to start with a capital letter and end with a dot (<code>.</code>).</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="optional-data-entry-attributes">Optional Data Entry Attributes</h2>
-<p>In additon to the mandatory attributes some optional attributes have been defined.
-There may be additional constraints on their usage not specified in the table below.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>comment</code></td>
-<td>A comment can be used to provide additional informal information on a signal. This could include background information on the rationale for the signal design, references to related signals, standards and similar. Recommended to start with a capital letter and end with a dot (<code>.</code>).</td>
-<td><em>since version 3.0</em></td>
-</tr>
-<tr>
-<td><code>min</code></td>
-<td>The minimum value, within the interval of the given <code>datatype</code>, that the data entry can be assigned. If omitted, the minimum value will be the &ldquo;Min&rdquo; value for the given datatype. Cannot be specified if <code>allowed</code> is defined for the same data entry.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>max</code></td>
-<td>The maximum value, within the interval of the given <code>datatype</code>, that the data entry can be assigned. If omitted, the maximum value will be the &ldquo;Max&rdquo; value for the given datatype. Cannot be specified if <code>allowed</code> is defined for the same data entry.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>unit</code></td>
-<td>The unit of measurement that the data entry has. See <a href="/vehicle_signal_specification/rule_set/data_entry/data_units/">Data Units</a> chapter for a list of available units. Cannot be specified if <code>allowed</code> is defined for the same data entry.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>pattern</code></td>
-<td>Can be used for datatype <code>string</code> and <code>string[]</code>  to specify a regular expression that limits allowed values for the data entry. The expression must be supported by <a href="https://docs.python.org/3/howto/regex.html" rel="external" target="_blank">Python Regular Expressions</a></td>
-<td><em>since version 6.0</em></td>
-</tr>
-<tr>
-<td><code>default</code></td>
-<td>Default value for the data entry. See <a href="/vehicle_signal_specification/rule_set/data_entry/default/">Default Values</a>.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>allowed</code></td>
-<td>Allowed values for the data entry. See <a href="/vehicle_signal_specification/rule_set/data_entry/allowed/">Allowed Values</a>.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>arraysize</code></td>
-<td>If the <code>datatype</code>is an array, this atrribute can be used to specify the size of the array. See <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/">datatype</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
+<p>This profile can be used to specify how VSS signals can be extended to include cybersecurity attibutes.</p>
+<h2 id="mapping-syntax">Mapping Syntax</h2>
+<p>The syntax for definition of a signal with cybersecurty attributes (in an overlay) is specified below.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">&lt;VSS Signal name&gt;</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">&lt;VSS type&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">&lt;VSS datatype&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cybersecurity</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[authentication</span>: {<span style="color:#66d9ef">true</span><span style="color:#ae81ff">|false}]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[encryption</span>: {<span style="color:#66d9ef">true</span><span style="color:#ae81ff">|false}]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[integrity_check</span>: {<span style="color:#66d9ef">true</span><span style="color:#ae81ff">|false}]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[impact_profiles</span>: {[{<span style="color:#ae81ff">motion|privacy|regulation|safety|operational}]}]</span></span></span></code></pre></div><ul>
+<li>Set <code>authentication</code> attribute to true if you need to ensure serialized data is being exchanged between trusted entities or prevent unauthorized access to serialized data during transmission. Sample implementation mechanisms are public-key infrastructure, token based authentication etc.</li>
+<li>Set <code>encryption</code> attribute to true to protect the confidentiality of serialized data or to ensure that even if serialized data is intercepted, it cannot be easily understood or misused. Sample implementation mechanisms are symmetric (e.g AES), asymetric (e.g RSA) or end-to-end encryption.</li>
+<li>Set <code>integrity_check</code> attribute to detect and prevent unauthorized alterations to serialized data or to maintain the accuracy and reliability of data as it is transmitted or stored. Sample implementation mechanisms are checksums, counters, hash based, message authentication codes etc</li>
+<li><code>impact_profiles</code> attribute indicate set of impact profiles that assess potential consequences of security issues. Possible values include:
+<ul>
+<li><code>motion</code>: Impact on vehicle movement or control systems.</li>
+<li><code>privacy</code>: Impact on the privacy of individuals and data protection.</li>
+<li><code>regulation</code>: Impact related to regulatory compliance and legal issues.</li>
+<li><code>safety</code>: Impact on personal safety and potential physical harm.</li>
+<li><code>operational</code>: Impact on system functionality and service availability.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Vehicle.Body.Mirrors.DriverSide.Tilt</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">int8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">actuator</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cybersecurity</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">authentication</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">encryption</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">integrity</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">impact_profiles</span>: [<span style="color:#ae81ff">operational]</span></span></span></code></pre></div>
             <footer class="footline">
             </footer>
           </article>
@@ -290,23 +194,23 @@ There may be additional constraints on their usage not specified in the table be
           <li data-nav-id="/vehicle_signal_specification/introduction/overview/index.html" class=""><a class="padding" href="/vehicle_signal_specification/introduction/overview/index.html">Overview</a></li>
           <li data-nav-id="/vehicle_signal_specification/introduction/taxonomy/index.html" class=""><a class="padding" href="/vehicle_signal_specification/introduction/taxonomy/index.html">Taxonomies</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/governance/index.html" class=""><a class="padding" href="/vehicle_signal_specification/governance/index.html">Governance</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/index.html" class="parent "><a class="padding" href="/vehicle_signal_specification/rule_set/index.html">Rule Set</a><ul id="R-subsections-816430a737ffa7bef5da453d8c2d55d4" class="morespace collapsible-menu">
+          <li data-nav-id="/vehicle_signal_specification/rule_set/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/index.html">Rule Set</a><ul id="R-subsections-816430a737ffa7bef5da453d8c2d55d4" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/rule_set/basics/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/basics/index.html">Basic Rules</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/branches/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/branches/index.html">Branch Entry</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/index.html" class="parent alwaysopen"><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/index.html">Data Entry</a><ul id="R-subsections-ba77ba218fcc0133bc138c588fbb6eb9" class="morespace collapsible-menu">
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/index.html" class="alwaysopen"><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/index.html">Data Entry</a><ul id="R-subsections-ba77ba218fcc0133bc138c588fbb6eb9" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types/index.html">Datatypes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_types_struct/index.html">Struct Types</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/data_units/index.html">Data Units</a></li>
-          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class="active"><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors, Actuators and Attributes</a></li>
+          <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html">Sensors, Actuators and Attributes</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/default/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/default/index.html">Default Values</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/data_entry/allowed/index.html">Value Restrictions</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/instances/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/instances/index.html">Instances</a></li>
           <li data-nav-id="/vehicle_signal_specification/rule_set/includes/index.html" class=""><a class="padding" href="/vehicle_signal_specification/rule_set/includes/index.html">Includes</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/catalog/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/index.html">VSS Catalog</a><ul id="R-subsections-665f6cae1c56b0dcfe0d69bfe3f4be93" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html" class=""><a class="padding" href="/vehicle_signal_specification/catalog/vehicle_motion_management/index.html">Vehicle Motion Management</a></li></ul></li>
-          <li data-nav-id="/vehicle_signal_specification/extensions/index.html" class=""><a class="padding" href="/vehicle_signal_specification/extensions/index.html">Extending and Customizing VSS</a><ul id="R-subsections-6bd9c98d69baa9a2d1581189a2aaf28a" class="morespace collapsible-menu">
+          <li data-nav-id="/vehicle_signal_specification/extensions/index.html" class="parent "><a class="padding" href="/vehicle_signal_specification/extensions/index.html">Extending and Customizing VSS</a><ul id="R-subsections-6bd9c98d69baa9a2d1581189a2aaf28a" class="morespace collapsible-menu">
           <li data-nav-id="/vehicle_signal_specification/extensions/overlay/index.html" class=""><a class="padding" href="/vehicle_signal_specification/extensions/overlay/index.html">VSS Overlay Mechanism</a></li>
-          <li data-nav-id="/vehicle_signal_specification/extensions/cybersecurity_profile/index.html" class=""><a class="padding" href="/vehicle_signal_specification/extensions/cybersecurity_profile/index.html">Cybersecurity Profile</a></li>
+          <li data-nav-id="/vehicle_signal_specification/extensions/cybersecurity_profile/index.html" class="active"><a class="padding" href="/vehicle_signal_specification/extensions/cybersecurity_profile/index.html">Cybersecurity Profile</a></li>
           <li data-nav-id="/vehicle_signal_specification/extensions/network_serialization_profile/index.html" class=""><a class="padding" href="/vehicle_signal_specification/extensions/network_serialization_profile/index.html">Network Serialization Profile</a></li></ul></li>
           <li data-nav-id="/vehicle_signal_specification/license/index.html" class=""><a class="padding" href="/vehicle_signal_specification/license/index.html">License</a></li>
           <li data-nav-id="/vehicle_signal_specification/ecosystem/index.html" class=""><a class="padding" href="/vehicle_signal_specification/ecosystem/index.html">Ecosystem</a><ul id="R-subsections-30d29cf6aaa7fb1e0e056430337d3cd8" class="morespace collapsible-menu">
@@ -334,7 +238,7 @@ There may be additional constraints on their usage not specified in the table be
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
-                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html" lang="en-us" selected></option>
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/vehicle_signal_specification/extensions/cybersecurity_profile/index.html" lang="en-us" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>

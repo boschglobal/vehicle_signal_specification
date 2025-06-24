@@ -34,7 +34,7 @@
       <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</link>
       <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/index.html</guid>
-      <description>Sensors are signals to read values of properties in a vehicle. Values of sensors typically change over time. Reading a sensor shall return the current actual value of the related property, e.g. the current speed or the current position of the seat.&#xA;Actuators are used to control the desired value of a property. Some properties in a vehicle cannot change instantly. A typical example is position of a seat or a window.</description>
+      <description>Property Types Overview sensor type Sensors are properties that, from a VSS-perspective, are read-only. The values of a sensor property typically change over time and within an ignition cycle (i.e., a driving journey). Reading a sensor shall return the actual value of the related property (e.g., the current speed or the current position of the seat).&#xA;actuator type Similarly, actuators are properties that, from a VSS-perspective, can be read and written.</description>
     </item>
     <item>
       <title>Default Values</title>
