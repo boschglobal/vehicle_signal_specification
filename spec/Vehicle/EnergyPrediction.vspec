@@ -6,9 +6,7 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
-# Motion Management concerns how steering, electrical axles and steering can be managed to
-# control vehicle motion like accelaration adn deacceleration and assuring that the vehicle move
-# in the wanted direction
+# Intended for follow up on prediction on energy usage for a trip
 #
 # Please see energy_prediction.md in documentation for more information
 
@@ -96,15 +94,7 @@ EnergyPrediction.TrajectoryPTCHeaterPower:
   description: Desired power usage of the PTC heater at corresponding trajectory timestamp.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryPTCHeaterPower:
-  datatype: float[]
-  type: sensor
-  unit: W
-  description: Desired power usage of the PTC heater at corresponding trajectory timestamp.
-               Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
-
-
-EnergyPrediction.TrajectoryCooleantMassFlow:
+EnergyPrediction.TrajectoryCoolantMassFlow:
   datatype: float[]
   type: sensor
   unit: kg/s
