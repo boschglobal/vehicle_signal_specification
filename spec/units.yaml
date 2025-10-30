@@ -266,6 +266,12 @@ g/s:
   quantity: mass-per-time
   allowed-datatypes: ['numeric']
 
+kg/s:
+  definition: Mass per time measured in kilograms per second
+  unit: kilogram sper second
+  quantity: mass-per-time
+  allowed-datatypes: ['numeric']
+
 # Mass per distance
 
 g/km:
