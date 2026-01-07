@@ -95,10 +95,7 @@ FuelSystem:
   type: branch
   description: Fuel system data.
 #include FuelSystem.vspec FuelSystem
-FuelSystem.Tank:
-  type: branch
-  description: Fuel tank data.
-#include FuelSystem/VolumeTank.vspec FuelSystem.Tank
+#include FuelSystem/VolumeTank.vspec FuelSystem
 
 # See catalog/fuel_system.md for other examples
 
