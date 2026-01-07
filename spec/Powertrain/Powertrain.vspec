@@ -84,17 +84,14 @@ TractionBattery:
 
 
 #
-# The fuels system signals and attributes used to host the signals in FuelSystem.vspec.
-#
-# If there are multiple fuel system on the vehicle
-# then customize as needed, see catalog/fuel_system.md
+# Default setup is a single (volume based) fuel system with a single tank
+# It can be customized as needed, see catalog/fuel_system.md
 
-
-# Default - only one fuel system called FuelSystem
 FuelSystem:
   type: branch
   description: Fuel system data.
-#include FuelSystem.vspec FuelSystem
+#include VolumeFuelSystem.vspec FuelSystem
+# Tank integrated by default, not added to a separate branch
 #include FuelSystem/VolumeTank.vspec FuelSystem
 
 # See catalog/fuel_system.md for other examples

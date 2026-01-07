@@ -8,7 +8,7 @@
 
 #include Tank.vspec
 
-Capacity:
+TankCapacity:
   datatype: float
   type: attribute
   unit: l

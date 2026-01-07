@@ -42,65 +42,125 @@ A good article explaining dual fuel systems in HD vehicles (https://ultimatecell
 
 The VSS standard catalog is based on the assumption that a vehicle has a single fuel system with a single tank.
 The fuel in the tank is measured in liters.
+The setup in the default catalog is specified by `Powertrain/Powertrain.vspec`.
+It include tank specific data on the same level as the fuel system, but include two different files to simplify customization.
 
 ```
 FuelSystem:
   type: branch
   description: Fuel system data.
-#include FuelSystem.vspec FuelSystem
-FuelSystem.Tank:
-  type: branch
-  description: Fuel tank data.
-#include FuelSystem/VolumeTank.vspec FuelSystem.Tank
+#include VolumeFuelSystem.vspec FuelSystem
+# Tank integrated by default, not added to a separate branch
+#include FuelSystem/VolumeTank.vspec FuelSystem
 ```
 
-Taking tank absolute level as example, this results in 3 signals:
+Taking tank absolute level as example, this results in a single signal:
 
 ```
-Vehicle.Powertrain.FuelSystem.Tank.AbsoluteLevel,sensor,float,,l
+Vehicle.Powertrain.FuelSystem.AbsoluteLevel,sensor,float,,l
 ```
 
 ## Extending for more advanced use-cases.
 
-If using VSS for a vehicle with multiple fuel systems or multiple fuel tanks the following approach is recommended.
-Update [Powertrain.vspec](https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Powertrain/Powertrain.vspec) to fit number of fuel systems and number of tanks in each fuel system.
-The snippet below shows a hypothetical setup where:
+If using VSS for a vehicle with a gas fuel system, multiple fuel systems or multiple fuel tanks it is recommended to use an overlay to customize that catalog.
+An example overlay exists in [overlays/extensions/multi_fuel_system_example.vspec](https://github.com/COVESA/vehicle_signal_specification/blob/master/overlays/extensions/multi_fuel_system_example.vspec).
+That overlay can be used like this:
 
-* The vehicle has two fuel systems
-* The first is called `FuelSystem1` and has one tank called `Tank` with volume measured in liters
-* The second is called `FuelSystem12` and has one tank called `Tank1` with volume measured in liters and one tank called `Tank2` with volume measured in kilograms.
-
-```
-FuelSystem1:
- type: branch
- description: Fuel system data.
-#include FuelSystem.vspec FuelSystem1
-FuelSystem1.Tank:
-  type: branch
-  description: Fuel tank data.
-#include FuelSystem/VolumeTank.vspec FuelSystem1.Tank
-
-
-FuelSystem2:
- type: branch
- description: Fuel system data.
-#include FuelSystem.vspec FuelSystem2
-FuelSystem2.Tank1:
-  type: branch
-  description: Fuel tank data.
-#include FuelSystem/VolumeTank.vspec FuelSystem2.Tank1
-FuelSystem2.Tank2:
-  type: branch
-  description: Fuel tank data.
-#include FuelSystem/MassTank.vspec FuelSystem2.Tank2
+```bash
+vspec export csv -u ./spec/units.yaml --strict -l overlays/extensions/multi_fuel_system_example.vspec -I spec -s ./spec/VehicleSignalSpecification.vspec -o vss_multi_fuel.csv
 ```
 
-Taking tank absolute level as example, this results in 3 signals:
+When using an overlay it is recommended to delete the standard path and after add your customized definition into a separate path
 
 ```
-Vehicle.Powertrain.FuelSystem1.Tank.AbsoluteLevel,sensor,float,,l
-Vehicle.Powertrain.FuelSystem2.Tank1.AbsoluteLevel,sensor,float,,l
-Vehicle.Powertrain.FuelSystem2.Tank2.AbsoluteLevel,sensor,float,,kg
+Vehicle.Powertrain.FuelSystem:
+  type: branch
+  delete: true
+```
+
+All examples below can be found combined in the example overlay.
+
+Alternatively if using your own fork/branch you can update [Powertrain.vspec](https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Powertrain/Powertrain.vspec) directly.
+
+### Fuel system with weight based fuel
+
+If you measure fuel by weight (kilograms) rather than volume you could use the overlay to delete the default branch and instead add a gas branch,
+using the "mass" versions of the files reporting capacity and consumption based on kilograms rather than liters
+
+```
+Vehicle.Powertrain.FuelSystem:
+  type: branch
+  delete: true
+
+Vehicle.Powertrain.GasFuelSystem:
+  type: branch
+  description: Fuel system data.
+#include Powertrain/MassFuelSystem.vspec Vehicle.Powertrain.GasFuelSystem
+# Tank integrated, not using separate branch
+#include Powertrain/FuelSystem/MassTank.vspec Vehicle.Powertrain.GasFuelSystem
+```
+
+For absolute level, this results in this signal
+
+```
+Vehicle.Powertrain.GasFuelSystem.AbsoluteLevel,sensor,float,,kg
+```
+
+### Fuel system with two volume based tanks
+
+In this case we represent the tanks on different sub-branches.
+It is assumed that general consumption/economy metrics are still relevant, so the fuel system is represented by `VolumeFuelSystem.vspec`.
+
+```
+Vehicle.Powertrain.MultiFuelSystem1:
+  type: branch
+  description: Fuel system data.
+#include Powertrain/VolumeFuelSystem.vspec Vehicle.Powertrain.MultiFuelSystem1
+
+Vehicle.Powertrain.MultiFuelSystem1.Tank1:
+  type: branch
+  description: Fuel tank data.
+#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.MultiFuelSystem1.Tank1
+Vehicle.Powertrain.MultiFuelSystem1.Tank2:
+  type: branch
+  description: Fuel tank data.
+#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.MultiFuelSystem1.Tank2
+```
+
+For absolute level, this results in two signals
+
+```
+Vehicle.Powertrain.MultiFuelSystem1.Tank1.AbsoluteLevel,sensor,float,,l
+Vehicle.Powertrain.MultiFuelSystem1.Tank2.AbsoluteLevel,sensor,float,,l
+```
+
+### Fuel system with one volume based and one weight based tank.
+
+In this case we represent the tanks on different sub-branches.
+It is assumed that general consumption/economy metrics is not relevant, so the fuel system is represented by `FuelSystem.vspec`.
+
+```
+Vehicle.Powertrain.MultiFuelSystem2:
+  type: branch
+  description: Fuel system data.
+#include Powertrain/FuelSystem.vspec Vehicle.Powertrain.MultiFuelSystem2
+# Tank integrated, not using separate branch
+
+Vehicle.Powertrain.MultiFuelSystem2.GasTank:
+  type: branch
+  description: Fuel tank data.
+#include Powertrain/FuelSystem/MassTank.vspec Vehicle.Powertrain.MultiFuelSystem2.GasTank
+Vehicle.Powertrain.MultiFuelSystem2.DieselTank:
+  type: branch
+  description: Fuel tank data.
+#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.MultiFuelSystem2.DieselTank
+```
+
+For absolute level, this results in two signals
+
+```
+Vehicle.Powertrain.MultiFuelSystem2.GasTank.AbsoluteLevel,sensor,float,,kg
+Vehicle.Powertrain.MultiFuelSystem2.DieselTank.AbsoluteLevel,sensor,float,,l
 ```
 
 ### Naming Recommendations
