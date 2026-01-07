@@ -1,4 +1,4 @@
-# Copyright (c) 2016 Contributors to COVESA
+# Copyright (c) 2025 Contributors to COVESA
 #
 # This program and the accompanying materials are made available under the
 # terms of the Mozilla Public License 2.0 which is available at
@@ -6,16 +6,13 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
-#
-# Fuel system for ICE / hybrids
-#
+# General tank information, all information that does not depend on whether signals use weight or volume for content
 
-
-Fuels:
-  type: branch
-  instances:
-    - Fuel[1,2]
-  description: Fuel type branch
+TankId:
+  datatype: string
+  type: attribute
+  description: Free text description of this tank.
+  comment: Could be e.g. gas tank, first tank or similar
 
 SupportedFuelTypes:
   datatype: string[]
@@ -34,25 +31,6 @@ SupportedFuel:
                with additional suffix for octane (RON) where relevant.
   comment: RON 95 is sometimes referred to as Super, RON 98 as Super Plus.
 
-HybridType:
-  datatype: string
-  type: attribute
-  allowed: ['UNKNOWN', 'NOT_APPLICABLE', 'STOP_START', 'BELT_ISG', 'CIMG', 'PHEV']
-  default: 'UNKNOWN'
-  description: Defines the hybrid type of the vehicle.
-
-TankCapacity:
-  datatype: float
-  type: attribute
-  unit: l
-  description: Capacity of the fuel tank in liters.
-
-AbsoluteLevel:
-  datatype: float
-  type: sensor
-  unit: l
-  description: Current available fuel in the fuel tank expressed in liters.
-
 RelativeLevel:
   datatype: uint8
   type: sensor
@@ -60,56 +38,6 @@ RelativeLevel:
   min: 0
   max: 100
   description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
-
-Range:
-  datatype: uint32
-  type: sensor
-  unit: m
-  description: Remaining range in meters using only liquid fuel.
-
-TimeRemaining:
-  datatype: uint32
-  type: sensor
-  unit: s
-  description: Time remaining in seconds before the fuel tank is empty.
-
-InstantConsumption:
-  datatype: float
-  type: sensor
-  unit: l/100km
-  min: 0
-  description: Current consumption in liters per 100 km.
-
-AverageConsumption:
-  datatype: float
-  type: sensor
-  unit: l/100km
-  min: 0
-  description: Average consumption in liters per 100 km.
-# The period used to calculate average consumption is OEM-specific
-# It may e.g. be average consumption since start of current trip,
-# since a user-initiated reset or during the lifetime of the vehicle.
-
-ConsumptionSinceStart:
-  datatype: float
-  type: sensor
-  unit: l
-  description: Fuel amount in liters consumed since start of current trip.
-  comment: A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode).
-           A trip is considered to end when engine is no longer enabled.
-           The signal may however keep the value of the last trip until a new trip is started.
-
-ConsumptionSinceLastRefuel:
-  datatype: float
-  type: sensor
-  unit: l
-  description: Fuel consumption since last refueling.
-  comment: Amount of fuel consumed since last refueling.
-
-IsEngineStopStartEnabled:
-  datatype: boolean
-  type: sensor
-  description: Indicates whether eco start stop is currently enabled.
 
 IsFuelLevelLow:
   datatype: boolean
@@ -125,7 +53,7 @@ IsFuelLevelEmpty:
            This represents the displayed empty state, not actual tank empty condition.
 
 RefuelPortPosition:
-  datatype: string[]
+  datatype: string
   type: attribute
   allowed: ['FRONT_LEFT', 'FRONT_MIDDLE', 'FRONT_RIGHT',
             'REAR_LEFT', 'REAR_MIDDLE', 'REAR_RIGHT',
@@ -137,4 +65,4 @@ RefuelPortPosition:
 IsFuelPortFlapOpen:
   datatype: boolean
   type: actuator
-  description: Status of the fuel port flap(s). True if at least one is open.
+  description: Status of the fuel port flap. True if open.

@@ -10,39 +10,28 @@
 # Fuel system for ICE / hybrids
 #
 
-
-# ERIK - Similar discussion as for fuelsys, we need to discuss in VSS meeting how to handle multiplicity
-# One could have Fuel plus Fuel2, and alternatively have just Fuel2 in a profile/overlay
-# Possibly also discuss terms, is it FuelType, or better e.,g. Tank
-
-
-
-Tank:
-  type: branch
-  description: Fuel tank number 1.
-#include Tank.vspec Tank
-Tank2:
-  type: branch
-  description: Fuel tank number 2.
-#include Tank.vspec Tank2
-
-# ERIK - To discuss - on items below - do we want to have both individual and combined signals?
-# Like if we have two tanks, do we want to have FuelSys1.Tank1.Range and FuelSys1.Tank2.Range
-# and/or FuelSys1.Range (containing lowest value)?
-# Similar on FuelSys vs vehicle level - do we want
-# FuelSys1.Range and FielSys2.Range, and/or Vehicle.Range?
+#
+# The fuels system signals and attributes used to host the signals in FuelSystem.vspec.
+#
 
 Range:
   datatype: uint32
   type: sensor
   unit: m
-  description: Remaining range in meters using only liquid fuel.
+  description: Remaining range in meters using fuel in this fuelsystem.
 
 TimeRemaining:
   datatype: uint32
   type: sensor
   unit: s
-  description: Time remaining in seconds before the fuel tank is empty.
+  description: Time remaining in seconds before the fuel system is out of fuel.
+
+# Comment Erik: Statistics are still just adapted for fuels measure by volume, and not included on tank level
+# Do we need them also on tank level?
+# If so, only on tank level? As combined figures does not make sense?
+# Or also combined, but if so what to do when using both volume plus mass based fuels?
+# Or possibly split this file to have one volume based and one mass based version
+# But Range may still make sense for combined vehicles
 
 InstantConsumption:
   datatype: float
@@ -76,39 +65,6 @@ ConsumptionSinceLastRefuel:
   unit: l
   description: Fuel consumption since last refueling.
   comment: Amount of fuel consumed since last refueling.
-
-IsEngineStopStartEnabled:
-  datatype: boolean
-  type: sensor
-  description: Indicates whether eco start stop is currently enabled.
-
-IsFuelLevelLow:
-  datatype: boolean
-  type: sensor
-  description: Indicates that the fuel level is low (e.g. <50km range).
-
-IsFuelLevelEmpty:
-  datatype: boolean
-  type: sensor
-  description: Indicates that the fuel gauge on the instrument cluster displays empty (0).
-  comment: When this signal is true, the fuel gauge displays empty (0), but the vehicle typically still has reserve fuel
-           allowing for some additional driving range depending on the vehicle design.
-           This represents the displayed empty state, not actual tank empty condition.
-
-RefuelPortPosition:
-  datatype: string[]
-  type: attribute
-  allowed: ['FRONT_LEFT', 'FRONT_MIDDLE', 'FRONT_RIGHT',
-            'REAR_LEFT', 'REAR_MIDDLE', 'REAR_RIGHT',
-            'LEFT_FRONT', 'LEFT_MIDDLE', 'LEFT_REAR',
-            'RIGHT_FRONT', 'RIGHT_MIDDLE', 'RIGHT_REAR']
-  description: Position of refuel port(s).
-               First part indicates side of vehicle, second part relative position on that side.
-
-IsFuelPortFlapOpen:
-  datatype: boolean
-  type: actuator
-  description: Status of the fuel port flap(s). True if at least one is open.
 
 InstantantFuelEconomy:
   datatype: float
