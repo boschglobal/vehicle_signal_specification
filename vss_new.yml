@@ -1,0 +1,180 @@
+
+Vehicle.Powertrain.FuelSystem:
+  description: Fuel system data.
+  type: branch
+
+Vehicle.Powertrain.FuelSystem.AbsoluteLevel:
+  datatype: float
+  description: Current available fuel in the fuel tank expressed in liters.
+  type: sensor
+  unit: l
+
+Vehicle.Powertrain.FuelSystem.AfterRefuelingFuelEconomy:
+  comment: This value represents the fuel efficiency for the period between consecutive refueling events. It is automatically reset to zero when refueling is detected and begins accumulating from that point. The calculation continues until the next refueling occurs. This metric is useful for tracking fuel efficiency improvements or changes between fill-ups.
+  datatype: float
+  description: Average fuel economy calculated from the most recent refueling event to the current time.
+  type: sensor
+  unit: km/l
+
+Vehicle.Powertrain.FuelSystem.AverageConsumption:
+  datatype: float
+  description: Average consumption in liters per 100 km.
+  min: 0
+  type: sensor
+  unit: l/100km
+
+Vehicle.Powertrain.FuelSystem.ConsumptionSinceLastRefuel:
+  comment: Amount of fuel consumed since last refueling.
+  datatype: float
+  description: Fuel consumption since last refueling.
+  type: sensor
+  unit: l
+
+Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart:
+  comment: A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode). A trip is considered to end when engine is no longer enabled. The signal may however keep the value of the last trip until a new trip is started.
+  datatype: float
+  description: Fuel amount in liters consumed since start of current trip.
+  type: sensor
+  unit: l
+
+Vehicle.Powertrain.FuelSystem.CumulativeFuelEconomy:
+  comment: This represents the accumulated fuel economy over the entire period since the last reset. Unlike trip-based measurements, this provides a long-term average of fuel efficiency.
+  datatype: float
+  description: Cumulative average fuel economy calculated from vehicle start or last user reset.
+  type: sensor
+  unit: km/l
+
+Vehicle.Powertrain.FuelSystem.DriveFuelEconomy:
+  comment: This represents the fuel efficiency during the active driving session. The value is reset when the engine is no longer enabled or when the user manually initiates a drive fuel economy reset. After reset, it is recalculated from zero when the engine restarts or the new drive cycle begins. It provides real-time average fuel economy for the ongoing drive cycle.
+  datatype: float
+  description: Average fuel economy for the current drive cycle, calculated from engine start to current time.
+  type: sensor
+  unit: km/l
+
+Vehicle.Powertrain.FuelSystem.InstantConsumption:
+  datatype: float
+  description: Current consumption in liters per 100 km.
+  min: 0
+  type: sensor
+  unit: l/100km
+
+Vehicle.Powertrain.FuelSystem.InstantantFuelEconomy:
+  comment: This value represents the current fuel efficiency at any given moment during vehicle operation. It is calculated based on the distance traveled and fuel consumed over a brief sampling period (typically around 500ms). The calculation compares the vehicle state before and after the sampling window to determine instantaneous efficiency. This metric refreshes frequently and can fluctuate significantly based on driving conditions, acceleration, and terrain. Unlike average fuel economy measurements, this provides immediate feedback on current driving efficiency.
+  datatype: float
+  description: Real-time instantaneous fuel economy calculated over a short time window.
+  type: sensor
+  unit: km/l
+
+Vehicle.Powertrain.FuelSystem.IsFuelLevelEmpty:
+  comment: When this signal is true, the fuel gauge displays empty (0), but the vehicle typically still has reserve fuel allowing for some additional driving range depending on the vehicle design. This represents the displayed empty state, not actual tank empty condition.
+  datatype: boolean
+  description: Indicates that the fuel gauge on the instrument cluster displays empty (0).
+  type: sensor
+
+Vehicle.Powertrain.FuelSystem.IsFuelLevelLow:
+  datatype: boolean
+  description: Indicates that the fuel level is low (e.g. <50km range).
+  type: sensor
+
+Vehicle.Powertrain.FuelSystem.IsFuelPortFlapOpen:
+  datatype: boolean
+  description: Status of the fuel port flap. True if open.
+  type: actuator
+
+Vehicle.Powertrain.FuelSystem.Range:
+  datatype: uint32
+  description: Remaining range in meters using fuel in this fuelsystem.
+  type: sensor
+  unit: m
+
+Vehicle.Powertrain.FuelSystem.RefuelPortPosition:
+  allowed:
+  - FRONT_LEFT
+  - FRONT_MIDDLE
+  - FRONT_RIGHT
+  - REAR_LEFT
+  - REAR_MIDDLE
+  - REAR_RIGHT
+  - LEFT_FRONT
+  - LEFT_MIDDLE
+  - LEFT_REAR
+  - RIGHT_FRONT
+  - RIGHT_MIDDLE
+  - RIGHT_REAR
+  datatype: string
+  description: Position of refuel port(s). First part indicates side of vehicle, second part relative position on that side.
+  type: attribute
+
+Vehicle.Powertrain.FuelSystem.RelativeLevel:
+  datatype: uint8
+  description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
+  max: 100
+  min: 0
+  type: sensor
+  unit: percent
+
+Vehicle.Powertrain.FuelSystem.SupportedFuel:
+  allowed:
+  - E5_95
+  - E5_98
+  - E10_95
+  - E10_98
+  - E85
+  - B7
+  - B10
+  - B20
+  - B30
+  - B100
+  - XTL
+  - LPG
+  - CNG
+  - LNG
+  - H2
+  - OTHER
+  comment: RON 95 is sometimes referred to as Super, RON 98 as Super Plus.
+  datatype: string[]
+  description: Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.
+  type: attribute
+
+Vehicle.Powertrain.FuelSystem.SupportedFuelTypes:
+  allowed:
+  - GASOLINE
+  - DIESEL
+  - E85
+  - LPG
+  - CNG
+  - LNG
+  - H2
+  - OTHER
+  comment: If a vehicle also has an electric drivetrain (e.g. hybrid) that will be obvious from the PowerTrain.Type signal.
+  datatype: string[]
+  description: High level information of fuel types supported
+  type: attribute
+
+Vehicle.Powertrain.FuelSystem.TankCapacity:
+  datatype: float
+  description: Capacity of the fuel tank in liters.
+  type: attribute
+  unit: l
+
+Vehicle.Powertrain.FuelSystem.TankId:
+  comment: Could be e.g. gas tank, first tank or similar
+  datatype: string
+  description: Free text description of this tank.
+  type: attribute
+
+Vehicle.Powertrain.FuelSystem.TimeRemaining:
+  datatype: uint32
+  description: Time remaining in seconds before the fuel system is out of fuel.
+  type: sensor
+  unit: s
+
+Vehicle.Powertrain.FuelSystemType:
+  allowed:
+  - SINGLE_FUEL
+  - DUAL_FUEL
+  - BI_FUEL
+  datatype: string
+  default: SINGLE_FUEL
+  description: defines the type of the fuel system in the vehicle; SINGLE_FUEL - one fuel system with one fuel type DUAL_FUEL - one fuel system with two fuel types BI_FUEL - two fuel systems with one fuel type in each system
+  type: attribute
