@@ -89,11 +89,43 @@ Vehicle.Powertrain.TractionBattery:
 #
 Vehicle.Powertrain.FuelSystem:
   type: branch
-  description: Fuel system data.
+  description: Fuel system data for syetm 1.
 
 # Include the fuel system vspec file and attach all its signals and attributes under the
 # fuels system branch created above.
 #include Powertrain/FuelSystem.vspec Vehicle.Powertrain.FuelSystem
+
+# Erik
+# To discuss in VSS project
+# Extend default model so that it always contains a second fuel system or not.
+# Alt 1 - most easy, no backward incompatibility, is to add something like below
+# Advantage - those with only one system can just ignore FuelSystem2
+# Alt 2 - Reaname existing to FuelSystem1, add nbr 2
+# Alt 3 - Use instances - disadvantage - longer path names
+
+
+
+Vehicle.Powertrain.FuelSystem2:
+  type: branch
+  description: Fuel system data number 2.
+
+# Include the fuel system vspec file and attach all its signals and attributes under the
+# fuels system branch created above.
+#include Powertrain/FuelSystem.vspec Vehicle.Powertrain.FuelSystem2
+
+# As it is a generic description for all types we need to have it on top level, like this
+
+Vehicle.Powertrain.FuelSystemType:
+  type: attribute
+  datatype: string
+  instantiate: false
+  default: "SINGLE_FUEL"
+  allowed: ["SINGLE_FUEL", "DUAL_FUEL", "BI_FUEL"]
+  description: defines the type of the fuel system in the vehicle;
+    SINGLE_FUEL - one fuel system with one fuel type
+    DUAL_FUEL - one fuel system with two fuel types
+    BI_FUEL - two fuel systems with one fuel type in each system
+
 
 #
 # The Range Extender branch for Extended Range Electric Vehicle (EREV) specific signals.
