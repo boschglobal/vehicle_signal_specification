@@ -1,4 +1,5 @@
 
+
 Vehicle.Powertrain.FuelSystem:
   description: Fuel system data.
   type: branch
@@ -174,7 +175,9 @@ Vehicle.Powertrain.FuelSystemType:
   - SINGLE_FUEL
   - DUAL_FUEL
   - BI_FUEL
+  - OTHER
+  comment: For SINGLE_FUEL vehicle all information about the fuel system shall be present in the Vehicle.Powertrain.FuelSystem branch. For all other alternatives fuel system information can be found within Vehicle.Powertrain.FuelSystems branches
   datatype: string
   default: SINGLE_FUEL
-  description: defines the type of the fuel system in the vehicle; SINGLE_FUEL - one fuel system with one fuel type DUAL_FUEL - one fuel system with two fuel types BI_FUEL - two fuel systems with one fuel type in each system
+  description: defines the types of the fuel system in the vehicle; SINGLE_FUEL - one fuel system with one fuel type DUAL_FUEL - one fuel system with two fuel types BI_FUEL - two fuel systems with one fuel type in each system OTHER - any other combination
   type: attribute

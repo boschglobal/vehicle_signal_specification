@@ -8,54 +8,70 @@
 
 # Example extension on how to customize fuel system, for use in e.g. heavy duty vehicles
 
-# If customizing it is recommended to remove the standard branch rather than customizing it
-# As you then do not need to delete/replace individual signals
+# If using multiple fuel systems or multiple tanks within a single fuel system then
+# the branch Vehicle.Powertrain.FuelSystems shall be used instead of Vehicle.Powertrain.FuelSystem
+
 Vehicle.Powertrain.FuelSystem:
   type: branch
   delete: true
 
-# The example setup contains 3 example systems running in parallel
-# All references are relavtive to root vspec (spec/VehicleSignalSpecification.vspec)
-
-# First one - a gas system, where tank is integrated in the tree to mimic standard catalog
-
-Vehicle.Powertrain.GasFuelSystem:
+Vehicle.Powertrain.FuelSystems:
   type: branch
-  description: Fuel system data.
-#include Powertrain/MassFuelSystem.vspec Vehicle.Powertrain.GasFuelSystem
-# Tank integrated, not using separate branch
-#include Powertrain/FuelSystem/MassTank.vspec Vehicle.Powertrain.GasFuelSystem
+  description: Root node for all fuel systems in the vehicle
+
+# Sub-branches shall be called FuelSystem1, FuelSystem2 and so on
+# If all fuel systems are of the same type then the instances concept can be used above
+# instances: FuelSystem[1,2]
+#
+# But in this example we have both gas (mass) and fluid (volume) fuel systems, so sub-branches
+# are created manually to be able to easily select content
+
+
+# The example setup contains 3 example systems running in parallel
+# All references are relative to root vspec (spec/VehicleSignalSpecification.vspec)
+
+# First one - a gas system, tank is always a separate entity in Vehicle.Powertrain.FuelSystems
+
+Vehicle.Powertrain.FuelSystems.FuelSystem1:
+  type: branch
+  description: A gas/mass fuel system with one tank.
+#include Powertrain/MassFuelSystem.vspec Vehicle.Powertrain.FuelSystems.FuelSystem1
+
+Vehicle.Powertrain.FuelSystems.FuelSystem1.Tank1:
+  type: branch
+  description: Gas tank data.
+#include Powertrain/FuelSystem/MassTank.vspec Vehicle.Powertrain.FuelSystems.FuelSystem1.Tank1
 
 # Second one - volume based with two fuel tanks, volume metrics makes sensor
 
-Vehicle.Powertrain.MultiFuelSystem1:
+Vehicle.Powertrain.FuelSystems.FuelSystem2:
   type: branch
   description: Fuel system data.
-#include Powertrain/VolumeFuelSystem.vspec Vehicle.Powertrain.MultiFuelSystem1
+#include Powertrain/VolumeFuelSystem.vspec Vehicle.Powertrain.FuelSystems.FuelSystem2
 
-Vehicle.Powertrain.MultiFuelSystem1.Tank1:
+Vehicle.Powertrain.FuelSystems.FuelSystem2.Tank1:
   type: branch
   description: Fuel tank data.
-#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.MultiFuelSystem1.Tank1
-Vehicle.Powertrain.MultiFuelSystem1.Tank2:
+#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.FuelSystems.FuelSystem2.Tank1
+Vehicle.Powertrain.FuelSystems.FuelSystem2.Tank2:
   type: branch
   description: Fuel tank data.
-#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.MultiFuelSystem1.Tank2
+#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.FuelSystems.FuelSystem2.Tank2
 
 
 # Third one - one gas tank and one volume tank, metrics does not make sense
 
-Vehicle.Powertrain.MultiFuelSystem2:
+Vehicle.Powertrain.FuelSystems.FuelSystem3:
   type: branch
   description: Fuel system data.
-#include Powertrain/FuelSystem.vspec Vehicle.Powertrain.MultiFuelSystem2
-# Tank integrated, not using separate branch
+#include Powertrain/FuelSystem.vspec Vehicle.Powertrain.FuelSystems.FuelSystem3
 
-Vehicle.Powertrain.MultiFuelSystem2.GasTank:
+Vehicle.Powertrain.FuelSystems.FuelSystem3.Tank1:
   type: branch
-  description: Fuel tank data.
-#include Powertrain/FuelSystem/MassTank.vspec Vehicle.Powertrain.MultiFuelSystem2.GasTank
-Vehicle.Powertrain.MultiFuelSystem2.DieselTank:
+  description: Gas tank data.
+#include Powertrain/FuelSystem/MassTank.vspec Vehicle.Powertrain.FuelSystems.FuelSystem3.Tank1
+
+Vehicle.Powertrain.FuelSystems.FuelSystem3.Tank2:
   type: branch
-  description: Fuel tank data.
-#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.MultiFuelSystem2.DieselTank
+  description: Diesel tank data.
+#include Powertrain/FuelSystem/VolumeTank.vspec Vehicle.Powertrain.FuelSystems.FuelSystem3.Tank2

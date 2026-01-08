@@ -101,12 +101,16 @@ FuelSystemType:
   datatype: string
   instantiate: false
   default: "SINGLE_FUEL"
-  allowed: ["SINGLE_FUEL", "DUAL_FUEL", "BI_FUEL"]
-  description: defines the type of the fuel system in the vehicle;
+  allowed: ["SINGLE_FUEL", "DUAL_FUEL", "BI_FUEL", "OTHER"]
+  description: defines the types of the fuel system in the vehicle;
     SINGLE_FUEL - one fuel system with one fuel type
     DUAL_FUEL - one fuel system with two fuel types
     BI_FUEL - two fuel systems with one fuel type in each system
-
+    OTHER - any other combination
+  comment: For SINGLE_FUEL vehicle all information about the fuel system shall be present
+           in the Vehicle.Powertrain.FuelSystem branch.
+           For all other alternatives fuel system information can be found within
+           Vehicle.Powertrain.FuelSystems branches
 
 #
 # The Range Extender branch for Extended Range Electric Vehicle (EREV) specific signals.
