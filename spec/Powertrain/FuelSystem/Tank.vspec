@@ -1,0 +1,68 @@
+# Copyright (c) 2025 Contributors to COVESA
+#
+# This program and the accompanying materials are made available under the
+# terms of the Mozilla Public License 2.0 which is available at
+# https://www.mozilla.org/en-US/MPL/2.0/
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# General tank information, all information that does not depend on whether signals use weight or volume for content
+
+TankId:
+  datatype: string
+  type: attribute
+  description: Free text description of this tank.
+  comment: Could be e.g. gas tank, first tank or similar
+
+SupportedFuelTypes:
+  datatype: string[]
+  type: attribute
+  allowed: ['GASOLINE', 'DIESEL', 'E85', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']
+  description: High level information of fuel types supported
+  comment: If a vehicle also has an electric drivetrain (e.g. hybrid) that will be obvious from the PowerTrain.Type signal.
+
+SupportedFuel:
+  datatype: string[]
+  type: attribute
+  allowed: ['E5_95', 'E5_98', 'E10_95', 'E10_98', 'E85', 'B7', 'B10', 'B20', 'B30', 'B100',
+            'XTL', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']
+  description: Detailed information on fuels supported by the vehicle.
+               Identifiers originating from DIN EN 16942:2021-08, appendix B,
+               with additional suffix for octane (RON) where relevant.
+  comment: RON 95 is sometimes referred to as Super, RON 98 as Super Plus.
+
+RelativeLevel:
+  datatype: uint8
+  type: sensor
+  unit: percent
+  min: 0
+  max: 100
+  description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
+
+IsFuelLevelLow:
+  datatype: boolean
+  type: sensor
+  description: Indicates that the fuel level is low (e.g. <50km range).
+
+IsFuelLevelEmpty:
+  datatype: boolean
+  type: sensor
+  description: Indicates that the fuel gauge on the instrument cluster displays empty (0).
+  comment: When this signal is true, the fuel gauge displays empty (0), but the vehicle typically still has reserve fuel
+           allowing for some additional driving range depending on the vehicle design.
+           This represents the displayed empty state, not actual tank empty condition.
+
+RefuelPortPosition:
+  datatype: string
+  type: attribute
+  allowed: ['FRONT_LEFT', 'FRONT_MIDDLE', 'FRONT_RIGHT',
+            'REAR_LEFT', 'REAR_MIDDLE', 'REAR_RIGHT',
+            'LEFT_FRONT', 'LEFT_MIDDLE', 'LEFT_REAR',
+            'RIGHT_FRONT', 'RIGHT_MIDDLE', 'RIGHT_REAR']
+  description: Position of refuel port(s).
+               First part indicates side of vehicle, second part relative position on that side.
+
+IsFuelPortFlapOpen:
+  datatype: boolean
+  type: actuator
+  description: Status of the fuel port flap. True if open.

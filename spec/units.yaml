@@ -279,6 +279,11 @@ g/km:
   unit: grams per kilometer
   quantity: mass-per-distance
   allowed-datatypes: ['numeric']
+kg/100km:
+  definition: Mass per distance measured in kilograms per 100 kilometers
+  unit: kilograms per 100 kilometers
+  quantity: mass-per-distance
+  allowed-datatypes: ['numeric']
 
 # Energy consumption per distance
 
@@ -313,6 +318,16 @@ l/h:
   unit: liter per hour
   quantity: volume-flow-rate
   allowed-datatypes: ['numeric']
+
+
+# Distance per mass
+
+km/kg:
+  definition: Distance per mass measured in kilometers per kilogram
+  unit: kilometers per kilogram
+  quantity: distance-per-mass
+  allowed-datatypes: ['numeric']
+
 
 # Distance per volume
 
