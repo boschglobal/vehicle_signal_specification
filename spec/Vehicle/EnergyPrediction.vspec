@@ -23,66 +23,66 @@ EnergyPrediction.IsEnabled:
 EnergyPrediction.IsRecalculationRequest:
   datatype: boolean
   type: actuator
-  description: This flag is used to request recalculation. Shall be reset when recalculation is finished.
+  description: This flag is used to request recalculation. The request shall be reset when a new prediction has been received.
 
 EnergyPrediction.PredictionArraySize:
   datatype: uint16
   type: sensor
   default: 100
-  description: Expected number of elements in trajectory arrays.
+  description: Expected number of elements in planned arrays.
 
-EnergyPrediction.TrajectoryTimestamp:
+EnergyPrediction.PlannedTimestamp:
   datatype: uint32[]
   type: sensor
   unit: unix-time
-  description: Time (unix timestamps) for desired vehicle trajectory to check if on track.
+  description: Time (unix timestamps) for timestamps to check if on track.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryTimestampRelative:
+EnergyPrediction.PlannedTimestampRelative:
   datatype: uint32[]
   type: sensor
   unit: s
   description: Time vector for control of vehicle.
-               Corresponds to EnergyPrediction.TrajectoryTimestamp but timestamps are
+               Corresponds to EnergyPrediction.PlannedTimestamp but timestamps are
                relative to feature activation.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryLatitude:
+EnergyPrediction.PlannedLatitude:
   datatype: double[]
   type: sensor
   min: -90
   max: 90
   unit: degrees
-  description: Expected latitude in WGS 84 geodetic coordinates at corresponding trajectory timestamp.
+  description: Expected latitude in WGS 84 geodetic coordinates at corresponding planned timestamp.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryLongitude:
+EnergyPrediction.PlannedLongitude:
   datatype: double[]
   type: sensor
   min: -180
   max: 180
   unit: degrees
-  description: Expected longitude in WGS 84 geodetic coordinates at corresponding trajectory timestamp.
+  description: Expected longitude in WGS 84 geodetic coordinates at corresponding planned timestamp.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryBatteryTemperature:
+EnergyPrediction.PlannedBatteryTemperature:
   datatype: float[]
   type: sensor
   unit: Celsius
-  description: Desired average battery termperature at corresponding trajectory timestamp.
+  description: Desired average battery temperature at corresponding planned timestamp.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryPTCHeaterPower:
+EnergyPrediction.PlannedHeaterPower:
   datatype: float[]
   type: sensor
   unit: W
-  description: Desired power usage of the PTC heater at corresponding trajectory timestamp.
+  description: Desired Hhating power of coolant for the battery conditioning at corresponding planned timestamp.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.
 
-EnergyPrediction.TrajectoryCoolantMassFlow:
+EnergyPrediction.PlannedCoolantMassFlow:
   datatype: float[]
   type: sensor
   unit: kg/s
-  description: Desired coolant mass flow for the low termperature circuit
-               at corresponding trajectory timestamp.
+  description: Desired coolant mass flow through battery
+               at corresponding planned timestamp.
                Number of elements expected to correspond with EnergyPrediction.PredictionArraySize.

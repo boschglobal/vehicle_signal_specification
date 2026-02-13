@@ -85,7 +85,7 @@ Navigation:
   description: All navigation actions
 
 
-Navigation.Map.IsDestinationReached:
+Navigation.IsDestinationReached:
   datatype: boolean
   type: sensor
   description: Indicates if destination has been reached.

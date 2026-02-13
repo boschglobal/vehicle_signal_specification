@@ -6,7 +6,7 @@ weight: 7
 
 ## Introduction
 
-The VSS energy prediction concept is based on that when planning a trip and calculating the energy required for that trip a number of estimated values at certain point in time are stored.
+The goal of the energy prediction concept is to precondition the battery in an optimal way (as late as possible during the drive). When planning a trip and calculating the energy required for that trip a number of estimated values at certain point in time are stored.
 These values are then during the trip used to decide if the a new calculation is needed or if the old calculation is still relevant.
 
 In general the system responsible for energy prediction gather actual data from "regular" VSS signals, the `Vehicle.EnergyPrediction` branch is used only for data that only concerns the energy prediction feature.
