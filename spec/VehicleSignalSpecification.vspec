@@ -203,7 +203,7 @@ Vehicle.Connectivity:
 
 #include Vehicle/Diagnostics.vspec Vehicle
 
-#include Vehicle/EnergyPrediction.vspec Vehicle
+#include Vehicle/EnergyManagement.vspec Vehicle
 
 #include Vehicle/MotionManagement.vspec Vehicle
 
