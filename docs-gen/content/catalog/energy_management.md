@@ -4,34 +4,44 @@ date: 2019-08-04T12:46:30+02:00
 weight: 7
 ---
 
+
 ## Introduction
-
-The goal of the energy management concept is to precondition the battery in an optimal way (as late as possible during the drive).
-When planning a trip optimal battery conditioning for the trip is calculated and stored.
-A number of control points are also calculated and followed up to decide if a new calculation is needed or if the old calculation is still relevant.
-
-In general the system responsible for energy prediction gather actual data from "regular" VSS signals, the `Vehicle.EnergyManagement` branch is used only for data that only concerns the energy management feature.
+The VSS energy management feature conditions the battery for fast charging at the end of the trip.
+Energy savings are achieved by minimizing the time when the battery is at the required temperature.
 
 ## Logic
+When the feature is enabled (EnergyManagement.IsEnabled) optimized values for the battery temperature setpoint, the coolant mass flow and the heater power are downloaded into the vehicle.
+The values are the result of a predictive optimization that takes the current battery state and the route into account (Vehicle.Cabin.Infotainment.Navigation).
+The expected GPS position is also downloaded to detect if the vehicle is still on the route.
+If a deviation in the battery temperature is detected or if the vehicle has left the expected route a new optimization is triggered (EnergyManagement.IsRecalculationRequest).
+When the vehicle has reached its destination the backend is notified (Navigation.Map.IsDestinationReached).
 
-Logic to be used is implementation dependent. The example below shows one possible usage of the signals defined.
-
-If the feature is enabled (`EnergyManagement.IsEnabled`) a calculation will be initiated when a destination has been defined in the `Vehicle.Cabin.Infotainment.Navigation` branch.
-The calculation will calculate optimal baattery conditioning for the trip.
-The estimation will be based on assumptions on e.g. speed and battery temperature.
-Number of points stored may depend on the length of the trip and is indicated by `EnergyManagement.ConditioningArraySize`.
-Additional tables are populated for control purposes. The lengths of those arrays are indicated by `EnergyManagement.ControlArraySize`.
-During the trip, if expected locations at a specified time differs too much from expectations,
-the system may request a recalculation by `EnergyManagement.IsRecalculationRequest`.
+The data downloaded into the vehicle is in table format.
+One table for setpoints and one for check timestamps.
+They are represented as arrays in VSS.
+The size for setpoints and check timestamps may be different.
+All timestamps are relative to feature activation.
 
 
-TODO Update
+### SetPoint table
 
-The table below shows a hypothetical table for a navigation with 100 as array size.
+Hypothetic example of setpoint table:
 
-Index | Timestamp | TimestampRelative |Latitude | Longitude | BatteryTemperature | PtcHeaterPower | CoolantMassFlow
----|----|---|---|---|---|---|---
-0 | 1763999652| 0 | 55.12 | 13.3 | 54 | 200 | 12.5
-1 |1763999654| 2 | 55.14 | 13.2 | 54 | 234 | 12.9
-2-98 |...| ... | ... | ... | ... | ... | ...
-99|1764000004| 352 | 55.27 | 13.8 | 52 | 231 | 16.3
+Index | SetpointTimestamp | SetpointBatteryTemperature |SetpointHeaterPower | SetpointCoolantMassFlow
+---|----|---|---|---
+0 | 0 | 17.0 | 0 | 54
+1 | 120 | 17.5 | 2 | 57
+2-98 |...| ... | ... | ...
+99 | 12000 | 35.3 | 5 | 60 |
+
+
+### Check table
+
+Hypothetic example of check table:
+
+Index | CheckTimestamp | CheckLatitude | CheckLongitude
+---|----|---|---
+0 | 0 | 55.0 | 13.0
+1 | 600 | 55.5 | 13.5
+2-19 |...| ... | ...
+20 | 12000 | 60.0 | 14.8

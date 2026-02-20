@@ -25,41 +25,41 @@ EnergyManagement.IsRecalculationRequest:
   type: actuator
   description: This flag is used to request recalculation. The request shall be reset when a new prediction has been received.
 
-EnergyManagement.ConditioningArraySize:
+EnergyManagement.SetpointArraySize:
   datatype: uint16
   type: sensor
   default: 100
-  description: Number of elements used in arrays related to controlling battery conditioning.
+  description: Number of elements used in arrays related to setpoints.
 
-EnergyManagement.ConditioningTimestamp:
+EnergyManagement.SetpointTimestamp:
   datatype: uint32[]
   type: sensor
   unit: s
-  description: Time vector for battery conditioning in the vehicle.
+  description: Time vector for setpoints.
                Time is relative to activation of feature or trip.
-               Number of elements expected to correspond with EnergyManagement.ConditioningArraySize.
+               Number of elements expected to correspond with SetpointArraySize.
 
 
-EnergyManagement.ConditioningBatteryTemperature:
+EnergyManagement.SetpointBatteryTemperature:
   datatype: float[]
   type: sensor
   unit: Celsius
-  description: Desired average battery temperature at timestamps indicated by EnergyManagement.ConditioningTimestamp.
-               Number of elements expected to correspond with EnergyManagement.ConditioningArraySize.
+  description: Desired average battery temperature at setpoints indicated by SetpointTimestamp.
+               Number of elements expected to correspond with SetpointArraySize.
 
-EnergyManagement.ConditioningHeaterPower:
+EnergyManagement.SetpointHeaterPower:
   datatype: float[]
   type: sensor
   unit: W
-  description: Desired heating power for the battery conditioning coolant at timestamps indicated by EnergyManagement.ConditioningTimestamp.
-               Number of elements expected to correspond with EnergyManagement.ConditioningArraySize.
+  description: Desired heating power at setpoints indicated by SetpointTimestamp.
+               Number of elements expected to correspond with SetpointArraySize.
 
-EnergyManagement.ConditioiningCoolantMassFlow:
+EnergyManagement.SetpointCoolantMassFlow:
   datatype: float[]
   type: sensor
   unit: kg/s
-  description: Desired coolant mass flow through battery at timestamps indicated by EnergyManagement.ConditioningTimestamp.
-               Number of elements expected to correspond with EnergyManagement.ConditioningArraySize.
+  description: Desired coolant mass flow through battery at setpoints indicated by SetpointTimestamp.
+               Number of elements expected to correspond with SetpointArraySize..
 
 EnergyManagement.CheckArraySize:
   datatype: uint16
@@ -73,7 +73,7 @@ EnergyManagement.CheckTimestamp:
   unit: s
   description: Time vector for checking status of energy management feature.
                Time is relative to activation of feature or trip.
-               Number of elements expected to correspond with EnergyManagement.CheckArraySize.
+               Number of elements expected to correspond with CheckArraySize.
 
 EnergyManagement.CheckLatitude:
   datatype: double[]
@@ -81,8 +81,8 @@ EnergyManagement.CheckLatitude:
   min: -90
   max: 90
   unit: degrees
-  description: Expected latitude in WGS 84 geodetic coordinates at corresponding timestamp in EnergyManagement.CheckTimestamp.
-               Number of elements expected to correspond with EnergyManagement.CheckrraySize.
+  description: Expected latitude in WGS 84 geodetic coordinates at timestamps indicated by SetpointTimestamp.
+               Number of elements expected to correspond with CheckArraySize.
 
 EnergyManagement.CheckLongitude:
   datatype: double[]
@@ -90,5 +90,5 @@ EnergyManagement.CheckLongitude:
   min: -180
   max: 180
   unit: degrees
-  description: Expected longitude in WGS 84 geodetic coordinates at corresponding timestamp in EnergyManagement.CheckTimestamp.
-               Number of elements expected to correspond with EnergyManagement.CheckArraySize.
+  description: Expected longitude in WGS 84 geodetic coordinates at timestamps indicated by SetpointTimestamp.
+               Number of elements expected to correspond with CheckArraySize.
