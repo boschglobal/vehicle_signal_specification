@@ -61,34 +61,34 @@ EnergyManagement.SetpointCoolantMassFlow:
   description: Desired coolant mass flow through battery at setpoints indicated by SetpointTimestamp.
                Number of elements expected to correspond with SetpointArraySize..
 
-EnergyManagement.CheckArraySize:
+EnergyManagement.TargetArraySize:
   datatype: uint16
   type: sensor
   default: 20
-  description: Number of elements used in arrays related to checking status of the battery management feature.
+  description: Number of elements used in arrays related to checking if trip progress as expected.
 
-EnergyManagement.CheckTimestamp:
+EnergyManagement.TargetTimestamp:
   datatype: uint32[]
   type: sensor
   unit: s
-  description: Time vector for checking status of energy management feature.
+  description: Timestamps indicating when it shall be checked if trip progress as expected.
                Time is relative to activation of feature or trip.
-               Number of elements expected to correspond with CheckArraySize.
+               Number of elements expected to correspond with TargetArraySize.
 
-EnergyManagement.CheckLatitude:
+EnergyManagement.TargetLatitude:
   datatype: double[]
   type: sensor
   min: -90
   max: 90
   unit: degrees
-  description: Expected latitude in WGS 84 geodetic coordinates at timestamps indicated by SetpointTimestamp.
-               Number of elements expected to correspond with CheckArraySize.
+  description: Expected latitude in WGS 84 geodetic coordinates at timestamps indicated by TargetTimestamp.
+               Number of elements expected to correspond with TargetArraySize.
 
-EnergyManagement.CheckLongitude:
+EnergyManagement.TargetLongitude:
   datatype: double[]
   type: sensor
   min: -180
   max: 180
   unit: degrees
-  description: Expected longitude in WGS 84 geodetic coordinates at timestamps indicated by SetpointTimestamp.
-               Number of elements expected to correspond with CheckArraySize.
+  description: Expected longitude in WGS 84 geodetic coordinates at timestamps indicated by TargetTimestamp.
+               Number of elements expected to correspond with TargetArraySize.

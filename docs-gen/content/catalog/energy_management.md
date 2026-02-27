@@ -1,5 +1,5 @@
 ---
-title: "Energy Prediction"
+title: "Energy Management"
 date: 2019-08-04T12:46:30+02:00
 weight: 7
 ---
@@ -35,11 +35,11 @@ Index | SetpointTimestamp | SetpointBatteryTemperature |SetpointHeaterPower | Se
 99 | 12000 | 35.3 | 5 | 60 |
 
 
-### Check table
+### Target table
 
-Hypothetic example of check table:
+Hypothetic example of target table:
 
-Index | CheckTimestamp | CheckLatitude | CheckLongitude
+Index | TargetTimestamp | TargetLatitude | TargetLongitude
 ---|----|---|---
 0 | 0 | 55.0 | 13.0
 1 | 600 | 55.5 | 13.5
