@@ -2,13 +2,13 @@
 # Makefile to generate specifications
 #
 
-.PHONY: clean all mandatory_targets json franca yaml csv ddsidl tests binary protobuf ttl s2dm ocf c overlays id jsonschema
+.PHONY: clean all avro mandatory_targets json franca yaml csv ddsidl tests binary protobuf ttl s2dm ocf c overlays id jsonschema
 
 all: clean mandatory_targets optional_targets
 
 # All mandatory targets that shall be built and pass on each pull request for
 # vehicle-signal-specification or vss-tools
-mandatory_targets: clean apigear binary csv ddsidl franca go id json json-noexpand jsonschema overlays plantuml samm s2dm yaml
+mandatory_targets: clean apigear avro binary csv datatypes ddsidl franca go id json json-noexpand jsonschema overlays plantuml samm s2dm yaml
 
 # Additional targets that shall be built by travis, but where it is not mandatory
 # that the builds shall pass.
@@ -22,13 +22,20 @@ TOOLSDIR?=./vss-tools
 VSS_VERSION ?= 0.0
 COMMON_ARGS=-u ./spec/units.yaml --strict
 COMMON_VSPEC_ARG=-s ./spec/VehicleSignalSpecification.vspec
+COMMON_DATATYPES_ARG=-t ./spec/VehicleDataTypes.vspec
 
 
 # Exporters
 
+datatypes:
+	vspec export json ${COMMON_ARGS} ${COMMON_VSPEC_ARG} ${COMMON_DATATYPES_ARG} -o vss_with_datatypes.json
+
 apigear:
 	vspec export apigear ${COMMON_ARGS} ${COMMON_VSPEC_ARG} --output-dir apigear
 	cd apigear && tar -czvf ../vss_apigear.tar.gz * && cd ..
+
+avro:
+	vspec export avro ${COMMON_ARGS} ${COMMON_VSPEC_ARG} ${COMMON_DATATYPES_ARG} -o avro --namespace xxx
 
 binary:
 	vspec export binary ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss.binary
@@ -82,5 +89,6 @@ overlays:
 
 clean:
 	rm -f vss.*
+	rm -f vss_with_datatypes.json
 	rm -rf apigear
 	rm -rf samm
