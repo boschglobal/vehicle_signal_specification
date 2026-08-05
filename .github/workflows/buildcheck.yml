@@ -16,7 +16,9 @@ on:
 
 
 env:
-  PYTHON_VERSION: "3.11.5" # keep in sync with vss-tools
+  # Version shall generally correspond to latest released version
+  # Must be equal or higher than lowest version supported by vss-tools
+  PYTHON_VERSION: "3.14"
 
 jobs:
   buildtest:
