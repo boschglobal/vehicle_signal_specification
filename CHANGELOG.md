@@ -32,6 +32,13 @@ Dogbreed:
   default: 0
 ```
 
+
+### GraphQL format change
+
+Output format/structure has changed.
+Although strictly speaking a possibly backward incompatible change for downstream users,
+considered acceptable to be included in minor release as no known users that rely on old output structure.
+
 ### Signal Updates
 
 Among others the following areas have been addressed:
