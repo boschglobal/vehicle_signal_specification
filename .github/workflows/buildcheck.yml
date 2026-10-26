@@ -4,16 +4,7 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-    inputs:
-      vss-version:
-        required: false
-        type: string
   workflow_call:
-    inputs:
-      vss-version:
-        required: false
-        type: string
-
 
 env:
   # Version shall generally correspond to latest released version
@@ -41,9 +32,6 @@ jobs:
 
       - name: Test mandatory targets
         run: |
-          if [ "${{ inputs.vss-version }}" != "" ]; then
-            export VSS_VERSION="${{ inputs.vss-version }}"
-          fi
           make mandatory_targets
 
       - name: "Uploading  artifacts"
@@ -53,8 +41,6 @@ jobs:
           # Listing all artifacts that shall be managed as release artifacts
           path: |
             vss.csv
-            vss.fidl
-            vss.graphql
             vss.idl
             vss.json
             vss.jsonschema
@@ -63,6 +49,7 @@ jobs:
             vss_compose.tar.gz
             vss_samm.tar.gz
             vss_apigear.tar.gz
+            vss_graphql.tar.gz
           if-no-files-found: error
 
       - name: Prepare for CSV check

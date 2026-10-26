@@ -13,7 +13,8 @@
 BodyType:
   datatype: string
   type: attribute
-  description: Body type code as defined by ISO 3779.
+  description: Body type code of the vehicle, from the type-approval or registration scheme it is subject to.
+  comment: ISO 3779 defines the VIN and no body type codes. VehicleIdentification.BodyType is the descriptive form.
 
 #
 # Hood description
@@ -250,3 +251,9 @@ RearMainSpoilerPosition:
   description: Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.
 
 #include include/PowerOptimize.vspec
+
+#Variant for buses only
+#include BusDoors.vspec
+
+#Accessibility variant
+#include Accessibility.vspec
